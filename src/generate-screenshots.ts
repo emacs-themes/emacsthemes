@@ -1,6 +1,6 @@
 import { mkdir } from "node:fs/promises";
 import { join, basename, resolve } from "node:path";
-import { ThemeSchema, type Theme } from "./schema-checker";
+import { ThemeSchema } from "./schema-checker";
 
 const RECIPES_DIR = "recipies";
 const IMAGES_DIR = "static/imgs";
