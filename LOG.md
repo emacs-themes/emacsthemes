@@ -12,3 +12,4 @@
 - [ai] Enhanced `src/validate-pr.ts` to log a summary of all invalid file names when validation fails.
 - [ai] Added a detailed "Principal Engineer" context prompt to `GEMINI.md` to guide future AI interactions towards security, simplicity, and best practices.
 - [ai] Created `.gitignore` to exclude node_modules, build artifacts, environment files, and OS-specific files.
+- [ai] Committed project setup, including schema validation, linting, CI configuration, and documentation.
