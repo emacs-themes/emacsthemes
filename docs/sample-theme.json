@@ -1,0 +1,18 @@
+{
+  "name": "Solarized Dark",
+  "description": "A precision colorscheme for machines and people",
+  "repoUrl": "https://github.com/sellout/emacs-color-theme-solarized",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/sellout/emacs-color-theme-solarized/master/solarized-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ethan Schoonover"
+  ],
+  "tags": [
+    "solarized",
+    "dark",
+    "low-contrast"
+  ],
+  "elisp": "(load-theme 'solarized-dark t)"
+}

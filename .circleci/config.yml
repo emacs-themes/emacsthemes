@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  validate-recipes:
+    docker:
+      - image: oven/bun:1
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: bun install
+      - run:
+          name: Fetch Main Branch
+          command: git fetch origin main || true
+      - run:
+          name: Validate Changed Recipes
+          command: bun src/validate-pr.ts
+
+workflows:
+  version: 2
+  validate-pr:
+    jobs:
+      - validate-recipes
