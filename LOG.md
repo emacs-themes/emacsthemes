@@ -32,3 +32,4 @@
 - [ai] Added `docker:local` script to `package.json` to build and run the local screenshot generation container.
 - [ai] Fixed `docker:local` script compatibility with Apple Silicon by enforcing `linux/amd64` platform.
 - [ai] Refactored Docker setup: moved `src/local/` to `docker/`, created `docker/run.sh` (persisting containers), and updated `package.json`.
+- [ai] Added a linting step to the `validate-recipes` job in `.circleci/config.yml`.

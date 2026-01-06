@@ -13,6 +13,9 @@ jobs:
           name: Install Dependencies
           command: bun install
       - run:
+          name: Run Linting
+          command: bun run lint
+      - run:
           name: Fetch Main Branch
           command: git fetch --depth=1 origin main || true
       - run:
