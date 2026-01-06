@@ -16,6 +16,8 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 ## Git Conventions
 
 *   **AI Commits:** Any git commit performed by an AI agent must be prefixed with `[ai]` (e.g., `[ai] add schema validation`).
+*   **No Automatic Commits:** STICK TO THIS RULE: NEVER commit changes to the git repository unless the user EXPLICITLY instructs you to do so in the prompt. Only when a plan implies it, do it but prompt the user for request.
+*   **No Automatic Push:** Never push changes to a remote repository unless explicitly requested by the user in the prompt.
 
 ## Logging
 

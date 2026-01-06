@@ -1,18 +1,18 @@
 {
-  "name": "Solarized Dark",
-  "description": "A precision colorscheme for machines and people",
-  "repoUrl": "https://github.com/sellout/emacs-color-theme-solarized",
+  "name": "Zenburn",
+  "description": "A low-contrast color theme for Emacs.",
+  "repoUrl": "https://github.com/bbatsov/zenburn-emacs",
   "rawUrls": [
-    "https://raw.githubusercontent.com/sellout/emacs-color-theme-solarized/master/solarized-dark-theme.el"
+    "https://raw.githubusercontent.com/bbatsov/zenburn-emacs/master/zenburn-theme.el"
   ],
   "type": "dark",
   "authors": [
-    "Ethan Schoonover"
+    "Bozhidar Batsov"
   ],
   "tags": [
-    "solarized",
+    "zenburn",
     "dark",
     "low-contrast"
   ],
-  "elisp": "(load-theme 'solarized-dark t)"
+  "elisp": "(load-theme 'zenburn t)"
 }

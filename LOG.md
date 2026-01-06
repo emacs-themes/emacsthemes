@@ -15,3 +15,20 @@
 - [ai] Committed project setup, including schema validation, linting, CI configuration, and documentation.
 - [ai] Updated `.circleci/config.yml` to install `git` before checkout, fixing `ENOENT` error in the `oven/bun` image.
 - [ai] Pushed all committed setup and fixes to the remote repository `origin/main`.
+- [ai] Optimized CircleCI configuration to use shallow fetch (`--depth=1`) for faster execution.
+- [ai] Added "No Automatic Commits" convention to `GEMINI.md`.
+- [ai] Implemented Automated Screenshot Pipeline:
+    - Created `src/generate-screenshots.ts` to automate theme screenshots.
+    - Updated `.circleci/config.yml` to include the `generate-screenshots` job.
+    - Updated `docs/sample-theme.json` with a valid repository URL.
+    - Updated `.gitignore` to exclude `.tmp/`.
+- [ai] Updated Screenshot Generation Logic:
+    - Modified `src/generate-screenshots.ts` to detect changed recipes from the last commit (`HEAD`) using `git diff-tree`.
+    - Removed strict `.json` extension check for changed files, relying on directory filtering.
+- [ai] Refactored `src/generate-screenshots.ts` to extract `getChangedFilesFromLastCommit` function.
+- [ai] Refactored `src/generate-screenshots.ts` with testable functions (`downloadThemeFiles`, `generateEmacsConfig`, `captureScreenshot`) and JSDocs.
+- [ai] Enhanced `src/generate-screenshots.ts` summary logging to include exact theme names for each status.
+- [ai] Created `src/local/Dockerfile` to replicate the CI environment for local screenshot generation testing.
+- [ai] Added `docker:local` script to `package.json` to build and run the local screenshot generation container.
+- [ai] Fixed `docker:local` script compatibility with Apple Silicon by enforcing `linux/amd64` platform.
+- [ai] Refactored Docker setup: moved `src/local/` to `docker/`, created `docker/run.sh` (persisting containers), and updated `package.json`.
