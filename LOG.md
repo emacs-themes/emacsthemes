@@ -33,3 +33,5 @@
 - [ai] Fixed `docker:local` script compatibility with Apple Silicon by enforcing `linux/amd64` platform.
 - [ai] Refactored Docker setup: moved `src/local/` to `docker/`, created `docker/run.sh` (persisting containers), and updated `package.json`.
 - [ai] Added a linting step to the `validate-recipes` job in `.circleci/config.yml`.
+- [ai] Separated linting into a dedicated `lint` job in `.circleci/config.yml` and updated workflow dependencies.
+- [ai] Refactored `.circleci/config.yml` to use a shared `bun-executor` and implemented dependency caching for faster builds.

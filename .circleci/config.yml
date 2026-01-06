@@ -1,20 +1,48 @@
 version: 2.1
 
-jobs:
-  validate-recipes:
+executors:
+  bun-executor:
     docker:
       - image: oven/bun:1
+
+jobs:
+  lint:
+    executor: bun-executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - bun-deps-{{ checksum "bun.lock" }}
+      - run:
+          name: Install Dependencies
+          command: bun install
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.bun
+          key: bun-deps-{{ checksum "bun.lock" }}
+      - run:
+          name: Run Linting
+          command: bun run lint
+
+  validate-recipes:
+    executor: bun-executor
     steps:
       - run:
           name: Install Git
           command: apt-get update && apt-get install -y git
       - checkout
+      - restore_cache:
+          keys:
+            - bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Install Dependencies
           command: bun install
-      - run:
-          name: Run Linting
-          command: bun run lint
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.bun
+          key: bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Fetch Main Branch
           command: git fetch --depth=1 origin main || true
@@ -60,7 +88,10 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - validate-recipes
+      - lint
+      - validate-recipes:
+          requires:
+            - lint
       - generate-screenshots:
           requires:
             - validate-recipes
