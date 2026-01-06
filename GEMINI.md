@@ -20,3 +20,4 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 ## Logging
 
 *   **Action Logs:** Every successful AI action that is the final result of a prompt must be appended to the `LOG.md` file.
+    *   **Exception:** Do not log standard git commit or push operations.
