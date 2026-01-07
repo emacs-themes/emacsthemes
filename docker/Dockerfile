@@ -1,8 +1,9 @@
-FROM silex/emacs:master-ci
+FROM debian:bookworm-slim
 
-# Install System Dependencies
+# Install System Dependencies & Emacs
+# We install 'emacs' which pulls in the GUI version (emacs-gtk or similar) on Debian.
 RUN apt-get update && \
-    apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git libgtk-3-0 libxpm-dev && \
+    apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git emacs && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Bun

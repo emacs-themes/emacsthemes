@@ -1,5 +1,5 @@
-import { mkdir, unlink } from "node:fs/promises";
-import { join, basename, resolve } from "node:path";
+import { mkdir, unlink, readdir } from "node:fs/promises";
+import { join, basename, resolve, dirname } from "node:path";
 import { ThemeSchema } from "./schema-checker";
 
 const RECIPES_DIR = "recipies";
@@ -73,17 +73,62 @@ export async function downloadThemeFiles(rawUrls: string[], themeDir: string): P
 }
 
 /**
+ * Scans the directory for .el files and extracts the theme name from (deftheme ...).
+ * 
+ * @param {string} dir - The directory to scan.
+ * @returns {Promise<string | null>} The extracted theme name or null if not found.
+ */
+async function findThemeNameInDir(dir: string): Promise<string | null> {
+  try {
+    const files = await readdir(dir);
+    for (const file of files) {
+      if (!file.endsWith(".el")) continue;
+      
+      const content = await Bun.file(join(dir, file)).text();
+      // Match (deftheme <symbol>
+      // Regex explanation:
+      // \(deftheme\s+   : Matches literal "(deftheme " followed by whitespace
+      // '?              : Optional quote
+      // ([^)\s]+)       : Capturing group for the symbol (anything not ) or whitespace)
+      const match = content.match(/\(deftheme\s+'?([^)\s]+)/);
+      if (match) {
+        return match[1];
+      }
+      
+      // Fallback for (provide-theme 'name) which some themes might use
+      const matchProvide = content.match(/\(provide-theme\s+'?([^)\s]+)\)/);
+      if (matchProvide) {
+        return matchProvide[1];
+      }
+    }
+  } catch (e) {
+    console.error(`Error scanning for theme name in ${dir}:`, e);
+  }
+  return null;
+}
+
+/**
  * Generates the Emacs configuration (init.el) content for loading the theme.
  *
  * @param {string} elisp - The specific Elisp code to load the theme.
  * @param {string} themeDir - The directory containing the theme files.
+ * @param {string} themeName - The exact theme name/symbol to load.
  * @returns {string} The complete content for the init.el file.
  */
-export function generateEmacsConfig(elisp: string, themeDir: string): string {
+export function generateEmacsConfig(elisp: string, themeDir: string, themeName: string): string {
   return `
-    (message "DEBUG: Starting Emacs init...")
+    (defun log-debug (fmt &rest args)
+      (let ((msg (apply #'format fmt args)))
+        (message "%s" msg)
+        (princ (concat msg "\\n") #'external-debugging-output)))
+
+    (log-debug "DEBUG EMACS: Starting Emacs init...")
     (add-to-list 'load-path "${resolve(themeDir)}")
-    (message "DEBUG: Added ${resolve(themeDir)} to load-path")
+    (log-debug "DEBUG EMACS: Added ${resolve(themeDir)} to load-path")
+    
+    ;; Make emacs full window
+    (set-frame-parameter nil 'fullscreen 'fullboth)
+    
     (setq inhibit-splash-screen t)
     (setq initial-scratch-message nil)
     (menu-bar-mode -1)
@@ -93,19 +138,32 @@ export function generateEmacsConfig(elisp: string, themeDir: string): string {
 
     ;; Some themes require 'cl or 'cl-lib, ensure they are loaded if needed, though usually automatic.
 
-    (condition-case err
-        (progn
-          (message "DEBUG: Attempting to load theme...")
-          ${elisp}
-          (message "DEBUG: Theme loaded successfully")
-          (dired "${resolve(themeDir)}")
-          (message "DEBUG: Dired buffer opened"))
-      (error (message "ERROR: Error loading theme: %s" err)))
+    (log-debug "DEBUG EMACS: Attempting to load theme...")
+    
+    ;; Add current dir to theme load path
+    (add-to-list 'custom-theme-load-path "${resolve(themeDir)}")
+
+    ;; Try to load and enable theme based on name
+    (let ((name-symbol (intern "${themeName}")))
+       (condition-case err
+           (load-theme name-symbol t)
+         (error (log-debug "Auto-loading theme %s failed: %s" name-symbol err))))
+
+    ${elisp}
+
+    (if custom-enabled-themes
+      (log-debug "DEBUG EMACS: Theme loaded successfully")
+      (log-debug "DEBUG EMACS: Error: No theme loaded"))
+
+    ;; Visit the root folder in dired
+    (dired "/")
+    (delete-other-windows)
+    (log-debug "DEBUG EMACS: Dired buffer opened at / and maximized")
 
     (setq default-directory "${resolve(themeDir)}")
-    (message "DEBUG: default-directory set to %s" default-directory)
+    (log-debug "DEBUG EMACS: default-directory set to %s" default-directory)
     (redisplay t)
-    (message "DEBUG: Emacs init completed.")
+    (log-debug "DEBUG EMACS: Emacs init completed.")
   `;
 }
 
@@ -118,6 +176,7 @@ export function generateEmacsConfig(elisp: string, themeDir: string): string {
  * @returns {Promise<boolean>} True if the screenshot was successfully generated, false otherwise.
  */
 export async function captureScreenshot(initElPath: string, imagePath: string): Promise<boolean> {
+  const themeDir = dirname(initElPath);
   // Check for xvfb-run
   const hasXvfb = (await Bun.spawn(["which", "xvfb-run"]).exited) === 0;
 
@@ -130,17 +189,42 @@ export async function captureScreenshot(initElPath: string, imagePath: string): 
 
   // Wrapper script to orchestrate Emacs and Import
   const wrapperCmd = `
+    set -x
+    echo "DEBUG: Checking environment..."
+    echo "DEBUG: DISPLAY=$DISPLAY"
+    ls -l /tmp/.X11-unix || echo "No X11 socket found"
+    
+    echo "DEBUG: Checking emacs capabilities..."
+    emacs --version
+    ldd $(which emacs) | grep -iE "gtk|xcb|x11" || echo "WARNING: Emacs might not be linked against X11 libs"
+
     echo "DEBUG: Starting Emacs..."
-    emacs -Q -l "${initElPath}" &
+    STDOUT_LOG="${resolve(themeDir)}/emacs.stdout.log"
+    STDERR_LOG="${resolve(themeDir)}/emacs.stderr.log"
+    touch "$STDOUT_LOG" "$STDERR_LOG"
+
+    # Tail logs in background to show them in console
+    tail -f "$STDOUT_LOG" "$STDERR_LOG" &
+    TAIL_PID=$!
+
+    emacs -Q -l "${initElPath}" > "$STDOUT_LOG" 2> "$STDERR_LOG" &
     EMACS_PID=$!
     echo "DEBUG: Emacs started with PID $EMACS_PID"
 
     # Wait for emacs window to appear
-    # We simply sleep for now. A better way uses xdotool or xwininfo loop.
     echo "DEBUG: Waiting for Emacs to initialize (5s)..."
     sleep 5
 
-    # Capture the root window (since xvfb-run sets up a dedicated display/server)
+    # Check if Emacs is still alive
+    if ! kill -0 $EMACS_PID 2>/dev/null; then
+      echo "ERROR: Emacs process $EMACS_PID died correctly."
+      cat "$STDOUT_LOG"
+      cat "$STDERR_LOG"
+      kill $TAIL_PID
+      exit 1
+    fi
+
+    # Capture the root window
     echo "DEBUG: Capturing screenshot to ${resolve(imagePath)}..."
     import -window root "${resolve(imagePath)}"
     IMPORT_EXIT=$?
@@ -153,6 +237,9 @@ export async function captureScreenshot(initElPath: string, imagePath: string): 
 
     echo "DEBUG: Killing Emacs PID $EMACS_PID..."
     kill $EMACS_PID
+    
+    # Stop tailing
+    kill $TAIL_PID
   `;
 
   try {
@@ -233,9 +320,20 @@ export async function processRecipe(recipePath: string): Promise<{ status: 'skip
     return { status: 'failed', name: themeName };
   }
 
+  // Attempt to detect the actual theme name from the downloaded files
+  const detectedName = await findThemeNameInDir(themeDir);
+  if (detectedName) {
+    console.log(`  Detected theme name: ${detectedName}`);
+  } else {
+    console.log(`  Could not auto-detect theme name from files. Falling back to sanitized recipe name.`);
+  }
+
+  // Use detected name or fallback to sanitized recipe name (lowercase, spaces to dashes)
+  const finalThemeName = detectedName || themeName.toLowerCase().replace(/\s+/g, '-');
+
   // Create init.el
   const initElPath = join(themeDir, "init.el");
-  const initContent = generateEmacsConfig(theme.elisp, themeDir);
+  const initContent = generateEmacsConfig(theme.elisp, themeDir, finalThemeName);
   await Bun.write(initElPath, initContent);
 
   const success = await captureScreenshot(initElPath, imagePath);
