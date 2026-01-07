@@ -52,14 +52,14 @@ jobs:
 
   generate-screenshots:
     docker:
-      - image: silex/emacs:master-ci
+      - image: debian:bookworm-slim
     steps:
       - checkout
       - run:
           name: Install System Dependencies
           command: |
             apt-get update
-            apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git
+            apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git emacs
       - run:
           name: Install Bun
           command: |
