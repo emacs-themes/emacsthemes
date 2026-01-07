@@ -88,13 +88,17 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - lint
+      - lint:
+          filters:
+            branches:
+              ignore: main
       - validate-recipes:
           requires:
             - lint
+          filters:
+            branches:
+              ignore: main
       - generate-screenshots:
-          requires:
-            - validate-recipes
           filters:
             branches:
               only: main
