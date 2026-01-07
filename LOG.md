@@ -35,3 +35,7 @@
 - [ai] Added a linting step to the `validate-recipes` job in `.circleci/config.yml`.
 - [ai] Separated linting into a dedicated `lint` job in `.circleci/config.yml` and updated workflow dependencies.
 - [ai] Refactored `.circleci/config.yml` to use a shared `bun-executor` and implemented dependency caching for faster builds.
+
+## 2026-01-07
+- [ai] Modified `src/generate-screenshots.ts` to implement stateful change detection using `.last-processed-commit`, processing changes since the last successful run instead of just the latest commit.
+- Modified `src/generate-screenshots.ts` to only update `STATE_FILE` if `successThemes.length > 0`.

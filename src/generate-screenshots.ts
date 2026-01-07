@@ -6,18 +6,52 @@ const RECIPES_DIR = "recipies";
 const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
 
+const STATE_FILE = ".last-processed-commit";
+
 /**
- * Retrieves a list of files changed in the last git commit (HEAD).
- * Uses `git diff-tree` to identify added or modified files.
+ * Retrieves a list of files changed since the last processed commit.
+ * If no state is found, defaults to checking the last commit (HEAD).
  *
- * @returns {Promise<string[]>} A promise that resolves to an array of file paths.
+ * @returns {Promise<{ files: string[], currentHash: string }>} Files and the current commit hash.
  */
-export async function getChangedFilesFromLastCommit(): Promise<string[]> {
-  const proc = Bun.spawn(["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "--diff-filter=AM", "HEAD"], {
-    stdout: "pipe",
-  });
-  const output = await new Response(proc.stdout).text();
-  return output.split("\n").map(f => f.trim()).filter(f => f.length > 0);
+export async function getChangedFiles(): Promise<{ files: string[]; currentHash: string }> {
+  const procHead = Bun.spawn(["git", "rev-parse", "HEAD"], { stdout: "pipe" });
+  const currentHash = (await new Response(procHead.stdout).text()).trim();
+
+  let lastHash = "";
+  const stateFile = Bun.file(STATE_FILE);
+  if (await stateFile.exists()) {
+    const rawHash = (await stateFile.text()).trim();
+    // Validate that the hash exists in the current history
+    const checkProc = Bun.spawn(["git", "cat-file", "-t", rawHash], { stdout: "ignore", stderr: "ignore" });
+    if ((await checkProc.exited) === 0) {
+      lastHash = rawHash;
+    } else {
+      console.warn(`Stored state hash ${rawHash} not found in history. Falling back to default behavior.`);
+    }
+  }
+
+  let files: string[] = [];
+
+  if (lastHash && lastHash !== currentHash) {
+    console.log(`Detecting changes between ${lastHash.substring(0, 7)} and ${currentHash.substring(0, 7)}...`);
+    const procDiff = Bun.spawn(["git", "diff", "--name-only", "--diff-filter=AM", lastHash, currentHash], {
+      stdout: "pipe",
+    });
+    const output = await new Response(procDiff.stdout).text();
+    files = output.split("\n").map((f) => f.trim()).filter((f) => f.length > 0);
+  } else if (!lastHash) {
+    console.log(`No previous state found. Checking last commit...`);
+    const proc = Bun.spawn(["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "--diff-filter=AM", "HEAD"], {
+      stdout: "pipe",
+    });
+    const output = await new Response(proc.stdout).text();
+    files = output.split("\n").map((f) => f.trim()).filter((f) => f.length > 0);
+  } else {
+    console.log("No new commits to process.");
+  }
+
+  return { files, currentHash };
 }
 
 /**
@@ -206,10 +240,13 @@ export async function main() {
   await mkdir(IMAGES_DIR, { recursive: true });
   await mkdir(TEMP_DIR, { recursive: true });
 
-  // Get changed files from the last commit
+  // Get changed files
   let files: string[] = [];
+  let currentHash = "";
   try {
-    files = await getChangedFilesFromLastCommit();
+    const result = await getChangedFiles();
+    files = result.files;
+    currentHash = result.currentHash;
   } catch (e) {
     console.error(`Error getting changed files from git: ${e}`);
     process.exit(1);
@@ -244,8 +281,13 @@ export async function main() {
   console.log(`  Failed  (${failedThemes.length}):  ${failedThemes.join(", ") || "None"}`);
 
   if (failedThemes.length > 0) process.exit(1);
-}
 
+  if (currentHash && successThemes.length > 0) {
+    await Bun.write(STATE_FILE, currentHash);
+    console.log(`Updated state to ${currentHash}`);
+    console.log(`REMINDER: Commit ${STATE_FILE} along with any generated screenshots.`);
+  }
+}
 if (import.meta.main) {
   main().catch(console.error);
 }
