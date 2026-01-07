@@ -1,0 +1,17 @@
+{
+  "name": "Zenburn",
+  "description": "A low-contrast color theme for Emacs.",
+  "repoUrl": "https://github.com/bbatsov/zenburn-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/zenburn-emacs/master/zenburn-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "zenburn",
+    "dark",
+    "low-contrast"
+  ]
+}
