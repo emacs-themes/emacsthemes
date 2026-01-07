@@ -15,6 +15,16 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 
 ---
 
+## CRITICAL GUARDRAIL: NO AUTOMATIC GIT ACTIONS
+
+> **STOP:** Before performing any `git commit` or `git push` operation, you MUST check if the user has explicitly requested this action in the current prompt or approved it as part of a multi-step plan.
+>
+> - **NEVER** assume a commit is desired after a file modification.
+> - **ALWAYS** ask for confirmation before committing unless the user's initial instruction was "implement and commit".
+> - **FALLBACK:** If in doubt, DO NOT commit.
+
+---
+
 ## Git Conventions
 
 *   **AI Commits:** Any git commit performed by an AI agent must be prefixed with `[ai]` (e.g., `[ai] add schema validation`).
