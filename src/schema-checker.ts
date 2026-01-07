@@ -14,7 +14,7 @@ export const ThemeSchema = z.object({
      .nonempty('You must list at least one author'),
   tags: z.array(
     z.string().trim().min(1, 'Authors name cannot be empty')),
-  elisp: z.string(),
+  elisp: z.string().optional().default(''),
 });
 
 export type Theme = z.infer<typeof ThemeSchema>;
