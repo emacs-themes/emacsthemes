@@ -39,3 +39,4 @@
 ## 2026-01-07
 - [ai] Modified `src/generate-screenshots.ts` to implement stateful change detection using `.last-processed-commit`, processing changes since the last successful run instead of just the latest commit.
 - Modified `src/generate-screenshots.ts` to only update `STATE_FILE` if `successThemes.length > 0`.
+- Added logic to delete failed screenshot files in `src/generate-screenshots.ts`.

@@ -1,4 +1,4 @@
-import { mkdir } from "node:fs/promises";
+import { mkdir, unlink } from "node:fs/promises";
 import { join, basename, resolve } from "node:path";
 import { ThemeSchema } from "./schema-checker";
 
@@ -81,7 +81,9 @@ export async function downloadThemeFiles(rawUrls: string[], themeDir: string): P
  */
 export function generateEmacsConfig(elisp: string, themeDir: string): string {
   return `
+    (message "DEBUG: Starting Emacs init...")
     (add-to-list 'load-path "${resolve(themeDir)}")
+    (message "DEBUG: Added ${resolve(themeDir)} to load-path")
     (setq inhibit-splash-screen t)
     (setq initial-scratch-message nil)
     (menu-bar-mode -1)
@@ -93,12 +95,17 @@ export function generateEmacsConfig(elisp: string, themeDir: string): string {
 
     (condition-case err
         (progn
+          (message "DEBUG: Attempting to load theme...")
           ${elisp}
-          (dired "${resolve(themeDir)}"))
-      (error (message "Error loading theme: %s" err)))
+          (message "DEBUG: Theme loaded successfully")
+          (dired "${resolve(themeDir)}")
+          (message "DEBUG: Dired buffer opened"))
+      (error (message "ERROR: Error loading theme: %s" err)))
 
     (setq default-directory "${resolve(themeDir)}")
+    (message "DEBUG: default-directory set to %s" default-directory)
     (redisplay t)
+    (message "DEBUG: Emacs init completed.")
   `;
 }
 
@@ -123,16 +130,28 @@ export async function captureScreenshot(initElPath: string, imagePath: string): 
 
   // Wrapper script to orchestrate Emacs and Import
   const wrapperCmd = `
+    echo "DEBUG: Starting Emacs..."
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
+    echo "DEBUG: Emacs started with PID $EMACS_PID"
 
     # Wait for emacs window to appear
     # We simply sleep for now. A better way uses xdotool or xwininfo loop.
+    echo "DEBUG: Waiting for Emacs to initialize (5s)..."
     sleep 5
 
     # Capture the root window (since xvfb-run sets up a dedicated display/server)
+    echo "DEBUG: Capturing screenshot to ${resolve(imagePath)}..."
     import -window root "${resolve(imagePath)}"
+    IMPORT_EXIT=$?
 
+    if [ $IMPORT_EXIT -eq 0 ]; then
+      echo "DEBUG: Screenshot captured successfully."
+    else
+      echo "ERROR: 'import' command failed with exit code $IMPORT_EXIT"
+    fi
+
+    echo "DEBUG: Killing Emacs PID $EMACS_PID..."
     kill $EMACS_PID
   `;
 
@@ -225,6 +244,10 @@ export async function processRecipe(recipePath: string): Promise<{ status: 'skip
     return { status: 'success', name: themeName };
   } else {
     console.error(`  ❌ Failed to generate image for ${themeName}`);
+    if (await Bun.file(imagePath).exists()) {
+      console.log(`  Cleaning up failed image file: ${imagePath}`);
+      await unlink(imagePath);
+    }
     return { status: 'failed', name: themeName };
   }
 }

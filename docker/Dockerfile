@@ -2,7 +2,7 @@ FROM silex/emacs:master-ci
 
 # Install System Dependencies
 RUN apt-get update && \
-    apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git && \
+    apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git libgtk-3-0 libxpm-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Bun
