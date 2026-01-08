@@ -18,7 +18,7 @@ WORKDIR /app
 COPY package.json bun.lock ./
 
 # Install Project Deps
-RUN bun install
+RUN bun ci
 
 # Copy project files
 COPY . .

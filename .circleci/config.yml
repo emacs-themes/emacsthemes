@@ -15,7 +15,7 @@ jobs:
             - bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Install Dependencies
-          command: bun install
+          command: bun ci
       - save_cache:
           paths:
             - node_modules
