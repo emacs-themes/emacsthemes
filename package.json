@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
-    "docker:local": "sh docker/run.sh"
+    "docker:local": "sh src/docker/run.sh"
   },
   "repository": {
     "type": "git",

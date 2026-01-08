@@ -48,7 +48,7 @@ jobs:
           command: git fetch --depth=1 origin main || true
       - run:
           name: Validate Changed Recipes
-          command: bun src/validate-pr.ts
+          command: bun src/core/validate-pr.ts
 
   generate-screenshots:
     docker:
@@ -70,7 +70,7 @@ jobs:
           command: bun install
       - run:
           name: Generate Screenshots
-          command: bun src/generate-screenshots.ts
+          command: bun src/core/generate-screenshots.ts
       - run:
           name: Commit and Push
           command: |

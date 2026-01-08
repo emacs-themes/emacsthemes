@@ -14,11 +14,14 @@ RUN curl -fsSL https://bun.sh/install | bash
 # Set working directory
 WORKDIR /app
 
-# Copy project files
-COPY . .
+# Copy dependency definitions
+COPY package.json bun.lock ./
 
 # Install Project Deps
 RUN bun install
 
+# Copy project files
+COPY . .
+
 # Set entrypoint to run the screenshot generation script
-ENTRYPOINT ["bun", "src/generate-screenshots.ts"]
+ENTRYPOINT ["bun", "src/core/generate-screenshots.ts"]

@@ -59,7 +59,7 @@ if (import.meta.main) {
 
   if (!targetFile) {
     console.error('Please provide a file path to validate.');
-    console.error('Usage: bun src/schema-checker.ts <path-to-json-file>');
+    console.error('Usage: bun src/core/schema-checker.ts <path-to-json-file>');
     process.exit(1);
   }
 
