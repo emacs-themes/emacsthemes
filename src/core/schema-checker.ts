@@ -4,16 +4,17 @@ import { resolve } from 'path';
 export const ThemeSchema = z.object({
   name: z.string().min(1, 'Theme name is required'),
   description: z.string().min(1, 'Description is required'),
-  repoUrl: z.string().min(1, 'Repository url is required'),
+  repoUrl: z.string().min(1, 'Main repository url is required'),
   rawUrls: z.array(
     z.string().trim().min(1, 'Actual theme url cannot be empty'))
-     .nonempty('You must list at least one author'),
+     .nonempty('You must list at least one raw theme url'),
   type: z.enum(['light', 'dark']),
   authors: z.array(
     z.string().trim().min(1, 'Authors name cannot be empty'))
      .nonempty('You must list at least one author'),
   tags: z.array(
-    z.string().trim().min(1, 'Authors name cannot be empty')),
+    z.string().trim().min(1, 'Tags cannot be empty'))
+    .nonempty('You must list at least one tag'),
   elisp: z.string().optional().default(''),
 });
 
