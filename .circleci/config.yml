@@ -50,40 +50,6 @@ jobs:
           name: Validate Changed Recipes
           command: bun src/core/validate-pr.ts
 
-  generate-screenshots:
-    docker:
-      - image: debian:bookworm-slim
-    steps:
-      - checkout
-      - run:
-          name: Install System Dependencies
-          command: |
-            apt-get update
-            apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git emacs
-      - run:
-          name: Install Bun
-          command: |
-            curl -fsSL https://bun.sh/install | bash
-            echo 'export PATH="$HOME/.bun/bin:$PATH"' >> $BASH_ENV
-      - run:
-          name: Install Project Deps
-          command: bun install
-      - run:
-          name: Generate Screenshots
-          command: bun src/core/generate-screenshots.ts
-      - run:
-          name: Commit and Push
-          command: |
-            if [ -n "$(git status --porcelain static/imgs/)" ]; then
-              git config user.email "ci-bot@emacsthemes.com"
-              git config user.name "CI Bot"
-              git add static/imgs/
-              git commit -m "[ci] auto-generate screenshots [skip ci]"
-              git push origin main
-            else
-              echo "No changes to commit."
-            fi
-
 workflows:
   version: 2
   validate-and-generate:
@@ -98,7 +64,3 @@ workflows:
           filters:
             branches:
               ignore: main
-      - generate-screenshots:
-          filters:
-            branches:
-              only: main
