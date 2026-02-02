@@ -13,6 +13,5 @@
     "zenburn",
     "dark",
     "low-contrast"
-  ],
-  "elisp": "(load-theme 'zenburn t)"
+  ]
 }
