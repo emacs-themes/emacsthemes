@@ -28,9 +28,6 @@ jobs:
   validate-recipes:
     executor: bun-executor
     steps:
-      - run:
-          name: Install Git
-          command: apt-get update && apt-get install -y git
       - checkout
       - restore_cache:
           keys:
@@ -44,11 +41,8 @@ jobs:
             - ~/.bun
           key: bun-deps-{{ checksum "bun.lock" }}
       - run:
-          name: Fetch Main Branch
-          command: git fetch --depth=1 origin main || true
-      - run:
-          name: Validate Changed Recipes
-          command: bun src/core/validate-pr.ts
+          name: Validate Recipes
+          command: bun run validate:pr
 
 workflows:
   version: 2

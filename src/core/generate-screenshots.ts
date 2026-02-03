@@ -1,8 +1,8 @@
 import { mkdir, unlink, readdir } from "node:fs/promises";
 import { join, basename, resolve, dirname } from "node:path";
 import { ThemeSchema } from "./schema-checker";
+import { RECIPES_DIR } from "./constants";
 
-const RECIPES_DIR = "recipies";
 const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
 

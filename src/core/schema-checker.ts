@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 export const ThemeSchema = z.object({
   name: z.string().min(1, 'Theme name is required'),
+  id: z.string().min(1, 'ID (url) is required'),
   description: z.string().min(1, 'Description is required'),
   repoUrl: z.string().min(1, 'Main repository url is required'),
   rawUrls: z.array(

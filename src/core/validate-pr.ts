@@ -1,74 +1,86 @@
 import { validateSchema } from './schema-checker.js';
-import { spawn } from 'child_process';
+import { readdir, readFile } from 'fs/promises';
+import { join } from 'path';
+import { RECIPES_DIR } from './constants.js';
 
-async function getChangedRecipeFiles(baseBranch: string = 'origin/main'): Promise<string[]> {
-  return new Promise((resolve, reject) => {
-    // Diff against the base branch to find changed files
-    // --name-only: show only filenames
-    // --diff-filter=ACM: Added, Copied, Modified (exclude Deleted)
-    const git = spawn('git', ['diff', '--name-only', '--diff-filter=ACM', baseBranch, 'HEAD']);
+async function getRecipeFiles(dir: string): Promise<string[]> {
+  const files = await readdir(dir);
+  return files.filter(file => file.endsWith('.json'));
+}
 
-    let output = '';
-    let error = '';
+async function getRecipeId(filePath: string): Promise<string | null> {
+  try {
+    const content = await readFile(filePath, 'utf-8');
+    const data = JSON.parse(content);
+    return data.id || null;
+  } catch (err) {
+    console.error(`❌ Failed to read or parse ${filePath}:`, err);
+    return null;
+  }
+}
 
-    git.stdout.on('data', (data) => {
-      output += data.toString();
-    });
+function checkDuplicateIds(idMap: Map<string, string[]>): boolean {
+  let hasDuplicates = false;
 
-    git.stderr.on('data', (data) => {
-      error += data.toString();
-    });
-
-    git.on('close', (code) => {
-      if (code !== 0) {
-        // Fallback: If origin/main doesn't exist (e.g., shallow clone or new repo),
-        // validation might fail. We should ideally log this but for now reject.
-        reject(new Error(`Git exited with code ${code}: ${error}`));
-        return;
-      }
-
-      const files = output.split('\n')
-        .map(s => s.trim())
-        .filter(file => file.startsWith('recipies/') && file.endsWith('.json') && file !== '');
-
-      resolve(files);
-    });
-  });
+  for (const [id, files] of idMap.entries()) {
+    if (files.length > 1) {
+      console.error(`❌ Duplicate ID "${id}" found in multiple files: ${files.join(', ')}`);
+      hasDuplicates = true;
+    }
+  }
+  return hasDuplicates;
 }
 
 async function main() {
   try {
-    // In CI, we assume 'origin/main' is the target.
-    // You might want to make this dynamic based on env vars like CIRCLE_BRANCH
-    const changedFiles = await getChangedRecipeFiles();
+    const recipeFiles = await getRecipeFiles(RECIPES_DIR);
 
-    if (changedFiles.length === 0) {
-      console.log('No modified recipe files found compared to main.');
+    if (recipeFiles.length === 0) {
+      console.log(`No recipe files found in "${RECIPES_DIR}" directory.`);
       process.exit(0);
     }
 
-    console.log(`Found ${changedFiles.length} changed recipe file(s) to validate:`);
-    changedFiles.forEach(f => console.log(` - ${f}`));
+    console.log(`Found ${recipeFiles.length} recipe file(s) to validate.`);
 
-    const invalidFiles: string[] = [];
-    for (const file of changedFiles) {
-      const isValid = await validateSchema(file);
+    const idMap = new Map<string, string[]>();
+    let hasErrors = false;
+
+    for (const file of recipeFiles) {
+      const filePath = join(RECIPES_DIR, file);
+      const isValid = await validateSchema(filePath);
+
       if (!isValid) {
-        invalidFiles.push(file);
+        hasErrors = true;
+        continue;
       }
+
+      const id = await getRecipeId(filePath);
+      if (!id) {
+        console.error(`❌ Recipe in ${file} is missing an "id" field.`);
+        hasErrors = true;
+        continue;
+      }
+
+      if (!idMap.has(id)) {
+        idMap.set(id, []);
+      }
+      idMap.get(id)!.push(file);
     }
 
-    if (invalidFiles.length > 0) {
-      console.error('\n❌ Validation failed for the following recipes:');
-      invalidFiles.forEach(f => console.error(` - ${f}`));
+    if (checkDuplicateIds(idMap)) {
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      console.error('\n❌ Validation failed.');
       process.exit(1);
     } else {
-      console.log('\n✅ All changed recipes are valid.');
+      console.log('\n✅ All recipes validated successfully and IDs are unique.');
       process.exit(0);
     }
 
   } catch (error) {
-    console.error('An unexpected error occurred:', error);
+    console.error('An unexpected error occurred during validation:', error);
     process.exit(1);
   }
 }
