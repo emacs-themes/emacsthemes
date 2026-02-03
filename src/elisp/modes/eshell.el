@@ -1,0 +1,5 @@
+(eshell t)
+(eshell-insert-command "ls -la")
+(sleep-for 2)
+(delete-other-windows)
+(log-debug "DEBUG EMACS: Eshell opened and 'ls -la' executed")

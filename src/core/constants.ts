@@ -1,14 +1,21 @@
 export const RECIPES_DIR = 'recipies';
 
-export const MODE_SAMPLES: Record<string, string> = {
-  'javascript-mode': 'sample.js',
-  'python-mode': 'sample.py',
-  'c++-mode': 'sample.cpp',
-  'sql-mode': 'sample.sql',
-  'org-mode': 'sample.org',
-  'markdown-mode': 'sample.md',
-  'css-mode': 'sample.css',
-  'html-mode': 'sample.html',
-  'sh-mode': 'sample.sh',
-  'dired': '',
+export interface ModeConfig {
+  file: string;
+  isInstructionFile?: boolean;
+}
+
+export const MODE_SAMPLES: Record<string, ModeConfig> = {
+  'javascript-mode': { file: 'sample.js' },
+  'python-mode': { file: 'sample.py' },
+  'c++-mode': { file: 'sample.cpp' },
+  'sql-mode': { file: 'sample.sql' },
+  'org-mode': { file: 'sample.org' },
+  'css-mode': { file: 'sample.css' },
+  'html-mode': { file: 'sample.html' },
+  'sh-mode': { file: 'sample.sh' },
+  'emacs-lisp-mode': { file: 'sample.el' },
+  'eshell': { file: 'eshell.el', isInstructionFile: true },
+  'term': { file: 'term.el', isInstructionFile: true },
+  'dired': { file: 'dired.el', isInstructionFile: true },
 };

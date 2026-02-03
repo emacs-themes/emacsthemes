@@ -1,0 +1,5 @@
+(term "/bin/sh")
+(term-send-raw-string "ls -la\n")
+(sleep-for 2)
+(delete-other-windows)
+(log-debug "DEBUG EMACS: Term opened with /bin/sh and 'ls -la' executed")
