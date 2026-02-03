@@ -1,0 +1,38 @@
+#+TITLE: Emacs Themes Project
+#+AUTHOR: Project Maintainers
+#+DATE: [2024-05-22 Wed]
+#+OPTIONS: toc:2
+
+* Project Overview
+This project aims to provide a curated list of *Emacs themes*.
+
+** Key Objectives
+- [X] Define JSON schema for theme recipes
+- [X] Implement validation logic
+- [ ] Automate screenshot generation
+
+** Architecture
+The system consists of several components:
+1. Core validation (TypeScript/Bun)
+2. CI/CD pipeline (CircleCI)
+3. Frontend gallery (Static)
+
+* Code Samples
+#+NAME: validation-logic
+#+BEGIN_SRC typescript
+import { ThemeSchema } from './schema';
+
+export function validate(data: unknown) {
+  return ThemeSchema.safeParse(data);
+}
+#+END_SRC
+
+* Metadata
+- URL: [[https://github.com/caisah/emacsthemes]]
+- License: MIT
+
+| Component | Status | Priority |
+|-----------+--------+----------|
+| Schema    | OK     | High     |
+| Validator | OK     | High     |
+| UI        | TODO   | Medium   |

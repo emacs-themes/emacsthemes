@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #3498db;
+  --bg-color: #ffffff;
+  --text-color: #2c3e50;
+  --spacing-unit: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #ecf0f1;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: calc(var(--spacing-unit) * 2);
+  padding: var(--spacing-unit);
+}
+
+.theme-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.theme-card:hover {
+  transform: translateY(-5px);
+  outline: 2px solid var(--primary-color);
+}
+
+#status-indicator[data-active="true"]::after {
+  content: " ● Active";
+  color: #27ae60;
+  font-weight: bold;
+}
