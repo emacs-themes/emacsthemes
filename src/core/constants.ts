@@ -15,6 +15,7 @@ export const MODE_SAMPLES: Record<string, ModeConfig> = {
   'html-mode': { file: 'sample.html' },
   'sh-mode': { file: 'sample.sh' },
   'emacs-lisp-mode': { file: 'sample.el' },
+  'text-mode': { file: 'sample.txt' },
   'eshell': { file: 'eshell.el', isInstructionFile: true },
   'term': { file: 'term.el', isInstructionFile: true },
   'dired': { file: 'dired.el', isInstructionFile: true },
