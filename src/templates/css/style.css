@@ -44,7 +44,7 @@ header {
 }
 
 .header-container {
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -109,74 +109,20 @@ h1 {
   max-width: 60ch;
 }
 
-/* Grid: 3+ cards per row on desktop */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+/* Common Page Header */
+.detail-header {
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-.card {
-  border: 1px solid var(--muted);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+.detail-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-bottom: 1px solid var(--muted);
-}
-
-.card .content {
-  padding: 0.9rem 0.95rem 1rem 0.95rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  flex-grow: 1;
-}
-
-.card h2 {
-  font-size: 1.05rem;
-  margin: 0;
-  line-height: 1.3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card p {
-  margin: 0;
-  color: #2b2b33;
-  font-size: 0.95rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 3em; /* Fixed height for description area */
-}
-
-.card a {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-}
-
-/* Responsive: 2 columns, then 1 column */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 560px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.detail-header .subhead {
+  margin: 0 auto 1.5rem auto;
+  font-size: 1.25rem;
 }
 
 /* Screen-reader-only helper */
@@ -195,71 +141,39 @@ h1 {
 footer {
   border-top: 1px solid var(--muted);
   padding: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
-footer div {
+.footer-container {
   max-width: 1040px;
   margin: 0 auto;
   font-size: 0.9rem;
   color: #2b2b33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Theme Detail */
-.detail-header {
-  margin-bottom: 3rem;
-  text-align: center;
+.github-link {
+  color: var(--nearblack);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
 }
 
-.detail-header h1 {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
+.github-link:hover {
+  color: var(--purple);
 }
 
-.detail-header .subhead {
-  margin: 0 auto 1.5rem auto;
-  font-size: 1.25rem;
+/* About Page */
+.about-page {
+  max-width: 800px;
+  margin: 2rem auto;
 }
 
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--purple);
-  color: var(--white);
-  border-radius: 8px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.button:hover {
-  filter: brightness(0.9);
-  text-decoration: none;
-}
-
-.screenshot-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.screenshot-item {
-  border: 1px solid var(--muted);
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--white);
-}
-
-.screenshot-item h3 {
-  padding: 0.75rem 1rem;
-  margin: 0;
-  background: #f8f8fa;
-  border-bottom: 1px solid var(--muted);
-  font-size: 1rem;
-}
-
-.screenshot-item img {
-  width: 100%;
-  height: auto;
-  display: block;
+.about-page h3.tip {
+  color: var(--purple);
+  margin-top: 2rem;
+  font-size: 1.5rem;
 }

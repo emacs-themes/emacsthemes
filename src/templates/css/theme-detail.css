@@ -1,0 +1,95 @@
+/* Theme Detail Page Styles */
+
+.theme-type {
+  display: inline-block;
+  background: var(--muted);
+  color: #555;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.detail-header h2 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--purple);
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:hover {
+  filter: brightness(0.9);
+  text-decoration: none;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.screenshot-item {
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.screenshot-item h3 {
+  padding: 0.75rem 1rem;
+  margin: 0;
+  background: #f8f8fa;
+  border-bottom: 1px solid var(--muted);
+  font-size: 1rem;
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.theme-tags {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--muted);
+}
+
+.theme-tags h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-link {
+  background: var(--white);
+  border: 1px solid var(--muted);
+  color: var(--nearblack);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.tag-link:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+  text-decoration: none;
+}
