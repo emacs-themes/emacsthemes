@@ -2,7 +2,7 @@ import { mkdir, readdir, copyFile, rm, stat } from "node:fs/promises";
 import { join } from "node:path";
 
 // Constants
-const RECIPIES_DIR = "recipies";
+const RECIPES_DIR = "recipes";
 const BUILD_DIR = "build";
 const TEMPLATES_DIR = "src/templates";
 const STATIC_DIR = "static";
@@ -37,12 +37,12 @@ interface Theme {
 
 // Data Fetching
 async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
-  const files = await readdir(RECIPIES_DIR);
+  const files = await readdir(RECIPES_DIR);
   const themeFiles = files.filter(f => f.endsWith(".json"));
 
   const themesWithStats = await Promise.all(
     themeFiles.map(async (file) => {
-      const filePath = join(RECIPIES_DIR, file);
+      const filePath = join(RECIPES_DIR, file);
       const stats = await stat(filePath);
       const content = await Bun.file(filePath).json();
       return { ...content, mtime: stats.mtime.getTime() };
@@ -53,10 +53,10 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
 }
 
 async function getAllThemes(): Promise<Theme[]> {
-  const files = await readdir(RECIPIES_DIR);
+  const files = await readdir(RECIPES_DIR);
   return await Promise.all(
     files.filter(f => f.endsWith(".json")).map(async (file) => {
-      return await Bun.file(join(RECIPIES_DIR, file)).json();
+      return await Bun.file(join(RECIPES_DIR, file)).json();
     })
   );
 }

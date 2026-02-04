@@ -15,7 +15,7 @@ jobs:
             - bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Install Dependencies
-          command: bun ci
+          command: bun install
       - save_cache:
           paths:
             - node_modules
@@ -48,13 +48,7 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - lint:
-          filters:
-            branches:
-              ignore: main
+      - lint
       - validate-recipes:
           requires:
             - lint
-          filters:
-            branches:
-              ignore: main

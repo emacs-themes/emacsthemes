@@ -8,7 +8,8 @@
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "validate:pr": "bun src/core/validate-pr.ts",
-    "docker:local": "sh src/docker/run.sh",
+    "generate-screenshots": "bun src/core/generate-screenshots.ts",
+    "generate-screenshots:docker": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts"
   },
   "repository": {
@@ -17,7 +18,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "bugs": {
     "url": "https://github.com/caisah/emacsthemes/issues"

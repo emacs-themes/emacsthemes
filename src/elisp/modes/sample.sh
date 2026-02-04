@@ -2,7 +2,7 @@
 
 # Complex Shell sample for highlighting
 
-RECIPES_DIR="recipies"
+RECIPES_DIR="recipes"
 LOG_FILE="/tmp/theme-validator.log"
 VERBOSE=false
 

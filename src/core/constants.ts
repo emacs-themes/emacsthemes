@@ -1,4 +1,4 @@
-export const RECIPES_DIR = 'recipies';
+export const RECIPES_DIR = 'recipes';
 
 export interface ModeConfig {
   file: string;

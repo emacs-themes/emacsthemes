@@ -82,6 +82,12 @@ header {
   margin: 0;
 }
 
+.title span {
+  background: linear-gradient(to right, var(--purple), var(--orange), var(--green), var(--magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 900px) {
   .title {
     font-size: 3rem;

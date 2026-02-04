@@ -35,7 +35,7 @@ class ThemeProcessor:
             return None
 
 if __name__ == "__main__":
-    processor = ThemeProcessor(recipes_dir="recipies")
+    processor = ThemeProcessor(recipes_dir="recipes")
     recipes = processor.list_recipes()
     print(f"Found {len(recipes)} recipes.")
     
