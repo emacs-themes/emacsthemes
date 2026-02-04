@@ -8,7 +8,8 @@
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "validate:pr": "bun src/core/validate-pr.ts",
-    "docker:local": "sh src/docker/run.sh"
+    "docker:local": "sh src/docker/run.sh",
+    "build": "bun src/templates/build.ts"
   },
   "repository": {
     "type": "git",
