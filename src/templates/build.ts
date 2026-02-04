@@ -1,23 +1,33 @@
 import { mkdir, readdir, copyFile, rm, stat } from "node:fs/promises";
 import { join } from "node:path";
 
+// Constants
 const RECIPIES_DIR = "recipies";
 const BUILD_DIR = "build";
 const TEMPLATES_DIR = "src/templates";
-const STATIC_IMGS_SRC = "static/imgs";
-const STATIC_IMGS_DEST = join(BUILD_DIR, "static/imgs");
-const CSS_SRC = join(TEMPLATES_DIR, "css");
-const CSS_DEST = join(BUILD_DIR, "static/css");
+const STATIC_DIR = "static";
+const CSS_DIR = join(TEMPLATES_DIR, "css");
+
+const PATHS = {
+  indexTemplate: join(TEMPLATES_DIR, "html/index.html"),
+  searchBarTemplate: join(TEMPLATES_DIR, "html/partials/search-bar.html"),
+  themeCardTemplate: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
+  mainCss: "static/css/style.css",
+  searchCss: "static/css/search.css",
+  imagesSrc: join(STATIC_DIR, "imgs"),
+  imagesDest: join(BUILD_DIR, STATIC_DIR, "imgs"),
+  cssDest: join(BUILD_DIR, STATIC_DIR, "css"),
+};
 
 interface Theme {
   name: string;
   id: string;
   description: string;
   repoUrl: string;
-  // Add other fields if needed for the template
 }
 
-async function getSortedThemes(): Promise<Theme[]> {
+// Data Fetching
+async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
   const files = await readdir(RECIPIES_DIR);
   const themeFiles = files.filter(f => f.endsWith(".json"));
 
@@ -26,77 +36,83 @@ async function getSortedThemes(): Promise<Theme[]> {
       const filePath = join(RECIPIES_DIR, file);
       const stats = await stat(filePath);
       const content = await Bun.file(filePath).json();
-      return {
-        ...content,
-        mtime: stats.mtime.getTime()
-      };
+      return { ...content, mtime: stats.mtime.getTime() };
     })
   );
 
-  // Sort by newest (descending mtime) and take top 9
-  return themesWithStats
-    .sort((a, b) => b.mtime - a.mtime)
-    .slice(0, 9);
+  return themesWithStats.sort((a, b) => b.mtime - a.mtime).slice(0, limit);
 }
 
 async function getAllThemes(): Promise<Theme[]> {
   const files = await readdir(RECIPIES_DIR);
-  const themeFiles = files.filter(f => f.endsWith(".json"));
-
   return await Promise.all(
-    themeFiles.map(async (file) => {
-      const filePath = join(RECIPIES_DIR, file);
-      return await Bun.file(filePath).json();
+    files.filter(f => f.endsWith(".json")).map(async (file) => {
+      return await Bun.file(join(RECIPIES_DIR, file)).json();
     })
   );
 }
 
-function generateThemeCard(theme: Theme): string {
-  // Assuming the structure from the original HTML
-  // Image path: static/imgs/<theme-id>/preview.png
-  const imagePath = `static/imgs/${theme.id}/preview.png`;
-
-  return `
-        <article class="card">
-          <a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer">
-            <img src="${imagePath}" alt="Preview of ${theme.name} theme" loading="lazy" />
-          </a>
-          <div class="content">
-            <h2>${theme.name}</h2>
-            <p>${theme.description}</p>
-            <a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" aria-label="View ${theme.name} theme details">View details</a>
-          </div>
-        </article>`;
+// Template Helpers
+function generateThemeCard(theme: Theme, template: string, relativeRoot: string = ""): string {
+  const imagePath = `${relativeRoot}${STATIC_DIR}/imgs/${theme.id}/preview.png`;
+  return template
+    .replace(/{{THEME_NAME}}/g, theme.name)
+    .replace(/{{THEME_ID}}/g, theme.id)
+    .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
+    .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
+    .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
 }
 
-const SEARCH_BAR_HTML = `
-      <form class="searchbar" role="search" aria-label="Search themes">
-        <label for="q">Search</label>
-        <input id="q" name="q" type="search" placeholder="Try: nord, gruvbox, light…" />
-        <button type="submit">Search</button>
-        <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
-      </form>`;
+function getCssPreloadTags(cssPath: string): string {
+  return `
+    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
+}
 
-async function buildAllThemesPage(template: string, year: string, cssPath: string) {
+interface PageData {
+  themesGrid: string;
+  searchBar?: string;
+  mainCssPath: string;
+  extraCssPath?: string;
+}
+
+function applyBaseTemplate(template: string, data: PageData): string {
+  const currentYear = new Date().getFullYear().toString();
+  
+  return template
+    .replace("{{THEMES_GRID}}", data.themesGrid)
+    .replace("{{SEARCH_BAR}}", data.searchBar || "")
+    .replace("{{MAIN_CSS_PRELOAD}}", getCssPreloadTags(data.mainCssPath))
+    .replace("{{EXTRA_CSS_PRELOAD}}", data.extraCssPath ? getCssPreloadTags(data.extraCssPath) : "")
+    .replace("{{YEAR}}", currentYear);
+}
+
+// Page Builders
+async function buildHomepage(template: string, cardTemplate: string) {
+  const themes = await getSortedThemes(9);
+  const themesGrid = themes.map(t => generateThemeCard(t, cardTemplate)).join("\n");
+  
+  const html = applyBaseTemplate(template, {
+    themesGrid,
+    mainCssPath: PATHS.mainCss
+  });
+
+  await Bun.write(join(BUILD_DIR, "index.html"), html);
+  console.log("Generated index.html");
+}
+
+async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
-  const themesGridHtml = allThemes.map(generateThemeCard).join("\n");
-
-  const searchCssPath = "../static/css/search.css";
-  const mainCssPreload = `
-    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
-  const extraCssPreload = `
-    <link rel="preload" href="${searchCssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="${searchCssPath}"></noscript>`;
-
-  const html = template
-    .replace("{{THEMES_GRID}}", themesGridHtml)
-    .replace("{{MAIN_CSS_PRELOAD}}", mainCssPreload)
-    .replace("{{EXTRA_CSS_PRELOAD}}", extraCssPreload)
-    .replace("{{YEAR}}", year)
-    .replace("{{SEARCH_BAR}}", SEARCH_BAR_HTML);
+  const themesGrid = allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n");
+  
+  const html = applyBaseTemplate(template, {
+    themesGrid,
+    searchBar: searchBarHtml,
+    mainCssPath: `../${PATHS.mainCss}`,
+    extraCssPath: `../${PATHS.searchCss}`
+  });
 
   const destDir = join(BUILD_DIR, "themes");
   await mkdir(destDir, { recursive: true });
@@ -104,42 +120,18 @@ async function buildAllThemesPage(template: string, year: string, cssPath: strin
   console.log("Generated themes/index.html");
 }
 
-async function buildHomepage(template: string, year: string, cssPath: string) {
-  const themes = await getSortedThemes();
-  const themesGridHtml = themes.map(generateThemeCard).join("\n");
-  
-  const mainCssPreload = `
-    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
-
-  const html = template
-    .replace("{{THEMES_GRID}}", themesGridHtml)
-    .replace("{{MAIN_CSS_PRELOAD}}", mainCssPreload)
-    .replace("{{EXTRA_CSS_PRELOAD}}", "")
-    .replace("{{YEAR}}", year)
-    .replace("{{SEARCH_BAR}}", "");
-
-  await Bun.write(join(BUILD_DIR, "index.html"), html);
-  console.log("Generated index.html");
-}
-
+// Utility
 async function copyDir(src: string, dest: string) {
   try {
     await mkdir(dest, { recursive: true });
     const entries = await readdir(src, { withFileTypes: true });
-
     for (const entry of entries) {
       const srcPath = join(src, entry.name);
       const destPath = join(dest, entry.name);
-
-      if (entry.isDirectory()) {
-        await copyDir(srcPath, destPath);
-      } else {
-        await copyFile(srcPath, destPath);
-      }
+      if (entry.isDirectory()) await copyDir(srcPath, destPath);
+      else await copyFile(srcPath, destPath);
     }
   } catch (err) {
-    // It's possible the source dir doesn't exist (e.g. no images yet), just warn
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`Warning copying ${src} to ${dest}:`, message);
   }
@@ -148,27 +140,23 @@ async function copyDir(src: string, dest: string) {
 async function build() {
   console.log("Starting build...");
 
-  // 1. Clean and Create Build Dir
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
-  await mkdir(STATIC_IMGS_DEST, { recursive: true });
-  await mkdir(CSS_DEST, { recursive: true });
 
-  // 2. Prepare Shared Data
-  const templatePath = join(TEMPLATES_DIR, "html/index.html");
-  const template = await Bun.file(templatePath).text();
-  const currentYear = new Date().getFullYear().toString();
-  const mainCssPath = "static/css/style.css";
-  const themesCssPath = "../static/css/style.css";
+  const [baseTemplate, cardTemplate, searchBarHtml] = await Promise.all([
+    Bun.file(PATHS.indexTemplate).text(),
+    Bun.file(PATHS.themeCardTemplate).text(),
+    Bun.file(PATHS.searchBarTemplate).text(),
+  ]);
 
-  // 3. Build Pages
-  await buildHomepage(template, currentYear, mainCssPath);
-  await buildAllThemesPage(template, currentYear, themesCssPath);
+  await buildHomepage(baseTemplate, cardTemplate);
+  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
 
-  // 4. Copy Assets
   console.log("Copying assets...");
-  await copyDir(STATIC_IMGS_SRC, STATIC_IMGS_DEST);
-  await copyDir(CSS_SRC, CSS_DEST);
+  await Promise.all([
+    copyDir(PATHS.imagesSrc, PATHS.imagesDest),
+    copyDir(CSS_DIR, PATHS.cssDest)
+  ]);
 
   console.log("Build complete!");
 }
