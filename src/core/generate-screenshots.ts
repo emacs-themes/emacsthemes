@@ -10,7 +10,7 @@ const MODES_SAMPLES_DIR = "src/elisp/modes";
 
 /**
  * Downloads raw theme files from a list of URLs and saves them to a local directory.
- * 
+ *
  * @param {string[]} rawUrls - An array of absolute URLs to the raw theme Elisp files.
  * @param {string} themeDir - The local directory path where files should be saved.
  * @returns {Promise<void>} Resolves when all files are successfully downloaded and written.
@@ -29,7 +29,7 @@ async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<
 /**
  * Searches a directory for Emacs Lisp files and attempts to extract the theme's
  * internal name using common Emacs Lisp patterns like (deftheme ...) or (provide-theme ...).
- * 
+ *
  * @param {string} dir - The directory path to scan for theme files.
  * @returns {Promise<string | null>} The detected theme name symbol as a string, or null if not found.
  */
@@ -55,9 +55,9 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
 /**
  * Constructs the content for an Emacs initialization file (init.el) by merging
  * a base template with theme-specific configurations and mode-specific display logic.
- * 
+ *
  * It supports both standard mode opening (find-file) and specialized instruction files.
- * 
+ *
  * @param {Theme} theme - The validated theme object from the recipe.
  * @param {string} themeDir - Path to the directory containing the theme's Elisp files.
  * @param {string} themeName - The internal Emacs symbol name for the theme.
@@ -98,7 +98,7 @@ async function generateInitEl(
 /**
  * Spawns a headless Emacs instance using Xvfb and captures a screenshot of the
  * rendered window using the 'import' utility from ImageMagick.
- * 
+ *
  * @param {string} initElPath - Path to the init.el file to load into Emacs.
  * @param {string} imagePath - Target path where the generated PNG should be saved.
  * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
@@ -137,6 +137,28 @@ async function captureScreenshot(initElPath: string, imagePath: string): Promise
 
   const file = Bun.file(imagePath);
   return (await file.exists()) && (await file.size) > 0;
+}
+
+/**
+ * Generates a preview image by cropping the top-left corner of the source image.
+ *
+ * @param {string} sourcePath - Path to the source image.
+ * @param {string} destPath - Path to save the preview image.
+ * @returns {Promise<boolean>} True if successful.
+ */
+async function generatePreview(sourcePath: string, destPath: string): Promise<boolean> {
+  try {
+    const proc = Bun.spawn(["convert", sourcePath, "-crop", "320x160+0+0", destPath], {
+      stdout: "ignore",
+      stderr: "ignore"
+    });
+
+    const exitCode = await proc.exited;
+    return exitCode === 0;
+  } catch (e) {
+    console.error(`  Error generating preview for ${sourcePath}:`, e);
+    return false;
+  }
 }
 
 /**
@@ -203,6 +225,17 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
         console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
       } else {
         console.log(`  ✅ Successfully generated screenshot for ${modeName}`);
+
+        if (modeName === 'emacs-lisp-mode') {
+          console.log(`  Generating preview for ${theme.name}...`);
+          const previewPath = join(themeImagesDir, 'preview.png');
+          const previewSuccess = await generatePreview(imagePath, previewPath);
+          if (previewSuccess) {
+            console.log(`  ✅ Successfully generated preview.png`);
+          } else {
+            console.error(`  ❌ Failed to generate preview.png`);
+          }
+        }
       }
     }
 
@@ -222,7 +255,7 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
 
 /**
  * Orchestrates the entire screenshot generation workflow.
- * 
+ *
  * Performs the following actions:
  * 1. Ensures required output and temporary directories exist.
  * 2. Scans the recipes directory for JSON theme definitions.

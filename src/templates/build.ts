@@ -41,8 +41,8 @@ async function getSortedThemes(): Promise<Theme[]> {
 
 function generateThemeCard(theme: Theme): string {
   // Assuming the structure from the original HTML
-  // Image path: static/imgs/<theme-id>/emacs-lisp-mode.png
-  const imagePath = `static/imgs/${theme.id}/emacs-lisp-mode.png`;
+  // Image path: static/imgs/<theme-id>/preview.png
+  const imagePath = `static/imgs/${theme.id}/preview.png`;
 
   return `
         <article class="card">
