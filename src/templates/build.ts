@@ -12,6 +12,7 @@ const PATHS = {
   indexTemplate: join(TEMPLATES_DIR, "html/index.html"),
   searchBarTemplate: join(TEMPLATES_DIR, "html/partials/search-bar.html"),
   themeCardTemplate: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
+  themeDetailContentTemplate: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
   mainCss: "static/css/style.css",
   searchCss: "static/css/search.css",
   imagesSrc: join(STATIC_DIR, "imgs"),
@@ -55,11 +56,13 @@ async function getAllThemes(): Promise<Theme[]> {
 // Template Helpers
 function generateThemeCard(theme: Theme, template: string, relativeRoot: string = ""): string {
   const imagePath = `${relativeRoot}${STATIC_DIR}/imgs/${theme.id}/preview.png`;
+  const localUrl = `${relativeRoot}themes/${theme.id}.html`;
   return template
     .replace(/{{THEME_NAME}}/g, theme.name)
     .replace(/{{THEME_ID}}/g, theme.id)
     .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
     .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
+    .replace(/{{THEME_LOCAL_URL}}/g, localUrl)
     .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
 }
 
@@ -120,6 +123,46 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   console.log("Generated themes/index.html");
 }
 
+async function buildThemeDetailPages(template: string, contentTemplate: string) {
+  const themes = await getAllThemes();
+  const cssPath = `../${PATHS.mainCss}`;
+
+  for (const theme of themes) {
+    const themeImgsDir = join(PATHS.imagesSrc, theme.id);
+    let screenshotsHtml = "";
+
+    try {
+      const files = await readdir(themeImgsDir);
+      const pngs = files.filter(f => f.endsWith(".png") && f !== "preview.png");
+      
+      screenshotsHtml = pngs.map(file => {
+        const modeName = file.replace(".png", "");
+        return `
+      <div class="screenshot-item">
+        <h3>${modeName}</h3>
+        <img src="../static/imgs/${theme.id}/${file}" alt="${theme.name} in ${modeName}" loading="lazy" />
+      </div>`;
+      }).join("\n");
+    } catch (e) {
+      console.warn(`No screenshots found for theme ${theme.id}`);
+    }
+
+    const content = contentTemplate
+      .replace(/{{THEME_NAME}}/g, theme.name)
+      .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
+      .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
+      .replace("{{SCREENSHOTS}}", screenshotsHtml);
+
+    const html = applyBaseTemplate(template, {
+      themesGrid: content,
+      mainCssPath: cssPath
+    });
+
+    await Bun.write(join(BUILD_DIR, `themes/${theme.id}.html`), html);
+    console.log(`Generated themes/${theme.id}.html`);
+  }
+}
+
 // Utility
 async function copyDir(src: string, dest: string) {
   try {
@@ -143,14 +186,16 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml] = await Promise.all([
+  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate] = await Promise.all([
     Bun.file(PATHS.indexTemplate).text(),
     Bun.file(PATHS.themeCardTemplate).text(),
     Bun.file(PATHS.searchBarTemplate).text(),
+    Bun.file(PATHS.themeDetailContentTemplate).text(),
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate);
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
+  await buildThemeDetailPages(baseTemplate, detailContentTemplate);
 
   console.log("Copying assets...");
   await Promise.all([
