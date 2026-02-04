@@ -58,7 +58,9 @@ function generateThemeCard(theme: Theme): string {
 
   return `
         <article class="card">
-          <img src="${imagePath}" alt="Preview of ${theme.name} theme" loading="lazy" />
+          <a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer">
+            <img src="${imagePath}" alt="Preview of ${theme.name} theme" loading="lazy" />
+          </a>
           <div class="content">
             <h2>${theme.name}</h2>
             <p>${theme.description}</p>
@@ -75,18 +77,24 @@ const SEARCH_BAR_HTML = `
         <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
       </form>`;
 
-async function buildAllThemesPage(template: string, year: string, cssLink: string) {
+async function buildAllThemesPage(template: string, year: string, cssPath: string) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
   const themesGridHtml = allThemes.map(generateThemeCard).join("\n");
 
-  const extraCss = `<link rel="stylesheet" href="../static/css/search.css">`;
+  const searchCssPath = "../static/css/search.css";
+  const mainCssPreload = `
+    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
+  const extraCssPreload = `
+    <link rel="preload" href="${searchCssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="${searchCssPath}"></noscript>`;
 
   const html = template
     .replace("{{THEMES_GRID}}", themesGridHtml)
-    .replace("{{MAIN_CSS}}", cssLink)
-    .replace("{{EXTRA_CSS}}", extraCss)
+    .replace("{{MAIN_CSS_PRELOAD}}", mainCssPreload)
+    .replace("{{EXTRA_CSS_PRELOAD}}", extraCssPreload)
     .replace("{{YEAR}}", year)
     .replace("{{SEARCH_BAR}}", SEARCH_BAR_HTML);
 
@@ -96,13 +104,18 @@ async function buildAllThemesPage(template: string, year: string, cssLink: strin
   console.log("Generated themes/index.html");
 }
 
-async function buildHomepage(template: string, year: string, cssLink: string) {
+async function buildHomepage(template: string, year: string, cssPath: string) {
   const themes = await getSortedThemes();
   const themesGridHtml = themes.map(generateThemeCard).join("\n");
+  
+  const mainCssPreload = `
+    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
+
   const html = template
     .replace("{{THEMES_GRID}}", themesGridHtml)
-    .replace("{{MAIN_CSS}}", cssLink)
-    .replace("{{EXTRA_CSS}}", "")
+    .replace("{{MAIN_CSS_PRELOAD}}", mainCssPreload)
+    .replace("{{EXTRA_CSS_PRELOAD}}", "")
     .replace("{{YEAR}}", year)
     .replace("{{SEARCH_BAR}}", "");
 
@@ -145,12 +158,12 @@ async function build() {
   const templatePath = join(TEMPLATES_DIR, "html/index.html");
   const template = await Bun.file(templatePath).text();
   const currentYear = new Date().getFullYear().toString();
-  const cssLink = `<link rel="stylesheet" href="static/css/style.css">`;
-  const themesCssLink = `<link rel="stylesheet" href="../static/css/style.css">`;
+  const mainCssPath = "static/css/style.css";
+  const themesCssPath = "../static/css/style.css";
 
   // 3. Build Pages
-  await buildHomepage(template, currentYear, cssLink);
-  await buildAllThemesPage(template, currentYear, themesCssLink);
+  await buildHomepage(template, currentYear, mainCssPath);
+  await buildAllThemesPage(template, currentYear, themesCssPath);
 
   // 4. Copy Assets
   console.log("Copying assets...");
