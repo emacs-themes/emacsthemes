@@ -1,5 +1,5 @@
-import { mkdir, unlink, readdir, readFile, rm } from "node:fs/promises";
-import { join, basename, resolve, dirname } from "node:path";
+import { mkdir, readdir, readFile, rm } from "node:fs/promises";
+import { join, basename, resolve } from "node:path";
 import { ThemeSchema, Theme } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
 
@@ -72,7 +72,7 @@ async function generateInitEl(
   modeName: string,
   config: ModeConfig
 ): Promise<string> {
-  let template = await readFile(INIT_TEMPLATE_PATH, "utf-8");
+  const template = await readFile(INIT_TEMPLATE_PATH, "utf-8");
   const samplePath = join(MODES_SAMPLES_DIR, config.file);
 
   let modeSpecificLogic = "";
@@ -104,7 +104,6 @@ async function generateInitEl(
  * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
  */
 async function captureScreenshot(initElPath: string, imagePath: string): Promise<boolean> {
-  const themeDir = dirname(initElPath);
   const hasXvfb = (await Bun.spawn(["which", "xvfb-run"]).exited) === 0;
 
   if (!hasXvfb) {
@@ -132,7 +131,7 @@ async function captureScreenshot(initElPath: string, imagePath: string): Promise
 
     const exitCode = await proc.exited;
     if (exitCode !== 0) return false;
-  } catch (err) {
+  } catch {
     return false;
   }
 
@@ -176,7 +175,7 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
       console.log(`${theme.name} exists, skipping screenshot`);
       return { status: 'skipped', name: theme.name };
     }
-  } catch (e) {
+  } catch {
     // Directory does not exist, proceed
   }
 
@@ -215,8 +214,8 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
     try {
       await rm(themeTempDir, { recursive: true, force: true });
       console.log(`  Cleaned up ${themeTempDir}`);
-    } catch (e) {
-      console.error(`  Failed to clean up ${themeTempDir}:`, e);
+    } catch {
+      // ignore cleanup errors
     }
   }
 }

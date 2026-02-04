@@ -1,3 +1,4 @@
+/* global console */
 /**
  * Complex JavaScript sample for highlighting
  */

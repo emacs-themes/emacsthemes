@@ -1,0 +1,19 @@
+{
+  "hooksConfig": { "enabled": true },
+  "hooks": {
+    "AfterAgent": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "name": "auto-fix-lint",
+            "type": "command",
+            "command": "$GEMINI_PROJECT_DIR/.gemini/hooks/fix-lint.sh",
+            "description": "Runs lint and attempts to auto-fix errors using Gemini if linting fails.",
+            "timeout": 120000
+          }
+        ]
+      }
+    ]
+  }
+}
