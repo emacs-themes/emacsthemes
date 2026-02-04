@@ -39,7 +39,9 @@ input:focus-visible {
 
 header {
   border-bottom: 1px solid var(--muted);
+  margin-bottom: 1.25rem;
   padding: 1rem 1.5rem;
+
 }
 
 .header-container {
@@ -108,50 +110,6 @@ h1 {
   max-width: 60ch;
 }
 
-/* Search */
-.searchbar {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  margin: 1.25rem 0 1.75rem 0;
-}
-
-.searchbar label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.searchbar input[type="search"] {
-  width: min(520px, 100%);
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--muted);
-  border-radius: 10px;
-  font: inherit;
-  color: var(--nearblack);
-  background: var(--white);
-  flex-grow: 1;
-}
-
-.searchbar input::placeholder {
-  color: #4b4b57;
-}
-
-.searchbar button {
-  padding: 0.75rem 2rem;
-  border-radius: 10px;
-  border: 1px solid var(--purple);
-  background: var(--purple);
-  color: var(--white);
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.searchbar button:hover {
-  filter: brightness(0.95);
-}
-
 /* Grid: 3+ cards per row on desktop */
 .grid {
   display: grid;
@@ -211,13 +169,6 @@ h1 {
 @media (max-width: 560px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-  .searchbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .searchbar input[type="search"] {
-    width: 100%;
   }
 }
 

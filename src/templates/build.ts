@@ -39,6 +39,18 @@ async function getSortedThemes(): Promise<Theme[]> {
     .slice(0, 9);
 }
 
+async function getAllThemes(): Promise<Theme[]> {
+  const files = await readdir(RECIPIES_DIR);
+  const themeFiles = files.filter(f => f.endsWith(".json"));
+
+  return await Promise.all(
+    themeFiles.map(async (file) => {
+      const filePath = join(RECIPIES_DIR, file);
+      return await Bun.file(filePath).json();
+    })
+  );
+}
+
 function generateThemeCard(theme: Theme): string {
   // Assuming the structure from the original HTML
   // Image path: static/imgs/<theme-id>/preview.png
@@ -53,6 +65,49 @@ function generateThemeCard(theme: Theme): string {
             <a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" aria-label="View ${theme.name} theme details">View details</a>
           </div>
         </article>`;
+}
+
+const SEARCH_BAR_HTML = `
+      <form class="searchbar" role="search" aria-label="Search themes">
+        <label for="q">Search</label>
+        <input id="q" name="q" type="search" placeholder="Try: nord, gruvbox, light…" />
+        <button type="submit">Search</button>
+        <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
+      </form>`;
+
+async function buildAllThemesPage(template: string, year: string, cssLink: string) {
+  const allThemes = await getAllThemes();
+  allThemes.sort((a, b) => a.name.localeCompare(b.name));
+
+  const themesGridHtml = allThemes.map(generateThemeCard).join("\n");
+
+  const extraCss = `<link rel="stylesheet" href="../static/css/search.css">`;
+
+  const html = template
+    .replace("{{THEMES_GRID}}", themesGridHtml)
+    .replace("{{MAIN_CSS}}", cssLink)
+    .replace("{{EXTRA_CSS}}", extraCss)
+    .replace("{{YEAR}}", year)
+    .replace("{{SEARCH_BAR}}", SEARCH_BAR_HTML);
+
+  const destDir = join(BUILD_DIR, "themes");
+  await mkdir(destDir, { recursive: true });
+  await Bun.write(join(destDir, "index.html"), html);
+  console.log("Generated themes/index.html");
+}
+
+async function buildHomepage(template: string, year: string, cssLink: string) {
+  const themes = await getSortedThemes();
+  const themesGridHtml = themes.map(generateThemeCard).join("\n");
+  const html = template
+    .replace("{{THEMES_GRID}}", themesGridHtml)
+    .replace("{{MAIN_CSS}}", cssLink)
+    .replace("{{EXTRA_CSS}}", "")
+    .replace("{{YEAR}}", year)
+    .replace("{{SEARCH_BAR}}", "");
+
+  await Bun.write(join(BUILD_DIR, "index.html"), html);
+  console.log("Generated index.html");
 }
 
 async function copyDir(src: string, dest: string) {
@@ -86,28 +141,18 @@ async function build() {
   await mkdir(STATIC_IMGS_DEST, { recursive: true });
   await mkdir(CSS_DEST, { recursive: true });
 
-  // 2. Get Data
-  const themes = await getSortedThemes();
-  console.log(`Found ${themes.length} themes.`);
-
-  // 3. Prepare HTML
+  // 2. Prepare Shared Data
   const templatePath = join(TEMPLATES_DIR, "html/index.html");
-  let html = await Bun.file(templatePath).text();
-
-  const themesGridHtml = themes.map(generateThemeCard).join("\n");
-
-  // Inject CSS Link
+  const template = await Bun.file(templatePath).text();
+  const currentYear = new Date().getFullYear().toString();
   const cssLink = `<link rel="stylesheet" href="static/css/style.css">`;
+  const themesCssLink = `<link rel="stylesheet" href="../static/css/style.css">`;
 
-  html = html
-    .replace("{{THEMES_GRID}}", themesGridHtml)
-    .replace("{{CSS_INJECTION}}", cssLink);
+  // 3. Build Pages
+  await buildHomepage(template, currentYear, cssLink);
+  await buildAllThemesPage(template, currentYear, themesCssLink);
 
-  // 4. Write HTML
-  await Bun.write(join(BUILD_DIR, "index.html"), html);
-  console.log("Generated index.html");
-
-  // 5. Copy Assets
+  // 4. Copy Assets
   console.log("Copying assets...");
   await copyDir(STATIC_IMGS_SRC, STATIC_IMGS_DEST);
   await copyDir(CSS_SRC, CSS_DEST);

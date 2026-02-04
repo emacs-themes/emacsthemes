@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    {{CSS_INJECTION}}
+    {{MAIN_CSS}}
+    {{EXTRA_CSS}}
   </head>
 
   <body>
@@ -30,28 +31,22 @@
       </div>
       <nav class="header-container" aria-label="Main Navigation">
         <ul class="menu">
-          <li><a href="./themes">All Themes</a></li>
-          <li><a href="./top-themes">Top Themes</a></li>
-          <li><a href="./about">About</a></li>
+          <li><a href="/themes/index.html">All Themes</a></li>
+          <li><a href="/top-themes.html">Top Themes</a></li>
+          <li><a href="/about.html">About</a></li>
         </ul>
       </nav>
     </header>
 
     <main id="themes">
-      <form class="searchbar" role="search" aria-label="Search themes">
-        <label for="q">Search</label>
-        <input id="q" name="q" type="search" placeholder="Try: nord, gruvbox, light…" />
-        <button type="submit">Search</button>
-        <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
-      </form>
-
+      {{SEARCH_BAR}}
       <section class="grid" aria-label="Theme list">
         {{THEMES_GRID}}
       </section>
     </main>
 
     <footer>
-      <div>© 2026 — <a href="/">emacsthemes.org</a> an Emacs Themes Directory</div>
+      <div>© {{YEAR}} — <a href="/">emacsthemes.org</a> an Emacs Themes Directory</div>
     </footer>
   </body>
 </html>
