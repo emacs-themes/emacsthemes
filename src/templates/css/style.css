@@ -18,6 +18,9 @@ body {
   background: var(--white);
   color: var(--nearblack);
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -95,6 +98,7 @@ main {
   max-width: 1040px;
   margin: 0 auto;
   padding-inline: 1.5rem;
+  flex: 1;
 }
 
 h1 {
