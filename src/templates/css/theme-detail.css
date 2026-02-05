@@ -33,6 +33,13 @@
   text-decoration: none;
 }
 
+.generation-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
 .screenshot-grid {
   display: grid;
   grid-template-columns: 1fr;

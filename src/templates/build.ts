@@ -1,6 +1,7 @@
 import { mkdir, readdir, copyFile, rm, stat, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
+import { fetchPopularThemes } from "./fetch-popular-themes";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -36,6 +37,7 @@ const PATHS = {
       themeCard: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
       themeDetail: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
+      topThemes: join(TEMPLATES_DIR, "html/partials/top-themes-content.html"),
     },
   },
   css: {
@@ -60,6 +62,7 @@ const PATHS = {
     themesIndex: join(BUILD_DIR, "themes/index.html"),
     themesDir: join(BUILD_DIR, "themes"),
     about: join(BUILD_DIR, "about.html"),
+    topThemes: join(BUILD_DIR, "top-themes.html"),
   },
 };
 
@@ -277,12 +280,19 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       `<a href="/themes/index.html?q=${encodeURIComponent(tag)}" class="tag-link">${tag}</a>`
     ).join("\n");
 
+    const generatedDate = new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }).format(new Date());
+
     const content = contentTemplate
       .replace(/{{THEME_NAME}}/g, theme.name)
       .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
       .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
       .replace(/{{THEME_TYPE}}/g, theme.type)
       .replace(/{{THEME_TAGS}}/g, tagsHtml)
+      .replace(/{{GENERATED_DATE}}/g, generatedDate)
       .replace("{{SCREENSHOTS}}", screenshotsHtml);
 
     const html = applyBaseTemplate(template, {
@@ -312,6 +322,55 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.about, minifiedHtml);
   console.log("Generated about.html");
+}
+
+/**
+ * Builds the "Top Themes" page, listing popular themes from MELPA.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} contentTemplate - The top themes content HTML template.
+ */
+async function buildTopThemesPage(template: string, contentTemplate: string) {
+  const popularThemes = await fetchPopularThemes();
+  
+  if (!popularThemes) {
+    console.warn("Skipping top themes page due to fetch failure.");
+    return;
+  }
+
+  const themesListHtml = popularThemes.map((theme, index) => {
+    const rank = index + 1;
+    const nameHtml = theme.url 
+      ? `<a href="${theme.url}" target="_blank" rel="noopener noreferrer">${theme.name}</a>`
+      : theme.name;
+    
+    return `
+      <tr>
+        <td>${rank}</td>
+        <td>${nameHtml}</td>
+        <td class="text-right">${theme.downloads.toLocaleString()}</td>
+      </tr>`;
+  }).join("\n");
+
+  const generatedDate = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(new Date());
+
+  const content = contentTemplate
+    .replace("{{THEMES_LIST}}", themesListHtml)
+    .replace("{{GENERATED_DATE}}", generatedDate);
+
+  const html = applyBaseTemplate(template, {
+    themesGrid: content,
+    mainCssPath: PATHS.css.main,
+    extraCssPaths: [PATHS.css.detail] // Reusing detail CSS for header consistency
+  });
+
+  const minifiedHtml = await minifyHtml(html);
+  await Bun.write(PATHS.pages.topThemes, minifiedHtml);
+  console.log("Generated top-themes.html");
 }
 
 // Utility
@@ -366,18 +425,20 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml] = await Promise.all([
+  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, topThemesContentTemplate] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
     Bun.file(PATHS.templates.partials.themeDetail).text(),
     Bun.file(PATHS.templates.partials.about).text(),
+    Bun.file(PATHS.templates.partials.topThemes).text(),
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate);
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
+  await buildTopThemesPage(baseTemplate, topThemesContentTemplate);
 
   console.log("Copying and minifying assets...");
   await Promise.all([
