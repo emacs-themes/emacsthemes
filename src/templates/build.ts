@@ -1,5 +1,6 @@
-import { mkdir, readdir, copyFile, rm, stat } from "node:fs/promises";
+import { mkdir, readdir, copyFile, rm, stat, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { minify, Options as MinifyOptions } from "html-minifier-terser";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -9,21 +10,57 @@ const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/caisah/emacsthemes";
 
+/**
+ * Options for html-minifier-terser.
+ */
+const MINIFY_OPTIONS: MinifyOptions = {
+  collapseWhitespace: true,
+  removeComments: true,
+  minifyCSS: true,
+  minifyJS: true,
+  removeRedundantAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  useShortDoctype: true
+};
+
+/**
+ * Centralized configuration for file paths used in the build process.
+ * Organized by category: templates, CSS, assets, and page output destinations.
+ */
 const PATHS = {
-  indexTemplate: join(TEMPLATES_DIR, "html/index.html"),
-  searchBarTemplate: join(TEMPLATES_DIR, "html/partials/search-bar.html"),
-  themeCardTemplate: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
-  themeDetailContentTemplate: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
-  aboutTemplate: join(TEMPLATES_DIR, "html/partials/about-content.html"),
-  mainCss: "static/css/style.css",
-  searchCss: "static/css/search.css",
-  detailCss: "static/css/theme-detail.css",
-  cardCss: "static/css/card.css",
-  imagesSrc: join(STATIC_DIR, "imgs"),
-  imagesDest: join(BUILD_DIR, STATIC_DIR, "imgs"),
-  cssDest: join(BUILD_DIR, STATIC_DIR, "css"),
-  faviconSrc: join(STATIC_DIR, "favicon.ico"),
-  faviconDest: join(BUILD_DIR, "favicon.ico"),
+  templates: {
+    base: join(TEMPLATES_DIR, "html/index.html"),
+    partials: {
+      searchBar: join(TEMPLATES_DIR, "html/partials/search-bar.html"),
+      themeCard: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
+      themeDetail: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
+      about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
+    },
+  },
+  css: {
+    main: "static/css/style.css",
+    search: "static/css/search.css",
+    detail: "static/css/theme-detail.css",
+    card: "static/css/card.css",
+  },
+  assets: {
+    src: {
+      images: join(STATIC_DIR, "imgs"),
+      favicon: join(STATIC_DIR, "favicon.ico"),
+    },
+    dest: {
+      images: join(BUILD_DIR, STATIC_DIR, "imgs"),
+      css: join(BUILD_DIR, STATIC_DIR, "css"),
+      favicon: join(BUILD_DIR, "favicon.ico"),
+    },
+  },
+  pages: {
+    home: join(BUILD_DIR, "index.html"),
+    themesIndex: join(BUILD_DIR, "themes/index.html"),
+    themesDir: join(BUILD_DIR, "themes"),
+    about: join(BUILD_DIR, "about.html"),
+  },
 };
 
 interface Theme {
@@ -36,6 +73,13 @@ interface Theme {
 }
 
 // Data Fetching
+
+/**
+ * Retrieves a list of themes sorted by modification time (newest first).
+ *
+ * @param {number} [limit=9] - The maximum number of themes to return.
+ * @returns {Promise<Theme[]>} A promise that resolves to an array of sorted Theme objects.
+ */
 async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
   const files = await readdir(RECIPES_DIR);
   const themeFiles = files.filter(f => f.endsWith(".json"));
@@ -52,6 +96,11 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
   return themesWithStats.sort((a, b) => b.mtime - a.mtime).slice(0, limit);
 }
 
+/**
+ * Retrieves all available themes from the recipes directory.
+ *
+ * @returns {Promise<Theme[]>} A promise that resolves to an array of all Theme objects.
+ */
 async function getAllThemes(): Promise<Theme[]> {
   const files = await readdir(RECIPES_DIR);
   return await Promise.all(
@@ -62,6 +111,36 @@ async function getAllThemes(): Promise<Theme[]> {
 }
 
 // Template Helpers
+
+/**
+ * Minifies HTML content.
+ * 
+ * @param {string} html - The HTML string to minify.
+ * @returns {Promise<string>} The minified HTML string.
+ */
+async function minifyHtml(html: string): Promise<string> {
+  return await minify(html, MINIFY_OPTIONS);
+}
+
+/**
+ * Minifies CSS content by wrapping it in a style tag and using html-minifier-terser.
+ * 
+ * @param {string} css - The CSS string to minify.
+ * @returns {Promise<string>} The minified CSS string.
+ */
+async function minifyCss(css: string): Promise<string> {
+  const minified = await minify(`<style>${css}</style>`, { minifyCSS: true });
+  return minified.replace("<style>", "").replace("</style>", "");
+}
+
+/**
+ * Generates the HTML for a single theme card.
+ *
+ * @param {Theme} theme - The theme object containing details like name, id, description, etc.
+ * @param {string} template - The HTML template string for the card.
+ * @param {string} [relativeRoot=""] - The relative path to the root directory (used for linking assets).
+ * @returns {string} The populated HTML string for the theme card.
+ */
 function generateThemeCard(theme: Theme, template: string, relativeRoot: string = ""): string {
   const imagePath = `${relativeRoot}${STATIC_DIR}/imgs/${theme.id}/preview.png`;
   return template
@@ -73,6 +152,12 @@ function generateThemeCard(theme: Theme, template: string, relativeRoot: string 
     .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
 }
 
+/**
+ * Generates HTML tags for preloading a CSS file, with a fallback for non-JS environments.
+ *
+ * @param {string} cssPath - The path to the CSS file.
+ * @returns {string} The HTML string containing the preload link and noscript fallback.
+ */
 function getCssPreloadTags(cssPath: string): string {
   return `
     <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -86,6 +171,13 @@ interface PageData {
   extraCssPaths?: string[];
 }
 
+/**
+ * Injects page-specific data into the base HTML template (layout).
+ *
+ * @param {string} template - The base HTML template string.
+ * @param {PageData} data - An object containing the content and configuration for the page.
+ * @returns {string} The fully rendered HTML page.
+ */
 function applyBaseTemplate(template: string, data: PageData): string {
   const currentYear = new Date().getFullYear().toString();
   const extraCssPreloads = (data.extraCssPaths || [])
@@ -102,20 +194,35 @@ function applyBaseTemplate(template: string, data: PageData): string {
 }
 
 // Page Builders
+
+/**
+ * Builds the homepage (index.html), featuring a selection of the latest themes.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} cardTemplate - The theme card HTML template.
+ */
 async function buildHomepage(template: string, cardTemplate: string) {
   const themes = await getSortedThemes(9);
   const themesGrid = themes.map(t => generateThemeCard(t, cardTemplate)).join("\n");
   
   const html = applyBaseTemplate(template, {
     themesGrid,
-    mainCssPath: PATHS.mainCss,
-    extraCssPaths: [PATHS.cardCss]
+    mainCssPath: PATHS.css.main,
+    extraCssPaths: [PATHS.css.card]
   });
 
-  await Bun.write(join(BUILD_DIR, "index.html"), html);
+  const minifiedHtml = await minifyHtml(html);
+  await Bun.write(PATHS.pages.home, minifiedHtml);
   console.log("Generated index.html");
 }
 
+/**
+ * Builds the "All Themes" page, listing every available theme with a search bar.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} cardTemplate - The theme card HTML template.
+ * @param {string} searchBarHtml - The HTML for the search bar partial.
+ */
 async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
@@ -125,23 +232,29 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   const html = applyBaseTemplate(template, {
     themesGrid,
     searchBar: searchBarHtml,
-    mainCssPath: `../${PATHS.mainCss}`,
-    extraCssPaths: [`../${PATHS.searchCss}`, `../${PATHS.cardCss}`]
+    mainCssPath: `../${PATHS.css.main}`,
+    extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`]
   });
 
-  const destDir = join(BUILD_DIR, "themes");
-  await mkdir(destDir, { recursive: true });
-  await Bun.write(join(destDir, "index.html"), html);
+  const minifiedHtml = await minifyHtml(html);
+  await mkdir(PATHS.pages.themesDir, { recursive: true });
+  await Bun.write(PATHS.pages.themesIndex, minifiedHtml);
   console.log("Generated themes/index.html");
 }
 
+/**
+ * Builds individual detail pages for each theme, including screenshots and metadata.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} contentTemplate - The theme detail content HTML template.
+ */
 async function buildThemeDetailPages(template: string, contentTemplate: string) {
   const themes = await getAllThemes();
-  const mainCssPath = `../${PATHS.mainCss}`;
-  const detailCssPath = `../${PATHS.detailCss}`;
+  const mainCssPath = `../${PATHS.css.main}`;
+  const detailCssPath = `../${PATHS.css.detail}`;
 
   for (const theme of themes) {
-    const themeImgsDir = join(PATHS.imagesSrc, theme.id);
+    const themeImgsDir = join(PATHS.assets.src.images, theme.id);
     let screenshotsHtml = "";
 
     try {
@@ -178,22 +291,37 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       extraCssPaths: [detailCssPath]
     });
 
-    await Bun.write(join(BUILD_DIR, `themes/${theme.id}.html`), html);
+    const minifiedHtml = await minifyHtml(html);
+    await Bun.write(join(PATHS.pages.themesDir, `${theme.id}.html`), minifiedHtml);
     console.log(`Generated themes/${theme.id}.html`);
   }
 }
 
+/**
+ * Builds the "About" page.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} aboutContentHtml - The HTML content for the about page.
+ */
 async function buildAboutPage(template: string, aboutContentHtml: string) {
   const html = applyBaseTemplate(template, {
     themesGrid: aboutContentHtml,
-    mainCssPath: PATHS.mainCss
+    mainCssPath: PATHS.css.main
   });
 
-  await Bun.write(join(BUILD_DIR, "about.html"), html);
+  const minifiedHtml = await minifyHtml(html);
+  await Bun.write(PATHS.pages.about, minifiedHtml);
   console.log("Generated about.html");
 }
 
 // Utility
+
+/**
+ * Recursively copies a directory and its contents to a destination.
+ *
+ * @param {string} src - The source directory path.
+ * @param {string} dest - The destination directory path.
+ */
 async function copyDir(src: string, dest: string) {
   try {
     await mkdir(dest, { recursive: true });
@@ -210,6 +338,28 @@ async function copyDir(src: string, dest: string) {
   }
 }
 
+/**
+ * Minifies and copies CSS files from a directory to a destination.
+ * 
+ * @param {string} src - The source directory path containing CSS files.
+ * @param {string} dest - The destination directory path.
+ */
+async function minifyAndCopyCss(src: string, dest: string) {
+  await mkdir(dest, { recursive: true });
+  const entries = await readdir(src, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isFile() && entry.name.endsWith(".css")) {
+      const content = await readFile(join(src, entry.name), "utf-8");
+      const minified = await minifyCss(content);
+      await Bun.write(join(dest, entry.name), minified);
+    }
+  }
+}
+
+/**
+ * Main build entry point.
+ * orchestrates the cleaning, template loading, page generation, and asset copying.
+ */
 async function build() {
   console.log("Starting build...");
 
@@ -217,11 +367,11 @@ async function build() {
   await mkdir(BUILD_DIR, { recursive: true });
 
   const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml] = await Promise.all([
-    Bun.file(PATHS.indexTemplate).text(),
-    Bun.file(PATHS.themeCardTemplate).text(),
-    Bun.file(PATHS.searchBarTemplate).text(),
-    Bun.file(PATHS.themeDetailContentTemplate).text(),
-    Bun.file(PATHS.aboutTemplate).text(),
+    Bun.file(PATHS.templates.base).text(),
+    Bun.file(PATHS.templates.partials.themeCard).text(),
+    Bun.file(PATHS.templates.partials.searchBar).text(),
+    Bun.file(PATHS.templates.partials.themeDetail).text(),
+    Bun.file(PATHS.templates.partials.about).text(),
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate);
@@ -229,11 +379,11 @@ async function build() {
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
 
-  console.log("Copying assets...");
+  console.log("Copying and minifying assets...");
   await Promise.all([
-    copyDir(PATHS.imagesSrc, PATHS.imagesDest),
-    copyDir(CSS_DIR, PATHS.cssDest),
-    copyFile(PATHS.faviconSrc, PATHS.faviconDest).catch(err => console.warn("Warning copying favicon:", err.message))
+    copyDir(PATHS.assets.src.images, PATHS.assets.dest.images),
+    minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
+    copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon).catch(err => console.warn("Warning copying favicon:", err.message))
   ]);
 
   console.log("Build complete!");
