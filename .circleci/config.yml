@@ -42,7 +42,7 @@ jobs:
           key: bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Validate Recipes
-          command: bun run validate:pr
+          command: bun run validate
 
 workflows:
   version: 2

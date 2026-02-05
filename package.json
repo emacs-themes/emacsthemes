@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
-    "validate:pr": "bun src/core/validate-pr.ts",
+    "validate": "bun src/core/validate-pr.ts",
     "generate-screenshots": "bun src/core/generate-screenshots.ts",
     "generate-screenshots:docker": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts"

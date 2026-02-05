@@ -35,7 +35,7 @@ The output will be in the `build/` directory.
 ## Development
 
 - **Linting**: `bun run lint`
-- **Validate Recipes**: `bun run validate:pr`
+- **Validate Recipes**: `bun run validate`
 - **Docker Generation**: `bun run generate-screenshots:docker`
 
 ## License
