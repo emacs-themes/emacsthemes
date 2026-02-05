@@ -1,7 +1,7 @@
 {
   "name": "Zenburn",
   "id": "zenburn-theme",
-  "description": "A low-contrast color theme for Emacs.",
+  "description": "Zenburn for Emacs is a direct port of the popular Zenburn theme for vim, developed by Jani Nurminen.",
   "repoUrl": "https://github.com/bbatsov/zenburn-emacs",
   "rawUrls": [
     "https://raw.githubusercontent.com/bbatsov/zenburn-emacs/master/zenburn-theme.el"
@@ -13,6 +13,7 @@
   "tags": [
     "zenburn",
     "dark",
-    "low-contrast"
+    "low-contrast",
+    "popular"
   ]
 }

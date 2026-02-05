@@ -1,0 +1,26 @@
+/* Error Page Styles */
+
+.error-page {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+}
+
+.error-graphic {
+  margin-bottom: 3rem;
+}
+
+.error-graphic svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.error-message {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.error-page .actions {
+  margin-top: 2rem;
+}

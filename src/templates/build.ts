@@ -38,6 +38,7 @@ const PATHS = {
       themeDetail: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
       topThemes: join(TEMPLATES_DIR, "html/partials/top-themes-content.html"),
+      error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
     },
   },
   css: {
@@ -45,6 +46,7 @@ const PATHS = {
     search: "static/css/search.css",
     detail: "static/css/theme-detail.css",
     card: "static/css/card.css",
+    error: "static/css/error.css",
   },
   assets: {
     src: {
@@ -63,6 +65,7 @@ const PATHS = {
     themesDir: join(BUILD_DIR, "themes"),
     about: join(BUILD_DIR, "about.html"),
     topThemes: join(BUILD_DIR, "top-themes.html"),
+    error404: join(BUILD_DIR, "404.html"),
   },
 };
 
@@ -210,8 +213,8 @@ async function buildHomepage(template: string, cardTemplate: string) {
   
   const html = applyBaseTemplate(template, {
     themesGrid,
-    mainCssPath: PATHS.css.main,
-    extraCssPaths: [PATHS.css.card]
+    mainCssPath: `/${PATHS.css.main}`,
+    extraCssPaths: [`/${PATHS.css.card}`]
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -316,7 +319,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
 async function buildAboutPage(template: string, aboutContentHtml: string) {
   const html = applyBaseTemplate(template, {
     themesGrid: aboutContentHtml,
-    mainCssPath: PATHS.css.main
+    mainCssPath: `/${PATHS.css.main}`
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -364,13 +367,31 @@ async function buildTopThemesPage(template: string, contentTemplate: string) {
 
   const html = applyBaseTemplate(template, {
     themesGrid: content,
-    mainCssPath: PATHS.css.main,
-    extraCssPaths: [PATHS.css.detail] // Reusing detail CSS for header consistency
+    mainCssPath: `/${PATHS.css.main}`,
+    extraCssPaths: [`/${PATHS.css.detail}`] // Reusing detail CSS for header consistency
   });
 
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.topThemes, minifiedHtml);
   console.log("Generated top-themes.html");
+}
+
+/**
+ * Builds the 404 error page.
+ *
+ * @param {string} template - The base HTML template.
+ * @param {string} error404ContentHtml - The HTML content for the 404 page.
+ */
+async function build404Page(template: string, error404ContentHtml: string) {
+  const html = applyBaseTemplate(template, {
+    themesGrid: error404ContentHtml,
+    mainCssPath: `/${PATHS.css.main}`,
+    extraCssPaths: [`/${PATHS.css.error}`]
+  });
+
+  const minifiedHtml = await minifyHtml(html);
+  await Bun.write(PATHS.pages.error404, minifiedHtml);
+  console.log("Generated 404.html");
 }
 
 // Utility
@@ -425,13 +446,14 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, topThemesContentTemplate] = await Promise.all([
+  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, topThemesContentTemplate, error404ContentTemplate] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
     Bun.file(PATHS.templates.partials.themeDetail).text(),
     Bun.file(PATHS.templates.partials.about).text(),
     Bun.file(PATHS.templates.partials.topThemes).text(),
+    Bun.file(PATHS.templates.partials.error404).text(),
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate);
@@ -439,6 +461,7 @@ async function build() {
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
   await buildTopThemesPage(baseTemplate, topThemesContentTemplate);
+  await build404Page(baseTemplate, error404ContentTemplate);
 
   console.log("Copying and minifying assets...");
   await Promise.all([
