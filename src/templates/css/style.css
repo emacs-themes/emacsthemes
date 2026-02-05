@@ -46,15 +46,20 @@ input:focus-visible {
   outline-offset: 3px;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+  width: 100%;
+}
+
 header {
   border-bottom: 1px solid var(--muted);
   margin-bottom: 1.25rem;
-  padding: 1rem 1.5rem;
+  padding-block: 1rem;
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,7 +81,6 @@ header {
   gap: 2rem;
   line-height: 1.4rem;
   list-style-type: none;
-  padding-inline: 1.5rem;
 }
 
 .menu a {
@@ -107,9 +111,6 @@ header {
 }
 
 main {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding-inline: 1.5rem;
   flex: 1;
 }
 
@@ -122,7 +123,12 @@ h1 {
 .subhead {
   margin: 0 0 1.5rem 0;
   color: var(--text-dim);
-  max-width: 60ch;
+}
+
+.latest-headline {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Common Page Header */
@@ -156,13 +162,11 @@ h1 {
 
 footer {
   border-top: 1px solid var(--muted);
-  padding: 1.5rem;
+  padding-block: 1.5rem;
   margin-top: 4rem;
 }
 
 .footer-container {
-  max-width: 1040px;
-  margin: 0 auto;
   font-size: 0.9rem;
   color: var(--text-dim);
   display: flex;

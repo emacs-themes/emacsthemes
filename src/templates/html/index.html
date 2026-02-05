@@ -16,7 +16,7 @@
 
   <body>
     <header>
-      <div class="header-container">
+      <div class="header-container container">
         <div class="brand">
           <a href="/" aria-label="Go to homepage">
             <svg aria-hidden="true" width="100" height="100" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@
           <h1 class="title"><span>Emacs</span> Themes</h1>
         </div>
       </div>
-      <nav class="header-container" aria-label="Main Navigation">
+      <nav class="header-container container" aria-label="Main Navigation">
         <ul class="menu">
           <li><a href="/themes/index.html">All Themes</a></li>
           <li><a href="/top-themes.html">Top Themes</a></li>
@@ -39,15 +39,16 @@
       </nav>
     </header>
 
-    <main id="themes">
+    <main id="themes" class="container">
       {{SEARCH_BAR}}
       <section aria-label="Theme list">
+        {{LATEST_THEMES_HEADLINE}}
         {{THEMES_GRID}}
       </section>
     </main>
 
     <footer>
-      <div class="footer-container">
+      <div class="footer-container container">
         <span>© {{YEAR}} — <a href="/">emacsthemes.org</a> an Emacs Themes Directory</span>
         <a href="{{GITHUB_URL}}" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="github-link">
           <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">

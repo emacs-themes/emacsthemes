@@ -173,6 +173,7 @@ function getCssPreloadTags(cssPath: string): string {
 interface PageData {
   themesGrid: string;
   searchBar?: string;
+  latestThemesHeadline?: string;
   mainCssPath: string;
   extraCssPaths?: string[];
 }
@@ -193,6 +194,7 @@ function applyBaseTemplate(template: string, data: PageData): string {
   return template
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
+    .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
     .replace("{{MAIN_CSS_PRELOAD}}", getCssPreloadTags(data.mainCssPath))
     .replace("{{EXTRA_CSS_PRELOAD}}", extraCssPreloads)
     .replace("{{YEAR}}", currentYear)
@@ -209,10 +211,12 @@ function applyBaseTemplate(template: string, data: PageData): string {
  */
 async function buildHomepage(template: string, cardTemplate: string) {
   const themes = await getSortedThemes(9);
-  const themesGrid = themes.map(t => generateThemeCard(t, cardTemplate)).join("\n");
+  const themesGrid = `<div class="grid">` + themes.map(t => generateThemeCard(t, cardTemplate)).join("\n") + `</div>`;
+  const latestThemesHeadline = `<h2 class="latest-headline">Freshly Baked Themes 🥐</h2><p class="subhead">The newest additions to our gallery. Warning: may cause sudden urge to rewrite your init.el.</p>`;
   
   const html = applyBaseTemplate(template, {
     themesGrid,
+    latestThemesHeadline,
     mainCssPath: `/${PATHS.css.main}`,
     extraCssPaths: [`/${PATHS.css.card}`]
   });
@@ -233,7 +237,7 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
-  const themesGrid = allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n");
+  const themesGrid = `<div class="grid">` + allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n") + `</div>`;
   
   const html = applyBaseTemplate(template, {
     themesGrid,
