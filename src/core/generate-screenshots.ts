@@ -40,10 +40,10 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
       if (!file.endsWith(".el")) continue;
 
       const content = await Bun.file(join(dir, file)).text();
-      const match = content.match(/\(deftheme\s+'?([^)\s]+)/);
+      const match = content.match(/\(deftheme\s+'?([^',)\s][^)\s]*)/);
       if (match) return match[1];
 
-      const matchProvide = content.match(/\(provide-theme\s+'?([^)\s]+)\)/);
+      const matchProvide = content.match(/\(provide-theme\s+'?([^',)\s][^)\s]*)\)/);
       if (matchProvide) return matchProvide[1];
     }
   } catch (e) {

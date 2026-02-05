@@ -1,0 +1,24 @@
+{
+  "name": "Solarized Light",
+  "id": "solarized-light",
+  "description": "The classic Solarized Light theme, a precision-crafted palette for high-legibility in light environments.",
+  "repoUrl": "https://github.com/bbatsov/solarized-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-faces.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-palettes.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "popular",
+    "solarized",
+    "light",
+    "beige",
+    "yellow",
+    "low contrast"
+  ]
+}

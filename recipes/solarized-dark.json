@@ -1,0 +1,24 @@
+{
+  "name": "Solarized Dark",
+  "id": "solarized-dark",
+  "description": "The classic Solarized Dark theme, featuring precision colors for legibility and aesthetic harmony.",
+  "repoUrl": "https://github.com/bbatsov/solarized-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-faces.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-palettes.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "popular",
+    "solarized",
+    "dark",
+    "teal",
+    "blue",
+    "low contrast"
+  ]
+}

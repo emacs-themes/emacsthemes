@@ -1,0 +1,24 @@
+{
+  "name": "Solarized Selenized Dark",
+  "id": "solarized-selenized-dark",
+  "description": "A Selenized variant with a balanced dark blue background for a modern dark mode experience.",
+  "repoUrl": "https://github.com/bbatsov/solarized-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-faces.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-palettes.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-selenized-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "popular",
+    "solarized",
+    "selenized",
+    "dark",
+    "blue",
+    "deep blue"
+  ]
+}

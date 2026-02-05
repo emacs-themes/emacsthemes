@@ -22,6 +22,9 @@
 ;; Add current dir to theme load path
 (add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
 
+;; Ensure solarized palettes are loaded if available (fixes issue with interpreted solarized themes)
+(require 'solarized-palettes nil t)
+
 ;; Try to load and enable theme based on name
 (let ((name-symbol (intern "{{THEME_NAME}}")))
    (condition-case err

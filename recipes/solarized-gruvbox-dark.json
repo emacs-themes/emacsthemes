@@ -1,0 +1,25 @@
+{
+  "name": "Solarized Gruvbox Dark",
+  "id": "solarized-gruvbox-dark",
+  "description": "A warm, retro-inspired Dark theme blending the Solarized structure with Gruvbox tones.",
+  "repoUrl": "https://github.com/bbatsov/solarized-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-faces.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-palettes.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-gruvbox-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "popular",
+    "solarized",
+    "gruvbox",
+    "dark",
+    "retro",
+    "orange",
+    "warm"
+  ]
+}

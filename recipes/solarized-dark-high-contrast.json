@@ -1,0 +1,23 @@
+{
+  "name": "Solarized Dark High Contrast",
+  "id": "solarized-dark-high-contrast",
+  "description": "A high-contrast variant of Solarized Dark for enhanced visibility and clarity.",
+  "repoUrl": "https://github.com/bbatsov/solarized-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-faces.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-palettes.el",
+    "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-high-contrast-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bozhidar Batsov"
+  ],
+  "tags": [
+    "popular",
+    "solarized",
+    "dark",
+    "high contrast",
+    "accessibility"
+  ]
+}
