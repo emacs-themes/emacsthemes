@@ -192,9 +192,3 @@ footer {
   max-width: 800px;
   margin: 2rem auto;
 }
-
-.about-page h3.tip {
-  color: var(--purple);
-  margin-top: 2rem;
-  font-size: 1.5rem;
-}
