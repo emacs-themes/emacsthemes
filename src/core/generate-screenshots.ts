@@ -209,6 +209,8 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
   const themeTempDir = join(TEMP_DIR, theme.id);
   await mkdir(themeTempDir, { recursive: true });
 
+  let processingFailed = false;
+
   try {
     await downloadThemeFiles(theme.rawUrls, themeTempDir);
     const detectedName = await findThemeNameInDir(themeTempDir);
@@ -225,6 +227,8 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
       const success = await captureScreenshot(initElPath, imagePath);
       if (!success) {
         console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
+        processingFailed = true;
+        break; // Stop processing further modes for this theme
       } else {
         console.log(`  ✅ Successfully generated screenshot for ${modeName}`);
 
@@ -236,14 +240,26 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
             console.log(`  ✅ Successfully generated preview.png`);
           } else {
             console.error(`  ❌ Failed to generate preview.png`);
+            processingFailed = true;
+            break;
           }
         }
       }
     }
 
+    if (processingFailed) {
+      throw new Error(`Failed to generate some screenshots for ${theme.name}`);
+    }
+
     return { status: 'success', name: theme.name };
   } catch (err) {
     console.error(`  Error processing theme ${theme.name}:`, err);
+    try {
+      await rm(themeImagesDir, { recursive: true, force: true });
+      console.log(`  Rolled back: Deleted ${themeImagesDir} due to failure.`);
+    } catch (cleanupErr) {
+      console.error(`  Failed to delete ${themeImagesDir}:`, cleanupErr);
+    }
     return { status: 'failed', name: theme.name };
   } finally {
     try {
