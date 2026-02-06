@@ -168,7 +168,7 @@ function fetchJson<T>(url: string): Promise<T> {
 /**
  * Retrieves and prepares the most popular themes from MELPA.
  *
- * @returns {Promise<ThemeDownloadEntry[] | undefined>} A promise resolving to the top themes list or undefined on failure.
+ * @returns {Promise<ThemeDownloadEntry[] | undefined>} A promise resolving to the popular themes list or undefined on failure.
  */
 export async function fetchPopularThemes(): Promise<ThemeDownloadEntry[] | undefined> {
   try {

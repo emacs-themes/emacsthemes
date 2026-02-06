@@ -101,3 +101,59 @@
   color: var(--white);
   text-decoration: none;
 }
+
+/* Popular Themes Table Styles */
+.popular-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.themes-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--muted);
+  border-radius: 14px;
+}
+
+.themes-table th,
+.themes-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--muted);
+}
+
+.themes-table tr:last-child td {
+  border-bottom: none;
+}
+
+.themes-table th {
+  background: #f8f8fa;
+  font-weight: 700;
+  color: var(--nearblack);
+}
+
+.themes-table th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.themes-table th:last-child {
+  border-top-right-radius: 14px;
+}
+
+.themes-table td:first-child,
+.themes-table th:first-child {
+  border-right: none;
+}
+
+.themes-table .text-right {
+  text-align: right;
+}
+
+.themes-table tr:hover {
+  background-color: #fcfcff;
+}

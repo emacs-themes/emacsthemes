@@ -37,7 +37,7 @@ const PATHS = {
       themeCard: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
       themeDetail: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
-      topThemes: join(TEMPLATES_DIR, "html/partials/top-themes-content.html"),
+      popular: join(TEMPLATES_DIR, "html/partials/popular-content.html"),
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
     },
   },
@@ -52,11 +52,13 @@ const PATHS = {
     src: {
       images: join(STATIC_DIR, "imgs"),
       favicon: join(STATIC_DIR, "favicon.ico"),
+      emacsPng: join(STATIC_DIR, "emacs.png"),
     },
     dest: {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
       favicon: join(BUILD_DIR, "favicon.ico"),
+      emacsPng: join(BUILD_DIR, "emacs.png"),
     },
   },
   pages: {
@@ -64,7 +66,7 @@ const PATHS = {
     themesIndex: join(BUILD_DIR, "themes/index.html"),
     themesDir: join(BUILD_DIR, "themes"),
     about: join(BUILD_DIR, "about.html"),
-    topThemes: join(BUILD_DIR, "top-themes.html"),
+    popular: join(BUILD_DIR, "popular.html"),
     error404: join(BUILD_DIR, "404.html"),
   },
 };
@@ -332,16 +334,16 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
 }
 
 /**
- * Builds the "Top Themes" page, listing popular themes from MELPA.
+ * Builds the "Popular" page, listing popular themes from MELPA.
  *
  * @param {string} template - The base HTML template.
- * @param {string} contentTemplate - The top themes content HTML template.
+ * @param {string} contentTemplate - The popular themes content HTML template.
  */
-async function buildTopThemesPage(template: string, contentTemplate: string) {
+async function buildPopularThemesPage(template: string, contentTemplate: string) {
   const popularThemes = await fetchPopularThemes();
   
   if (!popularThemes) {
-    console.warn("Skipping top themes page due to fetch failure.");
+    console.warn("Skipping popular themes page due to fetch failure.");
     return;
   }
 
@@ -376,8 +378,8 @@ async function buildTopThemesPage(template: string, contentTemplate: string) {
   });
 
   const minifiedHtml = await minifyHtml(html);
-  await Bun.write(PATHS.pages.topThemes, minifiedHtml);
-  console.log("Generated top-themes.html");
+  await Bun.write(PATHS.pages.popular, minifiedHtml);
+  console.log("Generated popular.html");
 }
 
 /**
@@ -450,13 +452,13 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, topThemesContentTemplate, error404ContentTemplate] = await Promise.all([
+  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, popularThemesContentTemplate, error404ContentTemplate] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
     Bun.file(PATHS.templates.partials.themeDetail).text(),
     Bun.file(PATHS.templates.partials.about).text(),
-    Bun.file(PATHS.templates.partials.topThemes).text(),
+    Bun.file(PATHS.templates.partials.popular).text(),
     Bun.file(PATHS.templates.partials.error404).text(),
   ]);
 
@@ -464,14 +466,15 @@ async function build() {
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
-  await buildTopThemesPage(baseTemplate, topThemesContentTemplate);
+  await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate);
   await build404Page(baseTemplate, error404ContentTemplate);
 
   console.log("Copying and minifying assets...");
   await Promise.all([
     copyDir(PATHS.assets.src.images, PATHS.assets.dest.images),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
-    copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon).catch(err => console.warn("Warning copying favicon:", err.message))
+    copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon).catch(err => console.warn("Warning copying favicon:", err.message)),
+    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng).catch(err => console.warn("Warning copying emacs.png:", err.message))
   ]);
 
   console.log("Build complete!");

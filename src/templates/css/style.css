@@ -89,7 +89,8 @@ header {
 
 .title {
   font-size: 5rem;
-  margin: 0;
+  margin-bottom: 0;
+  margin-left: 0.25rem;
 }
 
 .title span {
