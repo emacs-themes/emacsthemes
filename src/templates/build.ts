@@ -317,11 +317,20 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       `<a href="/themes/index.html?q=${encodeURIComponent(tag)}" class="tag-link">${tag}</a>`
     ).join("\n");
 
+    const generatedDateObj = await (async () => {
+      try {
+        const stats = await stat(themeImgsDir);
+        return stats.mtime;
+      } catch {
+        return new Date();
+      }
+    })();
+
     const generatedDate = new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
-    }).format(new Date());
+    }).format(generatedDateObj);
 
     const content = contentTemplate
       .replace(/{{THEME_NAME}}/g, theme.name)
