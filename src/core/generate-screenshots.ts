@@ -45,9 +45,6 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
 
       const matchProvide = content.match(/\(provide-theme\s+'?([^',)\s][^)\s]*)\)/);
       if (matchProvide) return matchProvide[1];
-
-      const matchAlmostMono = content.match(/\(almost-mono-themes--define-theme\s+([^)\s]+)\)/);
-      if (matchAlmostMono) return `almost-mono-${matchAlmostMono[1]}`;
     }
   } catch (e) {
     console.error(`Error scanning for theme name in ${dir}:`, e);

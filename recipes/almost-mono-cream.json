@@ -17,5 +17,5 @@
     "cream",
     "monochrome"
   ],
-  "elisp": "(load-theme 'almost-mono-cream t)"
+  "elisp": "(require 'almost-mono-themes) (load-theme 'almost-mono-cream t)"
 }

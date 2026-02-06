@@ -19,5 +19,5 @@
     "black and white",
     "white"
   ],
-  "elisp": "(load-theme 'almost-mono-black t)"
+  "elisp": "(require 'almost-mono-themes) (load-theme 'almost-mono-black t)"
 }
