@@ -12,6 +12,17 @@
   margin-bottom: 1rem;
 }
 
+.theme-type.type-dark {
+  background: var(--nearblack);
+  color: var(--white);
+}
+
+.theme-type.type-light {
+  background: #f0eff5;
+  color: var(--purple);
+  border: 1px solid var(--muted);
+}
+
 .detail-header h2 {
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
