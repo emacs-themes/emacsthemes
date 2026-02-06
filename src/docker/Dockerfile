@@ -23,5 +23,12 @@ RUN bun ci
 # Copy project files
 COPY . .
 
+# Validate recipes during build (shows logs in docker build)
+RUN bun run validate
+
+# Smoke test: Generate screenshots for a single theme during build to ensure 
+# logs are forwarded and the environment is functional.
+RUN bun src/core/generate-screenshots.ts almost-mono-black --force
+
 # Set entrypoint to run the screenshot generation script
 ENTRYPOINT ["bun", "src/core/generate-screenshots.ts"]

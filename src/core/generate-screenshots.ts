@@ -45,6 +45,9 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
 
       const matchProvide = content.match(/\(provide-theme\s+'?([^',)\s][^)\s]*)\)/);
       if (matchProvide) return matchProvide[1];
+
+      const matchAlmostMono = content.match(/\(almost-mono-themes--define-theme\s+([^\)\s]+)\)/);
+      if (matchAlmostMono) return `almost-mono-${matchAlmostMono[1]}`;
     }
   } catch (e) {
     console.error(`Error scanning for theme name in ${dir}:`, e);
@@ -127,8 +130,8 @@ async function captureScreenshot(initElPath: string, imagePath: string): Promise
 
   try {
     const proc = Bun.spawn(["xvfb-run", "--auto-servernum", "--server-args=-screen 0 1280x960x24", "bash", "-c", wrapperCmd], {
-      stdout: "ignore",
-      stderr: "ignore"
+      stdout: "inherit",
+      stderr: "inherit"
     });
 
     const exitCode = await proc.exited;
@@ -192,10 +195,11 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
   const theme = parseResult.data;
   const themeImagesDir = join(IMAGES_DIR, theme.id);
 
-  // Skip if theme directory already exists
+  // Skip if theme directory already exists, unless --force is used
+  const force = Bun.argv.includes("--force");
   try {
     const dirInfo = await Bun.file(themeImagesDir).stat();
-    if (dirInfo) {
+    if (dirInfo && !force) {
       console.log(`${theme.name} exists, skipping screenshot`);
       return { status: 'skipped', name: theme.name };
     }
@@ -286,7 +290,18 @@ async function main() {
   await mkdir(TEMP_DIR, { recursive: true });
 
   const files = await readdir(RECIPES_DIR);
-  const recipes = files.filter(f => f.endsWith(".json"));
+  let recipes = files.filter(f => f.endsWith(".json"));
+
+  // Allow filtering by theme ID via CLI argument
+  const targetThemeId = Bun.argv[2];
+  if (targetThemeId) {
+    console.log(`Filtering for theme ID: ${targetThemeId}`);
+    recipes = recipes.filter(f => f.includes(targetThemeId));
+    if (recipes.length === 0) {
+      console.error(`No recipe found matching ID: ${targetThemeId}`);
+      process.exit(1);
+    }
+  }
 
   console.log(`Found ${recipes.length} recipes.`);
 
