@@ -39,6 +39,7 @@ const PATHS = {
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
       popular: join(TEMPLATES_DIR, "html/partials/popular-content.html"),
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
+      searchScript: join(TEMPLATES_DIR, "html/partials/search-script.html"),
     },
   },
   css: {
@@ -142,6 +143,17 @@ async function minifyCss(css: string): Promise<string> {
 }
 
 /**
+ * Minifies JS content by wrapping it in a script tag and using html-minifier-terser.
+ * 
+ * @param {string} js - The JS string to minify.
+ * @returns {Promise<string>} The minified JS string.
+ */
+async function minifyJs(js: string): Promise<string> {
+  const minified = await minify(`<script>${js}</script>`, { minifyJS: true });
+  return minified.replace("<script>", "").replace("</script>", "");
+}
+
+/**
  * Generates the HTML for a single theme card.
  *
  * @param {Theme} theme - The theme object containing details like name, id, description, etc.
@@ -178,6 +190,7 @@ interface PageData {
   latestThemesHeadline?: string;
   mainCssPath: string;
   extraCssPaths?: string[];
+  scripts?: string;
 }
 
 /**
@@ -200,6 +213,7 @@ function applyBaseTemplate(template: string, data: PageData): string {
     .replace("{{MAIN_CSS_PRELOAD}}", getCssPreloadTags(data.mainCssPath))
     .replace("{{EXTRA_CSS_PRELOAD}}", extraCssPreloads)
     .replace("{{YEAR}}", currentYear)
+    .replace("{{SCRIPTS}}", data.scripts || "")
     .replace(/{{GITHUB_URL}}/g, GITHUB_URL);
 }
 
@@ -234,18 +248,32 @@ async function buildHomepage(template: string, cardTemplate: string) {
  * @param {string} template - The base HTML template.
  * @param {string} cardTemplate - The theme card HTML template.
  * @param {string} searchBarHtml - The HTML for the search bar partial.
+ * @param {string} searchScriptTemplate - The HTML template for the search script.
  */
-async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string) {
+async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string, searchScriptTemplate: string) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
   const themesGrid = `<div class="grid">` + allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n") + `</div>`;
   
+  const themesData = allThemes.map(t => ({
+    id: t.id,
+    name: t.name,
+    type: t.type,
+    tags: t.tags
+  }));
+
+  const scriptWithData = searchScriptTemplate.replace("{{THEMES_DATA}}", JSON.stringify(themesData));
+  const scriptContent = scriptWithData.replace("<script>", "").replace("</script>", "");
+  const minifiedJs = await minifyJs(scriptContent);
+  const scriptHtml = `<script>${minifiedJs}</script>`;
+
   const html = applyBaseTemplate(template, {
     themesGrid,
     searchBar: searchBarHtml,
     mainCssPath: `../${PATHS.css.main}`,
-    extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`]
+    extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`],
+    scripts: scriptHtml
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -452,7 +480,7 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, popularThemesContentTemplate, error404ContentTemplate] = await Promise.all([
+  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, popularThemesContentTemplate, error404ContentTemplate, searchScriptTemplate] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
@@ -460,10 +488,11 @@ async function build() {
     Bun.file(PATHS.templates.partials.about).text(),
     Bun.file(PATHS.templates.partials.popular).text(),
     Bun.file(PATHS.templates.partials.error404).text(),
+    Bun.file(PATHS.templates.partials.searchScript).text(),
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate);
-  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
+  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptTemplate);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
   await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate);
