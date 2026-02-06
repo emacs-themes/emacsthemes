@@ -1,0 +1,25 @@
+{
+  "name": "Cloud Theme",
+  "id": "cloud",
+  "description": "A light colored theme",
+  "repoUrl": "https://github.com/vallyscode/cloud-theme",
+  "rawUrls": [
+    "https://github.com/vallyscode/cloud-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Valerii Lysenko"
+  ],
+  "tags": [
+    "cloud",
+    "light",
+    "white",
+    "blue",
+    "nord",
+    "green",
+    "red",
+    "gray",
+    "dark",
+    "muted"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Calm Forest Theme",
+  "id": "calm-forest",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/calm-forest-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/calm-forest-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Artur Hefczyc / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "calm forest",
+    "color themes",
+    "dark",
+    "green",
+    "grey",
+    "blue",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray",
+    "light"
+  ]
+}

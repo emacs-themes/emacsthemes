@@ -1,0 +1,24 @@
+{
+  "name": "Badwolf Theme",
+  "id": "badwolf",
+  "description": "An Emacs port of Bad Wolf theme for Vim.",
+  "repoUrl": "https://github.com/bkruczyk/badwolf-emacs",
+  "rawUrls": [
+    "https://github.com/bkruczyk/badwolf-emacs"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bartłomiej Kruczyk"
+  ],
+  "tags": [
+    "badwolf",
+    "dark",
+    "brown",
+    "vim",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

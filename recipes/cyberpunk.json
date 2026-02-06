@@ -1,0 +1,24 @@
+{
+  "name": "Cyberpunk Theme",
+  "id": "cyberpunk",
+  "description": "Cyberpunk color theme for the emacs 24+ built-in color theme support ",
+  "repoUrl": "https://github.com/n3mo/cyberpunk-theme.el",
+  "rawUrls": [
+    "https://github.com/n3mo/cyberpunk-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nicholas M. Van Horn"
+  ],
+  "tags": [
+    "cyberpunk",
+    "dark",
+    "popular",
+    "nord",
+    "red",
+    "yellow",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

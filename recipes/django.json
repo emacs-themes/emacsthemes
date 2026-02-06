@@ -1,0 +1,22 @@
+{
+  "name": "Django Theme",
+  "id": "django",
+  "description": "Custom face theme for Emacs",
+  "repoUrl": "https://github.com/andrzejsliwa/django-theme.el",
+  "rawUrls": [
+    "https://github.com/andrzejsliwa/django-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andrzej Sliwa"
+  ],
+  "tags": [
+    "django",
+    "green",
+    "red",
+    "gray",
+    "light",
+    "dark",
+    "muted"
+  ]
+}

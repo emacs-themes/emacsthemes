@@ -1,0 +1,21 @@
+{
+  "name": "Beige Diff Theme",
+  "id": "beige-diff",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/beige-diff-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/beige-diff-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Xavier Maillard & Brian Palmer / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "beige diff",
+    "color themes",
+    "light",
+    "white",
+    "red",
+    "gray"
+  ]
+}

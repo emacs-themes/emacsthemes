@@ -1,0 +1,25 @@
+{
+  "name": "Constant Theme",
+  "id": "constant",
+  "description": "A calm, dark, almost monochrome color theme",
+  "repoUrl": "https://github.com/Jannis/emacs-constant-theme",
+  "rawUrls": [
+    "https://github.com/Jannis/emacs-constant-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jannis Pohlmann"
+  ],
+  "tags": [
+    "constant",
+    "dark",
+    "black",
+    "monochrome",
+    "nord",
+    "blue",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

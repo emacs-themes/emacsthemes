@@ -1,0 +1,25 @@
+{
+  "name": "Badger Theme",
+  "id": "badger",
+  "description": "Dark Emacs 24 color theme (using deftheme).",
+  "repoUrl": "https://github.com/ccann/badger-theme",
+  "rawUrls": [
+    "https://github.com/ccann/badger-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Cody Canning"
+  ],
+  "tags": [
+    "badger",
+    "black",
+    "dark",
+    "emacs 24",
+    "modern",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

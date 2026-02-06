@@ -1,0 +1,24 @@
+{
+  "name": "Basic Theme",
+  "id": "basic",
+  "description": "Minimal color theme for Emacs using base16 colors.",
+  "repoUrl": "https://github.com/fgeller/basic-theme.el",
+  "rawUrls": [
+    "https://github.com/fgeller/basic-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Felix Geller"
+  ],
+  "tags": [
+    "basic",
+    "light",
+    "white",
+    "minimal",
+    "nord",
+    "red",
+    "gray",
+    "dark",
+    "muted"
+  ]
+}

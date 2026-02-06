@@ -1,0 +1,24 @@
+{
+  "name": "Distinguished Theme",
+  "id": "distinguished",
+  "description": "A modified port of the distinguished theme for vim.",
+  "repoUrl": "https://github.com/Lokaltog/distinguished-theme",
+  "rawUrls": [
+    "https://github.com/Lokaltog/distinguished-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kim Silkebækken"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "distinguished",
+    "vim",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

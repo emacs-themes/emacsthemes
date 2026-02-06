@@ -1,0 +1,30 @@
+{
+  "name": "Billw Theme",
+  "id": "billw",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/billw-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/billw-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Xavier Maillard & Brian Palmer / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "billw",
+    "black",
+    "color themes",
+    "dark",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray",
+    "light"
+  ]
+}

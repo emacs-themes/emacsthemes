@@ -1,0 +1,30 @@
+{
+  "name": "Dark Laptop Theme",
+  "id": "dark-laptop",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/dark-laptop-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/dark-laptop-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Laurent Michel / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "dark laptop",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray",
+    "light"
+  ]
+}

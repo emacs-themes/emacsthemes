@@ -1,0 +1,27 @@
+{
+  "name": "Darkless Theme",
+  "id": "darkless",
+  "description": "A colorless, gray theme",
+  "repoUrl": "https://git.sr.ht/~lthms/colorless-themes.el/",
+  "rawUrls": [
+    "https://git.sr.ht/~lthms/colorless-themes.el/"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "darkless",
+    "dark",
+    "gray",
+    "nord",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "cyan",
+    "magenta",
+    "light",
+    "muted"
+  ]
+}

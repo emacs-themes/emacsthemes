@@ -1,0 +1,23 @@
+{
+  "name": "Blackboard Theme",
+  "id": "blackboard",
+  "description": "Porting that makes blackboard no longer rely on color-theme package.",
+  "repoUrl": "https://github.com/don9z/blackboard-theme",
+  "rawUrls": [
+    "https://github.com/don9z/blackboard-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "JD Huntington"
+  ],
+  "tags": [
+    "black",
+    "blackboard",
+    "dark",
+    "textmate",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

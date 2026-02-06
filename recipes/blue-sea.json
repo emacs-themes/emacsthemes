@@ -1,0 +1,29 @@
+{
+  "name": "Blue Sea Theme",
+  "id": "blue-sea",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/blue-sea-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blue-sea-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Xavier Maillard & Brian Palmer / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "blue sea",
+    "color themes",
+    "intense",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "gray",
+    "light",
+    "dark"
+  ]
+}

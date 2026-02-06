@@ -1,0 +1,31 @@
+{
+  "name": "Charcoal Black Theme",
+  "id": "charcoal-black",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/charcoal-black-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/charcoal-black-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Lars Chr. Hausmann / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "charcoal",
+    "charcoal black",
+    "color themes",
+    "dark",
+    "grey",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "gray",
+    "light"
+  ]
+}

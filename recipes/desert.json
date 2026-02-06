@@ -1,0 +1,30 @@
+{
+  "name": "Desert Theme",
+  "id": "desert",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/desert-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/desert-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Sergei Lebedev / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "dark",
+    "desert",
+    "grey",
+    "vim",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "gray",
+    "light"
+  ]
+}

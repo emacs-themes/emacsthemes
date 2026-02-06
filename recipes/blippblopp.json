@@ -1,0 +1,28 @@
+{
+  "name": "Blippblopp Theme",
+  "id": "blippblopp",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/blippblopp-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blippblopp-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Sicheritz-Ponten / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blippblop",
+    "color themes",
+    "light",
+    "white",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "cyan",
+    "gray",
+    "dark"
+  ]
+}

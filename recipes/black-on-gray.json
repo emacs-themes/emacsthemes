@@ -1,0 +1,26 @@
+{
+  "name": "Black on Gray Theme",
+  "id": "black-on-gray",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/black-on-gray-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/black-on-gray-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "sbhojwani / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black on gray",
+    "color themes",
+    "grey",
+    "light",
+    "blue",
+    "green",
+    "red",
+    "orange",
+    "yellow",
+    "gray",
+    "dark"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "citrusOcean",
+  "id": "citrusOcean",
+  "description": "A dark theme base on orange and blue",
+  "repoUrl": "https://github.com/huanginch/citrusOcean",
+  "rawUrls": [
+    "https://github.com/huanginch/citrusOcean"
+  ],
+  "type": "dark",
+  "authors": [
+    "int Huang"
+  ],
+  "tags": [
+    "dark",
+    "ranbow-delimiters",
+    "nord",
+    "blue",
+    "red",
+    "orange",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

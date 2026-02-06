@@ -1,0 +1,24 @@
+{
+  "name": "Dark Pink Theme",
+  "id": "dark-pink",
+  "description": "Port of the Phoenix Dark Pink theme",
+  "repoUrl": "https://github.com/j0ni/phoenix-dark-pink",
+  "rawUrls": [
+    "https://github.com/j0ni/phoenix-dark-pink"
+  ],
+  "type": "dark",
+  "authors": [
+    "J Irving"
+  ],
+  "tags": [
+    "dark",
+    "dark pink",
+    "pink",
+    "sublime text",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Base16 Railcasts Theme",
+  "id": "base16-railcasts",
+  "description": "Base16 for Emacs",
+  "repoUrl": "https://github.com/neil477/base16-emacs",
+  "rawUrls": [
+    "https://github.com/neil477/base16-emacs"
+  ],
+  "type": "dark",
+  "authors": [
+    "Neil Bhakta"
+  ],
+  "tags": [
+    "base16",
+    "base16 railcasts",
+    "blue",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "dark",
+    "muted"
+  ]
+}

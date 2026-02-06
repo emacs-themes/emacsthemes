@@ -1,0 +1,31 @@
+{
+  "name": "Comidia Theme",
+  "id": "comidia",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/comidia-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/comidia-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Marcelo Dias / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "comidia",
+    "pastels on dark",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray",
+    "light",
+    "dark"
+  ]
+}

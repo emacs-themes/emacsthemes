@@ -1,0 +1,23 @@
+{
+  "name": "Bubbleberry Theme",
+  "id": "bubbleberry",
+  "description": "Inspired by LightTable by Chris Granger",
+  "repoUrl": "https://github.com/jasonm23/emacs-bubbleberry-theme",
+  "rawUrls": [
+    "https://github.com/jasonm23/emacs-bubbleberry-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins & Gaurav Giri"
+  ],
+  "tags": [
+    "black",
+    "blueberry",
+    "dark",
+    "emacs 24",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "cacao-theme",
+  "id": "cacao-theme",
+  "description": "A light AND dark theme based on an color inversion I did while working in Tech Support. See the source code for the whole story",
+  "repoUrl": "https://github.com/Michael-Garibaldi/cacao-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Michael-Garibaldi/cacao-theme/master/cacao-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "KoshVorlon"
+  ],
+  "tags": [
+    "dark",
+    "light",
+    "cacao",
+    "chocolate",
+    "emacs 24",
+    "org-mode",
+    "red"
+  ]
+}

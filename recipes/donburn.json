@@ -1,0 +1,19 @@
+{
+  "name": "Doneburn Theme",
+  "id": "doneburn",
+  "description": "A dark on light Emacs theme based on Bozhidar Batsov's Zenburn theme.",
+  "repoUrl": "https://github.com/ahrytsaienko/doneburn-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ahrytsaienko/doneburn-theme/refs/heads/master/doneburn-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Manuel Uberti"
+  ],
+  "tags": [
+    "light",
+    "white",
+    "zenburn",
+    "doneburn"
+  ]
+}

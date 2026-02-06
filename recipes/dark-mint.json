@@ -1,0 +1,23 @@
+{
+  "name": "Dark Mint Theme",
+  "id": "dark-mint",
+  "description": "A dark & minty fresh emacs theme",
+  "repoUrl": "https://github.com/shaunvxc/dark-mint-theme",
+  "rawUrls": [
+    "https://github.com/shaunvxc/dark-mint-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Shaun Viguerie"
+  ],
+  "tags": [
+    "dark",
+    "mint",
+    "emacs",
+    "awesome",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

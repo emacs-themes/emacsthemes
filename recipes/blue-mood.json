@@ -1,0 +1,28 @@
+{
+  "name": "Blue Mood Theme",
+  "id": "blue-mood",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/blue-mood-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blue-mood-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nelson Loyola / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "blue mood",
+    "color themes",
+    "green",
+    "red",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray",
+    "light",
+    "dark"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Chyla Theme",
+  "id": "chyla",
+  "description": "Green color theme",
+  "repoUrl": "https://github.com/chyla/ChylaThemeForEmacs/",
+  "rawUrls": [
+    "https://github.com/chyla/ChylaThemeForEmacs/"
+  ],
+  "type": "dark",
+  "authors": [
+    "Adam Chyła"
+  ],
+  "tags": [
+    "light",
+    "green",
+    "chyla",
+    "nord",
+    "red",
+    "gray",
+    "dark",
+    "muted"
+  ]
+}

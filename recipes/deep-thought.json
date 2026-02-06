@@ -1,0 +1,23 @@
+{
+  "name": "Deep Thought Theme",
+  "id": "deep-thought",
+  "description": "Emacs 24 theme with the Answer to The Ultimate Question.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-deep-thought-theme",
+  "rawUrls": [
+    "https://github.com/emacsfodder/emacs-deep-thought-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "blue",
+    "dark",
+    "deep thought",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

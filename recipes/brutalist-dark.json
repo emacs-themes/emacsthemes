@@ -1,0 +1,21 @@
+{
+  "name": "Brutalist Dark Theme",
+  "id": "brutalist-dark",
+  "description": "Low distraction, minimalistic dark theme for Emacs.",
+  "repoUrl": "https://git.madhouse-project.org/algernon/brutalist-theme.el.git",
+  "rawUrls": [
+    "https://git.madhouse-project.org/algernon/brutalist-theme.el/master/brutalist-dark.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Gergely Nagy"
+  ],
+  "tags": [
+    "dark",
+    "grey",
+    "black and white",
+    "brutalist",
+    "red",
+    "light"
+  ]
+}

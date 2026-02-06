@@ -1,0 +1,19 @@
+{
+  "name": "Darcula Theme",
+  "id": "darcula",
+  "description": "Emacs theme inspired by IntelliJ’s Darcula. https://spec.draculatheme.com/",
+  "repoUrl": "https://github.com/dracula/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/dracula/emacs/refs/heads/main/dracula-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Étienne Deparis"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "dracula",
+    "intellij"
+  ]
+}

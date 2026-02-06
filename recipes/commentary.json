@@ -1,0 +1,24 @@
+{
+  "name": "Commentary Theme",
+  "id": "commentary",
+  "description": "A minimal theme with contrasting comments",
+  "repoUrl": "https://github.com/pzel/commentary-theme",
+  "rawUrls": [
+    "https://github.com/pzel/commentary-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Amirreza Ghaderi & Simon Zelazny "
+  ],
+  "tags": [
+    "commentary",
+    "light",
+    "white",
+    "red",
+    "nord",
+    "gray",
+    "dark",
+    "minimal",
+    "muted"
+  ]
+}

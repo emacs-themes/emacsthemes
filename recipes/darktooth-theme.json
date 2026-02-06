@@ -1,0 +1,30 @@
+{
+  "name": "Darktooth Theme",
+  "id": "darktooth-theme",
+  "description": "Color theme for Emacs, when soothe and gruvbox collide",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-darktooth",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-darktooth/master/darktooth-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "darktooth",
+    "dark",
+    "soothe",
+    "groovbox",
+    "brown",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "cyan",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

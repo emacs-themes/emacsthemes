@@ -1,0 +1,29 @@
+{
+  "name": "Clarity Theme",
+  "id": "clarity",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/clarity-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/clarity-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Richard Wellum / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "clarity",
+    "color themes",
+    "dark",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "gray",
+    "light"
+  ]
+}

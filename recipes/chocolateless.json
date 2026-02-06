@@ -1,0 +1,27 @@
+{
+  "name": "Chocolateless Theme",
+  "id": "chocolateless",
+  "description": "A mostly colorless version of chocolate-theme",
+  "repoUrl": "https://git.sr.ht/~lthms/colorless-themes.el/",
+  "rawUrls": [
+    "https://git.sr.ht/~lthms/colorless-themes.el/"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "chocolateless",
+    "dark",
+    "brown",
+    "nord",
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "cyan",
+    "magenta",
+    "light",
+    "muted"
+  ]
+}

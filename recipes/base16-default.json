@@ -1,0 +1,23 @@
+{
+  "name": "Base16 Default Theme",
+  "id": "base16-default",
+  "description": "Base16 for Emacs",
+  "repoUrl": "https://github.com/neil477/base16-emacs",
+  "rawUrls": [
+    "https://github.com/neil477/base16-emacs"
+  ],
+  "type": "dark",
+  "authors": [
+    "Neil Bhakta"
+  ],
+  "tags": [
+    "base16",
+    "base16 default",
+    "dark",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

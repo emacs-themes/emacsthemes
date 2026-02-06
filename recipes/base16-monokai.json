@@ -1,0 +1,24 @@
+{
+  "name": "Base16 Monokai Theme",
+  "id": "base16-monokai",
+  "description": "Base16 for Emacs",
+  "repoUrl": "https://github.com/neil477/base16-emacs",
+  "rawUrls": [
+    "https://github.com/neil477/base16-emacs"
+  ],
+  "type": "dark",
+  "authors": [
+    "Neil Bhakta"
+  ],
+  "tags": [
+    "base16",
+    "base16 monokai",
+    "dark",
+    "monokai",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

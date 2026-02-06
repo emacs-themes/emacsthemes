@@ -1,0 +1,24 @@
+{
+  "name": "Busybee Theme",
+  "id": "busybee",
+  "description": "Port of vim’s Busybee theme.",
+  "repoUrl": "https://github.com/mswift42/busybee-theme",
+  "rawUrls": [
+    "https://github.com/mswift42/busybee-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "black",
+    "busybee",
+    "dark",
+    "vim",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

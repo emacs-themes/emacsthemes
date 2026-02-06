@@ -1,0 +1,23 @@
+{
+  "name": "Danneskjold Theme",
+  "id": "danneskjold",
+  "description": "Beautiful high-contrast theme",
+  "repoUrl": "https://github.com/rails-to-cosmos/danneskjold-theme",
+  "rawUrls": [
+    "https://github.com/rails-to-cosmos/danneskjold-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Dmitry Akatov"
+  ],
+  "tags": [
+    "danneskjold",
+    "black",
+    "dark",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

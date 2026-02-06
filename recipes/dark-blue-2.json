@@ -1,0 +1,19 @@
+{
+  "name": "Dark Blue 2 Theme",
+  "id": "dark-blue-2",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/refs/heads/master/dark-blue2-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Chris McMahan / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "color themes",
+    "dark",
+    "dark blue 2"
+  ]
+}

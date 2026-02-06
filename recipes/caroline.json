@@ -1,0 +1,24 @@
+{
+  "name": "Caroline Theme",
+  "id": "caroline",
+  "description": "An Emacs 24 color scheme",
+  "repoUrl": "https://github.com/xjackk/caroline-theme",
+  "rawUrls": [
+    "https://github.com/xjackk/caroline-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jack Killilea"
+  ],
+  "tags": [
+    "caroline",
+    "dark",
+    "emacs 24",
+    "black",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

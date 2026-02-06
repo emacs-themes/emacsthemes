@@ -1,0 +1,24 @@
+{
+  "name": "Dream Theme",
+  "id": "dream",
+  "description": "Dark, clean theme for emacs. inspired by the zenburn, sinburn.",
+  "repoUrl": "https://github.com/djcb/dream-theme",
+  "rawUrls": [
+    "https://github.com/djcb/dream-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Dirk-Jan C. Binnema"
+  ],
+  "tags": [
+    "dark",
+    "dream",
+    "sinburn",
+    "zenburn",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

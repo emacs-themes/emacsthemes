@@ -1,0 +1,22 @@
+{
+  "name": "Cobalt Theme",
+  "id": "cobalt",
+  "description": "Theme resembling TextMate Cobalt color theme.",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/cobalt-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/cobalt-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nick Ewing"
+  ],
+  "tags": [
+    "blue",
+    "cobalt",
+    "dark",
+    "textmate",
+    "red",
+    "pink",
+    "light"
+  ]
+}

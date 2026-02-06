@@ -1,0 +1,24 @@
+{
+  "name": "Deviant Theme",
+  "id": "deviant",
+  "description": "Theme inspired by the color scheme previously used by deviantart.com",
+  "repoUrl": "https://github.com/MetroWind/emacs-deviant-theme",
+  "rawUrls": [
+    "https://github.com/MetroWind/emacs-deviant-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Darksair"
+  ],
+  "tags": [
+    "dark",
+    "deviant",
+    "emacs 24",
+    "green",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

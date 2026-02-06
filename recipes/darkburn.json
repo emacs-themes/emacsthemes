@@ -1,0 +1,25 @@
+{
+  "name": "Darkburn Theme",
+  "id": "darkburn",
+  "description": "A not-so-low contrast color theme for Emacs.",
+  "repoUrl": "https://github.com/gorauskas/darkburn-theme",
+  "rawUrls": [
+    "https://github.com/gorauskas/darkburn-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jonas Gorauskas"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "darkburn",
+    "zenburn",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "low-contrast",
+    "muted"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Broceliande Theme",
+  "id": "broceliande",
+  "description": "A mostly colorless greeny theme",
+  "repoUrl": "https://git.sr.ht/~lthms/colorless-themes.el/",
+  "rawUrls": [
+    "https://git.sr.ht/~lthms/colorless-themes.el/"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "broceliande",
+    "dark",
+    "green",
+    "nord",
+    "blue",
+    "red",
+    "purple",
+    "cyan",
+    "magenta",
+    "light",
+    "muted"
+  ]
+}

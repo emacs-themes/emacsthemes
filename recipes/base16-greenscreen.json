@@ -1,0 +1,24 @@
+{
+  "name": "Base16 GreenScreen Theme",
+  "id": "base16-greenscreen",
+  "description": "Base16 for Emacs",
+  "repoUrl": "https://github.com/neil477/base16-emacs",
+  "rawUrls": [
+    "https://github.com/neil477/base16-emacs"
+  ],
+  "type": "dark",
+  "authors": [
+    "Neil Bhakta"
+  ],
+  "tags": [
+    "base16",
+    "base16 greenscreen",
+    "green",
+    "nord",
+    "red",
+    "gray",
+    "light",
+    "dark",
+    "muted"
+  ]
+}

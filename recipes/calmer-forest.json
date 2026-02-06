@@ -1,0 +1,25 @@
+{
+  "name": "Calmer Forest Theme",
+  "id": "calmer-forest",
+  "description": "A nice semi-dark Emacs 24 theme",
+  "repoUrl": "https://github.com/caldwell/calmer-forest-theme",
+  "rawUrls": [
+    "https://github.com/caldwell/calmer-forest-theme"
+  ],
+  "type": "dark",
+  "authors": [
+    "Artur Hefczyc & David Caldwell"
+  ],
+  "tags": [
+    "black",
+    "calmer forest",
+    "dark",
+    "emacs 24",
+    "green",
+    "red",
+    "orange",
+    "gray",
+    "light",
+    "muted"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Classic Theme",
+  "id": "classic",
+  "description": "Classic Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes/blob/master/classic-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/classic-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Frederic Giroud / Syohei YOSHIDA"
+  ],
+  "tags": [
+    "classic",
+    "color themes",
+    "dark",
+    "green",
+    "blue",
+    "red",
+    "yellow",
+    "pink",
+    "cyan",
+    "gray",
+    "light"
+  ]
+}
