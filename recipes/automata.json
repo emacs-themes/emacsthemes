@@ -1,0 +1,20 @@
+{
+  "name": "Automata Theme",
+  "id": "automata",
+  "description": "A refined light theme roughly based on NieR:Automata's colors.",
+  "repoUrl": "https://github.com/merrittlj/automata-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/merrittlj/automata-theme/refs/heads/master/configurations/emacs-automata-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Lucas Merritt"
+  ],
+  "tags": [
+    "light",
+    "minimal",
+    "gruvbox",
+    "cream",
+    "automata"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Autumn Light Theme",
+  "id": "autumn-light",
+  "description": " A light color theme with muted, autumnal colors.",
+  "repoUrl": "https://github.com/aalpern/emacs-color-theme-autumn-light",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/aalpern/emacs-color-theme-autumn-light/master/autumn-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Adam Alpern"
+  ],
+  "tags": [
+    "autumn-light",
+    "light",
+    "orange",
+    "emacs 24"
+  ]
+}

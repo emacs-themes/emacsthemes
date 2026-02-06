@@ -1,0 +1,22 @@
+{
+  "name": "Aalto Dark theme",
+  "id": "aalto-dark",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/aalto-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Xavier Maillard",
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "aalto dark",
+    "blue",
+    "color themes",
+    "dark",
+    "old"
+  ]
+}

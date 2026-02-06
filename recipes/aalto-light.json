@@ -1,0 +1,21 @@
+{
+  "name": "Aalto Light Theme",
+  "id": "aalto-light",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/aalto-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jari Aalto",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "aalto light",
+    "color themes",
+    "light",
+    "old",
+    "yellow"
+  ]
+}

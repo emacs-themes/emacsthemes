@@ -1,0 +1,18 @@
+{
+  "name": "avk-darkblue-white",
+  "id": "avk-darkblue-white",
+  "description": "avk theme: white on dark blue",
+  "repoUrl": "https://github.com/avkoval/avk-emacs-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/avkoval/avk-emacs-themes/master/avk-darkblue-white-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alex V. Koval"
+  ],
+  "tags": [
+    "dark",
+    "blue",
+    "white"
+  ]
+}

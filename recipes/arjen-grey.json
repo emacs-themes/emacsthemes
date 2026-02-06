@@ -1,0 +1,19 @@
+{
+  "name": "Arjen Grey Theme",
+  "id": "arjen-grey",
+  "description": "A soothing dark grey theme",
+  "repoUrl": "https://github.com/credmp/arjen-grey-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/credmp/arjen-grey-theme/master/arjen-grey-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Arjen Wiersma"
+  ],
+  "tags": [
+    "arjen",
+    "dark",
+    "blue",
+    "grey"
+  ]
+}

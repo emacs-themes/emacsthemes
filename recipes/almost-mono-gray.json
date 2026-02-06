@@ -1,0 +1,21 @@
+{
+  "name": "Almost Mono Gray Theme",
+  "id": "almost-mono-gray",
+  "description": "Almost monochrome in gray variant",
+  "repoUrl": "https://github.com/cryon/almost-mono-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/refs/heads/master/almost-mono-themes.el",
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/master/almost-mono-gray-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "John Olsson"
+  ],
+  "tags": [
+    "almost mono gray",
+    "dark",
+    "gray",
+    "monochrome"
+  ],
+  "elisp": "(load-theme 'almost-mono-gray t)"
+}

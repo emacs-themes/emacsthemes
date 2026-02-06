@@ -1,0 +1,20 @@
+{
+  "name": "Arjen Theme",
+  "id": "arjen",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/arjen-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Arjen Wiersma",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "arjen",
+    "black",
+    "color themes",
+    "dark"
+  ]
+}

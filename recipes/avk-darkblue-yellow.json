@@ -1,0 +1,18 @@
+{
+  "name": "avk-darkblue-yellow",
+  "id": "avk-darkblue-yellow",
+  "description": "avk theme: yellow on dark blue",
+  "repoUrl": "https://github.com/avkoval/avk-emacs-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/avkoval/avk-emacs-themes/master/avk-darkblue-yellow-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alex V. Koval"
+  ],
+  "tags": [
+    "dark",
+    "blue",
+    "yellow"
+  ]
+}

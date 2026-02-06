@@ -1,0 +1,21 @@
+{
+  "name": "Almost Mono Cream Theme",
+  "id": "almost-mono-cream",
+  "description": "Almost monochrome in cream variant",
+  "repoUrl": "https://github.com/cryon/almost-mono-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/refs/heads/master/almost-mono-themes.el",
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/master/almost-mono-cream-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "John Olsson"
+  ],
+  "tags": [
+    "almost mono cream",
+    "light",
+    "cream",
+    "monochrome"
+  ],
+  "elisp": "(load-theme 'almost-mono-cream t)"
+}

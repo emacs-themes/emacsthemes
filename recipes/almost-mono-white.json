@@ -1,0 +1,23 @@
+{
+  "name": "Almost Mono White Theme",
+  "id": "almost-mono-white",
+  "description": "Almost monochrome in white variant",
+  "repoUrl": "https://github.com/cryon/almost-mono-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/refs/heads/master/almost-mono-themes.el",
+    "https://raw.githubusercontent.com/cryon/almost-mono-themes/master/almost-mono-white-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "John Olsson"
+  ],
+  "tags": [
+    "almost mono white",
+    "light",
+    "white",
+    "monochrome",
+    "black and white",
+    "black"
+  ],
+  "elisp": "(load-theme 'almost-mono-white t)"
+}

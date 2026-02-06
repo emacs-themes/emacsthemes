@@ -1,0 +1,18 @@
+{
+  "name": "Arc Dark Theme",
+  "id": "arc-dark",
+  "description": "Arc dark theme for Emacs, to match the Gtk theme. Based off jonathanchu/atom-one-dark-theme and colors matching VSCode Arc+ theme.",
+  "repoUrl": "https://github.com/cfraz89/arc-dark-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cfraz89/arc-dark-theme/master/arc-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Christopher Fraser"
+  ],
+  "tags": [
+    "arc-dark",
+    "blue",
+    "dark"
+  ]
+}

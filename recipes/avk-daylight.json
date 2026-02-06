@@ -1,0 +1,18 @@
+{
+  "name": "avk-daylight",
+  "id": "avk-daylight",
+  "description": "avk theme: yellow on dark blue",
+  "repoUrl": "https://github.com/avkoval/avk-emacs-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/avkoval/avk-emacs-themes/master/avk-daylight-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Alex V. Koval"
+  ],
+  "tags": [
+    "light",
+    "blue",
+    "yellow"
+  ]
+}

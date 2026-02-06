@@ -1,0 +1,19 @@
+{
+  "name": "Ahungry Theme",
+  "id": "ahungry",
+  "description": "Ahungry color theme",
+  "repoUrl": "https://github.com/ahungry/color-theme-ahungry",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ahungry/color-theme-ahungry/master/ahungry-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Matthew Carter"
+  ],
+  "tags": [
+    "ahungry",
+    "dark",
+    "black",
+    "yellow"
+  ]
+}
