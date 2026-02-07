@@ -80,7 +80,7 @@ async function generateInitEl(
     modeSpecificLogic = await readFile(samplePath, "utf-8");
   } else {
     const absoluteSamplePath = resolve(samplePath);
-    const extraLogic = modeName === 'text-mode' ? '(linum-mode 1)' : '';
+    const extraLogic = modeName === 'text-mode' ? '(display-line-numbers-mode 1)' : '';
     modeSpecificLogic = `
 (find-file "${absoluteSamplePath}")
 (funcall '${modeName})
