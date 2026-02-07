@@ -21,6 +21,105 @@ export const ThemeSchema = z.object({
 
 export type Theme = z.infer<typeof ThemeSchema>;
 
+interface InjectionIssue {
+  field: string;
+  reason: string;
+}
+
+const INJECTION_PATTERNS: Array<{ pattern: RegExp; reason: string }> = [
+  { pattern: /<\/?script\b/i, reason: "contains a script tag" },
+  { pattern: /<[^>]+>/, reason: "contains HTML-like tags" },
+  { pattern: /\bon\w+\s*=/i, reason: "contains inline event handler syntax" },
+  { pattern: /javascript\s*:/i, reason: "contains javascript: protocol" },
+  { pattern: /data\s*:\s*text\/html/i, reason: "contains data:text/html payload" },
+  { pattern: /<\s*!\s*--/i, reason: "contains HTML comment syntax" },
+];
+
+function detectInjectionPattern(value: string): string | null {
+  for (const { pattern, reason } of INJECTION_PATTERNS) {
+    if (pattern.test(value)) {
+      return reason;
+    }
+  }
+
+  return null;
+}
+
+function validateUrlProtocol(field: string, value: string): InjectionIssue | null {
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      return { field, reason: "must use http or https protocol" };
+    }
+  } catch {
+    return { field, reason: "must be a valid absolute URL" };
+  }
+
+  return null;
+}
+
+/**
+ * Performs a defensive scan for potentially unsafe content in recipe fields
+ * that are rendered into generated HTML or embedded scripts.
+ *
+ * @param {Theme} recipe - The validated theme object.
+ * @returns {InjectionIssue[]} A list of detected issues. Empty array means no issue found.
+ */
+export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
+  const issues: InjectionIssue[] = [];
+
+  const textFields: Array<[string, string]> = [
+    ["name", recipe.name],
+    ["id", recipe.id],
+    ["description", recipe.description],
+    ["repoUrl", recipe.repoUrl],
+    ["type", recipe.type],
+    ["elisp", recipe.elisp],
+  ];
+
+  for (const [field, value] of textFields) {
+    const reason = detectInjectionPattern(value);
+    if (reason) {
+      issues.push({ field, reason });
+    }
+  }
+
+  recipe.tags.forEach((tag, index) => {
+    const reason = detectInjectionPattern(tag);
+    if (reason) {
+      issues.push({ field: `tags[${index}]`, reason });
+    }
+  });
+
+  recipe.authors.forEach((author, index) => {
+    const reason = detectInjectionPattern(author);
+    if (reason) {
+      issues.push({ field: `authors[${index}]`, reason });
+    }
+  });
+
+  const repoUrlIssue = validateUrlProtocol("repoUrl", recipe.repoUrl);
+  if (repoUrlIssue) {
+    issues.push(repoUrlIssue);
+  }
+
+  recipe.rawUrls.forEach((rawUrl, index) => {
+    const field = `rawUrls[${index}]`;
+    const reason = detectInjectionPattern(rawUrl);
+    if (reason) {
+      issues.push({ field, reason });
+      return;
+    }
+
+    const urlIssue = validateUrlProtocol(field, rawUrl);
+    if (urlIssue) {
+      issues.push(urlIssue);
+    }
+  });
+
+  return issues;
+}
+
 export async function validateSchema(filePath: string): Promise<boolean> {
   try {
     const absolutePath = resolve(filePath);
@@ -37,6 +136,13 @@ export async function validateSchema(filePath: string): Promise<boolean> {
     const result = ThemeSchema.safeParse(jsonData);
 
     if (result.success) {
+      const injectionIssues = validateRecipeForInjection(result.data);
+      if (injectionIssues.length > 0) {
+        console.error(`❌ Injection safety check failed for ${filePath}:`);
+        console.error(JSON.stringify(injectionIssues, null, 2));
+        return false;
+      }
+
       console.log(`✅ Schema validation passed for ${filePath}!`);
       return true;
     } else {
