@@ -1,0 +1,20 @@
+{
+  "name": "Minimal Light Theme",
+  "id": "minimal-light",
+  "description": "A light minimalistic theme for Emacs 24.",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/minimal-light/minimal-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Anler Hp"
+  ],
+  "tags": [
+    "white",
+    "light",
+    "emacs 24",
+    "minimal",
+    "minimalistic"
+  ]
+}
