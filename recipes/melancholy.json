@@ -2,9 +2,9 @@
   "name": "Melancholy Theme",
   "id": "melancholy",
   "description": "A dark theme for dark minds",
-  "repoUrl": "https://github.com/techquila/melancholy-theme",
+  "repoUrl": "https://github.com/emacsmirror/melancholy-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/techquila/melancholy-theme/master/melancholy-theme.el"
+    "https://github.com/emacsmirror/melancholy-theme/raw/refs/heads/master/melancholy-theme.el"
   ],
   "type": "dark",
   "authors": [
