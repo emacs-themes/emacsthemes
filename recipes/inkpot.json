@@ -2,9 +2,9 @@
   "name": "Inkpot Theme",
   "id": "inkpot",
   "description": "A port of the vim inkpot theme for emacs deftheme",
-  "repoUrl": "https://github.com/ideasman42/emacs-theme-inkpot",
+  "repoUrl": "https://github.com/emacsmirror/inkpot-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/ideasman42/emacs-theme-inkpot/master/inkpot-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/inkpot-theme/refs/heads/master/inkpot-theme.el"
   ],
   "type": "dark",
   "authors": [

@@ -2,9 +2,9 @@
   "name": "Grand Shell Theme",
   "id": "grand-shell",
   "description": "Dark color theme for Emacs >= 24 with intensive colors",
-  "repoUrl": "https://github.com/steckerhalter/grandshell-theme",
+  "repoUrl": "https://framagit.org/steckerhalter/grandshell-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/steckerhalter/grandshell-theme/master/grandshell-theme.el"
+    "https://framagit.org/steckerhalter/grandshell-theme/-/raw/master/grandshell-theme.el?ref_type=heads"
   ],
   "type": "dark",
   "authors": [

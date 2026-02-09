@@ -2,9 +2,9 @@
   "name": "Hipster Theme",
   "id": "hipster",
   "description": "A low contrast theme with hipster colors.",
-  "repoUrl": "https://github.com/purcell/hipster-theme",
+  "repoUrl": "https://github.com/redbeardcreator/hipster-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/purcell/hipster-theme/master/hipster-theme.el"
+    "https://raw.githubusercontent.com/redbeardcreator/hipster-theme/refs/heads/master/hipster-theme.el"
   ],
   "type": "dark",
   "authors": [

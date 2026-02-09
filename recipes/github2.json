@@ -1,16 +1,17 @@
 {
-  "name": "Github def Theme",
+  "name": "Github Modern Theme",
   "id": "github2",
-  "description": "GitHub-like (deftheme) theme for Emacs.",
-  "repoUrl": "https://github.com/philiparvidsson/emacs-github-theme",
+  "description": "A low contrast color theme for Emacs.",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://raw.githubusercontent.com/philiparvidsson/emacs-github-theme/master/github-theme.el"
+    "static/themes/github2/github2.el"
   ],
   "type": "light",
   "authors": [
     "Philip Arvidsson"
   ],
   "tags": [
+    "github2",
     "github",
     "light",
     "white"

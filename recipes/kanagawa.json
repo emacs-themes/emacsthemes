@@ -2,17 +2,19 @@
   "name": "Kanagawa Theme",
   "id": "kanagawa",
   "description": "Ideal Emacs theme inspired by the colors of the famous painting by Katsushika Hokusai.",
-  "repoUrl": "https://github.com/meritamen/emacs-kanagawa-theme",
+  "repoUrl": "https://github.com/arouene/emacs-kanagawa-theme/",
   "rawUrls": [
-    "https://raw.githubusercontent.com/meritamen/emacs-kanagawa-theme/master/kanagawa-theme.el"
+    "https://raw.githubusercontent.com/arouene/emacs-kanagawa-theme/refs/heads/main/kanagawa-theme.el"
   ],
   "type": "dark",
   "authors": [
-    "Meritamen"
+    "Shira Filianore",
+    "Fabio Kleis"
   ],
   "tags": [
     "dark",
     "smooth",
-    "kanagawaWave"
+    "kanagawa",
+    "wave"
   ]
 }

@@ -2,9 +2,9 @@
   "name": "Intellij Theme",
   "id": "intellij",
   "description": "Emacs theme inspired by IntelliJ's default theme.",
-  "repoUrl": "https://github.com/fommil/emacs-intellij-theme",
+  "repoUrl": "https://github.com/fommil/intellij-theme.el",
   "rawUrls": [
-    "https://raw.githubusercontent.com/fommil/emacs-intellij-theme/master/intellij-theme.el"
+    "https://raw.githubusercontent.com/fommil/intellij-theme.el/refs/heads/master/intellij-theme.el"
   ],
   "type": "light",
   "authors": [
