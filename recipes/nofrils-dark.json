@@ -1,20 +1,20 @@
 {
-  "name": "Nofrils Light Theme",
-  "id": "nofrils-light",
+  "name": "Nofrils Dark Theme",
+  "id": "nofrils-dark",
   "description": "A port of the No Frils Acme Vim theme to Emacs",
   "repoUrl": "https://gitlab.com/esessoms/nofrils-theme",
   "rawUrls": [
-    "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-light-theme.el?ref_type=heads"
+    "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-dark-theme.el?ref_type=heads"
   ],
-  "type": "light",
+  "type": "dark",
   "authors": [
     "Eric Sessoms"
   ],
   "tags": [
-    "nofrils light",
+    "nofrils dark",
     "nofrils",
-    "light",
-    "grey",
+    "dark",
+    "black",
     "monochrome"
   ]
 }

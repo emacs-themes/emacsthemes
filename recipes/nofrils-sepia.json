@@ -2,15 +2,16 @@
   "name": "Nofrils Sepia Theme",
   "id": "nofrils-sepia",
   "description": "A port of the No Frils Sepia Vim theme to Emacs",
-  "repoUrl": "https://github.com/esessoms/nofrils-theme",
+  "repoUrl": "https://gitlab.com/esessoms/nofrils-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/esessoms/nofrils-theme/master/nofrils-sepia-theme.el"
+    "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-sepia-theme.el?ref_type=heads"
   ],
   "type": "light",
   "authors": [
     "Eric Sessoms"
   ],
   "tags": [
+    "nofrils sepia",
     "nofrils",
     "sepia",
     "orange",

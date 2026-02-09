@@ -2,15 +2,16 @@
   "name": "Nofrils Acme Theme",
   "id": "nofrils-acme",
   "description": "A port of the No Frils Acme Vim theme to Emacs",
-  "repoUrl": "https://github.com/esessoms/nofrils-theme",
+  "repoUrl": "https://gitlab.com/esessoms/nofrils-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/esessoms/nofrils-theme/master/nofrils-acme-theme.el"
+    "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-acme-theme.el?ref_type=heads"
   ],
   "type": "light",
   "authors": [
     "Eric Sessoms"
   ],
   "tags": [
+    "nofrils acme",
     "nofrils",
     "acme",
     "light",
