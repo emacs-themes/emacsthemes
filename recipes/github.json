@@ -4,7 +4,7 @@
   "description": "Github color theme for GNU Emacs 24.",
   "repoUrl": "https://github.com/dudleyf/color-theme-github",
   "rawUrls": [
-    "https://raw.githubusercontent.com/dudleyf/color-theme-github/master/github-theme.el"
+    "https://raw.githubusercontent.com/dudleyf/color-theme-github/refs/heads/master/color-theme-github.el"
   ],
   "type": "light",
   "authors": [
