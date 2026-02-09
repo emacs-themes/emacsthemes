@@ -52,11 +52,13 @@ const PATHS = {
   assets: {
     src: {
       images: join(STATIC_DIR, "imgs"),
+      themes: join(STATIC_DIR, "themes"),
       favicon: join(STATIC_DIR, "favicon.ico"),
       emacsPng: join(STATIC_DIR, "emacs.png"),
     },
     dest: {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
+      themes: join(BUILD_DIR, STATIC_DIR, "themes"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
       favicon: join(BUILD_DIR, "favicon.ico"),
       emacsPng: join(BUILD_DIR, "emacs.png"),
@@ -77,6 +79,7 @@ interface Theme {
   id: string;
   description: string;
   repoUrl: string;
+  rawUrls: string[];
   type: string;
   tags: string[];
 }
@@ -332,9 +335,15 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       day: 'numeric'
     }).format(generatedDateObj);
 
+    let repoLinkHtml = `<a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub</a>`;
+    if (theme.repoUrl === "local") {
+      repoLinkHtml = "";
+    }
+
     const content = contentTemplate
       .replace(/{{THEME_NAME}}/g, theme.name)
       .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
+      .replace(/<a href="{{THEME_REPO_URL}}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub<\/a>/g, repoLinkHtml)
       .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
       .replace(/{{THEME_TYPE}}/g, theme.type)
       .replace(/{{THEME_TAGS}}/g, tagsHtml)
@@ -510,6 +519,7 @@ async function build() {
   console.log("Copying and minifying assets...");
   await Promise.all([
     copyDir(PATHS.assets.src.images, PATHS.assets.dest.images),
+    copyDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon).catch(err => console.warn("Warning copying favicon:", err.message)),
     copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng).catch(err => console.warn("Warning copying emacs.png:", err.message))
