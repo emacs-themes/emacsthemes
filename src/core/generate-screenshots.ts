@@ -1,5 +1,5 @@
-import { mkdir, readdir, readFile, rm } from "node:fs/promises";
-import { join, basename, resolve } from "node:path";
+import { mkdir, readdir, readFile, rm, copyFile } from "node:fs/promises";
+import { join, basename, resolve, relative } from "node:path";
 import { ThemeSchema, Theme } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
 
@@ -7,22 +7,124 @@ const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
 const INIT_TEMPLATE_PATH = "src/elisp/init-template.el";
 const MODES_SAMPLES_DIR = "src/elisp/modes";
+const LOCAL_THEMES_DIR = "static/themes";
 
 /**
- * Downloads raw theme files from a list of URLs and saves them to a local directory.
+ * Recursively copies a directory and its contents to a destination.
  *
- * @param {string[]} rawUrls - An array of absolute URLs to the raw theme Elisp files.
+ * @param {string} src - The source directory path.
+ * @param {string} dest - The destination directory path.
+ */
+async function copyDir(src: string, dest: string) {
+  await mkdir(dest, { recursive: true });
+  const entries = await readdir(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
+    if (entry.isDirectory()) await copyDir(srcPath, destPath);
+    else await copyFile(srcPath, destPath);
+  }
+}
+
+/**
+ * Checks whether a recipe raw URL points to a local bundled theme file.
+ *
+ * @param {string} rawUrl - A recipe raw URL value.
+ * @returns {boolean} True when the value points to `static/themes/...`.
+ */
+function isLocalThemePath(rawUrl: string): boolean {
+  return rawUrl.startsWith(`${LOCAL_THEMES_DIR}/`);
+}
+
+/**
+ * Resolves and validates a local theme source path against the `static/themes` boundary.
+ *
+ * @param {string} source - Local recipe source path.
+ * @returns {string} Absolute, validated path to the local theme file.
+ * @throws {Error} If the path escapes the `static/themes` directory.
+ */
+function resolveValidatedLocalThemePath(source: string): string {
+  const localThemesRoot = resolve(LOCAL_THEMES_DIR);
+  const absoluteSourcePath = resolve(source);
+  const relativeToRoot = relative(localThemesRoot, absoluteSourcePath);
+  const escapesLocalRoot = relativeToRoot.startsWith("..") || relativeToRoot.startsWith("/");
+
+  if (escapesLocalRoot) {
+    throw new Error(`Invalid local theme path outside ${LOCAL_THEMES_DIR}: ${source}`);
+  }
+
+  return absoluteSourcePath;
+}
+
+/**
+ * Copies a local theme file from `static/themes` into the temporary theme directory.
+ *
+ * @param {string} source - Local recipe source path.
+ * @param {string} themeDir - Temporary destination directory for this theme.
+ * @returns {Promise<void>} Resolves when the local theme file is copied.
+ * @throws {Error} If the source file does not exist.
+ */
+async function copyLocalThemeFile(source: string, themeDir: string): Promise<void> {
+  const absoluteSourcePath = resolveValidatedLocalThemePath(source);
+  const localFile = Bun.file(absoluteSourcePath);
+
+  if (!(await localFile.exists())) {
+    throw new Error(`Local theme file not found: ${source}`);
+  }
+
+  console.log(`  Copying local theme file ${source}...`);
+  const filename = basename(source);
+  await Bun.write(join(themeDir, filename), await localFile.arrayBuffer());
+}
+
+/**
+ * Downloads a remote theme file into the temporary theme directory.
+ *
+ * @param {string} source - Absolute HTTP(S) URL to the theme file.
+ * @param {string} themeDir - Temporary destination directory for this theme.
+ * @returns {Promise<void>} Resolves when the remote file is downloaded and written.
+ * @throws {Error} If the HTTP request fails.
+ */
+async function downloadRemoteThemeFile(source: string, themeDir: string): Promise<void> {
+  console.log(`  Downloading ${source}...`);
+  const res = await fetch(source);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${source}: ${res.statusText}`);
+  }
+
+  const filename = basename(source);
+  await Bun.write(join(themeDir, filename), await res.arrayBuffer());
+}
+
+/**
+ * Materializes a single recipe source into the temporary theme directory.
+ *
+ * @param {string} source - Recipe source value, either local or remote.
+ * @param {string} themeDir - Temporary destination directory for this theme.
+ * @returns {Promise<void>} Resolves when the source has been written locally.
+ */
+async function materializeThemeSource(source: string, themeDir: string): Promise<void> {
+  if (isLocalThemePath(source)) {
+    await copyLocalThemeFile(source, themeDir);
+    return;
+  }
+
+  await downloadRemoteThemeFile(source, themeDir);
+}
+
+/**
+ * Downloads raw theme files from recipe sources and saves them to a local directory.
+ *
+ * Supports both absolute HTTP(S) URLs and local `static/themes/...` paths.
+ *
+ * @param {string[]} rawUrls - An array of recipe raw URLs or local theme paths.
  * @param {string} themeDir - The local directory path where files should be saved.
  * @returns {Promise<void>} Resolves when all files are successfully downloaded and written.
- * @throws {Error} If any download fails or the response is not OK.
+ * @throws {Error} If any source cannot be fetched/read or violates the local path boundary.
  */
 async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<void> {
-  for (const url of rawUrls) {
-    console.log(`  Downloading ${url}...`);
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.statusText}`);
-    const filename = basename(url);
-    await Bun.write(join(themeDir, filename), await res.arrayBuffer());
+  for (const source of rawUrls) {
+    await materializeThemeSource(source, themeDir);
   }
 }
 
@@ -213,7 +315,13 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
   let processingFailed = false;
 
   try {
-    await downloadThemeFiles(theme.rawUrls, themeTempDir);
+    if (theme.repoUrl === "local") {
+      const localThemeDir = join(LOCAL_THEMES_DIR, theme.id);
+      console.log(`  Copying local theme directory from ${localThemeDir}...`);
+      await copyDir(localThemeDir, themeTempDir);
+    } else {
+      await downloadThemeFiles(theme.rawUrls, themeTempDir);
+    }
     const detectedName = await findThemeNameInDir(themeTempDir);
     const emacsThemeName = detectedName || theme.name.toLowerCase().replace(/\s+/g, '-');
 

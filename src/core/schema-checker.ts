@@ -13,12 +13,19 @@ export const ThemeSchema = z.object({
   authors: z.array(
     z.string().trim().min(1, 'Authors name cannot be empty'))
      .nonempty('You must list at least one author'),
-  tags: z.array(
-    z.string().trim().min(1, 'Tags cannot be empty'))
-    .nonempty('You must list at least one tag'),
-  elisp: z.string().optional().default(''),
-});
-
+      tags: z.array(
+      z.string().trim().min(1, 'Tags cannot be empty'))
+      .nonempty('You must list at least one tag'),
+    elisp: z.string().optional().default(''),
+  }).refine((data) => {
+    if (data.repoUrl === "local") {
+      return data.rawUrls.every(url => url.startsWith(`static/themes/${data.id}/`));
+    }
+    return true;
+  }, {
+    message: "Local themes must have rawUrls starting with 'static/themes/{id}/'",
+    path: ["rawUrls"]
+  });
 export type Theme = z.infer<typeof ThemeSchema>;
 
 interface InjectionIssue {
@@ -46,13 +53,16 @@ function detectInjectionPattern(value: string): string | null {
 }
 
 function validateUrlProtocol(field: string, value: string): InjectionIssue | null {
+  if (value === "local" || value.startsWith("static/themes/")) {
+    return null;
+  }
   try {
     const parsed = new URL(value);
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-      return { field, reason: "must use http or https protocol" };
+      return { field, reason: "must use http, https protocol or be a local static/themes/ path" };
     }
   } catch {
-    return { field, reason: "must be a valid absolute URL" };
+    return { field, reason: "must be a valid absolute URL or a local static/themes/ path" };
   }
 
   return null;
