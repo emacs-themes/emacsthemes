@@ -1,11 +1,14 @@
 (defun log-debug (fmt &rest args)
   (let ((msg (apply #'format fmt args)))
-    (message "%s" msg)
+    (message "DEBUG EMACS: %s" msg)
     (princ (concat msg "\n") #'external-debugging-output)))
 
-(log-debug "DEBUG EMACS: Starting Emacs init...")
+(log-debug "Starting Emacs init...")
 (add-to-list 'load-path "{{THEME_DIR}}")
-(log-debug "DEBUG EMACS: Added {{THEME_DIR}} to load-path")
+(log-debug "Added {{THEME_DIR}} to load-path")
+
+(log-debug "Loading theme files...")
+{{LOAD_THEME_FILES}}
 
 ;; Make emacs full window
 (set-frame-parameter nil 'fullscreen 'fullboth)
@@ -17,27 +20,29 @@
 (scroll-bar-mode -1)
 (set-face-attribute 'default nil :height 140)
 
-(log-debug "DEBUG EMACS: Attempting to load theme...")
+(log-debug "Attempting to load theme...")
 
 ;; Add current dir to theme load path
 (add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
 
-;; Ensure solarized palettes are loaded if available (fixes issue with interpreted solarized themes)
-(require 'solarized-palettes nil t)
+(log-debug "Running extra elisp...")
+(condition-case err
+    (progn
+      {{EXTRA_ELISP}})
+  (error (log-debug "Extra elisp execution failed: %s" err)))
 
 ;; Try to load and enable theme based on name
-(let ((name-symbol (intern "{{THEME_NAME}}")))
-   (condition-case err
-       (load-theme name-symbol t)
-     (error (log-debug "Auto-loading theme %s failed: %s" name-symbol err))))
-
-{{EXTRA_ELISP}}
+(unless custom-enabled-themes
+  (let ((name-symbol (intern "{{THEME_NAME}}")))
+     (condition-case err
+         (load-theme name-symbol t)
+       (error (log-debug "Auto-loading theme %s failed: %s" name-symbol err)))))
 
 (if custom-enabled-themes
-  (log-debug "DEBUG EMACS: Theme loaded successfully")
-  (log-debug "DEBUG EMACS: Error: No theme loaded"))
+  (log-debug "Theme loaded successfully")
+  (log-debug "Error: No theme loaded"))
 
 {{MODE_SPECIFIC_LOGIC}}
 
 (redisplay t)
-(log-debug "DEBUG EMACS: Emacs init completed.")
+(log-debug "Emacs init completed.")

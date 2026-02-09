@@ -119,13 +119,16 @@ async function materializeThemeSource(source: string, themeDir: string): Promise
  *
  * @param {string[]} rawUrls - An array of recipe raw URLs or local theme paths.
  * @param {string} themeDir - The local directory path where files should be saved.
- * @returns {Promise<void>} Resolves when all files are successfully downloaded and written.
+ * @returns {Promise<string[]>} Resolves with the list of filenames downloaded.
  * @throws {Error} If any source cannot be fetched/read or violates the local path boundary.
  */
-async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<void> {
+async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<string[]> {
+  const files: string[] = [];
   for (const source of rawUrls) {
     await materializeThemeSource(source, themeDir);
+    files.push(basename(source));
   }
+  return files;
 }
 
 /**
@@ -162,6 +165,7 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
  *
  * @param {Theme} theme - The validated theme object from the recipe.
  * @param {string} themeDir - Path to the directory containing the theme's Elisp files.
+ * @param {string[]} filesToLoad - List of files to explicitly load.
  * @param {string} themeName - The internal Emacs symbol name for the theme.
  * @param {string} modeName - The name of the Emacs mode to showcase (e.g., 'python-mode').
  * @param {ModeConfig} config - Configuration object specifying the sample file and type.
@@ -170,6 +174,7 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
 async function generateInitEl(
   theme: Theme,
   themeDir: string,
+  filesToLoad: string[],
   themeName: string,
   modeName: string,
   config: ModeConfig
@@ -188,12 +193,18 @@ async function generateInitEl(
 (funcall '${modeName})
 ${extraLogic}
 (delete-other-windows)
-(log-debug "DEBUG EMACS: Opened ${config.file} in ${modeName}")
+(log-debug "Opened ${config.file} in ${modeName}")
     `;
   }
 
+  const loadFilesElisp = filesToLoad
+    .filter(f => f.endsWith(".el"))
+    .map(f => `(load "${resolve(join(themeDir, f))}")`)
+    .join("\n");
+
   return template
     .replace(/{{THEME_DIR}}/g, resolve(themeDir))
+    .replace(/{{LOAD_THEME_FILES}}/g, loadFilesElisp)
     .replace(/{{THEME_NAME}}/g, themeName)
     .replace(/{{EXTRA_ELISP}}/g, theme.elisp || "")
     .replace(/{{MODE_SPECIFIC_LOGIC}}/g, modeSpecificLogic);
@@ -315,12 +326,16 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
   let processingFailed = false;
 
   try {
+    const filesToLoad: string[] = [];
     if (theme.repoUrl === "local") {
       const localThemeDir = join(LOCAL_THEMES_DIR, theme.id);
       console.log(`  Copying local theme directory from ${localThemeDir}...`);
       await copyDir(localThemeDir, themeTempDir);
+      // For local themes, we use the rawUrls list to determine what to load
+      theme.rawUrls.forEach(url => filesToLoad.push(basename(url)));
     } else {
-      await downloadThemeFiles(theme.rawUrls, themeTempDir);
+      const downloaded = await downloadThemeFiles(theme.rawUrls, themeTempDir);
+      filesToLoad.push(...downloaded);
     }
     const detectedName = await findThemeNameInDir(themeTempDir);
     const emacsThemeName = detectedName || theme.name.toLowerCase().replace(/\s+/g, '-');
@@ -330,7 +345,7 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
       const imagePath = join(themeImagesDir, `${modeName}.png`);
       const initElPath = join(themeTempDir, `init-${modeName}.el`);
 
-      const initContent = await generateInitEl(theme, themeTempDir, emacsThemeName, modeName, config);
+      const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config);
       await Bun.write(initElPath, initContent);
 
       const success = await captureScreenshot(initElPath, imagePath);
