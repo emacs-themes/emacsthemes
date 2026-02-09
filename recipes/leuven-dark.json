@@ -1,0 +1,18 @@
+{
+  "name": "Leuven Dark",
+  "id": "leuven-dark",
+  "description": "Awesome Emacs color theme on dark background.",
+  "repoUrl": "https://github.com/fniessen/emacs-leuven-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/fniessen/emacs-leuven-theme/refs/heads/master/lisp/leuven-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Fabrice Niessen"
+  ],
+  "tags": [
+    "color themes",
+    "leuven",
+    "dark"
+  ]
+}

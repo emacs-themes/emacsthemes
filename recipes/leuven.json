@@ -1,10 +1,10 @@
 {
-  "name": "Leuven Theme",
+  "name": "Leuven",
   "id": "leuven",
-  "description": "An elegant color theme for light backgrounds.",
+  "description": " Elegant Emacs color theme for a white background",
   "repoUrl": "https://github.com/fniessen/emacs-leuven-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/fniessen/emacs-leuven-theme/master/leuven-theme.el"
+    "https://github.com/fniessen/emacs-leuven-theme/raw/refs/heads/master/lisp/leuven-theme.el"
   ],
   "type": "light",
   "authors": [
