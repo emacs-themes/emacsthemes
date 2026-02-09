@@ -23,6 +23,7 @@
 (log-debug "Attempting to load theme...")
 
 ;; Add current dir to theme load path
+(log-debug "Adding theme dir '{{THEME_DIR}}' to custom-theme-load-path")
 (add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
 
 (log-debug "Running extra elisp...")
@@ -32,6 +33,7 @@
   (error (log-debug "Extra elisp execution failed: %s" err)))
 
 ;; Try to load and enable theme based on name
+(log-debug "Enabling theme. Theme name: '{{THEME_NAME}}'" )
 (unless custom-enabled-themes
   (let ((name-symbol (intern "{{THEME_NAME}}")))
      (condition-case err
@@ -39,8 +41,9 @@
        (error (log-debug "Auto-loading theme %s failed: %s" name-symbol err)))))
 
 (if custom-enabled-themes
-  (log-debug "Theme loaded successfully")
-  (log-debug "Error: No theme loaded"))
+    (log-debug "Theme loaded successfully: %s" custom-enabled-themes)
+  (log-debug "Error: No theme loaded. Aborting screenshot.")
+  (kill-emacs 1))
 
 {{MODE_SPECIFIC_LOGIC}}
 

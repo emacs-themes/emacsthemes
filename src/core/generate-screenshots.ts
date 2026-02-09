@@ -61,10 +61,10 @@ function resolveValidatedLocalThemePath(source: string): string {
  *
  * @param {string} source - Local recipe source path.
  * @param {string} themeDir - Temporary destination directory for this theme.
- * @returns {Promise<void>} Resolves when the local theme file is copied.
+ * @returns {Promise<string>} The filename of the copied file.
  * @throws {Error} If the source file does not exist.
  */
-async function copyLocalThemeFile(source: string, themeDir: string): Promise<void> {
+async function copyLocalThemeFile(source: string, themeDir: string): Promise<string> {
   const absoluteSourcePath = resolveValidatedLocalThemePath(source);
   const localFile = Bun.file(absoluteSourcePath);
 
@@ -75,6 +75,7 @@ async function copyLocalThemeFile(source: string, themeDir: string): Promise<voi
   console.log(`  Copying local theme file ${source}...`);
   const filename = basename(source);
   await Bun.write(join(themeDir, filename), await localFile.arrayBuffer());
+  return filename;
 }
 
 /**
@@ -82,18 +83,22 @@ async function copyLocalThemeFile(source: string, themeDir: string): Promise<voi
  *
  * @param {string} source - Absolute HTTP(S) URL to the theme file.
  * @param {string} themeDir - Temporary destination directory for this theme.
- * @returns {Promise<void>} Resolves when the remote file is downloaded and written.
+ * @returns {Promise<string>} The filename of the downloaded file.
  * @throws {Error} If the HTTP request fails.
  */
-async function downloadRemoteThemeFile(source: string, themeDir: string): Promise<void> {
+async function downloadRemoteThemeFile(source: string, themeDir: string): Promise<string> {
   console.log(`  Downloading ${source}...`);
   const res = await fetch(source);
   if (!res.ok) {
     throw new Error(`Failed to fetch ${source}: ${res.statusText}`);
   }
 
-  const filename = basename(source);
+  // Strip query parameters and fragments to get a clean filename
+  const urlObj = new URL(source);
+  const filename = basename(urlObj.pathname);
+  
   await Bun.write(join(themeDir, filename), await res.arrayBuffer());
+  return filename;
 }
 
 /**
@@ -101,15 +106,14 @@ async function downloadRemoteThemeFile(source: string, themeDir: string): Promis
  *
  * @param {string} source - Recipe source value, either local or remote.
  * @param {string} themeDir - Temporary destination directory for this theme.
- * @returns {Promise<void>} Resolves when the source has been written locally.
+ * @returns {Promise<string>} The filename of the materialized file.
  */
-async function materializeThemeSource(source: string, themeDir: string): Promise<void> {
+async function materializeThemeSource(source: string, themeDir: string): Promise<string> {
   if (isLocalThemePath(source)) {
-    await copyLocalThemeFile(source, themeDir);
-    return;
+    return await copyLocalThemeFile(source, themeDir);
   }
 
-  await downloadRemoteThemeFile(source, themeDir);
+  return await downloadRemoteThemeFile(source, themeDir);
 }
 
 /**
@@ -125,8 +129,8 @@ async function materializeThemeSource(source: string, themeDir: string): Promise
 async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<string[]> {
   const files: string[] = [];
   for (const source of rawUrls) {
-    await materializeThemeSource(source, themeDir);
-    files.push(basename(source));
+    const filename = await materializeThemeSource(source, themeDir);
+    files.push(filename);
   }
   return files;
 }
