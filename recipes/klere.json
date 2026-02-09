@@ -2,13 +2,13 @@
   "name": "Klere Theme",
   "id": "klere",
   "description": "A dark theme with lambent color highlights and incremental grays",
-  "repoUrl": "https://github.com/WammKD/emacs-klere-theme",
+  "repoUrl": "https://codeberg.org/tomenzgg/emacs-klere-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/WammKD/emacs-klere-theme/master/klere-theme.el"
+    "https://codeberg.org/tomenzgg/emacs-klere-theme/raw/branch/master/klere-theme.el"
   ],
   "type": "dark",
   "authors": [
-    "Wamm K. D."
+    "Jean Libète"
   ],
   "tags": [
     "klere",
