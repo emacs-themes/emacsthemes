@@ -1,10 +1,10 @@
 {
   "name": "Minsk Theme",
-  "id": "minsk-theme",
+  "id": "minsk",
   "description": "A theme in deep muted greens",
   "repoUrl": "https://github.com/jlpaca/minsk-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/jlpaca/minsk-theme/master/minsk-theme.el"
+    "https://github.com/jlpaca/minsk-theme/raw/refs/heads/master/theme/emacs/minsk-theme.el"
   ],
   "type": "dark",
   "authors": [

@@ -4,14 +4,14 @@
   "description": "Theme with a dark background. Based on sublime monokai theme.",
   "repoUrl": "https://github.com/dawidof/emacs-monokai-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/dawidof/emacs-monokai-theme/master/monokai-theme.el"
+    "https://github.com/dawidof/emacs-monokai-theme/raw/refs/heads/master/monokai-alt-theme.el"
   ],
   "type": "dark",
   "authors": [
     "Dmytro Koval"
   ],
   "tags": [
-    "monokai-alt",
+    "monokai alt",
     "monokai",
     "dark",
     "black"
