@@ -1,0 +1,19 @@
+{
+  "name": "Modus Vivendi Theme",
+  "id": "modus-vivendi",
+  "description": "Accessible dark theme (WCAG AAA)",
+  "repoUrl": "https://github.com/protesilaos/modus-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/master/modus-vivendi-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "modus-vivendi",
+    "dark",
+    "purple",
+    "black"
+  ]
+}

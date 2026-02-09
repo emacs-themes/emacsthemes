@@ -1,0 +1,20 @@
+{
+  "name": "Rotor Theme",
+  "id": "rotor",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/rotor-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jinwei Shen",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "light",
+    "rotor",
+    "yellow"
+  ]
+}

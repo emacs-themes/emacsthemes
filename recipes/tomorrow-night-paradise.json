@@ -1,0 +1,18 @@
+{
+  "name": "Tomorrow Night Paradise Theme",
+  "id": "tomorrow-night-paradise",
+  "description": "A light-on-dark Emacs theme ",
+  "repoUrl": "https://github.com/jimeh/tomorrow-night-paradise-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jimeh/tomorrow-night-paradise-theme.el/master/tomorrow-night-paradise-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jim Myhrberg"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "tommorow night paradise"
+  ]
+}

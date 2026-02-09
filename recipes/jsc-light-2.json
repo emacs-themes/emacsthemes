@@ -1,0 +1,20 @@
+{
+  "name": "Jsc Light 2 Theme",
+  "id": "jsc-light-2",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jsc-light2-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "John S Cooper",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "jsc light 2",
+    "light",
+    "white"
+  ]
+}

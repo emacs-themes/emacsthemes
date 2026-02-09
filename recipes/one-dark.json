@@ -1,0 +1,18 @@
+{
+  "name": "One Dark Theme",
+  "id": "one-dark",
+  "description": "Port of the One theme for Vim/Neovim - dark",
+  "repoUrl": "https://github.com/balajisivaraman/emacs-one-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/balajisivaraman/emacs-one-themes/master/one-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Balaji Sivaraman"
+  ],
+  "tags": [
+    "dark",
+    "one",
+    "blue"
+  ]
+}

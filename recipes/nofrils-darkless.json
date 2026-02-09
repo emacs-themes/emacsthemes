@@ -1,0 +1,19 @@
+{
+  "name": "Nofrils Darkless Theme",
+  "id": "nofrils-darkless",
+  "description": "A colorless port of the vim nofrils-dark theme",
+  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/nofrils-darkless-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "nofrils darkless",
+    "dark",
+    "gray",
+    "purple"
+  ]
+}

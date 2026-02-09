@@ -1,0 +1,23 @@
+{
+  "name": "Minimal Theme",
+  "id": "minimal",
+  "description": "A dark/light minimalistic theme for Emacs 24.",
+  "repoUrl": "https://github.com/ikame/minimal-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ikame/minimal-theme/master/minimal-theme.el",
+    "https://raw.githubusercontent.com/ikame/minimal-theme/master/minimal-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Anler Hp"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "emacs 24",
+    "light",
+    "minimal",
+    "minimalistic",
+    "white"
+  ]
+}

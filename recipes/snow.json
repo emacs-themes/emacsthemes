@@ -1,0 +1,20 @@
+{
+  "name": "Snow Theme",
+  "id": "snow",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/snow-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Nicolas Rist",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "grey",
+    "light",
+    "snow"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Lenlen Theme",
+  "id": "lenlen",
+  "description": "A solarized-based kawaii light theme",
+  "repoUrl": "https://github.com/zk-phi/lenlen-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/zk-phi/lenlen-theme/master/lenlen-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "zk_phi"
+  ],
+  "tags": [
+    "lenlen",
+    "light",
+    "solarized",
+    "white"
+  ]
+}

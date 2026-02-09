@@ -1,0 +1,20 @@
+{
+  "name": "Gray30 Theme",
+  "id": "gray30",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/gray30-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Girish Bharadwaj",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "gray30",
+    "grey",
+    "light"
+  ]
+}

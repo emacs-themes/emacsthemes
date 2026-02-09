@@ -1,0 +1,20 @@
+{
+  "name": "Jsc Dark Theme",
+  "id": "jsc-dark",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jsc-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "John S Cooper",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "jsc dark"
+  ]
+}

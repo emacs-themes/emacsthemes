@@ -1,0 +1,21 @@
+{
+  "name": "Robin Hood Theme",
+  "id": "robin-hood",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/robin-hood-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Xavier Maillard",
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "dark",
+    "green",
+    "robin hood"
+  ]
+}

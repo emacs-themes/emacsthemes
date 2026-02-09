@@ -1,0 +1,18 @@
+{
+  "name": "Wilson Theme",
+  "id": "wilson",
+  "description": "A theme based upon a dirty spitfire",
+  "repoUrl": "https://github.com/owainlewis/emacs-color-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/wilson-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Owain Lewis"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "wilson"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Katester Theme",
+  "id": "katester",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/katester-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "walterh@rocketmail.com",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "katester",
+    "light",
+    "yellow"
+  ]
+}

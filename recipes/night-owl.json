@@ -1,0 +1,18 @@
+{
+  "name": "Night Owl Theme",
+  "id": "night-owl",
+  "description": "A port of the popular VS Code theme Night Owl. From the VS Code Night Owl",
+  "repoUrl": "https://github.com/aaronjensen/night-owl-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/aaronjensen/night-owl-emacs/master/night-owl-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Aaron Jensen"
+  ],
+  "tags": [
+    "dark",
+    "blue",
+    "night owl"
+  ]
+}

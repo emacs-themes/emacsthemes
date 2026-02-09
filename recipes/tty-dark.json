@@ -1,0 +1,20 @@
+{
+  "name": "TTY Dark Theme",
+  "id": "tty-dark",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/tty-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Oivvio Polite",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "tty dark"
+  ]
+}

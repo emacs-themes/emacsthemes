@@ -1,0 +1,20 @@
+{
+  "name": "Resolve Theme",
+  "id": "resolve",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/resolve-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Damien Elmes",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "color themes",
+    "intense",
+    "resolve"
+  ]
+}

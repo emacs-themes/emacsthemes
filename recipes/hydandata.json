@@ -1,0 +1,19 @@
+{
+  "name": "Hydandata Theme",
+  "id": "hydandata",
+  "description": "A light color theme that is easy on your eyes",
+  "repoUrl": "https://github.com/hydandata/hydandata-light-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/hydandata/hydandata-light-theme/master/hydandata-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "David Chkhikvadze",
+    "Yves Senn"
+  ],
+  "tags": [
+    "hydandata",
+    "light",
+    "blue"
+  ]
+}

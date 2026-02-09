@@ -1,0 +1,26 @@
+{
+  "name": "Gruvbox Theme",
+  "id": "gruvbox",
+  "description": "A retro groove color scheme for Emacs.",
+  "repoUrl": "https://github.com/Greduan/emacs-theme-gruvbox",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-hard-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-medium-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-soft-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-light-hard-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-light-medium-theme.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-light-soft-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Eduán Lávaque"
+  ],
+  "tags": [
+    "brown",
+    "dark",
+    "gruvbox",
+    "vim"
+  ]
+}

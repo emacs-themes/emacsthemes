@@ -1,0 +1,20 @@
+{
+  "name": "Ramangalahy Theme",
+  "id": "ramangalahy",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/ramangalahy-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Solofo Ramangalahy",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color theme",
+    "grey",
+    "light",
+    "ramangalahy"
+  ]
+}

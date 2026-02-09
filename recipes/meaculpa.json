@@ -1,0 +1,19 @@
+{
+  "name": "Meaculpa Theme",
+  "id": "meaculpa",
+  "description": "Light color theme for Emacs 24+",
+  "repoUrl": "https://github.com/jtecca/meaculpa-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jtecca/meaculpa-theme/master/meaculpa-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jeff Tecca"
+  ],
+  "tags": [
+    "meaculpa",
+    "light",
+    "emacs 24",
+    "grey"
+  ]
+}

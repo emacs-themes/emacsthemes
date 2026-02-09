@@ -1,0 +1,19 @@
+{
+  "name": "Sunburst Theme",
+  "id": "sunburst",
+  "description": "A Emacs 24 deftheme that resembles Textmate’s ‘sunburst’ theme.",
+  "repoUrl": "https://github.com/neomantic/Emacs-Sunburst-Color-Theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/neomantic/Emacs-Sunburst-Color-Theme/master/sunburst-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Chad Albers"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "sunburst",
+    "textmate"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Railscasts Theme",
+  "id": "railscasts",
+  "description": "A theme inspired by the brilliant Railscasts theme for TextMate",
+  "repoUrl": "https://github.com/mikenichols/railscasts-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mikenichols/railscasts-theme/master/railscasts-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Oleg Shaldybin",
+    "Yesudeep Mangalapilly",
+    "Yuichi TANIKAWA",
+    "Mike Nichols"
+  ],
+  "tags": [
+    "railscasts",
+    "dark",
+    "textmate",
+    "brown",
+    "purple"
+  ]
+}

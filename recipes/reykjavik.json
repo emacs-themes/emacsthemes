@@ -1,0 +1,19 @@
+{
+  "name": "Reykjavik Theme",
+  "id": "reykjavik",
+  "description": "Theme with a dark background.",
+  "repoUrl": "https://github.com/mswift42/reykjavik-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/reykjavik-theme/master/reykjavik-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "reykjavik",
+    "dark",
+    "emacs 24",
+    "green"
+  ]
+}

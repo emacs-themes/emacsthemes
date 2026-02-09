@@ -1,0 +1,18 @@
+{
+  "name": "Minsk Theme",
+  "id": "minsk-theme",
+  "description": "A theme in deep muted greens",
+  "repoUrl": "https://github.com/jlpaca/minsk-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jlpaca/minsk-theme/master/minsk-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jean Lo"
+  ],
+  "tags": [
+    "minsk",
+    "dark",
+    "green"
+  ]
+}

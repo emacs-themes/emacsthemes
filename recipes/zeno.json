@@ -1,0 +1,19 @@
+{
+  "name": "Zeno theme",
+  "id": "zeno",
+  "description": "A dark jade Emacs theme inspired by Sierra.vim.",
+  "repoUrl": "https://github.com/jbharat/zeno-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jbharat/zeno-theme/master/zeno-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Bharat Joshi"
+  ],
+  "tags": [
+    "dark",
+    "dracula",
+    "purple",
+    "zeno"
+  ]
+}

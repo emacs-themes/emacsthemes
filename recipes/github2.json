@@ -1,0 +1,18 @@
+{
+  "name": "Github def Theme",
+  "id": "github2",
+  "description": "GitHub-like (deftheme) theme for Emacs.",
+  "repoUrl": "https://github.com/philiparvidsson/emacs-github-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/philiparvidsson/emacs-github-theme/master/github-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Philip Arvidsson"
+  ],
+  "tags": [
+    "github",
+    "light",
+    "white"
+  ]
+}

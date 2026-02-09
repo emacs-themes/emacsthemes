@@ -1,0 +1,19 @@
+{
+  "name": "Plain Theme",
+  "id": "plain",
+  "description": "Plain theme without syntax highlighting",
+  "repoUrl": "https://gitlab.com/yegortimoshenko/plain-theme",
+  "rawUrls": [
+    "https://gitlab.com/yegortimoshenko/plain-theme/raw/master/plain-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Yegor Timoshenko"
+  ],
+  "tags": [
+    "light",
+    "monochrome",
+    "black and white",
+    "plain"
+  ]
+}

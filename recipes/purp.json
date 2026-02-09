@@ -1,0 +1,19 @@
+{
+  "name": "Purp Theme",
+  "id": "purp",
+  "description": "A dark color theme with few colors",
+  "repoUrl": "https://github.com/gnuvince/purp",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/gnuvince/purp/master/purp--theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Vincent Foley"
+  ],
+  "tags": [
+    "purp ",
+    "dark",
+    "grey",
+    "purple"
+  ]
+}

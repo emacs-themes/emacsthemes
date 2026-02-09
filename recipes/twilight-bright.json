@@ -1,0 +1,20 @@
+{
+  "name": "Twilight Bright Theme",
+  "id": "twilight-bright",
+  "description": "A Emacs port of the TextMate theme by the same name",
+  "repoUrl": "https://github.com/jimeh/twilight-bright-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jimeh/twilight-bright-theme.el/master/twilight-bright-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jim Myhrberg"
+  ],
+  "tags": [
+    "bright",
+    "textmate",
+    "twilight",
+    "twilight bright",
+    "white"
+  ]
+}

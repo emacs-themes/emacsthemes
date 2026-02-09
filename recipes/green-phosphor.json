@@ -1,0 +1,18 @@
+{
+  "name": "Green Phosphor Theme",
+  "id": "green-phosphor",
+  "description": "A light color theme with muted, autumnal colors.",
+  "repoUrl": "https://github.com/aalpern/emacs-color-theme-green-phosphor",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/aalpern/emacs-color-theme-green-phosphor/master/green-phosphor-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Adam Alpern"
+  ],
+  "tags": [
+    "green-phosphor",
+    "dark",
+    "green"
+  ]
+}

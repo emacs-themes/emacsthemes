@@ -1,0 +1,19 @@
+{
+  "name": "Mustard Theme",
+  "id": "mustard",
+  "description": "An Emacs 24 theme based on Mustard (tmTheme)",
+  "repoUrl": "https://github.com/emacsfodder/emacs-mustard-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-mustard-theme/master/mustard-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "mustard",
+    "dark",
+    "black",
+    "emacs 24"
+  ]
+}

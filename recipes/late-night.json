@@ -1,0 +1,21 @@
+{
+  "name": "Late Night Theme",
+  "id": "late-night",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/late-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alex Schroeder",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "black&white",
+    "color themes",
+    "dark",
+    "late night"
+  ]
+}

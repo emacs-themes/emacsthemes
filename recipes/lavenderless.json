@@ -1,0 +1,18 @@
+{
+  "name": "Lavenderless Theme",
+  "id": "lavenderless",
+  "description": "A mostly colorless version of lavender-theme",
+  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/lavenderless-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "lavenderless",
+    "dark",
+    "purple"
+  ]
+}

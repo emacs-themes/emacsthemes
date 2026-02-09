@@ -1,0 +1,21 @@
+{
+  "name": "XEmacs Theme",
+  "id": "xemacs",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/xemacs-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Xavier Maillard",
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "grey",
+    "light",
+    "xemacs"
+  ]
+}

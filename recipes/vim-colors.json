@@ -1,0 +1,21 @@
+{
+  "name": "Vim Colors Theme",
+  "id": "vim-colors",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/vim-colors-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Michael Soulier",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "light",
+    "vim",
+    "vim colors",
+    "white"
+  ]
+}

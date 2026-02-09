@@ -1,0 +1,18 @@
+{
+  "name": "Smyx Theme",
+  "id": "smyx",
+  "description": "Theme based on the smyck color theme by hukl",
+  "repoUrl": "https://github.com/tacit7/smyx",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tacit7/smyx/master/smyx-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Uriel G Maldonado"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "smyx"
+  ]
+}

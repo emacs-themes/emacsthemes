@@ -1,0 +1,19 @@
+{
+  "name": "Montz Theme",
+  "id": "montz",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/montz-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Brady Montz",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "grey",
+    "montz"
+  ]
+}

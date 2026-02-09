@@ -1,0 +1,18 @@
+{
+  "name": "Forest Blue Theme",
+  "id": "forest-blue",
+  "description": "Emacs theme with a dark background.",
+  "repoUrl": "https://github.com/olkinn/forest-blue-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/olkinn/forest-blue-emacs/master/forest-blue-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "olkinn"
+  ],
+  "tags": [
+    "forest-blue",
+    "dark",
+    "blue"
+  ]
+}

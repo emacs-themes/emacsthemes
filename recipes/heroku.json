@@ -1,0 +1,19 @@
+{
+  "name": "Heroku Theme",
+  "id": "heroku",
+  "description": "Emacs color theme based on the aesthetics Heroku",
+  "repoUrl": "https://github.com/jonathanchu/heroku-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jonathanchu/heroku-theme/master/heroku-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jonathan Chu"
+  ],
+  "tags": [
+    "emacs 24",
+    "grey",
+    "heroku",
+    "light"
+  ]
+}

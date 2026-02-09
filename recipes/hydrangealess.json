@@ -1,0 +1,18 @@
+{
+  "name": "Hydrangealess Theme",
+  "id": "hydrangealess",
+  "description": "A mostly colorless version of hydrangea-theme",
+  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/hydrangealess-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "hydrangealess",
+    "dark",
+    "blue"
+  ]
+}

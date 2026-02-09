@@ -1,0 +1,20 @@
+{
+  "name": "Nord Theme",
+  "id": "nord",
+  "description": "Ahungry color theme",
+  "repoUrl": "https://github.com/arcticicestudio/nord-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/arcticicestudio/nord-emacs/master/nord-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Arctic Ice Studio"
+  ],
+  "tags": [
+    "nord",
+    "dark",
+    "blue",
+    "terminal",
+    "emacs24"
+  ]
+}

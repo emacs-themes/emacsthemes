@@ -1,0 +1,19 @@
+{
+  "name": "Idea Drakula Theme",
+  "id": "idea-drakula",
+  "description": "Theme based on IntelliJ IDEA Darkula color theme",
+  "repoUrl": "https://github.com/fourier/idea-darkula-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/fourier/idea-darkula-theme/master/idea-darkula-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alexey Veretennikov"
+  ],
+  "tags": [
+    "idea drakula",
+    "idea",
+    "dark",
+    "emacs 24"
+  ]
+}

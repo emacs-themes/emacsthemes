@@ -1,0 +1,20 @@
+{
+  "name": "Midnight Theme",
+  "id": "midnight",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/midnight-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Gordon Messmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "midnight"
+  ]
+}

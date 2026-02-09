@@ -1,0 +1,18 @@
+{
+  "name": "White Theme",
+  "id": "white-theme",
+  "description": "Minimalistic light color theme inspired by basic-theme",
+  "repoUrl": "https://github.com/anler/white-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/anler/white-theme.el/master/white-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Anler Hernandez Peral"
+  ],
+  "tags": [
+    "white",
+    "light",
+    "black & white"
+  ]
+}

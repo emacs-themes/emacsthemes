@@ -1,0 +1,18 @@
+{
+  "name": "Odersky Theme",
+  "id": "odersky",
+  "description": "A dark color theme",
+  "repoUrl": "https://github.com/owainlewis/emacs-color-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/odersky-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Owain Lewis"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "odersky"
+  ]
+}

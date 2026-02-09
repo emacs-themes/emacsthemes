@@ -1,0 +1,19 @@
+{
+  "name": "Pastelmac Theme",
+  "id": "pastelmac",
+  "description": "A soothing theme with a pastel color palette",
+  "repoUrl": "https://github.com/bmastenbrook/pastelmac-theme-el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bmastenbrook/pastelmac-theme-el/master/pastelmac-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Brian Mastenbrook"
+  ],
+  "tags": [
+    "pastelmac",
+    "blue",
+    "light",
+    "emacs24"
+  ]
+}

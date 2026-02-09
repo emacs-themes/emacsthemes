@@ -1,0 +1,19 @@
+{
+  "name": "Raspopovic Theme",
+  "id": "raspopovic",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/raspopovic-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Pedja Raspopovic",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "color themes",
+    "raspopovic"
+  ]
+}

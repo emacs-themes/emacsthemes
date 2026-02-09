@@ -1,0 +1,20 @@
+{
+  "name": "Naquadah Theme",
+  "id": "naquadah",
+  "description": "A theme based on Tango color set",
+  "repoUrl": "https://github.com/jd/naquadah-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jd/naquadah-theme/master/naquadah-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Julien Danjou"
+  ],
+  "tags": [
+    "color themes",
+    "dark",
+    "naquadah",
+    "popular",
+    "tango"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Poet Theme",
+  "id": "poet-theme",
+  "description": "A light emacs theme that's well suited for prose: particularly org-mode and markdown-mode; or any mode that works well with variable-pitch mode.",
+  "repoUrl": "https://github.com/kunalb/poet",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kunalb/poet/master/poet-theme.el",
+    "https://raw.githubusercontent.com/kunalb/poet/master/poet-dark-theme.el",
+    "https://raw.githubusercontent.com/kunalb/poet/master/poet-dark-monochrome-theme.el",
+    "https://raw.githubusercontent.com/kunalb/poet/master/poet-monochrome-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kunal Bhalla"
+  ],
+  "tags": [
+    "light",
+    "dark",
+    "poet",
+    "monochrome",
+    "grey",
+    "brown",
+    "popular"
+  ]
+}

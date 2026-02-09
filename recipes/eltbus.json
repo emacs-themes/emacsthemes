@@ -1,0 +1,19 @@
+{
+  "name": "Eltbus Theme",
+  "id": "eltbus",
+  "description": "An experimental theme that puts subtle back into Emacs.",
+  "repoUrl": "https://github.com/ScriptDevil/eltbus-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ScriptDevil/eltbus-theme/master/eltbus-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ashok Gautham"
+  ],
+  "tags": [
+    "black",
+    "black&white",
+    "dark",
+    "eltbus"
+  ]
+}

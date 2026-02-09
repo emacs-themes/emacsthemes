@@ -1,0 +1,20 @@
+{
+  "name": "Goose Theme",
+  "id": "goose",
+  "description": "A low-contrast Emacs theme that reduces unnecessary coloring, especially when editing source code.",
+  "repoUrl": "https://github.com/tokenrove/goose-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tokenrove/goose-theme/master/goose-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Stephen Whipple"
+  ],
+  "tags": [
+    "goose",
+    "light",
+    "grey",
+    "black&white",
+    "emacs24"
+  ]
+}

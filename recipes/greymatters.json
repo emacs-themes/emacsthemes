@@ -1,0 +1,20 @@
+{
+  "name": "Greymatters Theme",
+  "id": "greymatters",
+  "description": "Emacs 24 theme with a light background.",
+  "repoUrl": "https://github.com/mswift42/greymatters-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/greymatters-theme/master/greymatters-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "greymatters",
+    "emacs24",
+    "light",
+    "grey",
+    "white"
+  ]
+}

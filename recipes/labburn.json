@@ -1,0 +1,19 @@
+{
+  "name": "Labburn Theme",
+  "id": "labburn",
+  "description": "A lab color space zenburn theme",
+  "repoUrl": "https://github.com/ksjogo/labburn-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ksjogo/labburn-theme/master/labburn-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Johannes Goslar"
+  ],
+  "tags": [
+    "labburn",
+    "gray",
+    "dark",
+    "modern"
+  ]
+}

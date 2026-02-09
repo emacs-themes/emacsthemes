@@ -1,0 +1,19 @@
+{
+  "name": "Termbright theme",
+  "id": "termbright",
+  "description": "A more usable theme for white-on-black terminals",
+  "repoUrl": "https://github.com/bmastenbrook/termbright-theme-el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bmastenbrook/termbright-theme-el/master/termbright-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Brian Mastenbrook"
+  ],
+  "tags": [
+    "termbright",
+    "light",
+    "white",
+    "terminal"
+  ]
+}

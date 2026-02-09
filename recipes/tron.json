@@ -1,0 +1,19 @@
+{
+  "name": "Tron Theme",
+  "id": "tron",
+  "description": "Simple theme like the one appearing in Tron Evolution. The text and blue hueues are slightly less bright to make it more comfortable on long sessions.",
+  "repoUrl": "https://github.com/ivanmarcin/emacs-tron-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ivanmarcin/emacs-tron-theme/master/tron-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ivan Marcin"
+  ],
+  "tags": [
+    "black",
+    "blue",
+    "dark",
+    "tron"
+  ]
+}

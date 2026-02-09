@@ -1,0 +1,19 @@
+{
+  "name": "Green Is The New Black Theme",
+  "id": "green-is-the-new-black",
+  "description": "A blackened green and minimalist theme for Emacs",
+  "repoUrl": "https://github.com/fredcamps/green-is-the-new-black-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/fredcamps/green-is-the-new-black-emacs/master/green-is-the-new-black-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Fred Campos"
+  ],
+  "tags": [
+    "black",
+    "green",
+    "dark",
+    "green is the new black"
+  ]
+}

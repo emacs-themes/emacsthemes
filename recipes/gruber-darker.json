@@ -1,0 +1,18 @@
+{
+  "name": "Gruber Darker Theme",
+  "id": "gruber-darker",
+  "description": "A darker variant of the Gruber theme",
+  "repoUrl": "https://github.com/rexim/gruber-darker-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/rexim/gruber-darker-theme/master/gruber-darker-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alexey Kutepov"
+  ],
+  "tags": [
+    "dark",
+    "gruber",
+    "popular"
+  ]
+}

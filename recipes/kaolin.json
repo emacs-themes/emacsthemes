@@ -1,0 +1,21 @@
+{
+  "name": "Kaolin theme",
+  "id": "kaolin",
+  "description": "A dark jade Emacs theme inspired by Sierra.vim.",
+  "repoUrl": "https://github.com/0rdy/kaolin-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/0rdy/kaolin-theme/master/kaolin-theme.el",
+    "https://raw.githubusercontent.com/0rdy/kaolin-theme/master/kaolin-dark-theme.el",
+    "https://raw.githubusercontent.com/0rdy/kaolin-theme/master/kaolin-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "0rdy"
+  ],
+  "tags": [
+    "dark",
+    "green",
+    "jade",
+    "kaolin"
+  ]
+}

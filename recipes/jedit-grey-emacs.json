@@ -1,0 +1,19 @@
+{
+  "name": "Jedit Grey Emacs Themes",
+  "id": "jedit-grey-emacs",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jedit-grey-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Gordon Messmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "grey",
+    "jedit grey"
+  ]
+}

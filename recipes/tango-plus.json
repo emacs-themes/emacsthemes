@@ -1,0 +1,20 @@
+{
+  "name": "Tango Plus Theme",
+  "id": "tango-plus",
+  "description": "Color theme for Emacs loosely based on the tango palette.",
+  "repoUrl": "https://github.com/tmalsburg/tango-plus-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tmalsburg/tango-plus-theme/master/tango-plus-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Titus von der Malsburg"
+  ],
+  "tags": [
+    "color themes",
+    "light",
+    "tango",
+    "tango plus",
+    "white"
+  ]
+}

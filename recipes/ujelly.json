@@ -1,0 +1,19 @@
+{
+  "name": "Ujelly Theme",
+  "id": "ujelly",
+  "description": "A theme Inspired by Ujelly",
+  "repoUrl": "https://github.com/marktran/color-theme-ujelly",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/marktran/color-theme-ujelly/master/ujelly-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Mark Tran"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "ujelly",
+    "vim"
+  ]
+}

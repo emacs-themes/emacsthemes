@@ -1,0 +1,19 @@
+{
+  "name": "Weyland Yutani Theme",
+  "id": "weyland-yutani",
+  "description": "An emacs theme based on the Alien movie franchise",
+  "repoUrl": "https://github.com/jstaursky/weyland-yutani-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jstaursky/weyland-yutani-theme/master/weyland-yutani-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Joe Staursky"
+  ],
+  "tags": [
+    "weyland-yutani",
+    "dark",
+    "purple",
+    "indigo"
+  ]
+}

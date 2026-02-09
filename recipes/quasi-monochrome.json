@@ -1,0 +1,21 @@
+{
+  "name": "Quasi Monochrome Theme",
+  "id": "quasi-monochrome",
+  "description": "High contrast quasi monochrome color theme",
+  "repoUrl": "https://github.com/lbolla/emacs-quasi-monochrome",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lbolla/emacs-quasi-monochrome/master/quasi-monochrome-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Lorenzo Bolla"
+  ],
+  "tags": [
+    "quasi-monochrome",
+    "dark",
+    "emacs 24",
+    "monochrome",
+    "black&white",
+    "black"
+  ]
+}

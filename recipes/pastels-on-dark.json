@@ -1,0 +1,19 @@
+{
+  "name": "Pastels on Dark Theme",
+  "id": "pastels-on-dark",
+  "description": "Theme popularized in TextMate.app",
+  "repoUrl": "https://gist.github.com/shanecelis/1906662",
+  "rawUrls": [
+    "https://gist.githubusercontent.com/shanecelis/1906662/raw/pastels-on-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Mats Persson"
+  ],
+  "tags": [
+    "brown",
+    "dark",
+    "pastels on dark",
+    "textmate"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Feng Shui Theme",
+  "id": "feng-shui",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/feng-shui-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "walterh@rocketmail.com",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "feng shui",
+    "light",
+    "yellow"
+  ]
+}

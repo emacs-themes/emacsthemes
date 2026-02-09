@@ -1,0 +1,18 @@
+{
+  "name": "Timu-Caribbean",
+  "id": "timu-caribbean-theme",
+  "description": "Color theme with cyan as a dominant color.",
+  "repoUrl": "https://gitlab.com/aimebertrand/timu-caribbean-theme",
+  "rawUrls": [
+    "https://gitlab.com/aimebertrand/timu-caribbean-theme/-/raw/master/timu-caribbean-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Aime Bertrand"
+  ],
+  "tags": [
+    "dark",
+    "vibrant",
+    "cyan"
+  ]
+}

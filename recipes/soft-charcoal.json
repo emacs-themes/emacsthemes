@@ -1,0 +1,20 @@
+{
+  "name": "Soft Charcoal Theme",
+  "id": "soft-charcoal",
+  "description": "Emacs24 theme with a charcoal background",
+  "repoUrl": "https://github.com/mswift42/soft-charcoal-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/soft-charcoal-theme/master/soft-charcoal-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "black",
+    "charcoal",
+    "dark",
+    "emacs 24",
+    "soft charcoal"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Laguna Theme",
+  "id": "laguna",
+  "description": "A theme that's easy on the eyes & focuses on importance.",
+  "repoUrl": "https://github.com/HenryNewcomer/laguna-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/laguna-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Henry Newcomer"
+  ],
+  "tags": [
+    "laguna",
+    "dark",
+    "blue"
+  ]
+}

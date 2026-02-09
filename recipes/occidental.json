@@ -1,0 +1,21 @@
+{
+  "name": "Occidental Theme",
+  "id": "occidental",
+  "description": "A medium-contrast colour theme derived from the built-in Adwaita",
+  "repoUrl": "https://github.com/olcai/occidental-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/olcai/occidental-theme/master/occidental-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "William Stevenson",
+    "Erik Timan"
+  ],
+  "tags": [
+    "adwaita",
+    "emacs 24",
+    "light",
+    "occidental",
+    "yellow"
+  ]
+}

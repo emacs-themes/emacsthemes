@@ -1,0 +1,19 @@
+{
+  "name": "Ir Black Theme",
+  "id": "ir-black",
+  "description": "A light-on-dark color theme",
+  "repoUrl": "https://github.com/jmdeldin/ir-black-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jmdeldin/ir-black-theme.el/master/ir-black-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jon-Michael Deldin"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "ir black",
+    "textmate"
+  ]
+}

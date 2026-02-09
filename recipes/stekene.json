@@ -1,0 +1,22 @@
+{
+  "name": "Stekene Theme",
+  "id": "stekene",
+  "description": "Stekene Theme",
+  "repoUrl": "https://github.com/Fanael/stekene-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Fanael/stekene-theme/master/stekene-theme.el",
+    "https://raw.githubusercontent.com/Fanael/stekene-theme/master/stekene-dark-theme.el",
+    "https://raw.githubusercontent.com/Fanael/stekene-theme/master/stekene-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "light",
+    "stekene",
+    "white"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Parus Theme",
+  "id": "parus",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/parus-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jon K Hellank",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "blue",
+    "color themes",
+    "dark",
+    "parus"
+  ]
+}

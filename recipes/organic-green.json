@@ -1,0 +1,18 @@
+{
+  "name": "Organic Green Theme",
+  "id": "organic-green",
+  "description": "Low-contrast green color theme for Emacs.",
+  "repoUrl": "https://github.com/kostafey/organic-green-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kostafey/organic-green-theme/master/organic-green-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kostafey"
+  ],
+  "tags": [
+    "green",
+    "light",
+    "organic green"
+  ]
+}

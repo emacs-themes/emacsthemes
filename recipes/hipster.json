@@ -1,0 +1,19 @@
+{
+  "name": "Hipster Theme",
+  "id": "hipster",
+  "description": "A low contrast theme with hipster colors.",
+  "repoUrl": "https://github.com/purcell/hipster-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/purcell/hipster-theme/master/hipster-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Luis Angel"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "hipster",
+    "vim"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Whateveryouwant Theme",
+  "id": "whateveryouwant",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/whateveryouwant-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Fabien Penso",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "light",
+    "whateveryouwant",
+    "white"
+  ]
+}

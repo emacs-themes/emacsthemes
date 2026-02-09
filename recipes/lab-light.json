@@ -1,0 +1,19 @@
+{
+  "name": "Lab Light",
+  "id": "lab-light",
+  "description": "A custom theme carefully constructed in the LAB space",
+  "repoUrl": "https://github.com/MetroWind/lab-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/MetroWind/lab-theme/master/lab-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Chris Corsair"
+  ],
+  "tags": [
+    "light",
+    "white",
+    "lab",
+    "lab-light"
+  ]
+}

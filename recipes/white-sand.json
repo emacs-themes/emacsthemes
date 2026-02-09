@@ -1,0 +1,19 @@
+{
+  "name": "White Sand Theme",
+  "id": "white-sand",
+  "description": "Emacs24 theme with a light background.",
+  "repoUrl": "https://github.com/mswift42/white-sand-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/white-sand-theme/master/white-sand-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "emacs 24",
+    "light",
+    "white sand",
+    "pink"
+  ]
+}

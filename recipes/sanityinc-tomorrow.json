@@ -1,0 +1,22 @@
+{
+  "name": "Sanityinc Tomorrow Themes",
+  "id": "sanityinc-tomorrow",
+  "description": "An Emacs color-theme version of Chris Kempson’s “Tomorrow” themes.",
+  "repoUrl": "https://github.com/purcell/color-theme-sanityinc-tomorrow",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/master/color-theme-sanityinc-tomorrow.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Steve Purcell"
+  ],
+  "tags": [
+    "blue",
+    "dark",
+    "day",
+    "light",
+    "night",
+    "popular",
+    "tomorrow"
+  ]
+}

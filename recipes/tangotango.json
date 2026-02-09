@@ -1,0 +1,20 @@
+{
+  "name": "Tangotango Theme",
+  "id": "tangotango",
+  "description": "Color theme based on the tango palette colors.",
+  "repoUrl": "https://github.com/juba/color-theme-tangotango",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/juba/color-theme-tangotango/master/tangotango-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Julien Barnier",
+    "Yesudeep Mangalapilly"
+  ],
+  "tags": [
+    "dark",
+    "popular",
+    "tango",
+    "tangotango"
+  ]
+}

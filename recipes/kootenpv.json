@@ -1,0 +1,19 @@
+{
+  "name": "Kooten Theme",
+  "id": "kootenpv",
+  "description": "Dark color theme",
+  "repoUrl": "https://github.com/kootenpv/emacs-kooten-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kootenpv/emacs-kooten-theme/master/kooten-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Pascal van Kooten"
+  ],
+  "tags": [
+    "kooten",
+    "blue",
+    "dark",
+    "modern"
+  ]
+}

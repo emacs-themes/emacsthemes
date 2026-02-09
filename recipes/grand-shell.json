@@ -1,0 +1,19 @@
+{
+  "name": "Grand Shell Theme",
+  "id": "grand-shell",
+  "description": "Dark color theme for Emacs >= 24 with intensive colors",
+  "repoUrl": "https://github.com/steckerhalter/grandshell-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/steckerhalter/grandshell-theme/master/grandshell-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Steckerhalter"
+  ],
+  "tags": [
+    "dark",
+    "emacs 24",
+    "grand shell",
+    "popular"
+  ]
+}

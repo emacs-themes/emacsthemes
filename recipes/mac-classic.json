@@ -1,0 +1,19 @@
+{
+  "name": "Mac Classic Theme",
+  "id": "mac-classic",
+  "description": "A theme which resembles the TextMate Mac Classic color theme.",
+  "repoUrl": "https://github.com/ahobson/mac-classic-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ahobson/mac-classic-theme/master/mac-classic-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jason Watson"
+  ],
+  "tags": [
+    "light",
+    "mac classic",
+    "textmate",
+    "white"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Spike Theme",
+  "id": "spike",
+  "description": "A light color theme with muted, autumnal colors.",
+  "repoUrl": "https://github.com/m31271n/spike-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/m31271n/spike-theme/master/spike-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "m31271n"
+  ],
+  "tags": [
+    "spike",
+    "dark",
+    "green",
+    "green-phosphor"
+  ]
+}

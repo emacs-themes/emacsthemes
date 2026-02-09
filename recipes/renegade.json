@@ -1,0 +1,20 @@
+{
+  "name": "Renegade Theme",
+  "id": "renegade",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/renegade-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "renegade"
+  ]
+}

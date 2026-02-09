@@ -1,0 +1,23 @@
+{
+  "name": "Moe Theme",
+  "id": "moe",
+  "description": "Good-looking[tm] theme with quite fully-supported font-faces for various modes.",
+  "repoUrl": "https://github.com/kuanyui/moe-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kuanyui/moe-theme.el/master/moe-theme.el",
+    "https://raw.githubusercontent.com/kuanyui/moe-theme.el/master/moe-dark-theme.el",
+    "https://raw.githubusercontent.com/kuanyui/moe-theme.el/master/moe-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kuanyui"
+  ],
+  "tags": [
+    "256 color",
+    "dark",
+    "light",
+    "moe",
+    "popular",
+    "tango"
+  ]
+}

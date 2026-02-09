@@ -1,0 +1,19 @@
+{
+  "name": "Obsidian Theme",
+  "id": "obsidian",
+  "description": "A port of the Eclipse theme Obsidian",
+  "repoUrl": "https://github.com/mswift42/obsidian-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/obsidian-theme/master/obsidian-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "dark",
+    "eclipse",
+    "grey",
+    "obsidian"
+  ]
+}

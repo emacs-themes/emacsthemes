@@ -1,0 +1,19 @@
+{
+  "name": "Northcode Theme",
+  "id": "northcode",
+  "description": "Dark theme with blue and orange colors",
+  "repoUrl": "https://github.com/Northcode/northcode-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Northcode/northcode-theme.el/master/northcode-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andreas Larsen @ northcode.no"
+  ],
+  "tags": [
+    "dark",
+    "emacs 25",
+    "blue",
+    "orange"
+  ]
+}

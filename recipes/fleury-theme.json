@@ -1,0 +1,19 @@
+{
+  "name": "Fleury Theme",
+  "id": "fleury-theme",
+  "description": "Emacs theme insiped by Ryan Fleury's debugger live stream",
+  "repoUrl": "https://github.com/ShamsParvezArka/fleury-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ShamsParvezArka/fleury-theme.el/master/fleury-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Shams Parvez Arka"
+  ],
+  "tags": [
+    "dark",
+    "fleury-theme",
+    "ryan fleury",
+    "popular"
+  ]
+}

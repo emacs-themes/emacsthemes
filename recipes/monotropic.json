@@ -1,0 +1,18 @@
+{
+  "name": "Monotropic Theme",
+  "id": "monotropic",
+  "description": "(Almost) monochromatic theme for Emacs. Originally based on maio/eink-emacs.",
+  "repoUrl": "https://github.com/caffo/monotropic-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/caffo/monotropic-theme/master/monotropic-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Rodrigo Franco"
+  ],
+  "tags": [
+    "monotropic",
+    "light",
+    "monochrome"
+  ]
+}

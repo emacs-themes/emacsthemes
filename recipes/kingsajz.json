@@ -1,0 +1,20 @@
+{
+  "name": "Kingsajz Theme",
+  "id": "kingsajz",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/kingsajz-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Olgierd “Kingsajz” Ziolko",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "dark",
+    "green",
+    "kingsajz"
+  ]
+}

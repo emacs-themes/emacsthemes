@@ -1,0 +1,20 @@
+{
+  "name": "Infodoc Theme",
+  "id": "infodoc",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/infodoc-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Frederic Giroud",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "infodoc",
+    "light",
+    "orange"
+  ]
+}

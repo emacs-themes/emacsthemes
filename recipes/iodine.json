@@ -1,0 +1,17 @@
+{
+  "name": "Iodine",
+  "id": "iodine",
+  "description": "Light color theme",
+  "repoUrl": "https://github.com/srdja/iodine-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/srdja/iodine-theme/master/iodine-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Srđan Panić"
+  ],
+  "tags": [
+    "iodine",
+    "light"
+  ]
+}

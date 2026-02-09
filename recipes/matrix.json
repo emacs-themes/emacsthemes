@@ -1,0 +1,20 @@
+{
+  "name": "Matrix Theme",
+  "id": "matrix",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/matrix-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "walterh@rocketmail.com",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "green",
+    "matrix. dark"
+  ]
+}

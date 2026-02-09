@@ -1,0 +1,19 @@
+{
+  "name": "Eziam Dark Theme",
+  "id": "eziam-dark",
+  "description": "A mostly monochrome theme, inspired by Tao and Leuven.",
+  "repoUrl": "https://github.com/thblt/eziam-theme-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/eziam-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thibault Polge"
+  ],
+  "tags": [
+    "eziam",
+    "dark",
+    "black",
+    "emacs 24"
+  ]
+}

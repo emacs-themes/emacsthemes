@@ -1,0 +1,18 @@
+{
+  "name": "Melancholy Theme",
+  "id": "melancholy",
+  "description": "A dark theme for dark minds",
+  "repoUrl": "https://github.com/techquila/melancholy-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/techquila/melancholy-theme/master/melancholy-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Cooper Oscarfono"
+  ],
+  "tags": [
+    "melancholy",
+    "dark",
+    "black"
+  ]
+}

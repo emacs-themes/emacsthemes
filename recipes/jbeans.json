@@ -1,0 +1,21 @@
+{
+  "name": "JBeans Theme",
+  "id": "jbeans",
+  "description": "Jellybeans.vim based theme for emacs",
+  "repoUrl": "https://github.com/synic/jbeans-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/synic/jbeans-emacs/master/jbeans-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Adam Olsen"
+  ],
+  "tags": [
+    "jbeans",
+    "black",
+    "dark",
+    "emacs 24",
+    "vim",
+    "modern"
+  ]
+}

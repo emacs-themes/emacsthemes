@@ -1,0 +1,19 @@
+{
+  "name": "Soft Morning Theme",
+  "id": "soft-morning",
+  "description": "Emacs24 theme with a light background",
+  "repoUrl": "https://github.com/mswift42/soft-morning-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/soft-morning-theme/master/soft-morning-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "bright",
+    "emacs 24",
+    "soft morning",
+    "white"
+  ]
+}

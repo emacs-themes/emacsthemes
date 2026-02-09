@@ -1,0 +1,19 @@
+{
+  "name": "Professional Theme",
+  "id": "professional",
+  "description": "A port of Vim’s Professional Theme for Emacs, originally created by Narayanan Iyer.",
+  "repoUrl": "https://github.com/juanjux/emacs-professional-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/juanjux/emacs-professional-theme/master/professional-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Juanjo Alvarez"
+  ],
+  "tags": [
+    "light",
+    "professional",
+    "vim",
+    "yellow"
+  ]
+}

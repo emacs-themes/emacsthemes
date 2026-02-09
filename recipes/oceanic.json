@@ -1,0 +1,18 @@
+{
+  "name": "Oceanic Theme",
+  "id": "oceanic",
+  "description": "Port the theme from Oceanic Next Color Scheme.",
+  "repoUrl": "https://github.com/terry3/oceanic-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/terry3/oceanic-theme/master/oceanic-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Tengfei Guo"
+  ],
+  "tags": [
+    "oceanic",
+    "dark",
+    "blue"
+  ]
+}

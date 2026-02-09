@@ -1,0 +1,20 @@
+{
+  "name": "Intellij Theme",
+  "id": "intellij",
+  "description": "Emacs theme inspired by IntelliJ's default theme.",
+  "repoUrl": "https://github.com/fommil/emacs-intellij-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/fommil/emacs-intellij-theme/master/intellij-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Vladimir Polushin",
+    "Sam Halliday"
+  ],
+  "tags": [
+    "intellij",
+    "light",
+    "white",
+    "blue"
+  ]
+}

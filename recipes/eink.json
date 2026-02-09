@@ -1,0 +1,19 @@
+{
+  "name": "Eink Theme",
+  "id": "eink",
+  "description": "Low distraction, minimalistic color theme emulating reading",
+  "repoUrl": "https://github.com/maio/eink-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/maio/eink-emacs/master/eink-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Marian Schubert"
+  ],
+  "tags": [
+    "eink",
+    "light",
+    "white",
+    "minimal"
+  ]
+}

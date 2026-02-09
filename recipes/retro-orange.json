@@ -1,0 +1,22 @@
+{
+  "name": "Retro Orange Theme",
+  "id": "retro-orange",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/retro-orange-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Xavier Maillard",
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "orange",
+    "retro orange"
+  ]
+}

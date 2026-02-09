@@ -1,0 +1,19 @@
+{
+  "name": "Lush Theme",
+  "id": "lush",
+  "description": "A colorful Emacs24 theme based on blackboard theme.",
+  "repoUrl": "https://github.com/andre-richter/emacs-lush-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/andre-richter/emacs-lush-theme/master/lush-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andre Richter"
+  ],
+  "tags": [
+    "blackboard",
+    "blue",
+    "dark",
+    "lush"
+  ]
+}

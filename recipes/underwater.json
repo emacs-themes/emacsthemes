@@ -1,0 +1,19 @@
+{
+  "name": "Underwater Theme",
+  "id": "underwater",
+  "description": "A pleasing, light-on-dark, blue theme for Emacs 24.1.",
+  "repoUrl": "https://github.com/jmdeldin/underwater-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jmdeldin/underwater-theme.el/master/underwater-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jon-Michael Deldin"
+  ],
+  "tags": [
+    "blue",
+    "dark",
+    "emacs 24",
+    "underwater"
+  ]
+}

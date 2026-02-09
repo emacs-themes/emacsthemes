@@ -1,0 +1,19 @@
+{
+  "name": "Material Theme",
+  "id": "material",
+  "description": "A calm, dark theme for Emacs.",
+  "repoUrl": "https://github.com/cpaulik/emacs-material-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cpaulik/emacs-material-theme/master/material-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Paulik Christoph"
+  ],
+  "tags": [
+    "material",
+    "dark",
+    "green",
+    "modern"
+  ]
+}

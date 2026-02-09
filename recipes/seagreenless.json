@@ -1,0 +1,19 @@
+{
+  "name": "Seagreenless Theme",
+  "id": "seagreenless",
+  "description": "A colorless, gray theme",
+  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/seagreenless-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "seagreenless",
+    "light",
+    "white",
+    "green"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Gandalf Theme",
+  "id": "gandalf",
+  "description": "Slightly modified version of the Overtone theme",
+  "repoUrl": "https://github.com/ptrv/gandalf-theme-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ptrv/gandalf-theme-emacs/master/gandalf-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Peter Vasil"
+  ],
+  "tags": [
+    "bright",
+    "gandalf",
+    "overtone",
+    "white"
+  ]
+}

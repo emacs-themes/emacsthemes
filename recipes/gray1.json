@@ -1,0 +1,19 @@
+{
+  "name": "Gray1 Theme",
+  "id": "gray1",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/gray1-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Paul Pulli",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "gray1",
+    "grey"
+  ]
+}

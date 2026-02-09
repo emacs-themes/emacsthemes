@@ -1,0 +1,19 @@
+{
+  "name": "Tronesque Theme",
+  "id": "tronesque",
+  "description": "A Color Theme inspired from Tron.",
+  "repoUrl": "https://github.com/aurelienbottazini/tronesque",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/aurelienbottazini/tronesque/master/tronesque-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Aurélien Bottazini"
+  ],
+  "tags": [
+    "blue",
+    "color themes",
+    "dark",
+    "tronesque"
+  ]
+}

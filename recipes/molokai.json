@@ -1,0 +1,19 @@
+{
+  "name": "Molokai Theme",
+  "id": "molokai",
+  "description": "“Molokai”? Like “Monokai”?",
+  "repoUrl": "https://github.com/alloy-d/color-theme-molokai",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/alloy-d/color-theme-molokai/master/molokai-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "dark",
+    "molokai",
+    "monokai",
+    "popular"
+  ]
+}

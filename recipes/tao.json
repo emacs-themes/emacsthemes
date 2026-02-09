@@ -1,0 +1,22 @@
+{
+  "name": "Tao Theme",
+  "id": "tao",
+  "description": "A golden mean grayscale color theme for Emacs.",
+  "repoUrl": "https://github.com/11111000000/tao-theme-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/11111000000/tao-theme-emacs/master/tao-theme.el",
+    "https://raw.githubusercontent.com/11111000000/tao-theme-emacs/master/tao-yin-theme.el",
+    "https://raw.githubusercontent.com/11111000000/tao-theme-emacs/master/tao-yang-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Peter Kosov"
+  ],
+  "tags": [
+    "black&white",
+    "black",
+    "dark",
+    "grey",
+    "tao"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Immaterial Theme",
+  "id": "immaterial",
+  "description": "A flexible theme based on material design principles",
+  "repoUrl": "https://github.com/petergardfjall/emacs-immaterial-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-theme.el",
+    "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-dark-theme.el",
+    "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Peter Gardfjäll"
+  ],
+  "tags": [
+    "immaterial",
+    "dark",
+    "blue",
+    "material design"
+  ]
+}

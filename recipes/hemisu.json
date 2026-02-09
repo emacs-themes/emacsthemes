@@ -1,0 +1,23 @@
+{
+  "name": "Hemisu Themes",
+  "id": "hemisu",
+  "description": "A port of Hemisu for Vim",
+  "repoUrl": "https://github.com/andrzejsliwa/hemisu-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/andrzejsliwa/hemisu-theme/master/hemisu-theme.el",
+    "https://raw.githubusercontent.com/andrzejsliwa/hemisu-theme/master/hemisu-dark-theme.el",
+    "https://raw.githubusercontent.com/andrzejsliwa/hemisu-theme/master/hemisu-light-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andrzej Sliwa"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "hemisu",
+    "light",
+    "vim",
+    "white"
+  ]
+}

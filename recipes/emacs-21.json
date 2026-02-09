@@ -1,0 +1,21 @@
+{
+  "name": "Emacs 21 Theme",
+  "id": "emacs-21",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/emacs-21-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Xavier Maillard",
+    "Brian Palmer",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "emacs 21",
+    "light",
+    "white"
+  ]
+}

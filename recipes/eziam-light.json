@@ -1,0 +1,19 @@
+{
+  "name": "Eziam Light Theme",
+  "id": "eziam-light",
+  "description": "A mostly monochrome theme, inspired by Tao and Leuven.",
+  "repoUrl": "https://github.com/thblt/eziam-theme-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/eziam-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Thibault Polge"
+  ],
+  "tags": [
+    "eziam",
+    "white",
+    "light",
+    "emacs 24"
+  ]
+}

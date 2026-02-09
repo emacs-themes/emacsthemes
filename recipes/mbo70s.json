@@ -1,0 +1,18 @@
+{
+  "name": "MBO 70's Theme",
+  "id": "mbo70s",
+  "description": "70s style palette, with similarities to mbo theme",
+  "repoUrl": "https://github.com/emacsfodder/emacs-mbo70s-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-mbo70s-theme/master/mbo70s-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "dark",
+    "brown",
+    "mbo70s"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Grayscale Theme",
+  "id": "grayscale",
+  "description": "A simple, mostly grayscale theme, created as a mashup of some ideas of the Duotone Atom themes, the base16 emacs themes, and zenburn.",
+  "repoUrl": "https://github.com/belak/emacs-grayscale-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/belak/emacs-grayscale-theme/master/grayscale-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert"
+  ],
+  "tags": [
+    "dark",
+    "grey",
+    "grayscale",
+    "monochrome"
+  ]
+}

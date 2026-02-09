@@ -1,0 +1,20 @@
+{
+  "name": "Marquardt Theme",
+  "id": "marquardt",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/marquardt-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Colin Marquardt",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "light",
+    "marquardt",
+    "orange"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Faff Theme",
+  "id": "faff",
+  "description": "Light Emacs color theme on ivory3 background",
+  "repoUrl": "https://github.com/WJCFerguson/emacs-faff-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/WJCFerguson/emacs-faff-theme/master/faff-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "James Ferguson"
+  ],
+  "tags": [
+    "faff",
+    "light",
+    "yellow",
+    "classic"
+  ]
+}

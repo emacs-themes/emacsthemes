@@ -1,0 +1,20 @@
+{
+  "name": "Lethe Theme",
+  "id": "lethe",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/lethe-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ivica Loncar",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "black",
+    "color themes",
+    "dark",
+    "lethe"
+  ]
+}

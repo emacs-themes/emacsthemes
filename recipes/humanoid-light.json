@@ -1,0 +1,19 @@
+{
+  "name": "Humanoid Light Theme",
+  "id": "humanoid-light",
+  "description": "Emacs color schemes with bright colors.",
+  "repoUrl": "https://github.com/humanoid-colors/emacs-humanoid-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/humanoid-colors/emacs-humanoid-themes/master/humanoid-light-theme.el",
+    "https://raw.githubusercontent.com/humanoid-colors/emacs-humanoid-themes/master/humanoid-themes.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Thomas Friese"
+  ],
+  "tags": [
+    "humanoid light",
+    "blue",
+    "light"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Tommyh Theme",
+  "id": "tommyh",
+  "description": "A bright, bold-colored theme for emacs.",
+  "repoUrl": "https://github.com/wglass/tommyh-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/wglass/tommyh-theme/master/tommyh-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "William Glass"
+  ],
+  "tags": [
+    "light",
+    "tommyh",
+    "white"
+  ]
+}

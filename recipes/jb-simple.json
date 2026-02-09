@@ -1,0 +1,20 @@
+{
+  "name": "JB Simple Theme",
+  "id": "jb-simple",
+  "description": "Color Theme",
+  "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jb-simple-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jeff",
+    "Syohei YOSHIDA"
+  ],
+  "tags": [
+    "color themes",
+    "jb simple",
+    "light",
+    "white"
+  ]
+}

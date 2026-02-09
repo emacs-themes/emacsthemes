@@ -1,0 +1,19 @@
+{
+  "name": "Soothe Theme",
+  "id": "soothe",
+  "description": "Colorful, muted theme for Emacs 24",
+  "repoUrl": "https://github.com/emacsfodder/emacs-soothe-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "emacs 24",
+    "soothe"
+  ]
+}

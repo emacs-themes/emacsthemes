@@ -1,0 +1,19 @@
+{
+  "name": "Waher Theme",
+  "id": "waher",
+  "description": "Dark, clean theme for Emacs.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-waher-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-waher-theme/master/waher-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "emacs 24",
+    "sublime text"
+  ]
+}

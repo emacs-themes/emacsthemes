@@ -1,0 +1,19 @@
+{
+  "name": "Sunny Day Theme",
+  "id": "sunny-day",
+  "description": "Emacs24 theme with a light yellow background",
+  "repoUrl": "https://github.com/mswift42/sunny-day-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mswift42/sunny-day-theme/master/sunny-day-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Martin Haesler"
+  ],
+  "tags": [
+    "emacs 24",
+    "light",
+    "sunny day",
+    "yellow"
+  ]
+}

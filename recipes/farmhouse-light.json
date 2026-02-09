@@ -1,0 +1,19 @@
+{
+  "name": "Farmhouse Light Theme",
+  "id": "farmhouse-light",
+  "description": "Light variant of Farmhouse. Created after having severe eye fatigue issues with a popular 'Mathematically Perfect' color scheme",
+  "repoUrl": "https://github.com/mattly/emacs-farmhouse-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mattly/emacs-farmhouse-theme/master/farmhouse-themes.el",
+    "https://raw.githubusercontent.com/mattly/emacs-farmhouse-theme/master/farmhouse-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Matthew Lyon"
+  ],
+  "tags": [
+    "farmhouse",
+    "light",
+    "emacs 24"
+  ]
+}

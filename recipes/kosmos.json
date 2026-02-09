@@ -1,0 +1,18 @@
+{
+  "name": "Kosmos Theme",
+  "id": "kosmos",
+  "description": "Black and lightgray theme with not so much syntax highlighting.",
+  "repoUrl": "https://github.com/habamax/kosmos-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/habamax/kosmos-theme/master/kosmos-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Maxim Kim"
+  ],
+  "tags": [
+    "kosmos",
+    "dark",
+    "black"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Timu-macOS Dark & Light",
+  "id": "timu-macos-theme",
+  "description": "Color theme inspired by the macOS UI.",
+  "repoUrl": "https://gitlab.com/aimebertrand/timu-macos-theme",
+  "rawUrls": [
+    "https://gitlab.com/aimebertrand/timu-macos-theme/-/raw/master/timu-macos-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Aime Bertrand"
+  ],
+  "tags": [
+    "dark",
+    "light",
+    "blue",
+    "macos"
+  ]
+}
