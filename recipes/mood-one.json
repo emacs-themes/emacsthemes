@@ -2,9 +2,9 @@
   "name": "Mood One Theme",
   "id": "mood-one",
   "description": "A dark color scheme inspired by the Doom One theme.",
-  "repoUrl": "https://github.com/jessieh/mood-one-theme",
+  "repoUrl": "https://github.com/jessiehildebrandt/mood-one-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/jessieh/mood-one-theme/master/mood-one-theme.el"
+    "https://github.com/jessiehildebrandt/mood-one-theme/raw/refs/heads/master/mood-one-theme.el"
   ],
   "type": "dark",
   "authors": [

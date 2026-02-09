@@ -4,7 +4,7 @@
   "description": " An awesome dark theme",
   "repoUrl": "https://github.com/m-cat/nimbus-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/m-cat/nimbus-theme/master/nimbus-theme.el"
+    "https://github.com/mrcnski/nimbus-theme/raw/refs/heads/master/nimbus-theme.el"
   ],
   "type": "dark",
   "authors": [

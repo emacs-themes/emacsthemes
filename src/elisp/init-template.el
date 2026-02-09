@@ -1,7 +1,7 @@
 (defun log-debug (fmt &rest args)
   (let ((msg (apply #'format fmt args)))
     (message "DEBUG EMACS: %s" msg)
-    (princ (concat msg "\n") #'external-debugging-output)))
+    (princ (concat "DEBUG EMACS:" msg "\n") #'external-debugging-output)))
 
 (log-debug "Starting Emacs init...")
 (add-to-list 'load-path "{{THEME_DIR}}")

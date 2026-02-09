@@ -1,0 +1,21 @@
+{
+  "name": "Nordic Night theme",
+  "id": "nordic-night",
+  "description": "A darker, more colorful version of the lovely Nord theme",
+  "repoUrl": "https://codeberg.org/ashton314/nordic-night",
+  "rawUrls": [
+    "https://codeberg.org/ashton314/nordic-night/raw/branch/main/nordic-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ashton Wiersdorf"
+  ],
+  "tags": [
+    "nord",
+    "nordic",
+    "nordic night",
+    "dark",
+    "blue",
+    "colorful"
+  ]
+}
