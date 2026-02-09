@@ -16,7 +16,7 @@ bun ci
 
 ### Generate screenshots
 ```bash
-bun run generate-screenshots
+bun run screenshots
 ```
 
 ### Build the static site
@@ -36,7 +36,7 @@ The output will be in the `build/` directory.
 
 - **Linting**: `bun run lint`
 - **Validate Recipes**: `bun run validate`
-- **Docker Generation**: `bun run generate-screenshots:docker`
+- **Screenshots**: `bun run screenshots`
 
 ## License
 

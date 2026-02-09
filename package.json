@@ -8,8 +8,7 @@
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "validate": "bun src/core/validate.ts",
-    "generate-screenshots": "bun src/core/generate-screenshots.ts",
-    "generate-screenshots:docker": "sh src/docker/run.sh",
+    "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts"
   },
   "repository": {
