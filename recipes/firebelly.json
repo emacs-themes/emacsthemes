@@ -4,7 +4,7 @@
   "description": "Low-contrast, dark-background emacs theme. ",
   "repoUrl": "local",
   "rawUrls": [
-    "static/themes/firebelly/firebelly.el"
+    "static/themes/firebelly/firebelly-theme.el"
   ],
   "type": "light",
   "authors": [

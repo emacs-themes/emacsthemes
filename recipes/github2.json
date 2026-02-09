@@ -4,7 +4,7 @@
   "description": "A low contrast color theme for Emacs.",
   "repoUrl": "local",
   "rawUrls": [
-    "static/themes/github2/github2.el"
+    "static/themes/github2/github2-theme.el"
   ],
   "type": "light",
   "authors": [

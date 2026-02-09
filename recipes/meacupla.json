@@ -1,0 +1,19 @@
+{
+  "name": "Meacupla Theme",
+  "id": "meacupla",
+  "description": "Light color theme for Emacs 24+",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/meacupla/meacupla-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jeff Tecca"
+  ],
+  "tags": [
+    "meacupla",
+    "light",
+    "emacs 24",
+    "grey"
+  ]
+}
