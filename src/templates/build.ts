@@ -102,21 +102,20 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
       const content = await Bun.file(filePath).json() as Theme;
       const screenshotsDir = join(PATHS.assets.src.images, content.id);
 
-      let mtime = 0;
       try {
         const stats = await stat(screenshotsDir);
-        mtime = stats.mtime.getTime();
+        return { ...content, mtime: stats.mtime.getTime() };
       } catch {
-        // Fallback to recipe mtime if screenshot dir doesn't exist
-        const stats = await stat(filePath);
-        mtime = stats.mtime.getTime();
+        // Skip themes without a screenshots directory
+        return null;
       }
-
-      return { ...content, mtime };
     })
   );
 
-  return themesWithStats.sort((a, b) => b.mtime - a.mtime).slice(0, limit);
+  return themesWithStats
+    .filter((t): t is (Theme & { mtime: number }) => t !== null)
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, limit);
 }
 
 /**
