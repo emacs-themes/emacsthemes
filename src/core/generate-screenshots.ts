@@ -189,9 +189,14 @@ async function generateInitEl(
   let modeSpecificLogic = "";
   if (config.isInstructionFile) {
     modeSpecificLogic = await readFile(samplePath, "utf-8");
+    if (config.sampleFile) {
+      const absoluteSamplePath = resolve(join(MODES_SAMPLES_DIR, config.sampleFile));
+      modeSpecificLogic = modeSpecificLogic.replace(/{{SAMPLE_PATH}}/g, absoluteSamplePath);
+    }
   } else {
     const absoluteSamplePath = resolve(samplePath);
     const extraLogic = modeName === 'text-mode' ? '(display-line-numbers-mode 1)' : '';
+
     modeSpecificLogic = `
 (find-file "${absoluteSamplePath}")
 (funcall '${modeName})

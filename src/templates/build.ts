@@ -99,9 +99,20 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
   const themesWithStats = await Promise.all(
     themeFiles.map(async (file) => {
       const filePath = join(RECIPES_DIR, file);
-      const stats = await stat(filePath);
-      const content = await Bun.file(filePath).json();
-      return { ...content, mtime: stats.mtime.getTime() };
+      const content = await Bun.file(filePath).json() as Theme;
+      const screenshotsDir = join(PATHS.assets.src.images, content.id);
+
+      let mtime = 0;
+      try {
+        const stats = await stat(screenshotsDir);
+        mtime = stats.mtime.getTime();
+      } catch {
+        // Fallback to recipe mtime if screenshot dir doesn't exist
+        const stats = await stat(filePath);
+        mtime = stats.mtime.getTime();
+      }
+
+      return { ...content, mtime };
     })
   );
 

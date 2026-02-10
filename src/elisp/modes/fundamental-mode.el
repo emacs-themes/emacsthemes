@@ -1,0 +1,5 @@
+(split-window-right)
+(find-file "{{SAMPLE_PATH}}")
+(fundamental-mode)
+(mark-whole-buffer)
+(log-debug "DEBUG EMACS: Opened {{SAMPLE_PATH}} in fundamental-mode with split and selection")

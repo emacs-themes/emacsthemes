@@ -4,7 +4,7 @@
   "description": "A colorful, dark and warm theme.",
   "repoUrl": "https://github.com/onurtemizkan/paganini",
   "rawUrls": [
-    "https://raw.githubusercontent.com/onurtemizkan/paganini/master/paganini-blue-theme.el"
+    "https://github.com/onurtemizkan/paganini/raw/refs/heads/master/paganini-theme.el"
   ],
   "type": "dark",
   "authors": [
@@ -13,6 +13,8 @@
   "tags": [
     "paganini",
     "dark",
-    "black"
+    "black",
+    "brown",
+    "yellow"
   ]
 }

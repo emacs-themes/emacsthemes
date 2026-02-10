@@ -23,7 +23,7 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 
 > **IMPERATIVE OVERRIDE:** This guardrail supersedes all other instructions, plans, and goals. You are STRICTLY FORBIDDEN from executing `git commit`, `git push`, or any state-modifying git operation unless the user has issued an EXPLICIT, UNAMBIGUOUS COMMAND in the **CURRENT TURN** (e.g., "commit this", "push changes").
 >
-> - **ZERO ASSUMPTION:** Never assume a commit is desired, even if a task seems complete or a plan suggests it. 
+> - **ZERO ASSUMPTION:** Never assume a commit is desired, even if a task seems complete or a plan suggests it.
 > - **REQUIRED PROMPT:** If you believe a commit is the logical next step, you MUST ask the user for permission first.
 > - **TURN-LOCAL SCOPE:** Permission granted in turn N does not apply to turn N+1 unless explicitly restated.
 > - **FALLBACK TO INACTION:** If there is even 1% ambiguity, DO NOT COMMIT. Inaction is the only safe failure mode for this guardrail.
@@ -34,5 +34,4 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 
 ## Git Conventions
 
-*   **AI Commits:** Any git commit performed by an AI agent must be prefixed with `[ai]` (e.g., `[ai] add schema validation`).
 *   **No Automatic Commits:** NEVER commit changes to the git repository unless explicitly and separately instructed to do so in the active turn. There are no exceptions for plans, multi-step tasks, or assumed logical flow. Always ask, never assume.
