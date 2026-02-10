@@ -4,7 +4,7 @@
   "description": "A Emacs 24 deftheme that resembles Textmate’s ‘sunburst’ theme.",
   "repoUrl": "https://github.com/neomantic/Emacs-Sunburst-Color-Theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/neomantic/Emacs-Sunburst-Color-Theme/master/sunburst-theme.el"
+    "https://raw.githubusercontent.com/neomantic-zz/Emacs-Sunburst-Color-Theme/master/sunburst-theme.el"
   ],
   "type": "dark",
   "authors": [

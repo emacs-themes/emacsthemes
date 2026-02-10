@@ -4,7 +4,7 @@
   "description": "Color theme inspired by the macOS UI.",
   "repoUrl": "https://gitlab.com/aimebertrand/timu-macos-theme",
   "rawUrls": [
-    "https://gitlab.com/aimebertrand/timu-macos-theme/-/raw/master/timu-macos-theme.el"
+    "https://gitlab.com/aimebertrand/timu-macos-theme/-/raw/main/timu-macos-theme.el"
   ],
   "type": "dark",
   "authors": [

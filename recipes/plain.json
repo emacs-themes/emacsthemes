@@ -4,7 +4,7 @@
   "description": "Plain theme without syntax highlighting",
   "repoUrl": "https://gitlab.com/yegortimoshenko/plain-theme",
   "rawUrls": [
-    "https://gitlab.com/yegortimoshenko/plain-theme/raw/master/plain-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/plain-theme/master/plain-theme.el"
   ],
   "type": "light",
   "authors": [

@@ -4,8 +4,7 @@
   "description": "Emacs port of the excellent Spacegray theme",
   "repoUrl": "https://github.com/bruce/emacs-spacegray-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/bruce/emacs-spacegray-theme/master/spacegray-theme.el",
-    "https://raw.githubusercontent.com/bruce/emacs-spacegray-theme/master/spacegray-eighties-theme.el"
+    "https://raw.githubusercontent.com/bruce/emacs-spacegray-theme/master/spacegray-theme.el"
   ],
   "type": "dark",
   "authors": [

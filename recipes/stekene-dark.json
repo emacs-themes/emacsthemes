@@ -1,0 +1,19 @@
+{
+  "name": "Stekene Dark Theme",
+  "id": "stekene-dark",
+  "description": "Stekene Dark Theme",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/stekene/stekene-theme-common.el",
+    "static/themes/stekene/stekene-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "stekene"
+  ]
+}

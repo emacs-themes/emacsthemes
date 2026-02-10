@@ -1,0 +1,20 @@
+{
+  "name": "Thankful Eyes Theme",
+  "id": "thankful-eyes-theme",
+  "description": "Theme for color blindness and visual impairments with high contrast",
+  "repoUrl": "https://github.com/tanrax/thankful-eyes-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tanrax/thankful-eyes-theme.el/master/thankful-eyes-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andros Fenollosa"
+  ],
+  "tags": [
+    "dark",
+    "accessibility",
+    "high contrast",
+    "color blind",
+    "visual impairment"
+  ]
+}

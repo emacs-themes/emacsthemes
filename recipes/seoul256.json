@@ -2,13 +2,13 @@
   "name": "Seoul256 Theme",
   "id": "seoul256",
   "description": "Low-contrast dark emacs color scheme using Seoul colours",
-  "repoUrl": "https://github.com/ChrisDavison/seoul256.el",
+  "repoUrl": "https://github.com/anandpiyer/seoul256-emacs",
   "rawUrls": [
-    "https://raw.githubusercontent.com/ChrisDavison/seoul256.el/master/seoul256-theme.el"
+    "https://github.com/anandpiyer/seoul256-emacs/raw/refs/heads/master/seoul256-theme.el"
   ],
   "type": "dark",
   "authors": [
-    "Chris Davison"
+    "Anand Iyer"
   ],
   "tags": [
     "seoul256",

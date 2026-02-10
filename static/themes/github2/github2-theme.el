@@ -24,19 +24,18 @@
 ;; I took the Zenburn theme and modified it. Creds to Bozhidar Batsov!
 
 ;;; Credits:
-
-;; Bozhidar Batsov created the Zenburn theme file which I modified to create
-;; this theme.
-
-;;; Code:
-
-(deftheme github "The GitHub color theme")
-
-;;; Color Palette
-
-(defvar github-default-colors-alist
-  '(("github-fg+1"     . "#333333")
-    ("github-fg"       . "#a71d5d")
+ 
+ ;; Bozhidar Batsov created the Zenburn theme file which I modified to create
+ ;; this theme.
+ 
+ ;;; Code:
+ 
+ (deftheme github2 "The GitHub color theme")
+ 
+ ;;; Color Palette
+ 
+ (defvar github-default-colors-alist
+   '(("github-fg+1"     . "#333333")    ("github-fg"       . "#a71d5d")
     ("github-fg-1"     . "#333333")
     ("github-bg-2"     . "#ffffff") ;; homerow inactive bg
     ("github-bg-1"     . "#b0cde7") ;; selection
@@ -100,7 +99,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;; Theme Faces
 (github-with-color-variables
   (custom-theme-set-faces
-   'github
+   'github2
 ;;;; Built-in
 ;;;;; basic coloring
    '(button ((t (:underline t))))
@@ -1189,7 +1188,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;; Theme Variables
 (github-with-color-variables
   (custom-theme-set-variables
-   'github
+   'github2
 ;;;;; ansi-color
    `(ansi-color-names-vector [,github-bg ,github-red ,github-green ,github-yellow
                                           ,github-blue ,github-magenta ,github-cyan ,github-fg])
@@ -1262,11 +1261,10 @@ This requires library `rainbow-mode'.")
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
 
-(provide-theme 'github)
-
-;; Local Variables:
-;; no-byte-compile: t
-;; indent-tabs-mode: nil
+(provide-theme 'github2)
+ 
+ ;; Local Variables:
+ ;; no-byte-compile: t;; indent-tabs-mode: nil
 ;; eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
 ;; End:
 ;;; github-theme.el ends here

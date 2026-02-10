@@ -19,11 +19,16 @@ export const ThemeSchema = z.object({
     elisp: z.string().optional().default(''),
   }).refine((data) => {
     if (data.repoUrl === "local") {
-      return data.rawUrls.every(url => url.startsWith(`static/themes/${data.id}/`));
+      return data.rawUrls.every(url => {
+        const match = url.match(/^static\/themes\/([^/]+)\//);
+        if (!match) return false;
+        const folder = match[1];
+        return data.id.includes(folder);
+      });
     }
     return true;
   }, {
-    message: "Local themes must have rawUrls starting with 'static/themes/{id}/'",
+    message: "Local themes must have rawUrls in 'static/themes/{folder}/' where {folder} is a substring of the theme ID",
     path: ["rawUrls"]
   });
 export type Theme = z.infer<typeof ThemeSchema>;

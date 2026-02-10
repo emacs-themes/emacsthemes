@@ -1,0 +1,20 @@
+{
+  "name": "Punpun Dark Theme",
+  "id": "punpun-light",
+  "description": "A bleak Emacs theme",
+  "repoUrl": "https://github.com/wasamasa/punpun-theme",
+  "rawUrls": [
+    "https://github.com/wasamasa/punpun-theme/raw/refs/heads/master/punpun-common.el",
+    "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Vasilij Schneidermann"
+  ],
+  "tags": [
+    "punpun",
+    "light",
+    "grey",
+    "monochrome"
+  ]
+}

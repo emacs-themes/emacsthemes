@@ -4,7 +4,7 @@
   "description": "Color theme inspired by the Rouge Theme for VSCode.",
   "repoUrl": "https://gitlab.com/aimebertrand/timu-rouge-theme",
   "rawUrls": [
-    "https://gitlab.com/aimebertrand/timu-rouge-theme/-/raw/master/timu-rouge-theme.el"
+    "https://gitlab.com/aimebertrand/timu-rouge-theme/-/raw/main/timu-rouge-theme.el"
   ],
   "type": "dark",
   "authors": [

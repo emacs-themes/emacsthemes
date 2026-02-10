@@ -4,7 +4,7 @@
   "description": "A dark color theme by toxi",
   "repoUrl": "https://bitbucket.org/postspectacular/toxi-theme",
   "rawUrls": [
-    "https://bitbucket.org/postspectacular/toxi-theme/raw/master/toxi-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/toxi-theme/master/toxi-theme.el"
   ],
   "type": "dark",
   "authors": [

@@ -1,10 +1,10 @@
 {
   "name": "White Theme",
-  "id": "white-theme",
+  "id": "white",
   "description": "Minimalistic light color theme inspired by basic-theme",
-  "repoUrl": "https://github.com/anler/white-theme.el",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://raw.githubusercontent.com/anler/white-theme.el/master/white-theme.el"
+    "static/themes/white/white-theme.el"
   ],
   "type": "light",
   "authors": [

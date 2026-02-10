@@ -4,7 +4,7 @@
   "description": "A minimal Emacs colour theme",
   "repoUrl": "https://github.com/cadadr/paper-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/cadadr/paper-theme/master/paper-theme.el"
+    "https://raw.githubusercontent.com/cadadr/elisp/master/paper-theme.el"
   ],
   "type": "light",
   "authors": [

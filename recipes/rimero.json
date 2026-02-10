@@ -4,7 +4,7 @@
   "description": "Theme with a dark background suitable for UI and terminal usage.",
   "repoUrl": "https://github.com/yveszoundi/emacs-rimero-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/yveszoundi/emacs-rimero-theme/master/rimero-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/rimero-theme/master/rimero-theme.el"
   ],
   "type": "dark",
   "authors": [

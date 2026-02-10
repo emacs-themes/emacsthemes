@@ -1,0 +1,19 @@
+{
+  "name": "Stekene Light Theme",
+  "id": "stekene-light",
+  "description": "Stekene Light Theme",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/stekene/stekene-theme-common.el",
+    "static/themes/stekene/stekene-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "light",
+    "stekene",
+    "white"
+  ]
+}

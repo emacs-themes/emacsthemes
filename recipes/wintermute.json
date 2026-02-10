@@ -2,9 +2,9 @@
   "name": "Wintermute",
   "id": "wintermute",
   "description": "An icy-looking cyberpunk theme",
-  "repoUrl": "https://github.com/Bleu-Box/wintermute-theme",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://raw.githubusercontent.com/Bleu-Box/wintermute-theme/master/wintermute-theme.el"
+    "static/themes/wintermute/wintermute-theme.el"
   ],
   "type": "dark",
   "authors": [

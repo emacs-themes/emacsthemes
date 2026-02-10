@@ -4,7 +4,7 @@
   "description": "Emacs 24 theme with a dark background",
   "repoUrl": "https://github.com/RyanBurnside/Seventies",
   "rawUrls": [
-    "https://raw.githubusercontent.com/RyanBurnside/Seventies/master/seventies-theme.el"
+    "https://github.com/RyanBurnside/Seventies/raw/refs/heads/master/Seventies-theme.el"
   ],
   "type": "dark",
   "authors": [

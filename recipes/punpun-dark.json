@@ -1,11 +1,10 @@
 {
-  "name": "Punpun Theme",
-  "id": "punpun",
+  "name": "Punpun Dark Theme",
+  "id": "punpun-dark",
   "description": "A bleak Emacs theme",
   "repoUrl": "https://github.com/wasamasa/punpun-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-theme.el",
-    "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-light-theme.el",
+    "https://github.com/wasamasa/punpun-theme/raw/refs/heads/master/punpun-common.el",
     "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-dark-theme.el"
   ],
   "type": "dark",
@@ -14,7 +13,6 @@
   ],
   "tags": [
     "punpun",
-    "light",
     "dark",
     "black",
     "grey",

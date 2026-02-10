@@ -1,0 +1,20 @@
+{
+  "name": "Blurb Theme",
+  "id": "blurb",
+  "description": "A theme that highlights only a few constructs.",
+  "repoUrl": "https://github.com/gnuvince/purp",
+  "rawUrls": [
+    "https://github.com/gnuvince/purp/raw/refs/heads/master/purp-common.el",
+    "https://github.com/gnuvince/purp/raw/refs/heads/master/blurb-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Vincent Foley"
+  ],
+  "tags": [
+    "blurb",
+    "navy",
+    "charcoal",
+    "blue"
+  ]
+}

@@ -2,9 +2,9 @@
   "name": "Zweilight Theme",
   "id": "zweilight",
   "description": "A dark color theme for Emacs.",
-  "repoUrl": "https://github.com/philiparvidsson/zweilight-emacs",
+  "repoUrl": "https://github.com/emacsattic/zweilight-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/philiparvidsson/zweilight-emacs/master/zweilight-theme.el"
+    "https://github.com/emacsattic/zweilight-theme/raw/refs/heads/master/zweilight-theme.el"
   ],
   "type": "dark",
   "authors": [

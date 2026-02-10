@@ -4,7 +4,7 @@
   "description": "A mono version of the port of the Phoenix Dark Pink theme",
   "repoUrl": "https://github.com/j0ni/phoenix-dark-mono",
   "rawUrls": [
-    "https://raw.githubusercontent.com/j0ni/phoenix-dark-mono/master/phoenix-dark-mono-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/phoenix-dark-mono-theme/master/phoenix-dark-mono-theme.el"
   ],
   "type": "dark",
   "authors": [
