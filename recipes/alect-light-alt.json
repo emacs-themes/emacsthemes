@@ -1,0 +1,22 @@
+{
+  "name": "Alect Light Alt Theme",
+  "id": "alect-light-alt",
+  "description": "Configurable light color themes for GNU Emacs 24 or later.",
+  "repoUrl": "https://github.com/alezost/alect-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/alezost/alect-themes/master/alect-themes.el",
+    "https://github.com/alezost/alect-themes/raw/refs/heads/master/alect-light-alt-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Alex Kost"
+  ],
+  "tags": [
+    "alect",
+    "emacs 24",
+    "light",
+    "light alt",
+    "popular",
+    "modern"
+  ]
+}
