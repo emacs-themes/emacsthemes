@@ -9,6 +9,24 @@ const INIT_TEMPLATE_PATH = "src/elisp/init-template.el";
 const MODES_SAMPLES_DIR = "src/elisp/modes";
 const LOCAL_THEMES_DIR = "static/themes";
 
+interface Arguments {
+  targetThemeId: string | null;
+  force: boolean;
+}
+
+/**
+ * Parses command-line arguments to extract theme filtering and force flags.
+ *
+ * @returns {Arguments} An object containing the parsed arguments.
+ */
+function parseCliArgs(): Arguments {
+  const fileIndex = Bun.argv.indexOf("--file");
+  const targetThemeId = (fileIndex !== -1 && Bun.argv[fileIndex + 1]) ? Bun.argv[fileIndex + 1] : null;
+  const force = Bun.argv.includes("--force");
+
+  return { targetThemeId, force };
+}
+
 /**
  * Recursively copies a directory and its contents to a destination.
  *
@@ -298,10 +316,11 @@ async function generatePreview(sourcePath: string, destPath: string): Promise<bo
  * 6. Clean up the temporary source files.
  *
  * @param {string} recipePath - The file path to the theme recipe JSON.
+ * @param {boolean} [force=false] - Whether to force screenshot generation.
  * @returns {Promise<{ status: 'skipped' | 'success' | 'failed', name: string }>}
  * An object containing the operation status and the theme name.
  */
-async function processTheme(recipePath: string): Promise<{ status: 'skipped' | 'success' | 'failed', name: string }> {
+async function processTheme(recipePath: string, force: boolean = false): Promise<{ status: 'skipped' | 'success' | 'failed', name: string }> {
   const file = Bun.file(recipePath);
   const json = await file.json();
   const parseResult = ThemeSchema.safeParse(json);
@@ -314,8 +333,7 @@ async function processTheme(recipePath: string): Promise<{ status: 'skipped' | '
   const theme = parseResult.data;
   const themeImagesDir = join(IMAGES_DIR, theme.id);
 
-  // Skip if theme directory already exists, unless --force is used
-  const force = Bun.argv.includes("--force");
+  // Skip if theme directory already exists, unless force is true
   try {
     const dirInfo = await Bun.file(themeImagesDir).stat();
     if (dirInfo && !force) {
@@ -418,16 +436,15 @@ async function main() {
   await mkdir(IMAGES_DIR, { recursive: true });
   await mkdir(TEMP_DIR, { recursive: true });
 
+  const { targetThemeId, force } = parseCliArgs();
   const files = await readdir(RECIPES_DIR);
   let recipes = files.filter(f => f.endsWith(".json"));
 
-  // Allow filtering by theme ID via CLI argument
-  const targetThemeId = Bun.argv[2];
   if (targetThemeId) {
     console.log(`Filtering for theme ID: ${targetThemeId}`);
-    recipes = recipes.filter(f => f.includes(targetThemeId));
+    recipes = recipes.filter(f => f === `${targetThemeId}.json`);
     if (recipes.length === 0) {
-      console.error(`No recipe found matching ID: ${targetThemeId}`);
+      console.error(`No recipe found matching: ${targetThemeId}.json`);
       process.exit(1);
     }
   }
@@ -437,7 +454,9 @@ async function main() {
   const results = { skipped: 0, success: 0, failed: 0 };
 
   for (const recipeFile of recipes) {
-    const { status } = await processTheme(join(RECIPES_DIR, recipeFile));
+    // If a target theme was provided via --file, or --force was used, force it
+    const shouldForce = force || !!targetThemeId;
+    const { status } = await processTheme(join(RECIPES_DIR, recipeFile), shouldForce);
     results[status]++;
   }
 
