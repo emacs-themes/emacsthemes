@@ -4,7 +4,7 @@
   "description": "Dark Emacs 24 color theme (using deftheme).",
   "repoUrl": "https://github.com/ccann/badger-theme",
   "rawUrls": [
-    "https://github.com/ccann/badger-theme"
+    "https://github.com/ccann/badger-theme/raw/refs/heads/master/badger-theme.el"
   ],
   "type": "dark",
   "authors": [
