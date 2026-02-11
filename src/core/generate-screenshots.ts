@@ -426,7 +426,7 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
       filesToLoad.push(...downloaded);
     }
     const detectedName = await findThemeNameInDir(themeTempDir);
-    const emacsThemeName = detectedName || theme.name.toLowerCase().replace(/\s+/g, '-');
+    const emacsThemeName = detectedName || theme.id;
 
     await ensureThemeFileNaming(themeTempDir, filesToLoad, detectedName);
 
