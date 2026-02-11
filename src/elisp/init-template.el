@@ -4,8 +4,21 @@
     (princ (concat "DEBUG EMACS:" msg "\n") #'external-debugging-output)))
 
 (log-debug "Starting Emacs init...")
+
+;; Initialize package.el for themes that have dependencies
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-check-signature nil)
+(package-initialize)
+
 (add-to-list 'load-path "{{THEME_DIR}}")
 (log-debug "Added {{THEME_DIR}} to load-path")
+
+(log-debug "Running extra elisp...")
+(condition-case err
+    (progn
+      {{EXTRA_ELISP}})
+  (error (log-debug "Extra elisp execution failed: %s" err)))
 
 (log-debug "Loading theme files: {{THEME_FILES}}")
 (condition-case err
@@ -29,12 +42,6 @@
 (log-debug "Adding theme dir '{{THEME_DIR}}' to custom-theme-load-path")
 (add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
 
-(log-debug "Running extra elisp...")
-(condition-case err
-    (progn
-      {{EXTRA_ELISP}})
-  (error (log-debug "Extra elisp execution failed: %s" err)))
-
 ;; Try to load and enable theme based on name
 (log-debug "Enabling theme. Theme name: '{{THEME_NAME}}'" )
 (unless custom-enabled-themes
@@ -52,3 +59,6 @@
 
 (redisplay t)
 (log-debug "Emacs init completed.")
+
+(with-temp-file "{{READY_FILE}}"
+  (insert "ready"))

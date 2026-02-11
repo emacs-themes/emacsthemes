@@ -154,15 +154,42 @@ async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<
 }
 
 /**
- * Searches a directory for Emacs Lisp files and attempts to extract the theme's
- * internal name using common Emacs Lisp patterns like (deftheme ...) or (provide-theme ...).
+ * Prepares the theme files by either copying them from a local directory or
+ * downloading them from remote URLs.
+ *
+ * @param {Theme} theme - The theme object from the recipe.
+ * @param {string} themeTempDir - The temporary directory where files should be placed.
+ * @returns {Promise<string[]>} A list of filenames that should be loaded in Emacs.
+ */
+async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<string[]> {
+  const filesToLoad: string[] = [];
+  if (theme.repoUrl === "local") {
+    const firstRawUrl = theme.rawUrls[0];
+    const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
+    const folderName = match ? match[1] : theme.id;
+    const localThemeDir = join(LOCAL_THEMES_DIR, folderName);
+    console.log(`  Copying local theme directory from ${localThemeDir}...`);
+    await copyDir(localThemeDir, themeTempDir);
+    // For local themes, we use the rawUrls list to determine what to load
+    theme.rawUrls.forEach(url => filesToLoad.push(basename(url)));
+  } else {
+    const downloaded = await downloadThemeFiles(theme.rawUrls, themeTempDir);
+    filesToLoad.push(...downloaded);
+  }
+  return filesToLoad;
+}
+
+/**
+ * Searches a directory (or a specific list of files) for Emacs Lisp files and attempts
+ * to extract the theme's internal name using common Emacs Lisp patterns.
  *
  * @param {string} dir - The directory path to scan for theme files.
+ * @param {string[]} [filesToSearch] - Optional list of specific filenames to scan.
  * @returns {Promise<string | null>} The detected theme name symbol as a string, or null if not found.
  */
-async function findThemeNameInDir(dir: string): Promise<string | null> {
+async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promise<string | null> {
   try {
-    const files = await readdir(dir);
+    const files = filesToSearch || await readdir(dir);
     for (const file of files) {
       if (!file.endsWith(".el")) continue;
 
@@ -259,7 +286,8 @@ async function generateInitEl(
   filesToLoad: string[],
   themeName: string,
   modeName: string,
-  config: ModeConfig
+  config: ModeConfig,
+  readyFilePath: string
 ): Promise<string> {
   const template = await readFile(INIT_TEMPLATE_PATH, "utf-8");
   const samplePath = join(MODES_SAMPLES_DIR, config.file);
@@ -295,6 +323,7 @@ ${extraLogic}
     .replace(/{{THEME_FILES}}/g, filesToLoad.filter(f => f.endsWith(".el")).join(" "))
     .replace(/{{THEME_NAME}}/g, themeName)
     .replace(/{{EXTRA_ELISP}}/g, theme.elisp || "")
+    .replace(/{{READY_FILE}}/g, resolve(readyFilePath))
     .replace(/{{MODE_SPECIFIC_LOGIC}}/g, modeSpecificLogic);
 }
 
@@ -304,9 +333,10 @@ ${extraLogic}
  *
  * @param {string} initElPath - Path to the init.el file to load into Emacs.
  * @param {string} imagePath - Target path where the generated PNG should be saved.
+ * @param {string} readyFilePath - Path to the 'ready' file that Emacs will create.
  * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
  */
-async function captureScreenshot(initElPath: string, imagePath: string): Promise<boolean> {
+async function captureScreenshot(initElPath: string, imagePath: string, readyFilePath: string): Promise<boolean> {
   const hasXvfb = (await Bun.spawn(["which", "xvfb-run"]).exited) === 0;
 
   if (!hasXvfb) {
@@ -318,10 +348,22 @@ async function captureScreenshot(initElPath: string, imagePath: string): Promise
     set -x
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
-    sleep 5
-    if ! kill -0 $EMACS_PID 2>/dev/null; then
+    
+    # Wait for the ready signal from Emacs or timeout after 60 seconds
+    TIMEOUT=60
+    while [ $TIMEOUT -gt 0 ] && [ ! -f "${resolve(readyFilePath)}" ]; do
+      sleep 1
+      TIMEOUT=$((TIMEOUT - 1))
+    done
+
+    if [ ! -f "${resolve(readyFilePath)}" ]; then
+      echo "  ❌ Emacs failed to signal readiness within timeout"
+      kill $EMACS_PID
       exit 1
     fi
+
+    # Small additional buffer for rendering to settle
+    sleep 2
     import -window root "${resolve(imagePath)}"
     kill $EMACS_PID
   `;
@@ -414,18 +456,8 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
   let processingFailed = false;
 
   try {
-    const filesToLoad: string[] = [];
-    if (theme.repoUrl === "local") {
-      const localThemeDir = join(LOCAL_THEMES_DIR, theme.id);
-      console.log(`  Copying local theme directory from ${localThemeDir}...`);
-      await copyDir(localThemeDir, themeTempDir);
-      // For local themes, we use the rawUrls list to determine what to load
-      theme.rawUrls.forEach(url => filesToLoad.push(basename(url)));
-    } else {
-      const downloaded = await downloadThemeFiles(theme.rawUrls, themeTempDir);
-      filesToLoad.push(...downloaded);
-    }
-    const detectedName = await findThemeNameInDir(themeTempDir);
+    const filesToLoad = await prepareThemeFiles(theme, themeTempDir);
+    const detectedName = await findThemeNameInDir(themeTempDir, filesToLoad);
     const emacsThemeName = detectedName || theme.id;
 
     await ensureThemeFileNaming(themeTempDir, filesToLoad, detectedName);
@@ -434,11 +466,12 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
       console.log(`  Generating screenshot for ${modeName}...`);
       const imagePath = join(themeImagesDir, `${modeName}.png`);
       const initElPath = join(themeTempDir, `init-${modeName}.el`);
+      const readyFilePath = join(themeTempDir, `ready-${modeName}`);
 
-      const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config);
+      const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config, readyFilePath);
       await Bun.write(initElPath, initContent);
 
-      const success = await captureScreenshot(initElPath, imagePath);
+      const success = await captureScreenshot(initElPath, imagePath, readyFilePath);
       if (!success) {
         console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
         processingFailed = true;
