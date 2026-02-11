@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile, rm, copyFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, copyFile, rename } from "node:fs/promises";
 import { join, basename, resolve, relative } from "node:path";
 import { ThemeSchema, Theme } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
@@ -180,6 +180,66 @@ async function findThemeNameInDir(dir: string): Promise<string | null> {
 }
 
 /**
+ * Searches through a list of files to find the one that explicitly defines or provides
+ * a given Emacs theme name.
+ *
+ * @param {string} themeTempDir - The directory containing the files.
+ * @param {string[]} files - List of filenames to search through.
+ * @param {string} themeName - The internal Emacs symbol name for the theme.
+ * @returns {Promise<string | undefined>} The filename defining the theme, or undefined if not found.
+ */
+async function findFileDefiningTheme(themeTempDir: string, files: string[], themeName: string): Promise<string | undefined> {
+  for (const file of files) {
+    if (!file.endsWith(".el")) continue;
+    const content = await Bun.file(join(themeTempDir, file)).text();
+    const defthemeRegex = new RegExp(`\\(deftheme\\s+'?${themeName}\\b`);
+    const provideThemeRegex = new RegExp(`\\(provide-theme\\s+'?${themeName}\\b`);
+
+    if (defthemeRegex.test(content) || provideThemeRegex.test(content)) {
+      return file;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Ensures that there is a theme file named after the detected internal theme name.
+ *
+ * Emacs' `load-theme` expects the file to be named `[theme-name]-theme.el`.
+ * If we detected a theme name (e.g., from 'deftheme') but no such file exists,
+ * we rename a likely candidate file to match.
+ *
+ * @param {string} themeTempDir - The temporary directory containing the theme files.
+ * @param {string[]} filesToLoad - The current list of files to be loaded in Emacs.
+ * @param {string | null} detectedName - The detected internal theme name.
+ * @returns {Promise<void>}
+ */
+async function ensureThemeFileNaming(themeTempDir: string, filesToLoad: string[], detectedName: string | null): Promise<void> {
+  if (!detectedName) return;
+
+  const expectedFilename = `${detectedName}-theme.el`;
+  const hasExpectedFile = filesToLoad.includes(expectedFilename);
+
+  if (!hasExpectedFile) {
+    // Find the file that actually defines/provides the theme
+    let themeFile = await findFileDefiningTheme(themeTempDir, filesToLoad, detectedName);
+
+    // Fallback to previous heuristic if no file clearly provides the theme
+    if (!themeFile) {
+      themeFile = filesToLoad.find(f => f.endsWith(".el") && !f.endsWith("-theme.el")) || filesToLoad.find(f => f.endsWith(".el"));
+    }
+
+    if (themeFile) {
+      const oldPath = join(themeTempDir, themeFile);
+      const newPath = join(themeTempDir, expectedFilename);
+      console.log(`  Renaming ${themeFile} to ${expectedFilename} to match detected theme name "${detectedName}"`);
+      await rename(oldPath, newPath);
+      filesToLoad[filesToLoad.indexOf(themeFile)] = expectedFilename;
+    }
+  }
+}
+
+/**
  * Constructs the content for an Emacs initialization file (init.el) by merging
  * a base template with theme-specific configurations and mode-specific display logic.
  *
@@ -232,6 +292,7 @@ ${extraLogic}
   return template
     .replace(/{{THEME_DIR}}/g, resolve(themeDir))
     .replace(/{{LOAD_THEME_FILES}}/g, loadFilesElisp)
+    .replace(/{{THEME_FILES}}/g, filesToLoad.filter(f => f.endsWith(".el")).join(" "))
     .replace(/{{THEME_NAME}}/g, themeName)
     .replace(/{{EXTRA_ELISP}}/g, theme.elisp || "")
     .replace(/{{MODE_SPECIFIC_LOGIC}}/g, modeSpecificLogic);
@@ -366,6 +427,8 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
     }
     const detectedName = await findThemeNameInDir(themeTempDir);
     const emacsThemeName = detectedName || theme.name.toLowerCase().replace(/\s+/g, '-');
+
+    await ensureThemeFileNaming(themeTempDir, filesToLoad, detectedName);
 
     for (const [modeName, config] of Object.entries(MODE_SAMPLES)) {
       console.log(`  Generating screenshot for ${modeName}...`);

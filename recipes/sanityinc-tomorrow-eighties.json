@@ -1,0 +1,24 @@
+{
+  "name": "Sanityinc Tomorrow Eighties",
+  "id": "sanityinc-tomorrow-eighties",
+  "description": "An Emacs color-theme version of Chris Kempson’s “Tomorrow” themes.",
+  "repoUrl": "https://github.com/purcell/color-theme-sanityinc-tomorrow",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/refs/heads/master/color-theme-sanityinc-tomorrow.el",
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/refs/heads/master/sanityinc-tomorrow-eighties-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Steve Purcell"
+  ],
+  "tags": [
+    "blue",
+    "dark",
+    "eighties",
+    "grey",
+    "popular",
+    "tomorrow",
+    "sanityinc"
+  ],
+  "elisp": "(color-theme-sanityinc-tomorrow-eighties)"
+}

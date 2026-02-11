@@ -7,8 +7,11 @@
 (add-to-list 'load-path "{{THEME_DIR}}")
 (log-debug "Added {{THEME_DIR}} to load-path")
 
-(log-debug "Loading theme files...")
-{{LOAD_THEME_FILES}}
+(log-debug "Loading theme files: {{THEME_FILES}}")
+(condition-case err
+    (progn
+      {{LOAD_THEME_FILES}})
+  (error (log-debug "Error loading theme files: %s" err)))
 
 ;; Make emacs full window
 (set-frame-parameter nil 'fullscreen 'fullboth)
