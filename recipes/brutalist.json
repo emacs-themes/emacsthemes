@@ -2,12 +2,12 @@
   "name": "Brutalist Theme",
   "id": "brutalist",
   "description": "Low distraction, minimalistic color theme for Emacs.",
-  "repoUrl": "https://git.madhouse-project.org/algernon/brutalist-theme.el.git",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://git.madhouse-project.org/algernon/brutalist-theme.el/raw/branch/main/brutalist-build.el",
-    "https://git.madhouse-project.org/algernon/brutalist-theme.el/master/brutalist.el"
+    "static/themes/brutalist/brutalist-build.el",
+    "static/themes/brutalist/brutalist-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Gergely Nagy"
   ],
@@ -16,7 +16,6 @@
     "white",
     "black and white",
     "brutalist",
-    "red",
-    "dark"
+    "red"
   ]
 }
