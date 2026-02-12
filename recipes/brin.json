@@ -2,9 +2,9 @@
   "name": "Brin Theme",
   "id": "brin",
   "description": "An Emacs port of the Space Grey ST2 theme",
-  "repoUrl": "https://github.com/owainlewis/emacs-color-themes",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://github.com/owainlewis/emacs-color-themes"
+    "static/themes/brin/brin-theme.el"
   ],
   "type": "dark",
   "authors": [
