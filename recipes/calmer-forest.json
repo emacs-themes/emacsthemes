@@ -4,11 +4,11 @@
   "description": "A nice semi-dark Emacs 24 theme",
   "repoUrl": "https://github.com/caldwell/calmer-forest-theme",
   "rawUrls": [
-    "https://github.com/caldwell/calmer-forest-theme"
+    "https://raw.githubusercontent.com/caldwell/calmer-forest-theme/refs/heads/master/calmer-forest-theme.el"
   ],
   "type": "dark",
   "authors": [
-    "Artur Hefczyc & David Caldwell"
+    "Artur Hefczyc & David Caldwell"
   ],
   "tags": [
     "black",

@@ -4,7 +4,7 @@
   "description": "Port of vim’s Busybee theme.",
   "repoUrl": "https://github.com/mswift42/busybee-theme",
   "rawUrls": [
-    "https://github.com/mswift42/busybee-theme"
+    "https://raw.githubusercontent.com/mswift42/busybee-theme/refs/heads/master/busybee-theme.el"
   ],
   "type": "dark",
   "authors": [

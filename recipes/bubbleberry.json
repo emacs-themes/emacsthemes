@@ -4,7 +4,7 @@
   "description": "Inspired by LightTable by Chris Granger",
   "repoUrl": "https://github.com/jasonm23/emacs-bubbleberry-theme",
   "rawUrls": [
-    "https://github.com/jasonm23/emacs-bubbleberry-theme"
+    "https://raw.githubusercontent.com/emacsfodder/emacs-bubbleberry-theme/refs/heads/master/bubbleberry-theme.el"
   ],
   "type": "dark",
   "authors": [
