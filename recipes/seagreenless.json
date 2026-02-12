@@ -1,10 +1,11 @@
 {
   "name": "Seagreenless Theme",
   "id": "seagreenless",
-  "description": "A colorless, gray theme",
-  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "description": "A light and seagreen colorless theme",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/seagreenless-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/seagreenless-theme.el"
   ],
   "type": "light",
   "authors": [

@@ -2,9 +2,10 @@
   "name": "Hydrangealess Theme",
   "id": "hydrangealess",
   "description": "A mostly colorless version of hydrangea-theme",
-  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/hydrangealess-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/hydrangealess-theme.el"
   ],
   "type": "dark",
   "authors": [

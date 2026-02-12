@@ -2,9 +2,10 @@
   "name": "Einkless Theme",
   "id": "einkless",
   "description": "A colorless port of eink-theme",
-  "repoUrl": "https://github.com/lthms/colorless-themes.el",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/lthms/colorless-themes.el/master/einkless-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/einkless-theme.el"
   ],
   "type": "light",
   "authors": [

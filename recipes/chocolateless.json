@@ -2,9 +2,10 @@
   "name": "Chocolateless Theme",
   "id": "chocolateless",
   "description": "A mostly colorless version of chocolate-theme",
-  "repoUrl": "https://git.sr.ht/~lthms/colorless-themes.el/",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
   "rawUrls": [
-    "https://git.sr.ht/~lthms/colorless-themes.el/"
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/chocolateless-theme.el"
   ],
   "type": "dark",
   "authors": [

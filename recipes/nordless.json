@@ -1,10 +1,11 @@
 {
   "name": "Nordless Theme",
   "id": "nordless",
-  "description": "A mostly colorless theme",
-  "repoUrl": "https://github.com/lthms/nordless-theme.el",
+  "description": "A mostly colorless version of nord-theme",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/lthms/nordless-theme.el/master/nordless-theme.el"
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/nordless-theme.el"
   ],
   "type": "dark",
   "authors": [
