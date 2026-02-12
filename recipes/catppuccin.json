@@ -4,7 +4,7 @@
   "description": "Soothing pastel theme",
   "repoUrl": "https://github.com/catppuccin/emacs",
   "rawUrls": [
-    "https://github.com/catppuccin/emacs"
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-theme.el"
   ],
   "type": "dark",
   "authors": [

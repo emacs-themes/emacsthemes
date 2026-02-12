@@ -4,7 +4,7 @@
   "description": "A dark color theme for Emacs.",
   "repoUrl": "https://github.com/dakrone/dakrone-theme",
   "rawUrls": [
-    "https://github.com/dakrone/dakrone-theme"
+    "https://raw.githubusercontent.com/dakrone/dakrone-theme/refs/heads/master/dakrone-theme.el"
   ],
   "type": "dark",
   "authors": [

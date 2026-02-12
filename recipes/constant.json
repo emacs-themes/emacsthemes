@@ -4,7 +4,7 @@
   "description": "A calm, dark, almost monochrome color theme",
   "repoUrl": "https://github.com/Jannis/emacs-constant-theme",
   "rawUrls": [
-    "https://github.com/Jannis/emacs-constant-theme"
+    "https://raw.githubusercontent.com/Jannis/emacs-constant-theme/refs/heads/master/constant-theme.el"
   ],
   "type": "dark",
   "authors": [

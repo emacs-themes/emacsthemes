@@ -4,7 +4,7 @@
   "description": "A dark grunge color theme",
   "repoUrl": "https://github.com/owainlewis/emacs-color-themes",
   "rawUrls": [
-    "https://github.com/owainlewis/emacs-color-themes"
+    "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/refs/heads/master/themes/dorsey-theme.el"
   ],
   "type": "dark",
   "authors": [

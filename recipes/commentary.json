@@ -4,7 +4,7 @@
   "description": "A minimal theme with contrasting comments",
   "repoUrl": "https://github.com/pzel/commentary-theme",
   "rawUrls": [
-    "https://github.com/pzel/commentary-theme"
+    "https://raw.githubusercontent.com/pzel/commentary-theme/refs/heads/master/commentary-theme.el"
   ],
   "type": "dark",
   "authors": [

@@ -4,7 +4,7 @@
   "description": "Custom face theme for Emacs",
   "repoUrl": "https://github.com/andrzejsliwa/django-theme.el",
   "rawUrls": [
-    "https://github.com/andrzejsliwa/django-theme.el"
+    "https://raw.githubusercontent.com/andrzejsliwa/django-theme.el/refs/heads/master/django-theme.el"
   ],
   "type": "dark",
   "authors": [

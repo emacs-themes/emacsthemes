@@ -4,7 +4,7 @@
   "description": "Porting that makes blackboard no longer rely on color-theme package.",
   "repoUrl": "https://github.com/don9z/blackboard-theme",
   "rawUrls": [
-    "https://github.com/don9z/blackboard-theme/raw/refs/heads/master/blackboard-theme.el"
+    "https://raw.githubusercontent.com/don9z/blackboard-theme/refs/heads/master/blackboard-theme.el"
   ],
   "type": "dark",
   "authors": [

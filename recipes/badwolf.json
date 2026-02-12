@@ -4,7 +4,7 @@
   "description": "An Emacs port of Bad Wolf theme for Vim.",
   "repoUrl": "https://github.com/bkruczyk/badwolf-emacs",
   "rawUrls": [
-    "https://github.com/bkruczyk/badwolf-emacs/raw/refs/heads/master/badwolf-theme.el"
+    "https://raw.githubusercontent.com/bkruczyk/badwolf-emacs/refs/heads/master/badwolf-theme.el"
   ],
   "type": "dark",
   "authors": [

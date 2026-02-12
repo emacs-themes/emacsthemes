@@ -4,7 +4,7 @@
   "description": "Minimalistic light color theme for GNU Emacs.",
   "repoUrl": "https://github.com/fgeller/basic-theme.el",
   "rawUrls": [
-    "https://github.com/fgeller/basic-theme.el/raw/refs/heads/master/basic-theme.el"
+    "https://raw.githubusercontent.com/fgeller/basic-theme.el/refs/heads/master/basic-theme.el"
   ],
   "type": "dark",
   "authors": [

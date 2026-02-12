@@ -4,7 +4,7 @@
   "description": "A theme made up of cooling colors with a couple of flecks of light cream/brown/orange",
   "repoUrl": "https://github.com/emacsfodder/emacs-clues-theme",
   "rawUrls": [
-    "https://github.com/emacsfodder/emacs-clues-theme"
+    "https://raw.githubusercontent.com/emacsfodder/emacs-clues-theme/refs/heads/master/clues-theme.el"
   ],
   "type": "dark",
   "authors": [

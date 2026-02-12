@@ -4,7 +4,7 @@
   "description": "Port of the Phoenix Dark Pink theme",
   "repoUrl": "https://github.com/j0ni/phoenix-dark-pink",
   "rawUrls": [
-    "https://github.com/j0ni/phoenix-dark-pink"
+    "https://raw.githubusercontent.com/j0ni/phoenix-dark-pink/refs/heads/master/phoenix-dark-pink-theme.el"
   ],
   "type": "dark",
   "authors": [

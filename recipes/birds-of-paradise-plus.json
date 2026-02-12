@@ -4,7 +4,7 @@
   "description": "A Emacs port of Joe Bergantine’s light-on-dark ",
   "repoUrl": "https://github.com/jimeh/birds-of-paradise-plus-theme.el",
   "rawUrls": [
-    "https://github.com/jimeh/birds-of-paradise-plus-theme.el/raw/refs/heads/master/birds-of-paradise-plus-theme.el"
+    "https://raw.githubusercontent.com/jimeh/birds-of-paradise-plus-theme.el/refs/heads/master/birds-of-paradise-plus-theme.el"
   ],
   "type": "dark",
   "authors": [

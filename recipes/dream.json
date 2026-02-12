@@ -4,7 +4,7 @@
   "description": "Dark, clean theme for emacs. inspired by the zenburn, sinburn.",
   "repoUrl": "https://github.com/djcb/dream-theme",
   "rawUrls": [
-    "https://github.com/djcb/dream-theme"
+    "https://raw.githubusercontent.com/djcb/dream-theme/refs/heads/master/dream-theme.el"
   ],
   "type": "dark",
   "authors": [

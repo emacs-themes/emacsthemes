@@ -4,7 +4,7 @@
   "description": "An Emacs 24 color scheme",
   "repoUrl": "https://github.com/xjackk/caroline-theme",
   "rawUrls": [
-    "https://github.com/xjackk/caroline-theme"
+    "https://raw.githubusercontent.com/xjackk/caroline-theme/refs/heads/master/caroline-theme.el"
   ],
   "type": "dark",
   "authors": [

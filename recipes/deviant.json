@@ -4,7 +4,7 @@
   "description": "Theme inspired by the color scheme previously used by deviantart.com",
   "repoUrl": "https://github.com/MetroWind/emacs-deviant-theme",
   "rawUrls": [
-    "https://github.com/MetroWind/emacs-deviant-theme"
+    "https://raw.githubusercontent.com/MetroWind/emacs-deviant-theme/refs/heads/master/Deviant-theme.el"
   ],
   "type": "dark",
   "authors": [

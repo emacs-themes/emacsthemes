@@ -4,7 +4,7 @@
   "description": "A not-so-low contrast color theme for Emacs.",
   "repoUrl": "https://github.com/gorauskas/darkburn-theme",
   "rawUrls": [
-    "https://github.com/gorauskas/darkburn-theme"
+    "https://raw.githubusercontent.com/gorauskas/darkburn-theme/refs/heads/master/darkburn-theme.el"
   ],
   "type": "dark",
   "authors": [

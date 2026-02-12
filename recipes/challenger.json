@@ -4,7 +4,7 @@
   "description": "A dark color theme for Emacs.",
   "repoUrl": "https://github.com/MaxSt/challenger-deep",
   "rawUrls": [
-    "https://github.com/MaxSt/challenger-deep"
+    "https://raw.githubusercontent.com/challenger-deep-theme/emacs/refs/heads/master/challenger-deep-theme.el"
   ],
   "type": "dark",
   "authors": [

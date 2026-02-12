@@ -4,7 +4,7 @@
   "description": "A theme with lot of blues, greens, and a bit of purple and brown.",
   "repoUrl": "https://github.com/dakrone/dakrone-light-theme",
   "rawUrls": [
-    "https://github.com/dakrone/dakrone-light-theme"
+    "https://raw.githubusercontent.com/dakrone/dakrone-light-theme/refs/heads/master/dakrone-light-theme.el"
   ],
   "type": "dark",
   "authors": [

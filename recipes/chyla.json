@@ -4,7 +4,7 @@
   "description": "Green color theme",
   "repoUrl": "https://github.com/chyla/ChylaThemeForEmacs/",
   "rawUrls": [
-    "https://github.com/chyla/ChylaThemeForEmacs/"
+    "https://raw.githubusercontent.com/chyla/ChylaThemeForEmacs/refs/heads/master/chyla-theme.el"
   ],
   "type": "dark",
   "authors": [

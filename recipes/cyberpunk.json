@@ -4,7 +4,7 @@
   "description": "Cyberpunk color theme for the emacs 24+ built-in color theme support ",
   "repoUrl": "https://github.com/n3mo/cyberpunk-theme.el",
   "rawUrls": [
-    "https://github.com/n3mo/cyberpunk-theme.el"
+    "https://raw.githubusercontent.com/n3mo/cyberpunk-theme.el/refs/heads/master/cyberpunk-theme.el"
   ],
   "type": "dark",
   "authors": [

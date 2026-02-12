@@ -4,7 +4,7 @@
   "description": "A modified port of the distinguished theme for vim.",
   "repoUrl": "https://github.com/Lokaltog/distinguished-theme",
   "rawUrls": [
-    "https://github.com/Lokaltog/distinguished-theme"
+    "https://raw.githubusercontent.com/Lokaltog/distinguished-theme/refs/heads/develop/distinguished-theme.el"
   ],
   "type": "dark",
   "authors": [

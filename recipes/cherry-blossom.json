@@ -4,7 +4,7 @@
   "description": "A soothing color theme for Emacs24.",
   "repoUrl": "https://github.com/byels/emacs-cherry-blossom-theme",
   "rawUrls": [
-    "https://github.com/byels/emacs-cherry-blossom-theme"
+    "https://raw.githubusercontent.com/inlinestyle/emacs-cherry-blossom-theme/refs/heads/master/cherry-blossom-theme.el"
   ],
   "type": "dark",
   "authors": [

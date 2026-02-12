@@ -4,7 +4,7 @@
   "description": "Beautiful high-contrast theme",
   "repoUrl": "https://github.com/rails-to-cosmos/danneskjold-theme",
   "rawUrls": [
-    "https://github.com/rails-to-cosmos/danneskjold-theme"
+    "https://raw.githubusercontent.com/rails-to-cosmos/danneskjold-theme/refs/heads/master/danneskjold-theme.el"
   ],
   "type": "dark",
   "authors": [

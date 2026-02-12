@@ -4,7 +4,7 @@
   "description": "Emacs 24 theme with the Answer to The Ultimate Question.",
   "repoUrl": "https://github.com/emacsfodder/emacs-deep-thought-theme",
   "rawUrls": [
-    "https://github.com/emacsfodder/emacs-deep-thought-theme"
+    "https://raw.githubusercontent.com/emacsfodder/emacs-deep-thought-theme/refs/heads/master/deep-thought-theme.el"
   ],
   "type": "dark",
   "authors": [
