@@ -114,7 +114,7 @@ async function downloadRemoteThemeFile(source: string, themeDir: string): Promis
   // Strip query parameters and fragments to get a clean filename
   const urlObj = new URL(source);
   const filename = basename(urlObj.pathname);
-  
+
   await Bun.write(join(themeDir, filename), await res.arrayBuffer());
   return filename;
 }
@@ -288,7 +288,7 @@ async function captureScreenshot(initElPath: string, imagePath: string, readyFil
   const wrapperCmd = `
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
-    
+
     # Wait for the ready signal from Emacs or timeout after 60 seconds
     for i in {1..60}; do
       [ -f "${resolve(readyFilePath)}" ] && break
