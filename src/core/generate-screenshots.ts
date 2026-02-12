@@ -286,27 +286,25 @@ async function captureScreenshot(initElPath: string, imagePath: string, readyFil
   }
 
   const wrapperCmd = `
-    set -x
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
     
     # Wait for the ready signal from Emacs or timeout after 60 seconds
-    TIMEOUT=60
-    while [ $TIMEOUT -gt 0 ] && [ ! -f "${resolve(readyFilePath)}" ]; do
+    for i in {1..60}; do
+      [ -f "${resolve(readyFilePath)}" ] && break
       sleep 1
-      TIMEOUT=$((TIMEOUT - 1))
     done
 
     if [ ! -f "${resolve(readyFilePath)}" ]; then
       echo "  ❌ Emacs failed to signal readiness within timeout"
-      kill $EMACS_PID
+      kill $EMACS_PID 2>/dev/null
       exit 1
     fi
 
     # Small additional buffer for rendering to settle
     sleep 2
-    import -window root "${resolve(imagePath)}"
-    kill $EMACS_PID
+    import -window root "${resolve(imagePath)}" 2>/dev/null
+    kill $EMACS_PID 2>/dev/null
   `;
 
   try {
