@@ -4,9 +4,10 @@ executors:
   bun-executor:
     docker:
       - image: oven/bun:1
+    working_directory: ~/project
 
 jobs:
-  lint:
+  setup:
     executor: bun-executor
     steps:
       - checkout
@@ -15,12 +16,21 @@ jobs:
             - bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Install Dependencies
-          command: bun install
+          command: bun ci
       - save_cache:
           paths:
-            - node_modules
             - ~/.bun
           key: bun-deps-{{ checksum "bun.lock" }}
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  lint:
+    executor: bun-executor
+    steps:
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Run Linting
           command: bun run lint
@@ -28,18 +38,8 @@ jobs:
   validate-recipes:
     executor: bun-executor
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - bun-deps-{{ checksum "bun.lock" }}
-      - run:
-          name: Install Dependencies
-          command: bun install
-      - save_cache:
-          paths:
-            - node_modules
-            - ~/.bun
-          key: bun-deps-{{ checksum "bun.lock" }}
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Validate Recipes
           command: bun run validate
@@ -48,7 +48,10 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - lint
+      - setup
+      - lint:
+          requires:
+            - setup
       - validate-recipes:
           requires:
-            - lint
+            - setup
