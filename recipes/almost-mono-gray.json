@@ -17,5 +17,5 @@
     "gray",
     "monochrome"
   ],
-  "elisp": "(require 'almost-mono-themes) (load-theme 'almost-mono-gray t)"
+  "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-gray)"
 }

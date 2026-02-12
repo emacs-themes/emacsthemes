@@ -19,5 +19,5 @@
     "tomorrow",
     "sanityinc"
   ],
-  "elisp": "(color-theme-sanityinc-tomorrow-bright)"
+  "elispBefore": "(color-theme-sanityinc-tomorrow-bright)"
 }

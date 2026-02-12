@@ -17,5 +17,5 @@
     "cream",
     "automata"
   ],
-  "elisp": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }
