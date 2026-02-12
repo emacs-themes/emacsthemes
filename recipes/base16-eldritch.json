@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Eldritch Theme",
+  "id": "base16-eldritch",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-eldritch-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "https://github.com/eldritch-theme"
+  ],
+  "tags": [
+    "base16",
+    "base16 eldritch",
+    "eldritch",
+    "dark"
+  ]
+}

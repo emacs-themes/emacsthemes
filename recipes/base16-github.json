@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Github Theme",
+  "id": "base16-github",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-github-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Tinted Theming"
+  ],
+  "tags": [
+    "base16",
+    "base16 github",
+    "github",
+    "dark"
+  ]
+}

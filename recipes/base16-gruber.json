@@ -1,0 +1,23 @@
+{
+  "name": "Base16 Gruber Theme",
+  "id": "base16-gruber",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-gruber-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Patel",
+    "Nimai &lt;nimai.m.patel@gmail.com&gt;",
+    "colors from www.github.com/rexim/gruber-darker-theme"
+  ],
+  "tags": [
+    "base16",
+    "base16 gruber",
+    "gruber",
+    "dark"
+  ]
+}

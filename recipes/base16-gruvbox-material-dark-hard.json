@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Gruvbox Material Dark Hard Theme",
+  "id": "base16-gruvbox-material-dark-hard",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-gruvbox-material-dark-hard-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Mayush Kumar"
+  ],
+  "tags": [
+    "base16",
+    "base16 gruvbox-material-dark-hard",
+    "gruvbox-material-dark-hard",
+    "dark"
+  ]
+}

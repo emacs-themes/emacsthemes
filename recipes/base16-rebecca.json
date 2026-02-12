@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Rebecca Theme",
+  "id": "base16-rebecca",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-rebecca-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Victor Borja"
+  ],
+  "tags": [
+    "base16",
+    "base16 rebecca",
+    "rebecca",
+    "dark"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Tender Theme",
+  "id": "base16-tender",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tender-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Jacobo Tabernero"
+  ],
+  "tags": [
+    "base16",
+    "base16 tender",
+    "tender",
+    "dark"
+  ]
+}

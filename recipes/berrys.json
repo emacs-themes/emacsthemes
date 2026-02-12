@@ -4,7 +4,7 @@
   "description": "A light, clean and elegant theme for Emacs.",
   "repoUrl": "https://github.com/vbuzin/berrys-theme",
   "rawUrls": [
-    "https://github.com/vbuzin/berrys-theme"
+    "https://github.com/vbuzin/berrys-theme/raw/refs/heads/master/berrys-theme.el"
   ],
   "type": "dark",
   "authors": [

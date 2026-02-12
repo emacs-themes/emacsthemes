@@ -1,0 +1,22 @@
+{
+  "name": "Base16 Nord Light Theme",
+  "id": "base16-nord-light",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-nord-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kaleb Elwert",
+    "threddast",
+    "based on fuxialexander&#39;s doom-nord-light-theme"
+  ],
+  "tags": [
+    "base16",
+    "base16 nord-light",
+    "nord-light",
+    "light"
+  ]
+}

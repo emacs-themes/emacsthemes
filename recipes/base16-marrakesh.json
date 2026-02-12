@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Marrakesh Theme",
+  "id": "base16-marrakesh",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-marrakesh-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Alexandre Gavioli"
+  ],
+  "tags": [
+    "base16",
+    "base16 marrakesh",
+    "marrakesh",
+    "dark"
+  ]
+}

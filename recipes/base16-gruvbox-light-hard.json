@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Gruvbox Light Hard Theme",
+  "id": "base16-gruvbox-light-hard",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-gruvbox-light-hard-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kaleb Elwert",
+    "Dawid Kurek"
+  ],
+  "tags": [
+    "base16",
+    "base16 gruvbox-light-hard",
+    "gruvbox-light-hard",
+    "light"
+  ]
+}

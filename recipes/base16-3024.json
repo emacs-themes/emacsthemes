@@ -1,0 +1,21 @@
+{
+  "name": "Base16 3024 Theme",
+  "id": "base16-3024",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-3024-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Jan T. Sott"
+  ],
+  "tags": [
+    "base16",
+    "base16 3024",
+    "3024",
+    "dark"
+  ]
+}

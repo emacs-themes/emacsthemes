@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Measured Light Theme",
+  "id": "base16-measured-light",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-measured-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kaleb Elwert",
+    "Measured"
+  ],
+  "tags": [
+    "base16",
+    "base16 measured-light",
+    "measured-light",
+    "light"
+  ]
+}

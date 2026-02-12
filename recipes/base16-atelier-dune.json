@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Atelier Dune Theme",
+  "id": "base16-atelier-dune",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atelier-dune-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert",
+    "Bram de Haan"
+  ],
+  "tags": [
+    "base16",
+    "base16 atelier-dune",
+    "atelier-dune",
+    "dark"
+  ]
+}

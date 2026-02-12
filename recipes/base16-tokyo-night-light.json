@@ -1,0 +1,21 @@
+{
+  "name": "Base16 Tokyo Night Light Theme",
+  "id": "base16-tokyo-night-light",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tokyo-night-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kaleb Elwert",
+    "Micha\u00ebl Ball"
+  ],
+  "tags": [
+    "base16",
+    "base16 tokyo-night-light",
+    "tokyo-night-light",
+    "light"
+  ]
+}

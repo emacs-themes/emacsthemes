@@ -1,0 +1,20 @@
+{
+  "name": "Base16 Seti Theme",
+  "id": "base16-seti",
+  "description": "Carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.",
+  "repoUrl": "https://github.com/tinted-theming/base16-emacs",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-seti-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kaleb Elwert"
+  ],
+  "tags": [
+    "base16",
+    "base16 seti",
+    "seti",
+    "dark"
+  ]
+}
