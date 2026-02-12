@@ -1,0 +1,20 @@
+{
+  "name": "Zonokai Blue Theme",
+  "id": "zonokai-blue",
+  "description": "Blue based theme with red green and yellow accents.",
+  "repoUrl": "https://github.com/ZehCnaS34/zonokai-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ZehCnaS34/zonokai-emacs/refs/heads/master/zonokai.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alex Sanchez"
+  ],
+  "tags": [
+    "blue",
+    "dark",
+    "zonokai"
+  ],
+  "elispBefore": "(unless (package-installed-p 'dash) (package-refresh-contents) (package-install 'dash))",
+  "elispAfter": "(enable-theme 'zonokai-blue)"
+}

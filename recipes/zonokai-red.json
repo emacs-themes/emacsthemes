@@ -1,0 +1,22 @@
+{
+  "name": "Zonokai Red Theme",
+  "id": "zonokai-red",
+  "description": "Red theme with blue and purple accents.",
+  "repoUrl": "https://github.com/ZehCnaS34/zonokai-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ZehCnaS34/zonokai-emacs/refs/heads/master/zonokai.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Alex Sanchez"
+  ],
+  "tags": [
+    "red",
+    "light",
+    "blue",
+    "purple",
+    "zonokai"
+  ],
+  "elispBefore": "(unless (package-installed-p 'dash) (package-refresh-contents) (package-install 'dash))",
+  "elispAfter": "(enable-theme 'zonokai-red)"
+}
