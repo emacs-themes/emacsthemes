@@ -82,6 +82,8 @@ interface Theme {
   rawUrls: string[];
   type: string;
   tags: string[];
+  elispBefore?: string;
+  elispAfter?: string;
 }
 
 // Data Fetching

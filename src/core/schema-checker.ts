@@ -16,7 +16,8 @@ export const ThemeSchema = z.object({
       tags: z.array(
       z.string().trim().min(1, 'Tags cannot be empty'))
       .nonempty('You must list at least one tag'),
-    elisp: z.string().optional().default(''),
+    elispBefore: z.string().optional().default(''),
+    elispAfter: z.string().optional().default(''),
   }).refine((data) => {
     if (data.repoUrl === "local") {
       return data.rawUrls.every(url => {
@@ -89,7 +90,8 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
     ["description", recipe.description],
     ["repoUrl", recipe.repoUrl],
     ["type", recipe.type],
-    ["elisp", recipe.elisp],
+    ["elispBefore", recipe.elispBefore],
+    ["elispAfter", recipe.elispAfter],
   ];
 
   for (const [field, value] of textFields) {

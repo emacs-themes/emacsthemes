@@ -14,11 +14,11 @@
 (add-to-list 'load-path "{{THEME_DIR}}")
 (log-debug "Added {{THEME_DIR}} to load-path")
 
-(log-debug "Running extra elisp...")
+(log-debug "Running elisp before...")
 (condition-case err
     (progn
-      {{EXTRA_ELISP}})
-  (error (log-debug "Extra elisp execution failed: %s" err)))
+      {{ELISP_BEFORE}})
+  (error (log-debug "Elisp before execution failed: %s" err)))
 
 (log-debug "Loading theme files: {{THEME_FILES}}")
 (condition-case err
@@ -36,19 +36,21 @@
 (scroll-bar-mode -1)
 (set-face-attribute 'default nil :height 140)
 
-(log-debug "Attempting to load theme...")
+(log-debug "Attempting to enable theme...")
 
-;; Add current dir to theme load path
-(log-debug "Adding theme dir '{{THEME_DIR}}' to custom-theme-load-path")
-(add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
-
-;; Try to load and enable theme based on name
+;; Try to enable theme based on name
 (log-debug "Enabling theme. Theme name: '{{THEME_NAME}}'" )
 (unless custom-enabled-themes
   (let ((name-symbol (intern "{{THEME_NAME}}")))
      (condition-case err
-         (load-theme name-symbol t)
-       (error (log-debug "Auto-loading theme %s failed: %s" name-symbol err)))))
+         (enable-theme name-symbol)
+       (error (log-debug "Enabling theme %s failed: %s" name-symbol err)))))
+
+(log-debug "Running elisp after...")
+(condition-case err
+    (progn
+      {{ELISP_AFTER}})
+  (error (log-debug "Elisp after execution failed: %s" err)))
 
 (if custom-enabled-themes
     (log-debug "Theme loaded successfully: %s" custom-enabled-themes)
