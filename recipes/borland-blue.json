@@ -2,22 +2,20 @@
   "name": "Borland Blue Theme",
   "id": "borland-blue",
   "description": "Blue/yellow theme based on old DOS Borland/Turbo C IDE",
-  "repoUrl": "https://github.com/fourier/borland-blue-theme",
+  "repoUrl": "https://codeberg.org/fourier/borland-blue-theme",
   "rawUrls": [
-    "https://github.com/fourier/borland-blue-theme"
+    "https://codeberg.org/fourier/borland-blue-theme/raw/branch/master/borland-blue-theme.el"
   ],
   "type": "dark",
   "authors": [
     "Alexey Veretennikov"
   ],
   "tags": [
-    "borland-blue",
+    "borland blue",
     "dark",
     "blue",
     "yellow",
     "red",
-    "gray",
-    "light",
-    "muted"
+    "gray"
   ]
 }
