@@ -1,0 +1,20 @@
+{
+  "name": "Nofrils Darkless Theme",
+  "id": "nofrils-darkless",
+  "description": "A mostly colorless version of nofrills dark",
+  "repoUrl": "https://github.com/emacsmirror/colorless-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/colorless-themes.el",
+    "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/nofrils-darkless-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas Letan"
+  ],
+  "tags": [
+    "nofrils",
+    "darkless",
+    "dark",
+    "purple"
+  ]
+}
