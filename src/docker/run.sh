@@ -5,4 +5,4 @@ docker build --platform linux/amd64 --progress=plain -t emacsthemes-local -f src
 
 echo "Starting screenshot generation in Docker..."
 # Run the container with volume mount, removing the container after exit (with --rm)
-docker run --rm --platform linux/amd64 -v $(pwd):/app -v /app/node_modules emacsthemes-local
+docker run --rm --platform linux/amd64 -v $(pwd):/app -v /app/node_modules emacsthemes-local "$@"

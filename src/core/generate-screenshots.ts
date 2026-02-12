@@ -20,9 +20,20 @@ interface Arguments {
  * @returns {Arguments} An object containing the parsed arguments.
  */
 function parseCliArgs(): Arguments {
-  const fileIndex = Bun.argv.indexOf("--file");
-  const targetThemeId = (fileIndex !== -1 && Bun.argv[fileIndex + 1]) ? Bun.argv[fileIndex + 1] : null;
-  const force = Bun.argv.includes("--force");
+  let targetThemeId: string | null = null;
+  let force = false;
+
+  for (let i = 0; i < Bun.argv.length; i++) {
+    const arg = Bun.argv[i];
+    if (arg === "--file") {
+      targetThemeId = Bun.argv[i + 1] || null;
+      i++; // Skip next arg
+    } else if (arg.startsWith("--file=")) {
+      targetThemeId = arg.split("=")[1] || null;
+    } else if (arg === "--force") {
+      force = true;
+    }
+  }
 
   return { targetThemeId, force };
 }
