@@ -265,7 +265,10 @@ ${extraLogic}
 
   const loadFilesElisp = filesToLoad
     .filter(f => f.endsWith(".el"))
-    .map(f => `(load "${resolve(join(themeDir, f))}")`)
+    .map(f => `
+(condition-case err
+    (load "${resolve(join(themeDir, f))}")
+  (error (log-debug "Failed to load ${f}: %s" err)))`)
     .join("\n");
 
   return template

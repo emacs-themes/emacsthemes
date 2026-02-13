@@ -14,6 +14,9 @@
 (add-to-list 'load-path "{{THEME_DIR}}")
 (log-debug "Added {{THEME_DIR}} to load-path")
 
+(add-to-list 'custom-theme-load-path "{{THEME_DIR}}")
+(log-debug "Added {{THEME_DIR}} to custom-theme-load-path")
+
 (log-debug "Running elisp before...")
 (condition-case err
     (progn
