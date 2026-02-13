@@ -1,0 +1,26 @@
+{
+  "name": "Gruvbox Dark Medium Theme",
+  "id": "gruvbox-dark-medium",
+  "description": "A retro groove color scheme for Emacs. Dark medium variant.",
+  "repoUrl": "https://github.com/Greduan/emacs-theme-gruvbox",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-medium-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins",
+    "Martijn Terpstra",
+    "Eduardo Lavaque",
+    "Lee Machin"
+  ],
+  "tags": [
+    "gruvbox",
+    "retro",
+    "brown",
+    "dark",
+    "vim",
+    "medium"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

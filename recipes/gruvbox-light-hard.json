@@ -1,0 +1,26 @@
+{
+  "name": "Gruvbox Light Hard Theme",
+  "id": "gruvbox-light-hard",
+  "description": "A retro groove color scheme for Emacs. Light hard variant.",
+  "repoUrl": "https://github.com/Greduan/emacs-theme-gruvbox",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-light-hard-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Jason Milkins",
+    "Martijn Terpstra",
+    "Eduardo Lavaque",
+    "Lee Machin"
+  ],
+  "tags": [
+    "gruvbox",
+    "retro",
+    "brown",
+    "light",
+    "vim",
+    "hard"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Gruvbox Dark Soft Theme",
+  "id": "gruvbox-dark-soft",
+  "description": "A retro groove color scheme for Emacs. Dark soft variant.",
+  "repoUrl": "https://github.com/Greduan/emacs-theme-gruvbox",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox.el",
+    "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-soft-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins",
+    "Martijn Terpstra",
+    "Eduardo Lavaque",
+    "Lee Machin"
+  ],
+  "tags": [
+    "gruvbox",
+    "retro",
+    "brown",
+    "dark",
+    "vim",
+    "soft"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
