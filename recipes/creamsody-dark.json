@@ -1,0 +1,23 @@
+{
+  "name": "Creamsody Dark Theme",
+  "id": "creamsody-dark",
+  "description": "A color theme for Emacs. Straight from the soda fountain. Dark version. Built with Autothemer and Kurecolor.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-creamsody",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-creamsody/refs/heads/master/creamsody.el",
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-creamsody/refs/heads/master/creamsody-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "creamsody",
+    "dark",
+    "blue",
+    "green",
+    "muted",
+    "pastel"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
