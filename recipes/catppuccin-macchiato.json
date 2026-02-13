@@ -1,0 +1,26 @@
+{
+  "name": "Catppuccin Macchiato Theme",
+  "id": "catppuccin-macchiato",
+  "description": "🍄 Soothing pastel theme for Emacs. Macchiato version.",
+  "repoUrl": "https://github.com/catppuccin/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-theme.el",
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-definitions.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "nyxkrage",
+    "Jeremy Baxter"
+  ],
+  "elispBefore": "(setq catppuccin-flavor 'macchiato)",
+  "elispAfter": "(catppuccin-reload)",
+  "tags": [
+    "dark",
+    "pastel",
+    "modern",
+    "catppuccin",
+    "emacs 26",
+    "dracula",
+    "nord"
+  ]
+}

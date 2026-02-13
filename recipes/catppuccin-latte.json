@@ -1,0 +1,27 @@
+{
+  "name": "Catppuccin Latte Theme",
+  "id": "catppuccin-latte",
+  "description": "🍄 Soothing pastel theme for Emacs. Latte version.",
+  "repoUrl": "https://github.com/catppuccin/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-theme.el",
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-definitions.el"
+  ],
+  "type": "light",
+  "authors": [
+    "nyxkrage",
+    "Jeremy Baxter"
+  ],
+  "elispBefore": "(setq catppuccin-flavor 'latte)",
+  "elispAfter": "(catppuccin-reload)",
+  "tags": [
+    "light",
+    "white",
+    "mocha",
+    "modern",
+    "catppuccin",
+    "emacs 26",
+    "dracula",
+    "nord"
+  ]
+}

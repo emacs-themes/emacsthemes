@@ -1,0 +1,26 @@
+{
+  "name": "Catppuccin Mocha Theme",
+  "id": "catppuccin-mocha",
+  "description": "🍄 Soothing pastel theme for Emacs. Mocha version.",
+  "repoUrl": "https://github.com/catppuccin/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-theme.el",
+    "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-definitions.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "nyxkrage",
+    "Jeremy Baxter"
+  ],
+  "elispBefore": "(setq catppuccin-flavor 'mocha)",
+  "elispAfter": "(catppuccin-reload)",
+  "tags": [
+    "dark",
+    "mocha",
+    "modern",
+    "catppuccin",
+    "emacs 26",
+    "dracula",
+    "nord"
+  ]
+}
