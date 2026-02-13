@@ -1,7 +1,6 @@
-FROM debian:bookworm-slim
+FROM debian:sid-slim
 
-# Install System Dependencies & Emacs
-# We install 'emacs' which pulls in the GUI version (emacs-gtk or similar) on Debian.
+# Install System Dependencies & Emacs 30.2
 RUN apt-get update && \
     apt-get install -y curl unzip xvfb imagemagick fonts-dejavu-core git emacs && \
     rm -rf /var/lib/apt/lists/*

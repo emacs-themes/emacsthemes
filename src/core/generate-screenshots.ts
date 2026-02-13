@@ -201,15 +201,31 @@ async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<st
 async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promise<string | null> {
   try {
     const files = filesToSearch || await readdir(dir);
-    for (const file of files) {
+    // Sort files to prioritize those that end with -theme.el
+    const sortedFiles = [...files].sort((a, b) => {
+      const aIsTheme = a.endsWith("-theme.el");
+      const bIsTheme = b.endsWith("-theme.el");
+      if (aIsTheme && !bIsTheme) return -1;
+      if (!aIsTheme && bIsTheme) return 1;
+      return a.localeCompare(b);
+    });
+
+    for (const file of sortedFiles) {
       if (!file.endsWith(".el")) continue;
 
       const content = await Bun.file(join(dir, file)).text();
+      // Look for (deftheme theme-name ...)
       const match = content.match(/\(deftheme\s+'?([^',)\s][^)\s]*)/);
       if (match) return match[1];
 
+      // Look for (provide-theme 'theme-name)
       const matchProvide = content.match(/\(provide-theme\s+'?([^',)\s][^)\s]*)\)/);
-      if (matchProvide) return matchProvide[1];
+      if (matchProvide) {
+        const name = matchProvide[1];
+        // Skip generic variable names often found in templates or helper functions
+        if (name === "name" || name === "theme-name" || name === "theme" || name === "symbol") continue;
+        return name;
+      }
     }
   } catch (e) {
     console.error(`Error scanning for theme name in ${dir}:`, e);
@@ -267,7 +283,7 @@ ${extraLogic}
     .filter(f => f.endsWith(".el"))
     .map(f => `
 (condition-case err
-    (load "${resolve(join(themeDir, f))}")
+    (load-file "${resolve(join(themeDir, f))}")
   (error (log-debug "Failed to load ${f}: %s" err)))`)
     .join("\n");
 
@@ -420,6 +436,7 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
       const readyFilePath = join(themeTempDir, `ready-${modeName}`);
 
       const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config, readyFilePath);
+      // console.log(` Init content: \n-------\n${initContent}\n------\n`);
       await Bun.write(initElPath, initContent);
 
       const success = await captureScreenshot(initElPath, imagePath, readyFilePath);

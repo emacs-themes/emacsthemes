@@ -1,9 +1,12 @@
+;;; init.el --- Emacs initialization for screenshot generation -*- lexical-binding:t -*-
+
 (defun log-debug (fmt &rest args)
   (let ((msg (apply #'format fmt args)))
     (message "DEBUG EMACS: %s" msg)
     (princ (concat "DEBUG EMACS:" msg "\n") #'external-debugging-output)))
 
 (log-debug "Starting Emacs init...")
+(log-debug "Emacs version: %s" emacs-version)
 
 ;; Initialize package.el for themes that have dependencies
 (require 'package)
