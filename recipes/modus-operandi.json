@@ -4,17 +4,19 @@
   "description": "Accessible light theme (WCAG AAA)",
   "repoUrl": "https://github.com/protesilaos/modus-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/protesilaos/modus-themes/master/modus-operandi-theme.el"
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-operandi-theme.el"
   ],
   "type": "light",
   "authors": [
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "modus-operandi",
+    "accessible",
+    "wcag-aaa",
     "light",
-    "emacs 24",
-    "purple",
-    "white"
-  ]
+    "modus"
+  ],
+  "elispBefore": "(require 'cl-lib) (require 'subr-x)",
+  "elispAfter": "(require 'modus-themes) (load-theme 'modus-operandi :no-confirm)"
 }

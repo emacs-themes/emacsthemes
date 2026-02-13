@@ -4,16 +4,19 @@
   "description": "Accessible dark theme (WCAG AAA)",
   "repoUrl": "https://github.com/protesilaos/modus-themes",
   "rawUrls": [
-    "https://raw.githubusercontent.com/protesilaos/modus-themes/master/modus-vivendi-theme.el"
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-vivendi-theme.el"
   ],
   "type": "dark",
   "authors": [
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "modus-vivendi",
+    "accessible",
+    "wcag-aaa",
     "dark",
-    "purple",
-    "black"
-  ]
+    "modus"
+  ],
+  "elispBefore": "(require 'cl-lib) (require 'subr-x)",
+  "elispAfter": "(require 'modus-themes) (load-theme 'modus-vivendi :no-confirm)"
 }
