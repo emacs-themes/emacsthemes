@@ -1,10 +1,11 @@
 {
   "name": "Eziam Light Theme",
   "id": "eziam-light",
-  "description": "A mostly monochrome theme, inspired by Tao and Leuven.",
+  "description": "A mostly monochrome theme, inspired by Tao and Leuven. Light version.",
   "repoUrl": "https://github.com/thblt/eziam-theme-emacs",
   "rawUrls": [
-    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/eziam-light-theme.el"
+    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-themes.el",
+    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-light-theme.el"
   ],
   "type": "light",
   "authors": [

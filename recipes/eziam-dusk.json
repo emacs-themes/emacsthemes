@@ -1,11 +1,11 @@
 {
-  "name": "Eziam Dark Theme",
-  "id": "eziam-dark",
-  "description": "A mostly monochrome theme, inspired by Tao and Leuven. Dark version",
+  "name": "Eziam Dusk Theme",
+  "id": "eziam-dusk",
+  "description": "A mostly monochrome theme, inspired by Tao and Leuven. Dusk version.",
   "repoUrl": "https://github.com/thblt/eziam-theme-emacs",
   "rawUrls": [
     "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-themes.el",
-    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-dark-theme.el"
+    "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-dusk-theme.el"
   ],
   "type": "dark",
   "authors": [
@@ -14,6 +14,7 @@
   "tags": [
     "eziam",
     "dark",
+    "dusk",
     "black",
     "emacs 24"
   ]
