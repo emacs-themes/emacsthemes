@@ -14,5 +14,6 @@
     "dark",
     "brown",
     "inverse acme"
-  ]
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }
