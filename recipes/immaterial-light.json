@@ -1,0 +1,21 @@
+{
+  "name": "Immaterial Light Theme",
+  "id": "immaterial-light",
+  "description": "A flexible theme based on material design principles. Light variant.",
+  "repoUrl": "https://github.com/petergardfjall/emacs-immaterial-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-theme.el",
+    "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Peter Gardfjäll"
+  ],
+  "tags": [
+    "immaterial",
+    "light",
+    "material design"
+  ],
+  "elispBefore": "(unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": " (load-theme 'immatarial-light :no-confirm)"
+}
