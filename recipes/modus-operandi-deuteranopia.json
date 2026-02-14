@@ -1,0 +1,22 @@
+{
+  "name": "Modus Operandi Deuteranopia Theme",
+  "id": "modus-operandi-deuteranopia",
+  "description": "Accessible light theme for red-green color deficiency (WCAG AAA)",
+  "repoUrl": "https://github.com/protesilaos/modus-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-operandi-deuteranopia-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "accessible",
+    "wcag-aaa",
+    "light",
+    "modus",
+    "color blind"
+  ],
+  "elispAfter": "(require 'modus-themes) (load-theme 'modus-operandi-deuteranopia :no-confirm)"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Modus Vivendi Tinted Theme",
+  "id": "modus-vivendi-tinted",
+  "description": "Accessible dark theme with tinted background (WCAG AAA)",
+  "repoUrl": "https://github.com/protesilaos/modus-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-vivendi-tinted-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "accessible",
+    "wcag-aaa",
+    "dark",
+    "modus"
+  ],
+  "elispBefore": "(require 'cl-lib) (require 'subr-x)",
+  "elispAfter": "(require 'modus-themes) (load-theme 'modus-vivendi-tinted :no-confirm)"
+}

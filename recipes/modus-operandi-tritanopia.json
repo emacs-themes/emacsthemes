@@ -1,0 +1,22 @@
+{
+  "name": "Modus Operandi Tritanopia Theme",
+  "id": "modus-operandi-tritanopia",
+  "description": "Accessible light theme for blue-yellow color deficiency (WCAG AAA)",
+  "repoUrl": "https://github.com/protesilaos/modus-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-operandi-tritanopia-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "accessible",
+    "wcag-aaa",
+    "light",
+    "modus",
+    "color blind"
+  ],
+  "elispAfter": "(require 'modus-themes) (load-theme 'modus-operandi-tritanopia :no-confirm)"
+}
