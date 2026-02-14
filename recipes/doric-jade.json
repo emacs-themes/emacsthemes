@@ -1,0 +1,20 @@
+{
+  "name": "Doric Jade Theme",
+  "id": "doric-jade",
+  "description": "Highly legible minimalist themes with precise typography (jade variant)",
+  "repoUrl": "https://github.com/protesilaos/doric-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-jade-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "doric",
+    "light",
+    "minimalist"
+  ],
+  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-jade)"
+}

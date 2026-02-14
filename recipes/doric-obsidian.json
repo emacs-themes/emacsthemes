@@ -1,0 +1,20 @@
+{
+  "name": "Doric Obsidian Theme",
+  "id": "doric-obsidian",
+  "description": "Highly legible minimalist themes with precise typography (obsidian variant)",
+  "repoUrl": "https://github.com/protesilaos/doric-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-obsidian-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "doric",
+    "dark",
+    "minimalist"
+  ],
+  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-obsidian)"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Doric Light Theme",
+  "id": "doric-light",
+  "description": "Highly legible minimalist themes with precise typography (light variant)",
+  "repoUrl": "https://github.com/protesilaos/doric-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "doric",
+    "light",
+    "minimalist"
+  ],
+  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-light)"
+}

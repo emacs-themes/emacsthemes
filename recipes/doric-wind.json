@@ -1,0 +1,20 @@
+{
+  "name": "Doric Wind Theme",
+  "id": "doric-wind",
+  "description": "Highly legible minimalist themes with precise typography (wind variant)",
+  "repoUrl": "https://github.com/protesilaos/doric-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-wind-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "doric",
+    "light",
+    "minimalist"
+  ],
+  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-wind)"
+}

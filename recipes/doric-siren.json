@@ -1,0 +1,20 @@
+{
+  "name": "Doric Siren Theme",
+  "id": "doric-siren",
+  "description": "Highly legible minimalist themes with precise typography (siren variant)",
+  "repoUrl": "https://github.com/protesilaos/doric-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-siren-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "doric",
+    "light",
+    "minimalist"
+  ],
+  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-siren)"
+}
