@@ -36,3 +36,4 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 ## Git Conventions
 
 *   **No Automatic Commits:** NEVER commit changes to the git repository unless explicitly and separately instructed to do so in the active turn. There are no exceptions for plans, multi-step tasks, or assumed logical flow. Always ask, never assume.
+*   **Semantic Commit Messages:** Always use semantic commit messages (e.g., `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, `build:`, `ci:`, `chore:`, `revert:`) in **lower case** for all git commits.
