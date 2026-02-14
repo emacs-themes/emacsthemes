@@ -18,5 +18,5 @@
     "modus",
     "color blind"
   ],
-  "elispAfter": "(require 'modus-themes) (load-theme 'modus-operandi-deuteranopia :no-confirm)"
+  "elispAfter": "(enable-theme 'modus-operandi-deuteranopia)"
 }

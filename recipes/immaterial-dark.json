@@ -17,5 +17,5 @@
     "material design"
   ],
   "elispBefore": "(unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
-  "elispAfter": " (load-theme 'immatarial-dark :no-confirm)"
+  "elispAfter": "(enable-theme 'immaterial-dark)"
 }

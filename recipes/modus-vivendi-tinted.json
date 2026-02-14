@@ -18,5 +18,5 @@
     "modus"
   ],
   "elispBefore": "(require 'cl-lib) (require 'subr-x)",
-  "elispAfter": "(require 'modus-themes) (load-theme 'modus-vivendi-tinted :no-confirm)"
+  "elispAfter": "(enable-theme 'modus-vivendi-tinted)"
 }

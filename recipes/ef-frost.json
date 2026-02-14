@@ -18,5 +18,5 @@
     "colorful"
   ],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
-  "elispAfter": "(require 'ef-themes) (load-theme 'ef-frost :no-confirm)"
+  "elispAfter": "(enable-theme 'ef-frost)"
 }

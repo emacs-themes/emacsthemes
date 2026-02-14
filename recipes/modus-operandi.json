@@ -18,5 +18,5 @@
     "modus"
   ],
   "elispBefore": "(require 'cl-lib) (require 'subr-x)",
-  "elispAfter": "(require 'modus-themes) (load-theme 'modus-operandi :no-confirm)"
+  "elispAfter": "(enable-theme 'modus-operandi)"
 }

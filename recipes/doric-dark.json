@@ -16,5 +16,5 @@
     "dark",
     "minimalist"
   ],
-  "elispAfter": "(require 'doric-themes) (enable-theme 'doric-dark)"
+  "elispAfter": "(enable-theme 'doric-dark)"
 }
