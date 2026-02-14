@@ -1,0 +1,22 @@
+{
+  "name": "Standard Dark Tinted Theme",
+  "id": "standard-dark-tinted",
+  "description": "Like the default theme but more consistent (dark tinted variant)",
+  "repoUrl": "https://github.com/protesilaos/standard-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/standard-themes/main/standard-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/standard-themes/main/standard-dark-tinted-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "standard",
+    "dark",
+    "tinted",
+    "accessible"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'standard-themes) (enable-theme 'standard-dark-tinted :no-confirm)"
+}
