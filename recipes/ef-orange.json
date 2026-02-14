@@ -1,0 +1,22 @@
+{
+  "name": "Ef Orange Theme",
+  "id": "ef-orange",
+  "description": "Colorful and legible themes (orange variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-orange-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "light",
+    "orange",
+    "colorful"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-orange :no-confirm)"
+}

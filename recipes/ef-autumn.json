@@ -1,0 +1,22 @@
+{
+  "name": "Ef Autumn Theme",
+  "id": "ef-autumn",
+  "description": "Colorful and legible themes (autumn variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-autumn-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "dark",
+    "autumn",
+    "colorful"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-autumn :no-confirm)"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Ef Deuteranopia Light Theme",
+  "id": "ef-deuteranopia-light",
+  "description": "Colorful and legible themes (deuteranopia light variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-deuteranopia-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "light",
+    "deuteranopia",
+    "colorful",
+    "accessible"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-deuteranopia-light :no-confirm)"
+}

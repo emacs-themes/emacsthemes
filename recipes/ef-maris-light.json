@@ -1,0 +1,22 @@
+{
+  "name": "Ef Maris Light Theme",
+  "id": "ef-maris-light",
+  "description": "Colorful and legible themes (maris light variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-maris-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "light",
+    "maris",
+    "colorful"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-maris-light :no-confirm)"
+}

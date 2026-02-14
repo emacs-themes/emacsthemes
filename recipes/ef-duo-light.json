@@ -1,0 +1,22 @@
+{
+  "name": "Ef Duo Light Theme",
+  "id": "ef-duo-light",
+  "description": "Colorful and legible themes (duo light variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-duo-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "light",
+    "duo",
+    "colorful"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-duo-light :no-confirm)"
+}

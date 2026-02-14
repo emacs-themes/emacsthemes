@@ -1,0 +1,22 @@
+{
+  "name": "Ef Cherie Theme",
+  "id": "ef-cherie",
+  "description": "Colorful and legible themes (cherie variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-cherie-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "dark",
+    "cherie",
+    "colorful"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-cherie :no-confirm)"
+}

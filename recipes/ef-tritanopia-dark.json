@@ -1,0 +1,23 @@
+{
+  "name": "Ef Tritanopia Dark Theme",
+  "id": "ef-tritanopia-dark",
+  "description": "Colorful and legible themes (tritanopia dark variant)",
+  "repoUrl": "https://github.com/protesilaos/ef-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-tritanopia-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Protesilaos Stavrou"
+  ],
+  "tags": [
+    "ef",
+    "dark",
+    "tritanopia",
+    "colorful",
+    "accessible"
+  ],
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispAfter": "(require 'ef-themes) (load-theme 'ef-tritanopia-dark :no-confirm)"
+}
