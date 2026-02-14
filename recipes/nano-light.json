@@ -1,0 +1,21 @@
+{
+  "name": "Nano Light Theme",
+  "id": "nano-light",
+  "description": "N Λ N O theme is a consistent theme (light variant based on Material)",
+  "repoUrl": "https://github.com/rougier/nano-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-theme.el",
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-theme-support.el",
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Nicolas P. Rougier"
+  ],
+  "tags": [
+    "nano",
+    "light",
+    "material",
+    "minimal"
+  ]
+}

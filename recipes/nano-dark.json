@@ -1,0 +1,21 @@
+{
+  "name": "Nano Dark Theme",
+  "id": "nano-dark",
+  "description": "N Λ N O theme is a consistent theme (dark variant based on Nord)",
+  "repoUrl": "https://github.com/rougier/nano-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-theme.el",
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-theme-support.el",
+    "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nicolas P. Rougier"
+  ],
+  "tags": [
+    "nano",
+    "dark",
+    "nord",
+    "minimal"
+  ]
+}
