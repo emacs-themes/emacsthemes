@@ -28,7 +28,7 @@ export function validate(data: unknown) {
 #+END_SRC
 
 * Metadata
-- URL: [[https://github.com/caisah/emacsthemes]]
+- URL: [[https://github.com/emacs-themes/emacsthemes]]
 - License: MIT
 
 | Component | Status | Priority |

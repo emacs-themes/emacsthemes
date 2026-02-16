@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caisah/emacsthemes.git"
+    "url": "git+https://github.com/emacs-themes/emacsthemes.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/caisah/emacsthemes/issues"
+    "url": "https://github.com/emacs-themes/emacsthemes/issues"
   },
-  "homepage": "https://github.com/caisah/emacsthemes#readme",
+  "homepage": "https://github.com/emacs-themes/emacsthemes#readme",
   "dependencies": {
     "html-minifier-terser": "^7.2.0",
     "zod": "^4.3.5"

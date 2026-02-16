@@ -9,7 +9,7 @@ const BUILD_DIR = "build";
 const TEMPLATES_DIR = "src/templates";
 const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
-const GITHUB_URL = "https://github.com/caisah/emacsthemes";
+const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
 const BASE_URL = "https://emacsthemes.org";
 
 /**
