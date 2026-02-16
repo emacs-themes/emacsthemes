@@ -1,6 +1,6 @@
 import { mkdir, readdir, readFile, rm, copyFile } from "node:fs/promises";
 import { join, basename, resolve } from "node:path";
-import { ThemeSchema, Theme } from "./schema-checker";
+import { Theme, validateRecipeStrict } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
 import { assertPathWithinRoot } from "./path-utils";
 
@@ -462,13 +462,14 @@ async function validateRecipe(recipePath: string): Promise<Theme | null> {
   try {
     const file = Bun.file(recipePath);
     const json = await file.json();
-    const parseResult = ThemeSchema.safeParse(json);
+    const result = validateRecipeStrict(json);
 
-    if (!parseResult.success) {
-      console.error(`Invalid schema for ${recipePath}`);
+    if (!result.success) {
+      console.error(`❌ Validation failed for ${recipePath}:`);
+      result.errors.forEach((err) => console.error(err));
       return null;
     }
-    return parseResult.data;
+    return result.data;
   } catch (err) {
     console.error(`Error reading recipe ${recipePath}:`, err);
     return null;

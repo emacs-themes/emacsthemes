@@ -140,6 +140,34 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
   return issues;
 }
 
+/**
+ * Performs strict validation of a theme recipe, including both schema checks
+ * and defensive security scans for injection patterns.
+ *
+ * @param jsonData - The raw JSON data to validate.
+ * @returns An object indicating success and the validated data, or a list of error messages.
+ */
+export function validateRecipeStrict(jsonData: unknown): { success: true; data: Theme } | { success: false; errors: string[] } {
+  const result = ThemeSchema.safeParse(jsonData);
+
+  if (!result.success) {
+    return {
+      success: false,
+      errors: [JSON.stringify(result.error.format(), null, 2)]
+    };
+  }
+
+  const injectionIssues = validateRecipeForInjection(result.data);
+  if (injectionIssues.length > 0) {
+    return {
+      success: false,
+      errors: injectionIssues.map(issue => `Field '${issue.field}' ${issue.reason}`)
+    };
+  }
+
+  return { success: true, data: result.data };
+}
+
 export async function validateSchema(filePath: string): Promise<boolean> {
   try {
     const absolutePath = resolve(filePath);
@@ -150,24 +178,15 @@ export async function validateSchema(filePath: string): Promise<boolean> {
       return false;
     }
 
-    // Bun's native JSON parsing is highly optimized
     const jsonData = await file.json();
-
-    const result = ThemeSchema.safeParse(jsonData);
+    const result = validateRecipeStrict(jsonData);
 
     if (result.success) {
-      const injectionIssues = validateRecipeForInjection(result.data);
-      if (injectionIssues.length > 0) {
-        console.error(`❌ Injection safety check failed for ${filePath}:`);
-        console.error(JSON.stringify(injectionIssues, null, 2));
-        return false;
-      }
-
       console.log(`✅ Schema validation passed for ${filePath}!`);
       return true;
     } else {
-      console.error(`❌ Schema validation failed for ${filePath}:`);
-      console.error(JSON.stringify(result.error.format(), null, 2));
+      console.error(`❌ Validation failed for ${filePath}:`);
+      result.errors.forEach(err => console.error(err));
       return false;
     }
   } catch (error) {
