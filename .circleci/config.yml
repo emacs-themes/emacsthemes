@@ -44,6 +44,37 @@ jobs:
           name: Validate Recipes
           command: bun run validate
 
+  test:
+    executor: bun-executor
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Run Tests
+          command: bun test
+
+  build:
+    executor: bun-executor
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Build Site
+          command: bun run build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - build
+
+  deploy:
+    executor: bun-executor
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Deploy to Cloudflare Pages
+          command: bunx wrangler pages deploy build --project-name=emacsthemes --branch=main
+
 workflows:
   version: 2
   validate-and-generate:
@@ -55,3 +86,17 @@ workflows:
       - validate-recipes:
           requires:
             - setup
+      - test:
+          requires:
+            - setup
+      - build:
+          requires:
+            - lint
+            - validate-recipes
+            - test
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
