@@ -9,8 +9,20 @@ const INIT_TEMPLATE_PATH = "src/elisp/init-template.el";
 const MODES_SAMPLES_DIR = "src/elisp/modes";
 const LOCAL_THEMES_DIR = "static/themes";
 
+/**
+ * Represents the parsed command-line arguments for the screenshot generation script.
+ */
 interface Arguments {
+  /**
+   * The ID of a specific theme to process (e.g., 'zenburn').
+   * If null, all recipes in the recipes directory will be processed.
+   */
   targetThemeId: string | null;
+
+  /**
+   * Whether to force the generation of screenshots even if they already exist
+   * in the output directory.
+   */
   force: boolean;
 }
 
@@ -165,29 +177,44 @@ async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<
 }
 
 /**
- * Prepares the theme files by either copying them from a local directory or
- * downloading them from remote URLs.
+ * Prepares files for a theme that is stored locally within the project.
  *
- * @param {Theme} theme - The theme object from the recipe.
+ * It identifies the correct source folder under `static/themes`, copies its
+ * entire content to the temporary processing directory, and returns the
+ * basenames of the files that should be loaded.
+ *
+ * @param {Theme} theme - The theme object containing the 'local' repository URL.
+ * @param {string} themeTempDir - The temporary working directory for this theme.
+ * @returns {Promise<string[]>} A list of filenames (basenames) to be loaded by Emacs.
+ */
+async function prepareLocalThemeFiles(theme: Theme, themeTempDir: string): Promise<string[]> {
+  const firstRawUrl = theme.rawUrls[0];
+  const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
+  const folderName = match ? match[1] : theme.id;
+  const localThemeDir = join(LOCAL_THEMES_DIR, folderName);
+
+  console.log(`  Copying local theme directory from ${localThemeDir}...`);
+  await copyDir(localThemeDir, themeTempDir);
+
+  // For local themes, we use the rawUrls list to determine what specific files to load
+  return theme.rawUrls.map((url) => basename(url));
+}
+
+/**
+ * Orchestrates the preparation of theme files based on their source (local or remote).
+ *
+ * This is a high-level dispatcher that ensures the temporary processing directory
+ * is populated with the necessary Elisp files before screenshot generation begins.
+ *
+ * @param {Theme} theme - The validated theme object from the recipe.
  * @param {string} themeTempDir - The temporary directory where files should be placed.
  * @returns {Promise<string[]>} A list of filenames that should be loaded in Emacs.
  */
 async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<string[]> {
-  const filesToLoad: string[] = [];
   if (theme.repoUrl === "local") {
-    const firstRawUrl = theme.rawUrls[0];
-    const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
-    const folderName = match ? match[1] : theme.id;
-    const localThemeDir = join(LOCAL_THEMES_DIR, folderName);
-    console.log(`  Copying local theme directory from ${localThemeDir}...`);
-    await copyDir(localThemeDir, themeTempDir);
-    // For local themes, we use the rawUrls list to determine what to load
-    theme.rawUrls.forEach(url => filesToLoad.push(basename(url)));
-  } else {
-    const downloaded = await downloadThemeFiles(theme.rawUrls, themeTempDir);
-    filesToLoad.push(...downloaded);
+    return await prepareLocalThemeFiles(theme, themeTempDir);
   }
-  return filesToLoad;
+  return await downloadThemeFiles(theme.rawUrls, themeTempDir);
 }
 
 /**
@@ -234,10 +261,65 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
 }
 
 /**
+ * Generates the mode-specific Emacs Lisp logic for the initialization file.
+ *
+ * It handles both instruction files (complex scripts) and standard file opening
+ * for basic modes. For instruction files, it replaces the `{{SAMPLE_PATH}}` placeholder
+ * with an absolute path to the target sample file.
+ *
+ * @param {string} modeName - The name of the Emacs mode.
+ * @param {ModeConfig} config - The configuration for the mode.
+ * @returns {Promise<string>} The generated Elisp logic.
+ */
+async function getModeSpecificLogic(modeName: string, config: ModeConfig): Promise<string> {
+  const samplePath = join(MODES_SAMPLES_DIR, config.file);
+
+  if (config.isInstructionFile) {
+    let logic = await readFile(samplePath, "utf-8");
+    if (config.sampleFile) {
+      const absoluteSamplePath = resolve(join(MODES_SAMPLES_DIR, config.sampleFile));
+      logic = logic.replace(/{{SAMPLE_PATH}}/g, absoluteSamplePath);
+    }
+    return logic;
+  }
+
+  const absoluteSamplePath = resolve(samplePath);
+  const extraLogic = modeName === "text-mode" ? "(display-line-numbers-mode 1)" : "";
+
+  return `
+(find-file "${absoluteSamplePath}")
+(funcall '${modeName})
+${extraLogic}
+(delete-other-windows)
+(log-debug "Opened ${config.file} in ${modeName}")
+    `;
+}
+
+/**
+ * Generates the Elisp code required to load theme files into Emacs.
+ *
+ * Each file is loaded using `load-file` and wrapped in a `condition-case` to
+ * ensure that errors in individual files don't prevent the entire theme from loading.
+ *
+ * @param {string} themeDir - The directory containing the theme files.
+ * @param {string[]} filesToLoad - The list of filenames to load.
+ * @returns {string} The generated Elisp code.
+ */
+function getLoadFilesElisp(themeDir: string, filesToLoad: string[]): string {
+  return filesToLoad
+    .filter((f) => f.endsWith(".el"))
+    .map(
+      (f) => `
+(condition-case err
+    (load-file "${resolve(join(themeDir, f))}")
+  (error (log-debug "Failed to load ${f}: %s" err)))`
+    )
+    .join("\n");
+}
+
+/**
  * Constructs the content for an Emacs initialization file (init.el) by merging
  * a base template with theme-specific configurations and mode-specific display logic.
- *
- * It supports both standard mode opening (find-file) and specialized instruction files.
  *
  * @param {Theme} theme - The validated theme object from the recipe.
  * @param {string} themeDir - Path to the directory containing the theme's Elisp files.
@@ -245,6 +327,7 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
  * @param {string} themeName - The internal Emacs symbol name for the theme.
  * @param {string} modeName - The name of the Emacs mode to showcase (e.g., 'python-mode').
  * @param {ModeConfig} config - Configuration object specifying the sample file and type.
+ * @param {string} readyFilePath - Path to the 'ready' file that Emacs will create.
  * @returns {Promise<string>} The complete, processed init.el content.
  */
 async function generateInitEl(
@@ -257,40 +340,13 @@ async function generateInitEl(
   readyFilePath: string
 ): Promise<string> {
   const template = await readFile(INIT_TEMPLATE_PATH, "utf-8");
-  const samplePath = join(MODES_SAMPLES_DIR, config.file);
-
-  let modeSpecificLogic = "";
-  if (config.isInstructionFile) {
-    modeSpecificLogic = await readFile(samplePath, "utf-8");
-    if (config.sampleFile) {
-      const absoluteSamplePath = resolve(join(MODES_SAMPLES_DIR, config.sampleFile));
-      modeSpecificLogic = modeSpecificLogic.replace(/{{SAMPLE_PATH}}/g, absoluteSamplePath);
-    }
-  } else {
-    const absoluteSamplePath = resolve(samplePath);
-    const extraLogic = modeName === 'text-mode' ? '(display-line-numbers-mode 1)' : '';
-
-    modeSpecificLogic = `
-(find-file "${absoluteSamplePath}")
-(funcall '${modeName})
-${extraLogic}
-(delete-other-windows)
-(log-debug "Opened ${config.file} in ${modeName}")
-    `;
-  }
-
-  const loadFilesElisp = filesToLoad
-    .filter(f => f.endsWith(".el"))
-    .map(f => `
-(condition-case err
-    (load-file "${resolve(join(themeDir, f))}")
-  (error (log-debug "Failed to load ${f}: %s" err)))`)
-    .join("\n");
+  const modeSpecificLogic = await getModeSpecificLogic(modeName, config);
+  const loadFilesElisp = getLoadFilesElisp(themeDir, filesToLoad);
 
   return template
     .replace(/{{THEME_DIR}}/g, resolve(themeDir))
     .replace(/{{LOAD_THEME_FILES}}/g, loadFilesElisp)
-    .replace(/{{THEME_FILES}}/g, filesToLoad.filter(f => f.endsWith(".el")).join(" "))
+    .replace(/{{THEME_FILES}}/g, filesToLoad.filter((f) => f.endsWith(".el")).join(" "))
     .replace(/{{THEME_NAME}}/g, themeName)
     .replace(/{{ELISP_BEFORE}}/g, theme.elispBefore || "")
     .replace(/{{ELISP_AFTER}}/g, theme.elispAfter || "")
@@ -299,23 +355,35 @@ ${extraLogic}
 }
 
 /**
- * Spawns a headless Emacs instance using Xvfb and captures a screenshot of the
- * rendered window using the 'import' utility from ImageMagick.
+ * Checks if the 'xvfb-run' utility is available on the system.
  *
- * @param {string} initElPath - Path to the init.el file to load into Emacs.
- * @param {string} imagePath - Target path where the generated PNG should be saved.
- * @param {string} readyFilePath - Path to the 'ready' file that Emacs will create.
- * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
+ * @returns {Promise<boolean>} True if xvfb-run is found.
  */
-async function captureScreenshot(initElPath: string, imagePath: string, readyFilePath: string): Promise<boolean> {
-  const hasXvfb = (await Bun.spawn(["which", "xvfb-run"]).exited) === 0;
-
-  if (!hasXvfb) {
+async function checkXvfbAvailability(): Promise<boolean> {
+  const result = await Bun.spawn(["which", "xvfb-run"]).exited;
+  if (result !== 0) {
     console.log("  xvfb-run not found. Skipping screenshot generation.");
     return false;
   }
+  return true;
+}
 
-  const wrapperCmd = `
+/**
+ * Generates the shell script used to orchestrate Emacs rendering and capture.
+ *
+ * The script:
+ * 1. Starts Emacs in the background.
+ * 2. Waits for Emacs to signal readiness by creating a 'ready' file.
+ * 3. Uses ImageMagick's `import` tool to capture the root window.
+ * 4. Cleans up by killing the Emacs process.
+ *
+ * @param {string} initElPath - Path to the initialization file.
+ * @param {string} imagePath - Target path for the PNG screenshot.
+ * @param {string} readyFilePath - Path to the readiness signal file.
+ * @returns {string} The constructed bash script.
+ */
+function getCaptureShellScript(initElPath: string, imagePath: string, readyFilePath: string): string {
+  return `
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
 
@@ -336,11 +404,28 @@ async function captureScreenshot(initElPath: string, imagePath: string, readyFil
     import -window root "${resolve(imagePath)}" 2>/dev/null
     kill $EMACS_PID 2>/dev/null
   `;
+}
+
+/**
+ * Spawns a headless Emacs instance using Xvfb and captures a screenshot of the
+ * rendered window using the 'import' utility from ImageMagick.
+ *
+ * @param {string} initElPath - Path to the init.el file to load into Emacs.
+ * @param {string} imagePath - Target path where the generated PNG should be saved.
+ * @param {string} readyFilePath - Path to the 'ready' file that Emacs will create.
+ * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
+ */
+async function captureScreenshot(initElPath: string, imagePath: string, readyFilePath: string): Promise<boolean> {
+  if (!(await checkXvfbAvailability())) {
+    return false;
+  }
+
+  const wrapperCmd = getCaptureShellScript(initElPath, imagePath, readyFilePath);
 
   try {
     const proc = Bun.spawn(["xvfb-run", "--auto-servernum", "--server-args=-screen 0 1280x960x24", "bash", "-c", wrapperCmd], {
       stdout: "inherit",
-      stderr: "inherit"
+      stderr: "inherit",
     });
 
     const exitCode = await proc.exited;
@@ -376,137 +461,238 @@ async function generatePreview(sourcePath: string, destPath: string): Promise<bo
 }
 
 /**
- * Processes a single theme recipe by validating it, downloading its source files,
- * and generating screenshots for all configured Emacs modes.
+ * Reads and validates a theme recipe JSON file.
  *
- * The process follows these steps:
- * 1. Read and validate the recipe JSON against the ThemeSchema.
- * 2. Check if screenshots for this theme already exist in the target directory; if so, skip.
- * 3. Create a temporary directory and download the theme's raw Elisp files.
- * 4. Auto-detect the internal Emacs theme name from the downloaded files.
- * 5. For each mode defined in MODE_SAMPLES, generate a custom init.el and capture a screenshot.
- * 6. Clean up the temporary source files.
- *
- * @param {string} recipePath - The file path to the theme recipe JSON.
- * @param {boolean} [force=false] - Whether to force screenshot generation.
- * @returns {Promise<{ status: 'skipped' | 'success' | 'failed', name: string }>}
- * An object containing the operation status and the theme name.
+ * @param {string} recipePath - Path to the recipe file.
+ * @returns {Promise<Theme | null>} The validated theme object, or null if invalid.
  */
-async function processTheme(recipePath: string, force: boolean = false): Promise<{ status: 'skipped' | 'success' | 'failed', name: string }> {
-  const file = Bun.file(recipePath);
-  const json = await file.json();
-  const parseResult = ThemeSchema.safeParse(json);
+async function validateRecipe(recipePath: string): Promise<Theme | null> {
+  try {
+    const file = Bun.file(recipePath);
+    const json = await file.json();
+    const parseResult = ThemeSchema.safeParse(json);
 
-  if (!parseResult.success) {
-    console.error(`Invalid schema for ${recipePath}`);
-    return { status: 'failed', name: basename(recipePath) };
+    if (!parseResult.success) {
+      console.error(`Invalid schema for ${recipePath}`);
+      return null;
+    }
+    return parseResult.data;
+  } catch (err) {
+    console.error(`Error reading recipe ${recipePath}:`, err);
+    return null;
   }
+}
 
-  const theme = parseResult.data;
-  const themeImagesDir = join(IMAGES_DIR, theme.id);
+/**
+ * Determines if screenshot generation for a theme should be skipped.
+ *
+ * @param {string} themeName - Display name of the theme.
+ * @param {string} themeImagesDir - Path to the directory where screenshots are stored.
+ * @param {boolean} force - Whether to force regeneration.
+ * @returns {Promise<boolean>} True if generation should be skipped.
+ */
+async function shouldSkipTheme(themeName: string, themeImagesDir: string, force: boolean): Promise<boolean> {
+  if (force) return false;
 
-  // Skip if theme directory already exists, unless force is true
   try {
     const dirInfo = await Bun.file(themeImagesDir).stat();
-    if (dirInfo && !force) {
-      console.log(`${theme.name} exists, skipping screenshot`);
-      return { status: 'skipped', name: theme.name };
+    if (dirInfo) {
+      console.log(`${themeName} exists, skipping screenshot`);
+      return true;
     }
   } catch {
-    // Directory does not exist, proceed
+    // Directory does not exist
+  }
+  return false;
+}
+
+/**
+ * Processes a single Emacs mode for a theme: generates init.el, captures screenshot,
+ * and optionally generates a preview image.
+ *
+ * @param {Theme} theme - The theme object.
+ * @param {string} themeTempDir - Temporary working directory.
+ * @param {string} themeImagesDir - Target images directory.
+ * @param {string[]} filesToLoad - List of Elisp files to load.
+ * @param {string} emacsThemeName - Internal Emacs name for the theme.
+ * @param {string} modeName - Name of the mode (e.g., 'python-mode').
+ * @param {ModeConfig} config - Configuration for the mode.
+ * @returns {Promise<boolean>} True if successful.
+ */
+async function processThemeMode(
+  theme: Theme,
+  themeTempDir: string,
+  themeImagesDir: string,
+  filesToLoad: string[],
+  emacsThemeName: string,
+  modeName: string,
+  config: ModeConfig
+): Promise<boolean> {
+  console.log(`  Generating screenshot for ${modeName}...`);
+  const imagePath = join(themeImagesDir, `${modeName}.png`);
+  const initElPath = join(themeTempDir, `init-${modeName}.el`);
+  const readyFilePath = join(themeTempDir, `ready-${modeName}`);
+
+  const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config, readyFilePath);
+  await Bun.write(initElPath, initContent);
+
+  const success = await captureScreenshot(initElPath, imagePath, readyFilePath);
+  if (!success) {
+    console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
+    return false;
   }
 
-  console.log(`Processing theme: ${theme.name} (${theme.id})`);
+  console.log(`  ✅ Successfully generated screenshot for ${modeName}`);
+
+  if (modeName === "emacs-lisp-mode") {
+    console.log(`  Generating preview for ${theme.name}...`);
+    const previewPath = join(themeImagesDir, "preview.png");
+    const previewSuccess = await generatePreview(imagePath, previewPath);
+    if (!previewSuccess) {
+      console.error(`  ❌ Failed to generate preview.png`);
+      return false;
+    }
+    console.log(`  ✅ Successfully generated preview.png`);
+  }
+
+  return true;
+}
+
+/**
+ * Sets up the necessary directories for theme processing.
+ *
+ * Ensures that both the permanent images directory (for screenshots)
+ * and the temporary working directory (for theme files) exist.
+ *
+ * @param {string} themeImagesDir - Target directory where PNG screenshots will be stored.
+ * @param {string} themeTempDir - Temporary directory where Elisp files are downloaded and processed.
+ */
+async function setupThemeDirectories(themeImagesDir: string, themeTempDir: string): Promise<void> {
   await mkdir(themeImagesDir, { recursive: true });
-
-  const themeTempDir = join(TEMP_DIR, theme.id);
   await mkdir(themeTempDir, { recursive: true });
+}
 
-  let processingFailed = false;
-
-  try {
-    const filesToLoad = await prepareThemeFiles(theme, themeTempDir);
-    const detectedName = await findThemeNameInDir(themeTempDir, filesToLoad);
-    const emacsThemeName = detectedName || theme.id;
-
-    for (const [modeName, config] of Object.entries(MODE_SAMPLES)) {
-      console.log(`  Generating screenshot for ${modeName}...`);
-      const imagePath = join(themeImagesDir, `${modeName}.png`);
-      const initElPath = join(themeTempDir, `init-${modeName}.el`);
-      const readyFilePath = join(themeTempDir, `ready-${modeName}`);
-
-      const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config, readyFilePath);
-      // console.log(` Init content: \n-------\n${initContent}\n------\n`);
-      await Bun.write(initElPath, initContent);
-
-      const success = await captureScreenshot(initElPath, imagePath, readyFilePath);
-      if (!success) {
-        console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
-        processingFailed = true;
-        break; // Stop processing further modes for this theme
-      } else {
-        console.log(`  ✅ Successfully generated screenshot for ${modeName}`);
-
-        if (modeName === 'emacs-lisp-mode') {
-          console.log(`  Generating preview for ${theme.name}...`);
-          const previewPath = join(themeImagesDir, 'preview.png');
-          const previewSuccess = await generatePreview(imagePath, previewPath);
-          if (previewSuccess) {
-            console.log(`  ✅ Successfully generated preview.png`);
-          } else {
-            console.error(`  ❌ Failed to generate preview.png`);
-            processingFailed = true;
-            break;
-          }
-        }
-      }
-    }
-
-    if (processingFailed) {
-      throw new Error(`Failed to generate some screenshots for ${theme.name}`);
-    }
-
-    return { status: 'success', name: theme.name };
-  } catch (err) {
-    console.error(`  Error processing theme ${theme.name}:`, err);
-    try {
-      await rm(themeImagesDir, { recursive: true, force: true });
-      console.log(`  Rolled back: Deleted ${themeImagesDir} due to failure.`);
-    } catch (cleanupErr) {
-      console.error(`  Failed to delete ${themeImagesDir}:`, cleanupErr);
-    }
-    return { status: 'failed', name: theme.name };
-  } finally {
-    try {
-      await rm(themeTempDir, { recursive: true, force: true });
-      console.log(`  Cleaned up ${themeTempDir}`);
-    } catch {
-      // ignore cleanup errors
+/**
+ * Iterates through all configured Emacs modes and captures screenshots for each.
+ *
+ * This function orchestrates the generation of `init.el` files and the execution
+ * of headless Emacs instances for every mode defined in `MODE_SAMPLES`.
+ *
+ * @param {Theme} theme - The validated theme object from the recipe.
+ * @param {string} themeTempDir - The temporary working directory for this theme.
+ * @param {string} themeImagesDir - The target directory for the resulting screenshots.
+ * @param {string[]} filesToLoad - A list of Elisp filenames that must be loaded.
+ * @param {string} emacsThemeName - The internal Emacs symbol name for the theme.
+ * @throws {Error} If screenshot generation fails for any mode.
+ */
+async function captureThemeScreenshots(
+  theme: Theme,
+  themeTempDir: string,
+  themeImagesDir: string,
+  filesToLoad: string[],
+  emacsThemeName: string
+): Promise<void> {
+  for (const [modeName, config] of Object.entries(MODE_SAMPLES)) {
+    const success = await processThemeMode(theme, themeTempDir, themeImagesDir, filesToLoad, emacsThemeName, modeName, config);
+    if (!success) {
+      throw new Error(`Failed to generate screenshot for ${modeName}`);
     }
   }
 }
 
 /**
- * Orchestrates the entire screenshot generation workflow.
+ * Deletes the theme's image directory if processing fails.
  *
- * Performs the following actions:
- * 1. Ensures required output and temporary directories exist.
- * 2. Scans the recipes directory for JSON theme definitions.
- * 3. Processes each theme sequentially to generate screenshots for all supported modes.
- * 4. Outputs a summary of successful, skipped, and failed operations.
- * 5. Exits with a non-zero code if any theme fails to process.
+ * This is used to ensure we don't leave partial or broken screenshot sets
+ * in the final output directory, which would prevent a retry without `--force`.
+ *
+ * @param {string} themeImagesDir - The directory containing (potentially partial) screenshots.
+ * @param {string} themeName - The display name of the theme, used for logging.
  */
-async function main() {
-  await mkdir(IMAGES_DIR, { recursive: true });
-  await mkdir(TEMP_DIR, { recursive: true });
+async function rollbackThemeProcessing(themeImagesDir: string, themeName: string): Promise<void> {
+  try {
+    await rm(themeImagesDir, { recursive: true, force: true });
+    console.log(`  Rolled back: Deleted ${themeImagesDir} for theme ${themeName} due to failure.`);
+  } catch (cleanupErr) {
+    console.error(`  Failed to delete ${themeImagesDir} for theme ${themeName}:`, cleanupErr);
+  }
+}
 
-  const { targetThemeId, force } = parseCliArgs();
+/**
+ * Removes the temporary directory used during theme processing.
+ *
+ * This function is called in the `finally` block to ensure that downloaded
+ * theme files and generated initialization scripts are always cleaned up.
+ *
+ * @param {string} themeTempDir - The temporary directory to remove.
+ */
+async function cleanupThemeTemp(themeTempDir: string): Promise<void> {
+  try {
+    await rm(themeTempDir, { recursive: true, force: true });
+    console.log(`  Cleaned up ${themeTempDir}`);
+  } catch {
+    // ignore cleanup errors
+  }
+}
+
+/**
+ * Processes a single theme recipe by validating it, downloading its source files,
+ * and generating screenshots for all configured Emacs modes.
+ *
+ * @param {string} recipePath - The file path to the theme recipe JSON.
+ * @param {boolean} [force=false] - Whether to force screenshot generation.
+ * @returns {Promise<{ status: 'skipped' | 'success' | 'failed', name: string }>}
+ */
+async function processTheme(recipePath: string, force: boolean = false): Promise<{ status: "skipped" | "success" | "failed"; name: string }> {
+  const theme = await validateRecipe(recipePath);
+  if (!theme) {
+    return { status: "failed", name: basename(recipePath) };
+  }
+
+  const themeImagesDir = join(IMAGES_DIR, theme.id);
+  if (await shouldSkipTheme(theme.name, themeImagesDir, force)) {
+    return { status: "skipped", name: theme.name };
+  }
+
+  console.log(`Processing theme: ${theme.name} (${theme.id})`);
+  const themeTempDir = join(TEMP_DIR, theme.id);
+
+  try {
+    await setupThemeDirectories(themeImagesDir, themeTempDir);
+
+    const filesToLoad = await prepareThemeFiles(theme, themeTempDir);
+    const detectedName = await findThemeNameInDir(themeTempDir, filesToLoad);
+    const emacsThemeName = detectedName || theme.id;
+
+    await captureThemeScreenshots(theme, themeTempDir, themeImagesDir, filesToLoad, emacsThemeName);
+
+    return { status: "success", name: theme.name };
+  } catch (err) {
+    console.error(`  Error processing theme ${theme.name}:`, err);
+    await rollbackThemeProcessing(themeImagesDir, theme.name);
+    return { status: "failed", name: theme.name };
+  } finally {
+    await cleanupThemeTemp(themeTempDir);
+  }
+}
+
+/**
+ * Scans the recipes directory for JSON files and applies filtering based on CLI arguments.
+ *
+ * If a `targetThemeId` is provided, it attempts to find exactly one matching recipe file.
+ * If the specific recipe is not found, it logs an error and terminates the process.
+ * Otherwise, it returns all JSON recipes found in the directory.
+ *
+ * @param {string | null} targetThemeId - Optional theme ID (e.g., 'zenburn') to filter for.
+ * @returns {Promise<string[]>} A promise resolving to an array of recipe filenames (e.g., ['zenburn.json']).
+ */
+async function getRecipeFiles(targetThemeId: string | null): Promise<string[]> {
   const files = await readdir(RECIPES_DIR);
-  let recipes = files.filter(f => f.endsWith(".json"));
+  let recipes = files.filter((f) => f.endsWith(".json"));
 
   if (targetThemeId) {
     console.log(`Filtering for theme ID: ${targetThemeId}`);
-    recipes = recipes.filter(f => f === `${targetThemeId}.json`);
+    recipes = recipes.filter((f) => f === `${targetThemeId}.json`);
     if (recipes.length === 0) {
       console.error(`No recipe found matching: ${targetThemeId}.json`);
       process.exit(1);
@@ -514,6 +700,26 @@ async function main() {
   }
 
   console.log(`Found ${recipes.length} recipes.`);
+  return recipes;
+}
+
+/**
+ * Orchestrates the entire screenshot generation workflow.
+ *
+ * This function serves as the entry point for the script and performs the following steps:
+ * 1. Ensures the global output (`IMAGES_DIR`) and temporary working (`TEMP_DIR`) directories exist.
+ * 2. Parses command-line arguments to determine if we should filter for a specific theme or force regeneration.
+ * 3. Retrieves the list of recipe files to process.
+ * 4. Iteratively processes each theme, tracking success, failure, and skip statuses.
+ * 5. Outputs a final summary of the operations performed.
+ * 6. Exits with a non-zero code if any theme processing failed.
+ */
+async function main() {
+  await mkdir(IMAGES_DIR, { recursive: true });
+  await mkdir(TEMP_DIR, { recursive: true });
+
+  const { targetThemeId, force } = parseCliArgs();
+  const recipes = await getRecipeFiles(targetThemeId);
 
   const results = { skipped: 0, success: 0, failed: 0 };
 
