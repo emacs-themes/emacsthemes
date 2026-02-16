@@ -11,7 +11,7 @@
 ;; Initialize package.el for themes that have dependencies
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(setq package-check-signature nil)
+(setq package-check-signature t)
 (package-initialize)
 
 (add-to-list 'load-path "{{THEME_DIR}}")
