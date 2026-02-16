@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bun test",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "validate": "bun src/core/validate.ts",

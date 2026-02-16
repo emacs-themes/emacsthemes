@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
+import { escapeHtml } from "../core/html-utils";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -181,9 +182,9 @@ async function minifyJs(js: string): Promise<string> {
 function generateThemeCard(theme: Theme, template: string, relativeRoot: string = ""): string {
   const imagePath = `${relativeRoot}${STATIC_DIR}/imgs/${theme.id}/preview.png`;
   return template
-    .replace(/{{THEME_NAME}}/g, theme.name)
+    .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
     .replace(/{{THEME_ID}}/g, theme.id)
-    .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
+    .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
     .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
     .replace(/{{THEME_LOCAL_URL}}/g, theme.id)
     .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
@@ -377,8 +378,8 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
     }
 
     const content = contentTemplate
-      .replace(/{{THEME_NAME}}/g, theme.name)
-      .replace(/{{THEME_DESCRIPTION}}/g, theme.description)
+      .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
+      .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
       .replace(/<a href="{{THEME_REPO_URL}}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub<\/a>/g, repoLinkHtml)
       .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
       .replace(/{{THEME_TYPE}}/g, theme.type)

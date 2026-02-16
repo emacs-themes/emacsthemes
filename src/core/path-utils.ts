@@ -11,7 +11,8 @@ import { resolve, relative } from 'node:path';
  */
 export function assertPathWithinRoot(root: string, candidate: string): string {
   const absoluteRoot = resolve(root);
-  const absoluteCandidate = resolve(candidate);
+  // Resolve candidate relative to root if it's not absolute
+  const absoluteCandidate = resolve(absoluteRoot, candidate);
   const relativePath = relative(absoluteRoot, absoluteCandidate);
 
   const isOutside = relativePath.startsWith('..') || relativePath.startsWith('/');
