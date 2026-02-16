@@ -269,6 +269,8 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
+  const updatedSearchBarHtml = searchBarHtml.replace("{{TOTAL_THEMES}}", allThemes.length.toLocaleString());
+
   const themesGrid = `<div class="grid">` + allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n") + `</div>`;
   
   const themesData = allThemes.map(t => ({
@@ -285,7 +287,7 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
 
   const html = applyBaseTemplate(template, {
     themesGrid,
-    searchBar: searchBarHtml,
+    searchBar: updatedSearchBarHtml,
     mainCssPath: `../${PATHS.css.main}`,
     extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`],
     scripts: scriptHtml
