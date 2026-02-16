@@ -512,18 +512,13 @@ async function build404Page(template: string, error404ContentHtml: string) {
  * @param {string} dest - The destination directory path.
  */
 async function copyDir(src: string, dest: string) {
-  try {
-    await mkdir(dest, { recursive: true });
-    const entries = await readdir(src, { withFileTypes: true });
-    for (const entry of entries) {
-      const srcPath = join(src, entry.name);
-      const destPath = join(dest, entry.name);
-      if (entry.isDirectory()) await copyDir(srcPath, destPath);
-      else await copyFile(srcPath, destPath);
-    }
-  } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    console.warn(`Warning copying ${src} to ${dest}:`, message);
+  await mkdir(dest, { recursive: true });
+  const entries = await readdir(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
+    if (entry.isDirectory()) await copyDir(srcPath, destPath);
+    else await copyFile(srcPath, destPath);
   }
 }
 
@@ -578,13 +573,16 @@ async function build() {
     copyDir(PATHS.assets.src.images, PATHS.assets.dest.images),
     copyDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
-    copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon).catch(err => console.warn("Warning copying favicon:", err.message)),
-    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng).catch(err => console.warn("Warning copying emacs.png:", err.message))
+    copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
+    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng)
   ]);
 
   console.log("Build complete!");
 }
 
 if (import.meta.main) {
-  build().catch(console.error);
+  build().catch((err) => {
+    console.error("Build failed:", err);
+    process.exitCode = 1;
+  });
 }

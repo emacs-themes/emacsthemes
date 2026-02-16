@@ -727,5 +727,8 @@ async function main() {
 }
 
 if (import.meta.main) {
-  main().catch(console.error);
+  main().catch((err) => {
+    console.error("Screenshot generation failed:", err);
+    process.exitCode = 1;
+  });
 }
