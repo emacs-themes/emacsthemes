@@ -2,9 +2,9 @@
   "name": "Aircon Theme",
   "id": "aircon",
   "description": "Cool and legible light theme. Clean and high contrast custom theme.",
-  "repoUrl": "https://git.sr.ht/~chambln/aircon-theme.el",
+  "repoUrl": "local",
   "rawUrls": [
-    "https://git.sr.ht/~chambln/aircon-theme.el/blob/master/aircon-theme.el"
+    "static/themes/aircon/aircon-theme.el"
   ],
   "type": "light",
   "authors": [
