@@ -4,6 +4,7 @@
   "description": "Port of the One theme for Vim/Neovim - light",
   "repoUrl": "https://github.com/balajisivaraman/emacs-one-themes",
   "rawUrls": [
+    "https://raw.githubusercontent.com/balajisivaraman/emacs-one-themes/refs/heads/master/one-themes.el",
     "https://raw.githubusercontent.com/balajisivaraman/emacs-one-themes/master/one-light-theme.el"
   ],
   "type": "light",
