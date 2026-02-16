@@ -3,7 +3,10 @@ import { resolve } from 'path';
 
 export const ThemeSchema = z.object({
   name: z.string().min(1, 'Theme name is required'),
-  id: z.string().min(1, 'ID (url) is required'),
+  id: z.string()
+    .min(1, 'ID (url) is required')
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'ID must be a slug (lowercase letters and numbers, separated by single hyphens)')
+    .refine(id => !id.includes('..') && !id.includes('/') && !id.includes('\\'), 'ID contains invalid characters'),
   description: z.string().min(1, 'Description is required'),
   repoUrl: z.string().min(1, 'Main repository url is required'),
   rawUrls: z.array(

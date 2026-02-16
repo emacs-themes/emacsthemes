@@ -2,6 +2,7 @@ import { mkdir, readdir, copyFile, rm, stat, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { fetchPopularThemes } from "./fetch-popular-themes";
+import { assertPathWithinRoot } from "../core/path-utils";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -103,7 +104,7 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
     themeFiles.map(async (file) => {
       const filePath = join(RECIPES_DIR, file);
       const content = await Bun.file(filePath).json() as Theme;
-      const screenshotsDir = join(PATHS.assets.src.images, content.id);
+      const screenshotsDir = assertPathWithinRoot(PATHS.assets.src.images, join(PATHS.assets.src.images, content.id));
 
       try {
         const stats = await stat(screenshotsDir);
@@ -332,7 +333,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
   const detailCssPath = `../${PATHS.css.detail}`;
 
   for (const theme of themes) {
-    const themeImgsDir = join(PATHS.assets.src.images, theme.id);
+    const themeImgsDir = assertPathWithinRoot(PATHS.assets.src.images, join(PATHS.assets.src.images, theme.id));
     let screenshotsHtml = "";
 
     try {
@@ -397,7 +398,8 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
     });
 
     const minifiedHtml = await minifyHtml(html);
-    await Bun.write(join(PATHS.pages.themesDir, `${theme.id}.html`), minifiedHtml);
+    const themePagePath = assertPathWithinRoot(PATHS.pages.themesDir, join(PATHS.pages.themesDir, `${theme.id}.html`));
+    await Bun.write(themePagePath, minifiedHtml);
     console.log(`Generated themes/${theme.id}.html`);
   }
 }

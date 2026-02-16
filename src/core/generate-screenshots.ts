@@ -1,7 +1,8 @@
 import { mkdir, readdir, readFile, rm, copyFile } from "node:fs/promises";
-import { join, basename, resolve, relative } from "node:path";
+import { join, basename, resolve } from "node:path";
 import { ThemeSchema, Theme } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
+import { assertPathWithinRoot } from "./path-utils";
 
 const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
@@ -85,16 +86,7 @@ function isLocalThemePath(rawUrl: string): boolean {
  * @throws {Error} If the path escapes the `static/themes` directory.
  */
 function resolveValidatedLocalThemePath(source: string): string {
-  const localThemesRoot = resolve(LOCAL_THEMES_DIR);
-  const absoluteSourcePath = resolve(source);
-  const relativeToRoot = relative(localThemesRoot, absoluteSourcePath);
-  const escapesLocalRoot = relativeToRoot.startsWith("..") || relativeToRoot.startsWith("/");
-
-  if (escapesLocalRoot) {
-    throw new Error(`Invalid local theme path outside ${LOCAL_THEMES_DIR}: ${source}`);
-  }
-
-  return absoluteSourcePath;
+  return assertPathWithinRoot(LOCAL_THEMES_DIR, source);
 }
 
 /**
@@ -191,7 +183,7 @@ async function prepareLocalThemeFiles(theme: Theme, themeTempDir: string): Promi
   const firstRawUrl = theme.rawUrls[0];
   const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
   const folderName = match ? match[1] : theme.id;
-  const localThemeDir = join(LOCAL_THEMES_DIR, folderName);
+  const localThemeDir = assertPathWithinRoot(LOCAL_THEMES_DIR, join(LOCAL_THEMES_DIR, folderName));
 
   console.log(`  Copying local theme directory from ${localThemeDir}...`);
   await copyDir(localThemeDir, themeTempDir);
@@ -649,13 +641,13 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
     return { status: "failed", name: basename(recipePath) };
   }
 
-  const themeImagesDir = join(IMAGES_DIR, theme.id);
+  const themeImagesDir = assertPathWithinRoot(IMAGES_DIR, join(IMAGES_DIR, theme.id));
   if (await shouldSkipTheme(theme.name, themeImagesDir, force)) {
     return { status: "skipped", name: theme.name };
   }
 
   console.log(`Processing theme: ${theme.name} (${theme.id})`);
-  const themeTempDir = join(TEMP_DIR, theme.id);
+  const themeTempDir = assertPathWithinRoot(TEMP_DIR, join(TEMP_DIR, theme.id));
 
   try {
     await setupThemeDirectories(themeImagesDir, themeTempDir);
