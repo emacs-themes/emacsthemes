@@ -4,7 +4,7 @@
   "description": "An elegant syntax theme with bright colors.",
   "repoUrl": "https://github.com/weijiangan/emacs-snazzy",
   "rawUrls": [
-    "https://raw.githubusercontent.com/weijiangan/emacs-snazzy/master/snazzy-theme.el"
+    "https://raw.githubusercontent.com/weijiangan/emacs-snazzy/refs/heads/master/snazzy-theme.el"
   ],
   "type": "dark",
   "authors": [
@@ -15,5 +15,6 @@
     "purple",
     "snazzy",
     "modern"
-  ]
+  ],
+  "elispBefore": "(unless (package-installed-p 'base16-theme) (package-refresh-contents) (package-install 'base16-theme))"
 }
