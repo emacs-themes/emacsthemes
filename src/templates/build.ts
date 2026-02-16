@@ -10,6 +10,7 @@ const TEMPLATES_DIR = "src/templates";
 const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/caisah/emacsthemes";
+const BASE_URL = "https://emacsthemes.org";
 
 /**
  * Options for html-minifier-terser.
@@ -138,7 +139,7 @@ async function getAllThemes(): Promise<Theme[]> {
 
 /**
  * Minifies HTML content.
- * 
+ *
  * @param {string} html - The HTML string to minify.
  * @returns {Promise<string>} The minified HTML string.
  */
@@ -148,7 +149,7 @@ async function minifyHtml(html: string): Promise<string> {
 
 /**
  * Minifies CSS content by wrapping it in a style tag and using html-minifier-terser.
- * 
+ *
  * @param {string} css - The CSS string to minify.
  * @returns {Promise<string>} The minified CSS string.
  */
@@ -159,7 +160,7 @@ async function minifyCss(css: string): Promise<string> {
 
 /**
  * Minifies JS content by wrapping it in a script tag and using html-minifier-terser.
- * 
+ *
  * @param {string} js - The JS string to minify.
  * @returns {Promise<string>} The minified JS string.
  */
@@ -200,6 +201,11 @@ function getCssPreloadTags(cssPath: string): string {
 }
 
 interface PageData {
+  title: string;
+  description: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
   themesGrid: string;
   searchBar?: string;
   latestThemesHeadline?: string;
@@ -220,8 +226,13 @@ function applyBaseTemplate(template: string, data: PageData): string {
   const extraCssPreloads = (data.extraCssPaths || [])
     .map(path => getCssPreloadTags(path))
     .join("\n");
-  
+
   return template
+    .replace("{{TITLE}}", data.title)
+    .replace("{{DESCRIPTION}}", data.description)
+    .replace(/{{OG_TITLE}}/g, data.ogTitle)
+    .replace(/{{OG_DESCRIPTION}}/g, data.ogDescription)
+    .replace(/{{OG_IMAGE}}/g, data.ogImage)
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
     .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
@@ -244,8 +255,13 @@ async function buildHomepage(template: string, cardTemplate: string) {
   const themes = await getSortedThemes(9);
   const themesGrid = `<div class="grid">` + themes.map(t => generateThemeCard(t, cardTemplate)).join("\n") + `</div>`;
   const latestThemesHeadline = `<h2 class="latest-headline">Freshly Baked Themes 🥐</h2><p class="subhead">The newest additions to our gallery. Warning: may cause sudden urge to rewrite your init.el.</p>`;
-  
+
   const html = applyBaseTemplate(template, {
+    title: "Emacs Themes - An Emacs Themes Gallery",
+    description: "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
+    ogTitle: "Emacs Themes Gallery",
+    ogDescription: "Discover and preview the best Emacs themes.",
+    ogImage: `${BASE_URL}/emacs.png`,
     themesGrid,
     latestThemesHeadline,
     mainCssPath: `/${PATHS.css.main}`,
@@ -272,7 +288,7 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   const updatedSearchBarHtml = searchBarHtml.replace("{{TOTAL_THEMES}}", allThemes.length.toLocaleString());
 
   const themesGrid = `<div class="grid">` + allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n") + `</div>`;
-  
+
   const themesData = allThemes.map(t => ({
     id: t.id,
     name: t.name,
@@ -286,6 +302,11 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
   const scriptHtml = `<script>${minifiedJs}</script>`;
 
   const html = applyBaseTemplate(template, {
+    title: "Full Emacs Themes Directory",
+    description: "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
+    ogTitle: "Emacs Themes Directory",
+    ogDescription: "Search and filter through all available Emacs themes.",
+    ogImage: `${BASE_URL}/emacs.png`,
     themesGrid,
     searchBar: updatedSearchBarHtml,
     mainCssPath: `../${PATHS.css.main}`,
@@ -317,7 +338,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
     try {
       const files = await readdir(themeImgsDir);
       const pngs = files.filter(f => f.endsWith(".png") && f !== "preview.png");
-      
+
       screenshotsHtml = pngs.map(file => {
         const modeName = file.replace(".png", "");
         return `
@@ -330,7 +351,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       console.warn(`No screenshots found for theme ${theme.id}`);
     }
 
-    const tagsHtml = theme.tags.map(tag => 
+    const tagsHtml = theme.tags.map(tag =>
       `<a href="/themes/index.html?q=${encodeURIComponent(tag)}" class="tag-link">${tag}</a>`
     ).join("\n");
 
@@ -365,6 +386,11 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       .replace("{{SCREENSHOTS}}", screenshotsHtml);
 
     const html = applyBaseTemplate(template, {
+      title: `${theme.name} - Emacs Theme`,
+      description: theme.description,
+      ogTitle: `${theme.name} Theme for Emacs`,
+      ogDescription: `Preview and details for the ${theme.name} theme.`,
+      ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
       themesGrid: content,
       mainCssPath: mainCssPath,
       extraCssPaths: [detailCssPath]
@@ -384,6 +410,11 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
  */
 async function buildAboutPage(template: string, aboutContentHtml: string) {
   const html = applyBaseTemplate(template, {
+    title: "About the Emacs Themes Site",
+    description: "Learn more about our curated directory of Emacs themes and how to contribute.",
+    ogTitle: "About Emacs Themes",
+    ogDescription: "Information about the curated Emacs themes directory.",
+    ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: aboutContentHtml,
     mainCssPath: `/${PATHS.css.main}`
   });
@@ -401,7 +432,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
  */
 async function buildPopularThemesPage(template: string, contentTemplate: string) {
   const popularThemes = await fetchPopularThemes();
-  
+
   if (!popularThemes) {
     console.warn("Skipping popular themes page due to fetch failure.");
     return;
@@ -409,10 +440,10 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
 
   const themesListHtml = popularThemes.map((theme, index) => {
     const rank = index + 1;
-    const nameHtml = theme.url 
+    const nameHtml = theme.url
       ? `<a href="${theme.url}" target="_blank" rel="noopener noreferrer">${theme.name}</a>`
       : theme.name;
-    
+
     return `
       <tr>
         <td>${rank}</td>
@@ -432,6 +463,11 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
     .replace("{{GENERATED_DATE}}", generatedDate);
 
   const html = applyBaseTemplate(template, {
+    title: "Popular Emacs Themes - MELPA Statistics",
+    description: "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
+    ogTitle: "Popular Emacs Themes",
+    ogDescription: "MELPA download statistics for top Emacs themes.",
+    ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: content,
     mainCssPath: `/${PATHS.css.main}`,
     extraCssPaths: [`/${PATHS.css.detail}`] // Reusing detail CSS for header consistency
@@ -450,6 +486,11 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
  */
 async function build404Page(template: string, error404ContentHtml: string) {
   const html = applyBaseTemplate(template, {
+    title: "404 - Page Not Found",
+    description: "The page you are looking for could not be found.",
+    ogTitle: "404 - Page Not Found",
+    ogDescription: "The page you are looking for could not be found.",
+    ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: error404ContentHtml,
     mainCssPath: `/${PATHS.css.main}`,
     extraCssPaths: [`/${PATHS.css.error}`]
@@ -486,7 +527,7 @@ async function copyDir(src: string, dest: string) {
 
 /**
  * Minifies and copies CSS files from a directory to a destination.
- * 
+ *
  * @param {string} src - The source directory path containing CSS files.
  * @param {string} dest - The destination directory path.
  */
