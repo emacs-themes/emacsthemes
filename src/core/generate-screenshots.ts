@@ -86,7 +86,11 @@ function isLocalThemePath(rawUrl: string): boolean {
  * @throws {Error} If the path escapes the `static/themes` directory.
  */
 function resolveValidatedLocalThemePath(source: string): string {
-  return assertPathWithinRoot(LOCAL_THEMES_DIR, source);
+  // Strip the prefix if it exists to avoid double-joining in assertPathWithinRoot
+  const relativePath = source.startsWith(`${LOCAL_THEMES_DIR}/`)
+    ? source.slice(LOCAL_THEMES_DIR.length + 1)
+    : source;
+  return assertPathWithinRoot(LOCAL_THEMES_DIR, relativePath);
 }
 
 /**
@@ -183,7 +187,7 @@ async function prepareLocalThemeFiles(theme: Theme, themeTempDir: string): Promi
   const firstRawUrl = theme.rawUrls[0];
   const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
   const folderName = match ? match[1] : theme.id;
-  const localThemeDir = assertPathWithinRoot(LOCAL_THEMES_DIR, join(LOCAL_THEMES_DIR, folderName));
+  const localThemeDir = assertPathWithinRoot(LOCAL_THEMES_DIR, folderName);
 
   console.log(`  Copying local theme directory from ${localThemeDir}...`);
   await copyDir(localThemeDir, themeTempDir);
@@ -642,13 +646,13 @@ async function processTheme(recipePath: string, force: boolean = false): Promise
     return { status: "failed", name: basename(recipePath) };
   }
 
-  const themeImagesDir = assertPathWithinRoot(IMAGES_DIR, join(IMAGES_DIR, theme.id));
+  const themeImagesDir = assertPathWithinRoot(IMAGES_DIR, theme.id);
   if (await shouldSkipTheme(theme.name, themeImagesDir, force)) {
     return { status: "skipped", name: theme.name };
   }
 
   console.log(`Processing theme: ${theme.name} (${theme.id})`);
-  const themeTempDir = assertPathWithinRoot(TEMP_DIR, join(TEMP_DIR, theme.id));
+  const themeTempDir = assertPathWithinRoot(TEMP_DIR, theme.id);
 
   try {
     await setupThemeDirectories(themeImagesDir, themeTempDir);
