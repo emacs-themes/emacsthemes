@@ -10,7 +10,9 @@
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
-    "deploy": "wrangler pages deploy build --project-name=emacsthemes"
+    "dev": "bun run build && ln -sf src/cloudflare/functions ./functions && bunx wrangler pages dev build --compatibility-date=2024-01-01 --r2=EMACSTHEMES_BUCKET --binding ENVIRONMENT=development",
+    "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
+    "deploy": "bun run build && ln -sf src/cloudflare/functions ./functions && bun run deploy:imgs && rm -rf build/static/imgs && bunx wrangler pages deploy build"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260217.0",
     "@eslint/js": "^9.39.2",
     "@types/bun": "^1.3.5",
     "@types/html-minifier-terser": "^7.0.2",
