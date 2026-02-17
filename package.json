@@ -11,7 +11,7 @@
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
     "cf:init": "ln -sf src/cloudflare/functions ./functions",
-    "cf:dev": "bun run cf:init && bunx wrangler pages dev build --compatibility-date=2024-01-01 --r2=EMACSTHEMES_BUCKET --binding ENVIRONMENT=development",
+    "cf:dev": "bun run cf:init && bunx wrangler pages dev build --r2=EMACSTHEMES_BUCKET --binding ENVIRONMENT=development",
     "cf:deploy": "bun run cf:init && bunx wrangler pages deploy build",
     "dev": "bun run cf:dev",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
