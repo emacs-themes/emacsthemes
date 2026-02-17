@@ -27,6 +27,12 @@ bun run build
 ```
 The output will be in the `build/` directory.
 
+### Local Development
+```bash
+bun run dev
+```
+**Note:** You must run `bun run build` at least once before starting the development server to populate the `build/` directory.
+
 ## Project Structure
 
 - `recipes/`: JSON definitions for Emacs themes.
