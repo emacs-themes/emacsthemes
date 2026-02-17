@@ -10,9 +10,12 @@
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
-    "dev": "bun run build && ln -sf src/cloudflare/functions ./functions && bunx wrangler pages dev build --compatibility-date=2024-01-01 --r2=EMACSTHEMES_BUCKET --binding ENVIRONMENT=development",
+    "cf:init": "ln -sf src/cloudflare/functions ./functions",
+    "cf:dev": "bun run cf:init && bunx wrangler pages dev build --compatibility-date=2024-01-01 --r2=EMACSTHEMES_BUCKET --binding ENVIRONMENT=development",
+    "cf:deploy": "bun run cf:init && bunx wrangler pages deploy build",
+    "dev": "bun run cf:dev",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
-    "deploy": "bun run build && ln -sf src/cloudflare/functions ./functions && bun run deploy:imgs && rm -rf build/static/imgs && bunx wrangler pages deploy build"
+    "deploy": "bun run deploy:imgs && rm -rf build/static/imgs && bun run cf:deploy"
   },
   "repository": {
     "type": "git",
