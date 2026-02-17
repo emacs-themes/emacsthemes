@@ -9,7 +9,8 @@
     "lint:fix": "eslint . --fix",
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
-    "build": "bun src/templates/build.ts"
+    "build": "bun src/templates/build.ts",
+    "deploy": "wrangler pages deploy build --project-name=emacsthemes"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/emacs-themes/emacsthemes#readme",
   "dependencies": {
     "html-minifier-terser": "^7.2.0",
+    "wrangler": "^4.65.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {
