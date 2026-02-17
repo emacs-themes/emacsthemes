@@ -32,4 +32,4 @@ Thumbs.db
 # Temp
 .tmp/
 .wrangler/
-functions/
+/functions/
