@@ -73,7 +73,7 @@ jobs:
           at: ~/project
       - run:
           name: Deploy to Cloudflare Pages
-          command: bunx wrangler pages deploy build --project-name=emacsthemes --branch=main
+          command: bun run deploy
 
 workflows:
   version: 2
