@@ -1,58 +1,64 @@
-import { readdir } from "node:fs/promises";
-import { join, relative } from "node:path";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { spawn } from "node:child_process";
 
 const BUCKET_NAME = "emacsthemes";
 const IMGS_DIR = "static/imgs";
+const TEMPLATE_PATH = "src/cloudflare/rclone.conf.template";
+const CONFIG_PATH = ".tmp/rclone.conf";
 
-async function getFiles(dir: string): Promise<string[]> {
-  const entries = await readdir(dir, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const res = join(dir, entry.name);
-      return entry.isDirectory() ? getFiles(res) : res;
-    })
-  );
-  return files.flat();
+async function generateConfig() {
+  console.log("Generating rclone config...");
+  let template = await readFile(TEMPLATE_PATH, "utf-8");
+
+  const vars = {
+    CLOUDFLARE_R2_ACCESS_KEY: process.env.CLOUDFLARE_R2_ACCESS_KEY,
+    CLOUDFLARE_R2_SECRET_KEY: process.env.CLOUDFLARE_R2_SECRET_KEY,
+    CLOUDFLARE_ACCOUNT_ID: process.env.CLOUDFLARE_ACCOUNT_ID,
+  };
+
+  // Basic interpolation
+  for (const [key, value] of Object.entries(vars)) {
+    if (!value) {
+      throw new Error(`Missing environment variable: ${key}. Make sure it's defined in your .env file or environment.`);
+    }
+    template = template.replace(new RegExp(`\\\${${key}}`, "g"), value);
+  }
+
+  await mkdir(".tmp", { recursive: true });
+  await writeFile(CONFIG_PATH, template);
 }
 
-async function uploadFile(filePath: string) {
-  const key = relative(IMGS_DIR, filePath);
-  console.log(`Uploading ${key}...`);
+async function runRclone() {
+  console.log(`Syncing ${IMGS_DIR} to R2 bucket ${BUCKET_NAME} using rclone...`);
 
   return new Promise((resolve, reject) => {
-    const child = spawn("wrangler", [
-      "r2",
-      "object",
-      "put",
-      `${BUCKET_NAME}/${key}`,
-      "--file",
-      filePath,
-    ]);
+    const child = spawn("rclone", [
+      "sync",
+      IMGS_DIR,
+      `emacsthemes:${BUCKET_NAME}`,
+      "--config",
+      CONFIG_PATH,
+      "--progress",
+    ], { stdio: "inherit" });
 
     child.on("close", (code) => {
       if (code === 0) resolve(true);
-      else reject(new Error(`Wrangler exited with code ${code} for ${key}`));
+      else reject(new Error(`rclone exited with code ${code}`));
     });
   });
 }
 
 async function run() {
   try {
-    const files = await getFiles(IMGS_DIR);
-    console.log(`Found ${files.length} images to upload.`);
-
-    // Upload in batches to avoid overwhelming the system/network
-    const batchSize = 10;
-    for (let i = 0; i < files.length; i += batchSize) {
-      const batch = files.slice(i, i + batchSize);
-      await Promise.all(batch.map((f) => uploadFile(f)));
-      console.log(`Progress: ${Math.min(i + batchSize, files.length)}/${files.length}`);
-    }
-
-    console.log("All images uploaded successfully!");
+    await generateConfig();
+    await runRclone();
+    console.log("✅ All images synced successfully!");
   } catch (err) {
-    console.error("Upload failed:", err);
+    if (err instanceof Error) {
+      console.error("❌ Sync failed:", err.message);
+    } else {
+      console.error("❌ Sync failed:", err);
+    }
     process.exit(1);
   }
 }

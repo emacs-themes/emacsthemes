@@ -1,0 +1,6 @@
+[emacsthemes]
+type = s3
+provider = Cloudflare
+access_key_id = ${CLOUDFLARE_R2_ACCESS_KEY}
+secret_access_key = ${CLOUDFLARE_R2_SECRET_KEY}
+endpoint = https://${CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
