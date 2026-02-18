@@ -1,0 +1,19 @@
+{
+  "name": "Halloweenie Theme",
+  "id": "halloweenie",
+  "description": "A dark and spooky Halloween color theme.",
+  "repoUrl": "https://cicadas.surf/cgit/halloweenie-theme.git",
+  "rawUrls": [
+    "https://cicadas.surf/cgit/halloweenie-theme.git/plain/halloweenie-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Colin Okay"
+  ],
+  "tags": [
+    "dark",
+    "halloween",
+    "autothemer"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

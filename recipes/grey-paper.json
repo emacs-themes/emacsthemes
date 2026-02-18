@@ -1,0 +1,18 @@
+{
+  "name": "Grey Paper Theme",
+  "id": "grey-paper",
+  "description": "A greyscale theme with the look and feel of an e-ink display.",
+  "repoUrl": "https://github.com/gugod/grey-paper-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/gugod/grey-paper-theme/master/grey-paper-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kang-min Liu"
+  ],
+  "tags": [
+    "light",
+    "grayscale",
+    "e-ink"
+  ]
+}

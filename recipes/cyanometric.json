@@ -1,0 +1,19 @@
+{
+  "name": "Cyanometric Theme",
+  "id": "cyanometric",
+  "description": "A theme with an overwhelming bias towards cyan.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-cyanometric",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-cyanometric/refs/heads/master/cyanometric-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "dark",
+    "cyan",
+    "autothemer"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
