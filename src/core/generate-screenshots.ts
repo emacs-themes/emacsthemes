@@ -237,17 +237,31 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
       if (!file.endsWith(".el")) continue;
 
       const content = await Bun.file(join(dir, file)).text();
-      // Look for (deftheme theme-name ...)
-      const match = content.match(/\(deftheme\s+'?([^',)\s][^)\s]*)/);
-      if (match) return match[1];
+      // Look for top-level, non-commented `(deftheme theme-name ...)` forms only.
+      const defthemeMatches = content.matchAll(/^\s*\(deftheme\s+'?([^',)\s][^)\s]*)/gm);
+      for (const match of defthemeMatches) {
+        return match[1];
+      }
 
-      // Look for (provide-theme 'theme-name)
-      const matchProvide = content.match(/\(provide-theme\s+'?([^',)\s][^)\s]*)\)/);
-      if (matchProvide) {
-        const name = matchProvide[1];
+      // Fall back to top-level, non-commented `(provide-theme 'theme-name)` forms.
+      const provideThemeMatches = content.matchAll(/^\s*\(provide-theme\s+'?([^',)\s][^)\s]*)\)/gm);
+      for (const match of provideThemeMatches) {
+        const name = match[1];
         // Skip generic variable names often found in templates or helper functions
         if (name === "name" || name === "theme-name" || name === "theme" || name === "symbol") continue;
         return name;
+      }
+
+      // Some themes only expose a package provide form such as `(provide 'iceberg-theme)`.
+      // In that case, infer the likely theme symbol by stripping the `-theme` suffix.
+      const providePackageMatches = content.matchAll(/^\s*\(provide\s+'?([^',)\s][^)\s]*)\)/gm);
+      for (const match of providePackageMatches) {
+        const providedName = match[1];
+        if (!providedName.endsWith("-theme")) continue;
+
+        const inferredThemeName = providedName.slice(0, -"-theme".length);
+        if (!inferredThemeName || inferredThemeName === "theme") continue;
+        return inferredThemeName;
       }
     }
   } catch (e) {
