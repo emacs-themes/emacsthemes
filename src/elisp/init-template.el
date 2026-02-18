@@ -11,8 +11,18 @@
 ;; Initialize package.el for themes that have dependencies
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(setq package-check-signature t)
+(setq package-check-signature nil)
 (package-initialize)
+
+(defun ensure-melpa-package-contents ()
+  "Refresh package metadata so MELPA packages are available for install."
+  (unless package-archive-contents
+    (log-debug "Refreshing package archives to make MELPA packages available...")
+    (condition-case err
+        (package-refresh-contents)
+      (error (log-debug "Package archive refresh failed: %s" err)))))
+
+(ensure-melpa-package-contents)
 
 (add-to-list 'load-path "{{THEME_DIR}}")
 (log-debug "Added {{THEME_DIR}} to load-path")
