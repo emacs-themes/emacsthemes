@@ -1,0 +1,21 @@
+{
+  "name": "Solarized Iceberg Dark Theme",
+  "id": "solarized-iceberg-dark",
+  "description": "A well-designed, eye-friendly dark blue color scheme built on the Solarized API.",
+  "repoUrl": "https://github.com/conao3/iceberg-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/conao3/iceberg-theme.el/master/iceberg-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Naoya Yamashita"
+  ],
+  "tags": [
+    "dark",
+    "blue",
+    "solarized",
+    "iceberg"
+  ],
+  "elispBefore": "(unless (package-installed-p 'solarized-theme) (package-refresh-contents) (package-install 'solarized-theme))",
+  "elispAfter": "(iceberg-theme-create-theme-file) (load-theme 'solarized-iceberg-dark t)"
+}
