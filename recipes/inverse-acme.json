@@ -13,7 +13,8 @@
   "tags": [
     "dark",
     "brown",
-    "inverse acme"
+    "inverse acme",
+    "autothemer"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

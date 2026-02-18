@@ -17,7 +17,8 @@
     "blue",
     "green",
     "muted",
-    "pastel"
+    "pastel",
+    "autothemer"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

@@ -20,7 +20,8 @@
     "brown",
     "dark",
     "vim",
-    "hard"
+    "hard",
+    "autothemer"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

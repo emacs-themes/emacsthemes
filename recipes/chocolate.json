@@ -12,7 +12,8 @@
   ],
   "tags": [
     "dark",
-    "chocolate"
+    "chocolate",
+    "autothemer"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }
