@@ -1,5 +1,5 @@
-import { mkdir, readdir, copyFile, rm, stat, readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { mkdir, readdir, copyFile, rm, stat, readFile, symlink } from "node:fs/promises";
+import { dirname, join, relative, resolve } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
@@ -507,20 +507,20 @@ async function build404Page(template: string, error404ContentHtml: string) {
 // Utility
 
 /**
- * Recursively copies a directory and its contents to a destination.
+ * Symlinks a source directory at the destination path.
  *
- * @param {string} src - The source directory path.
- * @param {string} dest - The destination directory path.
+ * @param {string} src - Source directory path.
+ * @param {string} dest - Destination directory path.
  */
-async function copyDir(src: string, dest: string) {
-  await mkdir(dest, { recursive: true });
-  const entries = await readdir(src, { withFileTypes: true });
-  for (const entry of entries) {
-    const srcPath = join(src, entry.name);
-    const destPath = join(dest, entry.name);
-    if (entry.isDirectory()) await copyDir(srcPath, destPath);
-    else await copyFile(srcPath, destPath);
-  }
+async function linkDir(src: string, dest: string) {
+  await rm(dest, { recursive: true, force: true });
+  await mkdir(dirname(dest), { recursive: true });
+  const srcAbsolutePath = resolve(src);
+  const destParentAbsolutePath = resolve(dirname(dest));
+  const relativeLinkTarget = relative(destParentAbsolutePath, srcAbsolutePath);
+
+  await symlink(relativeLinkTarget, dest, "dir");
+  console.log(`Symlinked ${dest} -> ${relativeLinkTarget}`);
 }
 
 /**
@@ -571,8 +571,8 @@ async function build() {
 
   console.log("Copying and minifying assets...");
   await Promise.all([
-    copyDir(PATHS.assets.src.images, PATHS.assets.dest.images),
-    copyDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
+    linkDir(PATHS.assets.src.images, PATHS.assets.dest.images),
+    linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
     copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng)
