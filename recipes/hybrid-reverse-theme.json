@@ -1,0 +1,18 @@
+{
+  "name": "Hybrid Reverse Theme",
+  "id": "hybrid-reverse",
+  "description": "Emacs theme with material color scheme",
+  "repoUrl": "https://github.com/Riyyi/emacs-hybrid-reverse",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Riyyi/emacs-hybrid-reverse/master/hybrid-reverse-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Riyyi"
+  ],
+  "tags": [
+    "hybrid-reverse",
+    "dark",
+    "melpa"
+  ]
+}

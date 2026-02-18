@@ -1,0 +1,18 @@
+{
+  "name": "Omtose Darker Theme",
+  "id": "omtose-darker",
+  "description": "A dark, soothing theme with a cold bluish touch.",
+  "repoUrl": "https://github.com/emacsorphanage/omtose-phellack-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsorphanage/omtose-phellack-themes/master/omtose-darker-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alexander F. Adhyatma"
+  ],
+  "tags": [
+    "omtose-phellack",
+    "dark",
+    "melpa"
+  ]
+}

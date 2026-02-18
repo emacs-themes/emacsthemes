@@ -1,0 +1,18 @@
+{
+  "name": "Horizon Theme",
+  "id": "horizon",
+  "description": "A beautifully warm dual theme",
+  "repoUrl": "https://github.com/aodhneine/horizon-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/aodhneine/horizon-theme.el/master/horizon-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Aodnait \u00c9ta\u00edn"
+  ],
+  "tags": [
+    "horizon",
+    "dark",
+    "melpa"
+  ]
+}

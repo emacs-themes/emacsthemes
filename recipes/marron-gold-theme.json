@@ -1,0 +1,18 @@
+{
+  "name": "Marron Gold Theme",
+  "id": "marron-gold",
+  "description": "A rich marron-gold theme",
+  "repoUrl": "https://github.com/Umer-Arif/unique-emacs-theme-pack",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/marron-gold-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Omer Arif"
+  ],
+  "tags": [
+    "marron-gold",
+    "dark",
+    "melpa"
+  ]
+}

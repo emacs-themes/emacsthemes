@@ -1,0 +1,18 @@
+{
+  "name": "Tok Theme",
+  "id": "tok",
+  "description": "Minimal monochromatic theme with restrained color highlights.",
+  "repoUrl": "https://github.com/topikettunen/tok-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/topikettunen/tok-theme/main/tok-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Topi Kettunen"
+  ],
+  "tags": [
+    "tok",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Adwaita Dark Theme",
+  "id": "adwaita-dark",
+  "description": "A dark color scheme inspired by Adwaita",
+  "repoUrl": "https://gitlab.com/jessieh/adwaita-dark-theme",
+  "rawUrls": [
+    "https://gitlab.com/jessieh/adwaita-dark-theme/-/raw/main/adwaita-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jessie Hildebrandt"
+  ],
+  "tags": [
+    "adwaita-dark",
+    "dark",
+    "melpa"
+  ]
+}

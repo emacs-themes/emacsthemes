@@ -1,0 +1,18 @@
+{
+  "name": "Uwu Theme",
+  "id": "uwu",
+  "description": "An awesome dark color scheme",
+  "repoUrl": "https://github.com/kborling/uwu-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kborling/uwu-theme/main/uwu-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Kevin Borling"
+  ],
+  "tags": [
+    "uwu",
+    "dark",
+    "melpa"
+  ]
+}

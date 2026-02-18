@@ -1,0 +1,18 @@
+{
+  "name": "Koishi Theme",
+  "id": "koishi",
+  "description": "A sweet theme inspired by Koishi's color tone",
+  "repoUrl": "https://github.com/gynamics/koishi-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/gynamics/koishi-theme.el/main/koishi-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "gynamics"
+  ],
+  "tags": [
+    "koishi",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Atom Dark Theme",
+  "id": "atom-dark",
+  "description": "An Emacs port of the Atom Dark theme from Atom.io.",
+  "repoUrl": "https://github.com/whitlockjc/atom-dark-theme-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/whitlockjc/atom-dark-theme-emacs/master/atom-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jeremy Whitlock"
+  ],
+  "tags": [
+    "atom-dark",
+    "dark",
+    "melpa"
+  ]
+}

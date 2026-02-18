@@ -1,0 +1,18 @@
+{
+  "name": "Shades Of Purple Theme",
+  "id": "shades-of-purple",
+  "description": "A theme with bold shades of purple",
+  "repoUrl": "https://github.com/arturovm/shades-of-purple-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/arturovm/shades-of-purple-emacs/main/shades-of-purple-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Arturo Vergara"
+  ],
+  "tags": [
+    "shades-of-purple",
+    "dark",
+    "melpa"
+  ]
+}

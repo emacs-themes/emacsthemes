@@ -1,0 +1,18 @@
+{
+  "name": "Chyla Dark Theme",
+  "id": "chyla-dark",
+  "description": "Chyla.org - dark green color theme",
+  "repoUrl": "https://github.com/chyla/ChylaDarkThemeForEmacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/chyla/ChylaDarkThemeForEmacs/master/chyla-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Adam Chy\u0142a  https://chyla.org/"
+  ],
+  "tags": [
+    "chyla-dark",
+    "dark",
+    "melpa"
+  ]
+}

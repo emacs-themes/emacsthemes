@@ -1,0 +1,18 @@
+{
+  "name": "Girly Notebook Theme",
+  "id": "girly-notebook",
+  "description": "A light theme with vivid colours and cursive text",
+  "repoUrl": "https://github.com/melissaboiko/girly-notebook-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/melissaboiko/girly-notebook-theme/trunk/girly-notebook-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "elilla&"
+  ],
+  "tags": [
+    "girly-notebook",
+    "light",
+    "melpa"
+  ]
+}

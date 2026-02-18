@@ -1,0 +1,18 @@
+{
+  "name": "Qtcreator Theme",
+  "id": "qtcreator",
+  "description": "A color theme that mimics Qt Creator IDE",
+  "repoUrl": "https://github.com/LesleyLai/emacs-qtcreator-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/LesleyLai/emacs-qtcreator-theme/master/qtcreator-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Lesley Lai"
+  ],
+  "tags": [
+    "qtcreator",
+    "dark",
+    "melpa"
+  ]
+}

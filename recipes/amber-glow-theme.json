@@ -1,0 +1,18 @@
+{
+  "name": "Amber Glow Theme",
+  "id": "amber-glow",
+  "description": "A warm and inviting theme",
+  "repoUrl": "https://github.com/Umer-Arif/unique-emacs-theme-pack",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/amber-glow-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Omer Arif"
+  ],
+  "tags": [
+    "amber-glow",
+    "dark",
+    "melpa"
+  ]
+}

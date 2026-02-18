@@ -1,0 +1,18 @@
+{
+  "name": "Zerodark Theme",
+  "id": "zerodark",
+  "description": "A dark, medium contrast theme for Emacs",
+  "repoUrl": "https://github.com/NicolasPetton/zerodark-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/NicolasPetton/zerodark-theme/master/zerodark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nicolas Petton"
+  ],
+  "tags": [
+    "zerodark",
+    "dark",
+    "melpa"
+  ]
+}

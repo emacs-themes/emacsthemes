@@ -1,0 +1,18 @@
+{
+  "name": "Creamy Theme",
+  "id": "creamy",
+  "description": "A simple creamy theme",
+  "repoUrl": "https://github.com/smallwat3r/emacs-creamy-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/smallwat3r/emacs-creamy-theme/main/creamy-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Smallwat3r"
+  ],
+  "tags": [
+    "creamy",
+    "dark",
+    "melpa"
+  ]
+}

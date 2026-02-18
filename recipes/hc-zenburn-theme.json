@@ -1,0 +1,18 @@
+{
+  "name": "Hc Zenburn Theme",
+  "id": "hc-zenburn",
+  "description": "An higher contrast version of the Zenburn theme.",
+  "repoUrl": "https://github.com/edran/hc-zenburn-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/edran/hc-zenburn-emacs/master/hc-zenburn-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nantas Nardelli"
+  ],
+  "tags": [
+    "hc-zenburn",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Evangelion Theme",
+  "id": "evangelion",
+  "description": "A dark colour scheme inspired by Neon Genesis Evangelion",
+  "repoUrl": "https://github.com/crmsnbleyd/evangelion-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/crmsnbleyd/evangelion-theme/main/evangelion-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Andrew Jose"
+  ],
+  "tags": [
+    "evangelion",
+    "dark",
+    "melpa"
+  ]
+}

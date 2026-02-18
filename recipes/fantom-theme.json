@@ -1,0 +1,18 @@
+{
+  "name": "Fantom Theme",
+  "id": "fantom",
+  "description": "Dark theme based on Phantom Code for VSCode",
+  "repoUrl": "https://github.com/adsva/fantom-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/adsva/fantom-emacs-theme/master/fantom-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Adam Svanberg"
+  ],
+  "tags": [
+    "fantom",
+    "dark",
+    "melpa"
+  ]
+}

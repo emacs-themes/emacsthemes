@@ -1,0 +1,18 @@
+{
+  "name": "Spider Man Theme",
+  "id": "spider-man",
+  "description": "A Vibrant Spider-Man Inspired Theme",
+  "repoUrl": "https://github.com/Umer-Arif/unique-emacs-theme-pack",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/spider-man-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Omer Arif"
+  ],
+  "tags": [
+    "spider-man",
+    "dark",
+    "melpa"
+  ]
+}

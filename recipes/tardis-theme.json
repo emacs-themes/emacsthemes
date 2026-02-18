@@ -1,0 +1,18 @@
+{
+  "name": "Tardis Theme",
+  "id": "tardis",
+  "description": "Quantum Country Theme",
+  "repoUrl": "https://github.com/antonhibl/tardis-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/antonhibl/tardis-theme/main/tardis-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Anton Hibl"
+  ],
+  "tags": [
+    "tardis",
+    "dark",
+    "melpa"
+  ]
+}

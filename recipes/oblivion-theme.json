@@ -1,0 +1,18 @@
+{
+  "name": "Oblivion Theme",
+  "id": "oblivion",
+  "description": "A port of GEdit oblivion theme",
+  "repoUrl": "https://codeberg.com/ideasman42/emacs-theme-oblivion",
+  "rawUrls": [
+    "https://codeberg.org/ideasman42/emacs-theme-oblivion/raw/branch/main/oblivion-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Campbell Barton"
+  ],
+  "tags": [
+    "oblivion",
+    "dark",
+    "melpa"
+  ]
+}

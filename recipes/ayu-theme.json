@@ -1,0 +1,18 @@
+{
+  "name": "Ayu Dark Theme",
+  "id": "ayu-dark",
+  "description": "Ayu dark",
+  "repoUrl": "https://github.com/vutran1710/Ayu-Theme-Emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vutran1710/Ayu-Theme-Emacs/master/ayu-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Vutran1710"
+  ],
+  "tags": [
+    "ayu",
+    "dark",
+    "melpa"
+  ]
+}

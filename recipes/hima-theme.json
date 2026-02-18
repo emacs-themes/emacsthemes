@@ -1,0 +1,18 @@
+{
+  "name": "Hima Theme",
+  "id": "hima",
+  "description": "A minimal theme with pretty colors",
+  "repoUrl": "https://github.com/meain/hima-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/meain/hima-theme/master/hima-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Meain"
+  ],
+  "tags": [
+    "hima",
+    "dark",
+    "melpa"
+  ]
+}

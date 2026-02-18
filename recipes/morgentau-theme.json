@@ -1,0 +1,18 @@
+{
+  "name": "Morgentau Theme",
+  "id": "morgentau",
+  "description": "Tango-based custom theme",
+  "repoUrl": "https://github.com/Melchizedek6809/morgentau-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Melchizedek6809/morgentau-theme/master/morgentau-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Benjamin Vincent Schulenburg"
+  ],
+  "tags": [
+    "morgentau",
+    "dark",
+    "melpa"
+  ]
+}

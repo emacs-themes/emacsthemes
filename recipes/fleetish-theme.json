@@ -1,0 +1,18 @@
+{
+  "name": "Fleetish Theme",
+  "id": "fleetish",
+  "description": "A take on the JetBrains Fleet theme",
+  "repoUrl": "https://github.com/nylar/fleetish-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/nylar/fleetish-emacs-theme/master/fleetish-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Scott Raine"
+  ],
+  "tags": [
+    "fleetish",
+    "dark",
+    "melpa"
+  ]
+}

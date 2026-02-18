@@ -1,0 +1,18 @@
+{
+  "name": "Unobtrusive Magit Theme",
+  "id": "unobtrusive-magit",
+  "description": "An unobtrusive Magit theme",
+  "repoUrl": "https://github.com/tee3/unobtrusive-magit-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tee3/unobtrusive-magit-theme/master/unobtrusive-magit-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Thomas A. Brown"
+  ],
+  "tags": [
+    "unobtrusive-magit",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Airline Alduin Theme",
+  "id": "airline-alduin",
+  "description": "Theme package extracted from MELPA recipe airline-themes.",
+  "repoUrl": "https://github.com/AnthonyDiGirolamo/airline-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/airline-alduin-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Anthonydigirolamo"
+  ],
+  "tags": [
+    "airline",
+    "dark",
+    "melpa"
+  ]
+}

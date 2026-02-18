@@ -1,0 +1,18 @@
+{
+  "name": "Cyberpunk 2019 Theme",
+  "id": "cyberpunk-2019",
+  "description": "A retina-scorching cyberpunk theme",
+  "repoUrl": "https://github.com/the-frey/cyberpunk-2019",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/the-frey/cyberpunk-2019/master/cyberpunk-2019-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Alex Lynham"
+  ],
+  "tags": [
+    "cyberpunk-2019",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Nezburn Theme",
+  "id": "nezburn",
+  "description": "A low contrast color theme for Emacs (inspired by zenburn).",
+  "repoUrl": "https://github.com/lanjoni/nezburn",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/lanjoni/nezburn/main/nezburn-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jo\u00e3o Lanjoni"
+  ],
+  "tags": [
+    "nezburn",
+    "dark",
+    "melpa"
+  ]
+}

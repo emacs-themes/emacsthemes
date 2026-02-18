@@ -1,0 +1,18 @@
+{
+  "name": "Curry On Theme",
+  "id": "curry-on",
+  "description": "A low contrast color theme",
+  "repoUrl": "https://github.com/mvarela/Curry-On-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mvarela/Curry-On-theme/master/curry-on-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Mart\u00edn Varela (martin@varela.fi)"
+  ],
+  "tags": [
+    "curry-on",
+    "dark",
+    "melpa"
+  ]
+}

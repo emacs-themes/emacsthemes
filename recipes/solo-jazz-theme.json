@@ -1,0 +1,18 @@
+{
+  "name": "Solo Jazz Theme",
+  "id": "solo-jazz",
+  "description": "The Solo-Jazz color theme",
+  "repoUrl": "https://github.com/cstby/solo-jazz-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cstby/solo-jazz-emacs-theme/master/solo-jazz-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Carl Steib"
+  ],
+  "tags": [
+    "solo-jazz",
+    "dark",
+    "melpa"
+  ]
+}

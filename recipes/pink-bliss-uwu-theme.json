@@ -1,0 +1,18 @@
+{
+  "name": "Pink Bliss Uwu Theme",
+  "id": "pink-bliss-uwu",
+  "description": "Pink color theme",
+  "repoUrl": "https://github.com/themkat/pink-bliss-uwu",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/themkat/pink-bliss-uwu/main/pink-bliss-uwu-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Themkat"
+  ],
+  "tags": [
+    "pink-bliss-uwu",
+    "dark",
+    "melpa"
+  ]
+}

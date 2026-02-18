@@ -1,0 +1,18 @@
+{
+  "name": "Royal Hemlock Theme",
+  "id": "royal-hemlock",
+  "description": "Soothing royal-blue light-theme",
+  "repoUrl": "https://github.com/vs-123/royal-hemlock-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vs-123/royal-hemlock-theme/main/royal-hemlock-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "vs-123 (GitHub)"
+  ],
+  "tags": [
+    "royal-hemlock",
+    "light",
+    "melpa"
+  ]
+}

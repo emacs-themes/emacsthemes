@@ -1,0 +1,18 @@
+{
+  "name": "Hippo Themes Light Theme",
+  "id": "hippo-themes-light",
+  "description": "Hippo color theme",
+  "repoUrl": "https://github.com/kimim/emacs-hippo-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/kimim/emacs-hippo-theme/master/hippo-themes-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Kimi MA"
+  ],
+  "tags": [
+    "hippo",
+    "light",
+    "melpa"
+  ]
+}

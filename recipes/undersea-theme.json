@@ -1,0 +1,19 @@
+{
+  "name": "Undersea Theme",
+  "id": "undersea",
+  "description": "Theme styled after undersea imagery",
+  "repoUrl": "https://github.com/jcs-legacy/undersea-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jcs-legacy/undersea-theme/master/undersea-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Shen",
+    "Jen-Chieh"
+  ],
+  "tags": [
+    "undersea",
+    "dark",
+    "melpa"
+  ]
+}

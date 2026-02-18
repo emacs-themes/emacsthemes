@@ -1,0 +1,18 @@
+{
+  "name": "Elune Theme",
+  "id": "elune",
+  "description": "Elune theme",
+  "repoUrl": "https://github.com/hsnovel/elune-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/hsnovel/elune-theme/master/elune-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "\u00c7a\u011fan Korkmaz"
+  ],
+  "tags": [
+    "elune",
+    "dark",
+    "melpa"
+  ]
+}

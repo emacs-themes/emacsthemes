@@ -1,0 +1,18 @@
+{
+  "name": "Notink Theme",
+  "id": "notink",
+  "description": "A custom theme inspired by e-ink displays",
+  "repoUrl": "https://github.com/MetroWind/notink-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/MetroWind/notink-theme/master/notink-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "MetroWind"
+  ],
+  "tags": [
+    "notink",
+    "dark",
+    "melpa"
+  ]
+}

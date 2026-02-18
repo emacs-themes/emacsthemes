@@ -1,0 +1,18 @@
+{
+  "name": "Xresources Theme",
+  "id": "xresources",
+  "description": "Use your .Xresources as your emacs theme",
+  "repoUrl": "https://github.com/martenlienen/xresources-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/martenlienen/xresources-theme/master/xresources-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Marten Lienen"
+  ],
+  "tags": [
+    "xresources",
+    "dark",
+    "melpa"
+  ]
+}

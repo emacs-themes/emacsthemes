@@ -1,0 +1,18 @@
+{
+  "name": "Cybercafe Theme",
+  "id": "cybercafe",
+  "description": "Cybercafe color theme",
+  "repoUrl": "https://github.com/gboncoffee/cybercafe-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/gboncoffee/cybercafe-emacs-theme/master/cybercafe-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Gabriel de Brito gabrielgbrito@icloud.com"
+  ],
+  "tags": [
+    "cybercafe",
+    "dark",
+    "melpa"
+  ]
+}

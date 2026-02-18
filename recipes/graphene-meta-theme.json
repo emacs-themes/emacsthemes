@@ -1,0 +1,18 @@
+{
+  "name": "Graphene Meta Theme",
+  "id": "graphene-meta",
+  "description": "Integrated theming for common packages",
+  "repoUrl": "https://github.com/rdallasgray/graphene-meta-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/rdallasgray/graphene-meta-theme/master/graphene-meta-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Robert Dallas Gray"
+  ],
+  "tags": [
+    "graphene-meta",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Wildcharm Light Theme",
+  "id": "wildcharm-light",
+  "description": "Port of vim-wildcharm (light) colorscheme",
+  "repoUrl": "https://github.com/habamax/wildcharm-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/habamax/wildcharm-theme/main/wildcharm-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Maxim Kim"
+  ],
+  "tags": [
+    "wildcharm-light",
+    "light",
+    "melpa"
+  ]
+}
