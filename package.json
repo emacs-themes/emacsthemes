@@ -10,11 +10,10 @@
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
-    "cf:init": "ln -sf src/cloudflare/functions ./functions",
-    "cf:deploy": "bun run cf:init && rm -rf build/static/imgs && bunx wrangler pages deploy build",
+    "cf:deploy": "rm -rf build/static/imgs && bun wrangler pages deploy build",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
     "deploy": "bun run deploy:imgs && bun run cf:deploy",
-    "dev": "bun run cf:init && bunx wrangler pages dev build --binding ENVIRONMENT=development"
+    "dev": "bun wrangler pages dev build --binding ENVIRONMENT=development"
   },
   "repository": {
     "type": "git",
