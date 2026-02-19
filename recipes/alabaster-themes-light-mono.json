@@ -1,0 +1,19 @@
+{
+  "name": "Alabaster Themes Light Mono Theme",
+  "id": "alabaster-themes-light-mono",
+  "description": "Alabaster light monochrome theme.",
+  "repoUrl": "https://github.com/vedang/alabaster-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes.el",
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-light-mono-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Nikita Prokopov"
+  ],
+  "tags": [
+    "alabaster",
+    "light",
+    "melpa"
+  ]
+}

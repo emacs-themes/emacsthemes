@@ -1,0 +1,19 @@
+{
+  "name": "Alabaster Themes Dark Mono Theme",
+  "id": "alabaster-themes-dark-mono",
+  "description": "Alabaster dark monochrome theme.",
+  "repoUrl": "https://github.com/vedang/alabaster-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes.el",
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-dark-mono-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nikita Prokopov"
+  ],
+  "tags": [
+    "alabaster",
+    "dark",
+    "melpa"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Alabaster Themes Light Bg Theme",
+  "id": "alabaster-themes-light-bg",
+  "description": "Alabaster light theme with background-based syntax highlighting.",
+  "repoUrl": "https://github.com/vedang/alabaster-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes.el",
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-light-bg-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Nikita Prokopov"
+  ],
+  "tags": [
+    "alabaster",
+    "light",
+    "melpa"
+  ]
+}

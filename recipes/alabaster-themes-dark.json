@@ -1,0 +1,19 @@
+{
+  "name": "Alabaster Themes Dark Theme",
+  "id": "alabaster-themes-dark",
+  "description": "Alabaster dark theme with foreground highlighting.",
+  "repoUrl": "https://github.com/vedang/alabaster-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes.el",
+    "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nikita Prokopov"
+  ],
+  "tags": [
+    "alabaster",
+    "dark",
+    "melpa"
+  ]
+}
