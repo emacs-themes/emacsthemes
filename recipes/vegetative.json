@@ -1,0 +1,21 @@
+{
+  "name": "Vegetative Theme",
+  "id": "vegetative",
+  "description": "An Emacs theme based on green CRT terminals.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-vegetative",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-vegetative/refs/heads/master/vegetative-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "vegetative",
+    "dark",
+    "green",
+    "crt",
+    "autothemer"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
