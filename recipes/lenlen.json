@@ -1,0 +1,25 @@
+{
+  "name": "Lenlen Theme",
+  "id": "lenlen",
+  "description": "A solarized-based kawaii light theme.",
+  "repoUrl": "https://github.com/emacsattic/lenlen-theme",
+  "rawUrls": [
+    "static/themes/lenlen/color-theme.el",
+    "static/themes/lenlen/color-theme-solarized.el",
+    "static/themes/lenlen/solarized-definitions.el",
+    "static/themes/lenlen/lenlen-solarized-compat.el",
+    "https://raw.githubusercontent.com/emacsattic/lenlen-theme/master/lenlen-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "zk_phi"
+  ],
+  "tags": [
+    "lenlen",
+    "light",
+    "solarized",
+    "kawaii"
+  ],
+  "elispBefore": "(let ((ct-dir (file-name-directory (locate-library \"color-theme\")))) (when ct-dir (make-directory (expand-file-name \"themes\" ct-dir) t)))",
+  "elispAfter": "(enable-theme 'lenlen-theme)"
+}
