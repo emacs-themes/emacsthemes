@@ -1,0 +1,19 @@
+{
+  "name": "Flexoki Themes Dark Theme",
+  "id": "flexoki-themes-dark",
+  "description": "Dark variant of flexoki-theme",
+  "repoUrl": "https://codeberg.org/crmsnbleyd/flexoki-emacs-theme",
+  "rawUrls": [
+    "https://codeberg.org/crmsnbleyd/flexoki-emacs-theme/raw/branch/trunk/flexoki-themes.el",
+    "https://codeberg.org/crmsnbleyd/flexoki-emacs-theme/raw/branch/trunk/flexoki-themes-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Drew Jose"
+  ],
+  "tags": [
+    "flexoki",
+    "dark",
+    "melpa"
+  ]
+}
