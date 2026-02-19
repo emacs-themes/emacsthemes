@@ -1,0 +1,20 @@
+{
+  "name": "Real Mono Dark Theme",
+  "id": "real-mono-dark",
+  "description": "A monochrome dark variant theme",
+  "repoUrl": "https://github.com/NestorLiao/real-mono-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-themes.el",
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Qingsong Liao"
+  ],
+  "tags": [
+    "real mono",
+    "dark",
+    "monochrome",
+    "black and white"
+  ]
+}

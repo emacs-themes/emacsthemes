@@ -1,0 +1,21 @@
+{
+  "name": "Real Mono Eink Theme",
+  "id": "real-mono-eink",
+  "description": "A monochrome eink variant theme",
+  "repoUrl": "https://github.com/NestorLiao/real-mono-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-themes.el",
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-eink-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Qingsong Liao"
+  ],
+  "tags": [
+    "real mono",
+    "light",
+    "eink",
+    "monochrome",
+    "black and white"
+  ]
+}

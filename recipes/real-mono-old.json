@@ -1,0 +1,21 @@
+{
+  "name": "Real Mono Old Theme",
+  "id": "real-mono-old",
+  "description": "A monochrome old variant theme",
+  "repoUrl": "https://github.com/NestorLiao/real-mono-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-themes.el",
+    "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-old-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Qingsong Liao"
+  ],
+  "tags": [
+    "real mono",
+    "dark",
+    "old",
+    "monochrome",
+    "black and white"
+  ]
+}
