@@ -1,0 +1,19 @@
+{
+  "name": "Apropospriate Light Theme",
+  "id": "apropospriate-light",
+  "description": "Apropospriate light variant from the apropospriate-theme package.",
+  "repoUrl": "https://github.com/waymondo/apropospriate-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-theme.el",
+    "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Waymondo"
+  ],
+  "tags": [
+    "apropospriate",
+    "light",
+    "melpa"
+  ]
+}

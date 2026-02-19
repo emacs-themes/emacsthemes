@@ -1,0 +1,19 @@
+{
+  "name": "Apropospriate Dark Theme",
+  "id": "apropospriate-dark",
+  "description": "Apropospriate dark variant from the apropospriate-theme package.",
+  "repoUrl": "https://github.com/waymondo/apropospriate-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-theme.el",
+    "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Waymondo"
+  ],
+  "tags": [
+    "apropospriate",
+    "dark",
+    "melpa"
+  ]
+}
