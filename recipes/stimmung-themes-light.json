@@ -1,0 +1,19 @@
+{
+  "name": "Stimmung Themes Light Theme",
+  "id": "stimmung-themes-light",
+  "description": "A light theme tuned to inner harmonies.",
+  "repoUrl": "https://github.com/motform/stimmung-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/motform/stimmung-themes/master/stimmung-themes.el",
+    "https://raw.githubusercontent.com/motform/stimmung-themes/master/stimmung-themes-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Love Lagerkvist"
+  ],
+  "tags": [
+    "stimmung",
+    "light",
+    "melpa"
+  ]
+}

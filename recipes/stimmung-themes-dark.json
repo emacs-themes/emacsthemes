@@ -1,0 +1,19 @@
+{
+  "name": "Stimmung Themes Dark Theme",
+  "id": "stimmung-themes-dark",
+  "description": "A dark theme tuned to inner harmonies.",
+  "repoUrl": "https://github.com/motform/stimmung-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/motform/stimmung-themes/master/stimmung-themes.el",
+    "https://raw.githubusercontent.com/motform/stimmung-themes/master/stimmung-themes-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Love Lagerkvist"
+  ],
+  "tags": [
+    "stimmung",
+    "dark",
+    "melpa"
+  ]
+}
