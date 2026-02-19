@@ -1,0 +1,22 @@
+{
+  "name": "Ewal Dkeg Stv Theme",
+  "id": "dkeg-stv",
+  "description": "Ewal Spacemacs Modern theme using the dkeg-stv built-in dark palette.",
+  "repoUrl": "https://github.com/cyruseuros/ewal",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/ewal.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-themes.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-modern-theme.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/dkeg-stv.json"
+  ],
+  "type": "dark",
+  "authors": [
+    "Uros Perisic"
+  ],
+  "tags": [
+    "ewal",
+    "dark",
+    "spacemacs"
+  ],
+  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"dkeg-stv\" ewal-json-file (expand-file-name \"dkeg-stv.json\" (car load-path)))"
+}

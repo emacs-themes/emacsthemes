@@ -1,0 +1,22 @@
+{
+  "name": "Ewal Sexy Gslob Nature Suede Theme",
+  "id": "sexy-gslob-nature-suede",
+  "description": "Ewal Spacemacs Modern theme using the sexy-gslob-nature-suede built-in dark palette.",
+  "repoUrl": "https://github.com/cyruseuros/ewal",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/ewal.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-themes.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-modern-theme.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-gslob-nature-suede.json"
+  ],
+  "type": "dark",
+  "authors": [
+    "Uros Perisic"
+  ],
+  "tags": [
+    "ewal",
+    "dark",
+    "spacemacs"
+  ],
+  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-gslob-nature-suede\" ewal-json-file (expand-file-name \"sexy-gslob-nature-suede.json\" (car load-path)))"
+}

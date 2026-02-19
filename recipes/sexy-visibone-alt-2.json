@@ -1,0 +1,22 @@
+{
+  "name": "Ewal Sexy Visibone Alt 2 Theme",
+  "id": "sexy-visibone-alt-2",
+  "description": "Ewal Spacemacs Modern theme using the sexy-visibone-alt-2 built-in dark palette.",
+  "repoUrl": "https://github.com/cyruseuros/ewal",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/ewal.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-themes.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-modern-theme.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-visibone-alt-2.json"
+  ],
+  "type": "dark",
+  "authors": [
+    "Uros Perisic"
+  ],
+  "tags": [
+    "ewal",
+    "dark",
+    "spacemacs"
+  ],
+  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-visibone-alt-2\" ewal-json-file (expand-file-name \"sexy-visibone-alt-2.json\" (car load-path)))"
+}

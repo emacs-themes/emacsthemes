@@ -1,0 +1,22 @@
+{
+  "name": "Ewal Sexy Gotham Theme",
+  "id": "sexy-gotham",
+  "description": "Ewal Spacemacs Modern theme using the sexy-gotham built-in dark palette.",
+  "repoUrl": "https://github.com/cyruseuros/ewal",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/ewal.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-themes.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-modern-theme.el",
+    "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-gotham.json"
+  ],
+  "type": "dark",
+  "authors": [
+    "Uros Perisic"
+  ],
+  "tags": [
+    "ewal",
+    "dark",
+    "spacemacs"
+  ],
+  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-gotham\" ewal-json-file (expand-file-name \"sexy-gotham.json\" (car load-path)))"
+}
