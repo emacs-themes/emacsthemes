@@ -1,0 +1,19 @@
+{
+  "name": "Sculpture Themes Dark Theme",
+  "id": "sculpture-themes-dark",
+  "description": "Dark theme with vivid colors",
+  "repoUrl": "https://github.com/precompute/sculpture-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes.el",
+    "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "sculpture",
+    "dark",
+    "melpa"
+  ]
+}

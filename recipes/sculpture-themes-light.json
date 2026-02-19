@@ -1,0 +1,19 @@
+{
+  "name": "Sculpture Themes Light Theme",
+  "id": "sculpture-themes-light",
+  "description": "Light theme with vivid colors",
+  "repoUrl": "https://github.com/precompute/sculpture-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes.el",
+    "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "sculpture",
+    "light",
+    "melpa"
+  ]
+}
