@@ -1,0 +1,21 @@
+{
+  "name": "Kaolin Dark Theme",
+  "id": "kaolin-dark",
+  "description": "A dark jade variant inspired by Sierra.vim.",
+  "repoUrl": "https://github.com/ogdenwebb/emacs-kaolin-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ogden Webb"
+  ],
+  "tags": [
+    "kaolin",
+    "dark",
+    "jade"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

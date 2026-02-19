@@ -1,0 +1,21 @@
+{
+  "name": "Kaolin Galaxy Theme",
+  "id": "kaolin-galaxy",
+  "description": "Bright Kaolin theme inspired by Sebastian Andaur's art.",
+  "repoUrl": "https://github.com/ogdenwebb/emacs-kaolin-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-galaxy-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Ogden Webb"
+  ],
+  "tags": [
+    "kaolin",
+    "galaxy",
+    "bright"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

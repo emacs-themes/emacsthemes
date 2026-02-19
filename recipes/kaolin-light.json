@@ -1,0 +1,20 @@
+{
+  "name": "Kaolin Light Theme",
+  "id": "kaolin-light",
+  "description": "Light variant of the original Kaolin Dark theme.",
+  "repoUrl": "https://github.com/ogdenwebb/emacs-kaolin-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Ogden Webb"
+  ],
+  "tags": [
+    "kaolin",
+    "light"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

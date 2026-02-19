@@ -1,0 +1,22 @@
+{
+  "name": "Kaolin Bubblegum Theme",
+  "id": "kaolin-bubblegum",
+  "description": "Kaolin colorful theme with a dark blue background.",
+  "repoUrl": "https://github.com/ogdenwebb/emacs-kaolin-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-bubblegum-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ogden Webb"
+  ],
+  "tags": [
+    "kaolin",
+    "bubblegum",
+    "dark",
+    "blue"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}

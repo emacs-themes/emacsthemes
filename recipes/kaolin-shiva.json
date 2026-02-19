@@ -1,0 +1,22 @@
+{
+  "name": "Kaolin Shiva Theme",
+  "id": "kaolin-shiva",
+  "description": "Kaolin theme with autumn colors and melanzane background.",
+  "repoUrl": "https://github.com/ogdenwebb/emacs-kaolin-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
+    "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-shiva-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ogden Webb"
+  ],
+  "tags": [
+    "kaolin",
+    "shiva",
+    "dark",
+    "autumn"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
