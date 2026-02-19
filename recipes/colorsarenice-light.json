@@ -1,0 +1,19 @@
+{
+  "name": "Colorsarenice Light Theme",
+  "id": "colorsarenice-light",
+  "description": "The light Colorsarenice theme.",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/colorsarenice/colorsarenice-common.el",
+    "static/themes/colorsarenice/colorsarenice-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "colorsarenice",
+    "light",
+    "colorful"
+  ]
+}

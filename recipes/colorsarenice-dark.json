@@ -1,0 +1,19 @@
+{
+  "name": "Colorsarenice Dark Theme",
+  "id": "colorsarenice-dark",
+  "description": "The dark Colorsarenice theme.",
+  "repoUrl": "local",
+  "rawUrls": [
+    "static/themes/colorsarenice/colorsarenice-common.el",
+    "static/themes/colorsarenice/colorsarenice-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "colorsarenice",
+    "dark",
+    "colorful"
+  ]
+}
