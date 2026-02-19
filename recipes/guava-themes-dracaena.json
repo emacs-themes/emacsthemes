@@ -1,0 +1,19 @@
+{
+  "name": "Guava Themes Dracaena Theme",
+  "id": "guava-themes-dracaena",
+  "description": "A theme inspired by dracaena colors.",
+  "repoUrl": "https://github.com/bormoge/guava-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/guava-themes.el",
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-dracaena-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Geralld Borbon"
+  ],
+  "tags": [
+    "guava",
+    "dark",
+    "melpa"
+  ]
+}

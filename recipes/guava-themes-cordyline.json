@@ -1,0 +1,19 @@
+{
+  "name": "Guava Themes Cordyline Theme",
+  "id": "guava-themes-cordyline",
+  "description": "A theme inspired by cordyline colors.",
+  "repoUrl": "https://github.com/bormoge/guava-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/guava-themes.el",
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-cordyline-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Geralld Borbon"
+  ],
+  "tags": [
+    "guava",
+    "dark",
+    "melpa"
+  ]
+}

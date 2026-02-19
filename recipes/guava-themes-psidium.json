@@ -1,0 +1,19 @@
+{
+  "name": "Guava Themes Psidium Theme",
+  "id": "guava-themes-psidium",
+  "description": "A theme inspired by guava colors.",
+  "repoUrl": "https://github.com/bormoge/guava-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/guava-themes.el",
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-psidium-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Geralld Borbon"
+  ],
+  "tags": [
+    "guava",
+    "dark",
+    "melpa"
+  ]
+}

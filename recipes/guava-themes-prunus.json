@@ -1,0 +1,19 @@
+{
+  "name": "Guava Themes Prunus Theme",
+  "id": "guava-themes-prunus",
+  "description": "A theme inspired by prunus colors.",
+  "repoUrl": "https://github.com/bormoge/guava-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/guava-themes.el",
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-prunus-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Geralld Borbon"
+  ],
+  "tags": [
+    "guava",
+    "dark",
+    "melpa"
+  ]
+}

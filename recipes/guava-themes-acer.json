@@ -1,0 +1,19 @@
+{
+  "name": "Guava Themes Acer Theme",
+  "id": "guava-themes-acer",
+  "description": "A theme inspired by maple colors.",
+  "repoUrl": "https://github.com/bormoge/guava-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/guava-themes.el",
+    "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-acer-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Geralld Borbon"
+  ],
+  "tags": [
+    "guava",
+    "dark",
+    "melpa"
+  ]
+}
