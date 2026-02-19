@@ -1,0 +1,19 @@
+{
+  "name": "Rg Themes Cappuccino Noir Theme",
+  "id": "rg-themes-cappuccino-noir",
+  "description": "A night theme that feels like morning cup of coffee.",
+  "repoUrl": "https://github.com/raegnald/rg-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes.el",
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-cappuccino-noir-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ronaldo Gligan"
+  ],
+  "tags": [
+    "rg",
+    "dark",
+    "melpa"
+  ]
+}

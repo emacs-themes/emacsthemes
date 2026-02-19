@@ -1,0 +1,19 @@
+{
+  "name": "Rg Themes Purpurina Theme",
+  "id": "rg-themes-purpurina",
+  "description": "A glamorous theme for your nocturnal needs.",
+  "repoUrl": "https://github.com/raegnald/rg-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes.el",
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-purpurina-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ronaldo Gligan"
+  ],
+  "tags": [
+    "rg",
+    "dark",
+    "melpa"
+  ]
+}

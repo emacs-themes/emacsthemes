@@ -1,0 +1,19 @@
+{
+  "name": "Rg Themes Bosque Theme",
+  "id": "rg-themes-bosque",
+  "description": "A night walk through the forest.",
+  "repoUrl": "https://github.com/raegnald/rg-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes.el",
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-bosque-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Ronaldo Gligan"
+  ],
+  "tags": [
+    "rg",
+    "light",
+    "melpa"
+  ]
+}

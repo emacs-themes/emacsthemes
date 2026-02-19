@@ -1,0 +1,19 @@
+{
+  "name": "Rg Themes Somnus Theme",
+  "id": "rg-themes-somnus",
+  "description": "Relaxing, night-centered theme for Emacs.",
+  "repoUrl": "https://github.com/raegnald/rg-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes.el",
+    "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-somnus-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Ronaldo Gligan"
+  ],
+  "tags": [
+    "rg",
+    "dark",
+    "melpa"
+  ]
+}
