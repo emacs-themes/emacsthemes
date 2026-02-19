@@ -1,0 +1,20 @@
+{
+  "name": "Orangey Bits Theme",
+  "id": "orangey-bits",
+  "description": "A color theme for Emacs with smashing orangey bits.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-orangey-bits",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-orangey-bits/master/orangey-bits-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "dark",
+    "orange",
+    "autothemer",
+    "melpa"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}
