@@ -1,0 +1,19 @@
+{
+  "name": "Unspecified Theme",
+  "id": "unspecified",
+  "description": "Theme that unspecifies all attributes of all faces",
+  "repoUrl": "https://github.com/emacsmirror/unspecified-theme/tree/master",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsmirror/unspecified-theme/refs/heads/master/unspecified-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Mekeor Melire"
+  ],
+  "tags": [
+    "unspecified",
+    "dark",
+    "melpa"
+  ],
+  "elispBefore": "(unless (package-installed-p 'most-faces) (package-install 'most-faces))"
+}
