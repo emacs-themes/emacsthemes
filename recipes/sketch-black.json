@@ -1,0 +1,22 @@
+{
+  "name": "Sketch Black Theme",
+  "id": "sketch-black",
+  "description": "An (almost) grayscale black variant from sketch-themes.",
+  "repoUrl": "https://github.com/dawranliou/sketch-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-themes.el",
+    "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-black-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Daw-Ran Liou"
+  ],
+  "tags": [
+    "sketch",
+    "dark",
+    "black",
+    "grayscale",
+    "monochrome",
+    "black and white"
+  ]
+}

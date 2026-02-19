@@ -1,0 +1,22 @@
+{
+  "name": "Sketch White Theme",
+  "id": "sketch-white",
+  "description": "An (almost) grayscale white variant from sketch-themes.",
+  "repoUrl": "https://github.com/dawranliou/sketch-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-themes.el",
+    "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-white-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Daw-Ran Liou"
+  ],
+  "tags": [
+    "sketch",
+    "light",
+    "white",
+    "grayscale",
+    "monochrome",
+    "black and white"
+  ]
+}
