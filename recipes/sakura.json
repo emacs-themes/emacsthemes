@@ -1,0 +1,21 @@
+{
+  "name": "Sakura Theme",
+  "id": "sakura",
+  "description": "An Emacs theme of cherry blossoms.",
+  "repoUrl": "https://github.com/emacsfodder/emacs-theme-sakura",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/emacsfodder/emacs-theme-sakura/master/sakura-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Jason Milkins"
+  ],
+  "tags": [
+    "sakura",
+    "dark",
+    "purple",
+    "autothemer",
+    "melpa"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+}
