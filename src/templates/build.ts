@@ -230,11 +230,11 @@ function applyBaseTemplate(template: string, data: PageData): string {
     .join("\n");
 
   return template
-    .replace("{{TITLE}}", data.title)
-    .replace("{{DESCRIPTION}}", data.description)
-    .replace(/{{OG_TITLE}}/g, data.ogTitle)
-    .replace(/{{OG_DESCRIPTION}}/g, data.ogDescription)
-    .replace(/{{OG_IMAGE}}/g, data.ogImage)
+    .replace("{{TITLE}}", escapeHtml(data.title))
+    .replace("{{DESCRIPTION}}", escapeHtml(data.description))
+    .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
+    .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
+    .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
     .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
