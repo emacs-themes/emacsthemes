@@ -1,0 +1,19 @@
+{
+  "name": "Hyperstitional Themes Rebug Alternate Theme",
+  "id": "hyperstitional-themes-rebug-alternate",
+  "description": "Digital Bug, Alternate Version",
+  "repoUrl": "https://github.com/precompute/hyperstitional-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes.el",
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes-rebug-alternate-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "hyperstitional",
+    "light",
+    "melpa"
+  ]
+}

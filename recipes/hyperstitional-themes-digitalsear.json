@@ -1,0 +1,19 @@
+{
+  "name": "Hyperstitional Themes Digitalsear Theme",
+  "id": "hyperstitional-themes-digitalsear",
+  "description": "Searingly Digital",
+  "repoUrl": "https://github.com/precompute/hyperstitional-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes.el",
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes-digitalsear-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "hyperstitional",
+    "light",
+    "melpa"
+  ]
+}

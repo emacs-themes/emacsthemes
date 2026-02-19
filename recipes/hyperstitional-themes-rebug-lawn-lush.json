@@ -1,0 +1,19 @@
+{
+  "name": "Hyperstitional Themes Rebug Lawn Lush Theme",
+  "id": "hyperstitional-themes-rebug-lawn-lush",
+  "description": "Digital Bug",
+  "repoUrl": "https://github.com/precompute/hyperstitional-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes.el",
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes-rebug-lawn-lush-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "hyperstitional",
+    "dark",
+    "melpa"
+  ]
+}

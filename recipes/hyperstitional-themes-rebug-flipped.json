@@ -1,0 +1,19 @@
+{
+  "name": "Hyperstitional Themes Rebug Flipped Theme",
+  "id": "hyperstitional-themes-rebug-flipped",
+  "description": "Digital Bug, Flipped",
+  "repoUrl": "https://github.com/precompute/hyperstitional-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes.el",
+    "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes-rebug-flipped-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "precompute"
+  ],
+  "tags": [
+    "hyperstitional",
+    "dark",
+    "melpa"
+  ]
+}
