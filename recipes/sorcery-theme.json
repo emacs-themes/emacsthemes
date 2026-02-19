@@ -1,0 +1,20 @@
+{
+  "name": "Sorcery Theme",
+  "id": "sorcery-theme",
+  "description": "A dark and low-contrast Emacs theme inspired by apprentice and sourcerer.",
+  "repoUrl": "https://github.com/mtreca/emacs-theme-sorcery",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mtreca/emacs-theme-sorcery/refs/heads/master/sorcery-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Maxime Treca"
+  ],
+  "tags": [
+    "sorcery",
+    "dark",
+    "low contrast",
+    "autothemer"
+  ],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}
