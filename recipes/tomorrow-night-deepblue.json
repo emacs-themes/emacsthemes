@@ -1,0 +1,21 @@
+{
+  "name": "Tomorrow Night Deepblue Theme",
+  "id": "tomorrow-night-deepblue",
+  "description": "A deep blue variant of the Tomorrow Night theme.",
+  "repoUrl": "https://github.com/jamescherti/tomorrow-night-deepblue-theme.el",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/jamescherti/tomorrow-night-deepblue-theme.el/main/tomorrow-night-deepblue-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "James Cherti"
+  ],
+  "tags": [
+    "tomorrow",
+    "blue",
+    "night",
+    "deep blue",
+    "dark",
+    "blue"
+  ]
+}
