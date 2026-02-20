@@ -5,6 +5,7 @@ const BUCKET_NAME = "emacsthemes";
 const IMGS_DIR = "static/imgs";
 const TEMPLATE_PATH = "src/cloudflare/rclone.conf.template";
 const CONFIG_PATH = ".tmp/rclone.conf";
+const CUSTOM_CA_CERT_PATH = process.env.CLOUDFLARE_R2_CA_CERT_PATH;
 
 async function generateConfig() {
   console.log("Generating rclone config...");
@@ -31,20 +32,27 @@ async function generateConfig() {
 async function runRclone() {
   console.log(`Syncing ${IMGS_DIR} to R2 bucket ${BUCKET_NAME} using rclone...`);
 
+  const args = [
+    "sync",
+    IMGS_DIR,
+    `emacsthemes:${BUCKET_NAME}`,
+    "--config",
+    CONFIG_PATH,
+    "--fast-list",             // Drastically reduces LIST calls
+    "--size-only",             // Skips extra metadata/hash checks
+    "--transfers", "16",      // R2 handles high concurrency well
+    "--checkers", "16",       // Speed up the comparison phase
+    "--s3-no-check-bucket",    // Prevents an extra "Does this bucket exist?" call
+    "--progress",
+  ];
+
+  if (CUSTOM_CA_CERT_PATH) {
+    console.log(`Using custom CA certificate: ${CUSTOM_CA_CERT_PATH}`);
+    args.push("--ca-cert", CUSTOM_CA_CERT_PATH);
+  }
+
   return new Promise((resolve, reject) => {
-    const child = spawn("rclone", [
-      "sync",
-      IMGS_DIR,
-      `emacsthemes:${BUCKET_NAME}`,
-      "--config",
-      CONFIG_PATH,
-      "--fast-list",             // Drastically reduces LIST calls
-      "--size-only",             // Skips extra metadata/hash checks
-      "--transfers", "16",       // R2 handles high concurrency well
-      "--checkers", "16",        // Speed up the comparison phase
-      "--s3-no-check-bucket",    // Prevents an extra "Does this bucket exist?" call
-      "--progress",
-    ], { stdio: "inherit" });
+    const child = spawn("rclone", args, { stdio: "inherit" });
 
     child.on("close", (code) => {
       if (code === 0) resolve(true);
