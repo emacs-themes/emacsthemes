@@ -11,15 +11,16 @@
     "Jonas Gorauskas"
   ],
   "tags": [
+    "accessibility",
     "black",
     "dark",
     "darkburn",
-    "zenburn",
-    "nord",
-    "red",
     "gray",
     "light",
     "low-contrast",
-    "muted"
+    "muted",
+    "nord",
+    "red",
+    "zenburn"
   ]
 }

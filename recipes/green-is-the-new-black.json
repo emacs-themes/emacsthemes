@@ -12,8 +12,10 @@
   ],
   "tags": [
     "black",
-    "green",
     "dark",
-    "green is the new black"
+    "green",
+    "green is the new black",
+    "melpa",
+    "minimal"
   ]
 }

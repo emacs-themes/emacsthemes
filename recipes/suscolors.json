@@ -11,9 +11,11 @@
     "Tomas Vojtisek"
   ],
   "tags": [
-    "suscolors",
-    "gruvbox",
     "dark",
-    "modern"
+    "gruvbox",
+    "melpa",
+    "modern",
+    "red",
+    "suscolors"
   ]
 }

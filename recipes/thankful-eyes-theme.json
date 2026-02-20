@@ -11,10 +11,12 @@
     "Andros Fenollosa"
   ],
   "tags": [
-    "dark",
     "accessibility",
-    "high contrast",
+    "black",
     "color blind",
+    "dark",
+    "high contrast",
+    "melpa",
     "visual impairment"
   ]
 }

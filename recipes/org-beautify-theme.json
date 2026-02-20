@@ -11,8 +11,9 @@
     "Jonathan Arkell"
   ],
   "tags": [
-    "org-beautify",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "org-beautify"
   ]
 }

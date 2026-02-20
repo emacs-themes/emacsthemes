@@ -10,12 +10,13 @@
   "type": "light",
   "authors": [
     "Kaleb Elwert",
-    "Micha\u00ebl Ball"
+    "Michaël Ball"
   ],
   "tags": [
     "base16",
     "base16 synth-midnight-light",
+    "light",
     "synth-midnight-light",
-    "light"
+    "white"
   ]
 }

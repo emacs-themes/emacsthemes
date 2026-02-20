@@ -11,8 +11,10 @@
     "Alexander L. Belikoff"
   ],
   "tags": [
-    "vscdark",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "vscdark",
+    "vscode"
   ]
 }

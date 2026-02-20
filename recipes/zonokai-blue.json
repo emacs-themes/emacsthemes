@@ -13,6 +13,8 @@
   "tags": [
     "blue",
     "dark",
+    "dark blue",
+    "yellow",
     "zonokai"
   ],
   "elispBefore": "(unless (package-installed-p 'dash) (package-refresh-contents) (package-install 'dash))",

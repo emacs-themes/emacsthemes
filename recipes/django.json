@@ -11,12 +11,14 @@
     "Andrzej Sliwa"
   ],
   "tags": [
-    "django",
-    "green",
-    "red",
-    "gray",
-    "light",
+    "black",
     "dark",
-    "muted"
+    "django",
+    "gray",
+    "green",
+    "light",
+    "melpa",
+    "muted",
+    "red"
   ]
 }

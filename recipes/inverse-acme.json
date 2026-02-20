@@ -11,10 +11,12 @@
     "Dylan Johnson"
   ],
   "tags": [
-    "dark",
+    "autothemer",
+    "black",
     "brown",
+    "dark",
     "inverse acme",
-    "autothemer"
+    "melpa"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

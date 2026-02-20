@@ -11,8 +11,9 @@
     "Ian Y.E. Pan"
   ],
   "tags": [
-    "vscode-dark-plus",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "vscode-dark-plus"
   ]
 }

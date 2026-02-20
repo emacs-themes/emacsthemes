@@ -11,9 +11,11 @@
     "Jason Milkins"
   ],
   "tags": [
-    "mellow",
-    "emacs 24",
+    "black",
     "brown",
-    "dark"
+    "dark",
+    "emacs 24",
+    "mellow",
+    "melpa"
   ]
 }

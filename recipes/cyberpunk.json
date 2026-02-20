@@ -11,14 +11,17 @@
     "Nicholas M. Van Horn"
   ],
   "tags": [
+    "black",
     "cyberpunk",
     "dark",
-    "popular",
-    "nord",
-    "red",
-    "yellow",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nongnu-elpa",
+    "nord",
+    "popular",
+    "red",
+    "yellow"
   ]
 }

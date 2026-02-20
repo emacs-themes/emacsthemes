@@ -10,12 +10,13 @@
   "type": "dark",
   "authors": [
     "Kaleb Elwert",
-    "Micha\u00ebl Ball"
+    "Michaël Ball"
   ],
   "tags": [
     "base16",
     "base16 horizon-dark",
-    "horizon-dark",
-    "dark"
+    "black",
+    "dark",
+    "horizon-dark"
   ]
 }

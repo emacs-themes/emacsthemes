@@ -11,9 +11,13 @@
     "Kaleb Elwert"
   ],
   "tags": [
+    "atom",
     "dark",
-    "grey",
+    "gray",
     "grayscale",
-    "monochrome"
+    "grey",
+    "melpa",
+    "monochrome",
+    "zenburn"
   ]
 }

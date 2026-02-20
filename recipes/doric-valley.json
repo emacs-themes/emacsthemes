@@ -12,8 +12,11 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "doric",
+    "black",
     "dark",
+    "doric",
+    "doric-themes",
+    "minimal",
     "minimalist"
   ],
   "elispAfter": "(enable-theme 'doric-valley)"

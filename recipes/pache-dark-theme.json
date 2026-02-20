@@ -11,8 +11,11 @@
     "Henrique Marques"
   ],
   "tags": [
-    "pache-dark",
+    "accessibility",
+    "black",
     "dark",
-    "melpa"
+    "gruvbox",
+    "melpa",
+    "pache-dark"
   ]
 }

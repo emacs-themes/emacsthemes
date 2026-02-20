@@ -12,17 +12,17 @@
     "Thomas Letan"
   ],
   "tags": [
-    "darkless",
-    "dark",
-    "gray",
-    "nord",
     "blue",
-    "green",
-    "red",
-    "purple",
     "cyan",
-    "magenta",
+    "dark",
+    "darkless",
+    "gray",
+    "green",
     "light",
-    "muted"
+    "magenta",
+    "muted",
+    "nord",
+    "purple",
+    "red"
   ]
 }

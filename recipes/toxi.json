@@ -11,9 +11,11 @@
     "Karsten Schmidt"
   ],
   "tags": [
-    "toxi",
+    "black",
     "dark",
     "emacs24",
-    "green"
+    "green",
+    "melpa",
+    "toxi"
   ]
 }

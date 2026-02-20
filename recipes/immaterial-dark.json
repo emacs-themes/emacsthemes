@@ -12,8 +12,10 @@
     "Peter Gardfjäll"
   ],
   "tags": [
-    "immaterial",
+    "black",
     "dark",
+    "immaterial",
+    "material",
     "material design"
   ],
   "elispBefore": "(unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",

@@ -13,8 +13,11 @@
   ],
   "tags": [
     "doric",
+    "doric-themes",
     "light",
-    "minimalist"
+    "minimal",
+    "minimalist",
+    "white"
   ],
   "elispAfter": "(enable-theme 'doric-jade)"
 }

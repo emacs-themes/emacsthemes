@@ -11,9 +11,11 @@
     "Grant Shangreaux"
   ],
   "tags": [
-    "light",
+    "autothemer",
     "halloween",
-    "autothemer"
+    "light",
+    "melpa",
+    "red"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

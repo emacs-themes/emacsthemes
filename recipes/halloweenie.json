@@ -11,9 +11,11 @@
     "Colin Okay"
   ],
   "tags": [
+    "autothemer",
+    "black",
     "dark",
     "halloween",
-    "autothemer"
+    "melpa"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

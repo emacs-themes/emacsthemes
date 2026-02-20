@@ -11,8 +11,10 @@
     "Ian Y.E. Pan"
   ],
   "tags": [
-    "jetbrains-darcula",
+    "black",
     "dark",
+    "intellij",
+    "jetbrains-darcula",
     "melpa"
   ]
 }

@@ -11,15 +11,16 @@
     "Jannis Pohlmann"
   ],
   "tags": [
+    "black",
+    "blue",
     "constant",
     "dark",
-    "black",
-    "monochrome",
-    "nord",
-    "blue",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "monochrome",
+    "muted",
+    "nord",
+    "red"
   ]
 }

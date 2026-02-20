@@ -11,11 +11,12 @@
     "Jason Milkins"
   ],
   "tags": [
-    "sakura",
-    "dark",
-    "purple",
     "autothemer",
-    "melpa"
+    "cherry",
+    "dark",
+    "melpa",
+    "purple",
+    "sakura"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

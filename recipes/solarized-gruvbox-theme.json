@@ -11,8 +11,11 @@
     "Omer Arif"
   ],
   "tags": [
-    "solarized-gruvbox",
+    "black",
     "dark",
-    "melpa"
+    "gruvbox",
+    "melpa",
+    "solarized",
+    "solarized-gruvbox"
   ]
 }

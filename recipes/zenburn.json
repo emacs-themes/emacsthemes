@@ -11,9 +11,13 @@
     "Bozhidar Batsov"
   ],
   "tags": [
-    "zenburn",
+    "black",
     "dark",
     "low contrast",
-    "popular"
+    "melpa",
+    "nongnu-elpa",
+    "popular",
+    "vim",
+    "zenburn"
   ]
 }

@@ -13,8 +13,11 @@
   ],
   "tags": [
     "256",
+    "atom",
+    "black",
     "dark",
     "emacs 24",
+    "melpa",
     "purple",
     "subatomic",
     "subatomic256"

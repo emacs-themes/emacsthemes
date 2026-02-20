@@ -13,10 +13,12 @@
     "Ogden Webb"
   ],
   "tags": [
-    "kaolin",
-    "shiva",
+    "autumn",
+    "black",
     "dark",
-    "autumn"
+    "kaolin",
+    "kaolin-themes",
+    "shiva"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

@@ -10,12 +10,13 @@
   "type": "dark",
   "authors": [
     "Kaleb Elwert",
-    "\u00d3lafur Bjarki Bogason"
+    "Ólafur Bjarki Bogason"
   ],
   "tags": [
     "base16",
     "base16 tokyo-night-moon",
-    "tokyo-night-moon",
-    "dark"
+    "black",
+    "dark",
+    "tokyo-night-moon"
   ]
 }

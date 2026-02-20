@@ -11,10 +11,13 @@
     "Maxime Treca"
   ],
   "tags": [
-    "sorcery",
+    "accessibility",
+    "autothemer",
     "dark",
     "low contrast",
-    "autothemer"
+    "melpa",
+    "red",
+    "sorcery"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

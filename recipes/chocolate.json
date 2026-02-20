@@ -11,9 +11,11 @@
     "Valeriy Savchenko"
   ],
   "tags": [
-    "dark",
+    "autothemer",
+    "black",
     "chocolate",
-    "autothemer"
+    "dark",
+    "melpa"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

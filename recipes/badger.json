@@ -15,11 +15,12 @@
     "black",
     "dark",
     "emacs 24",
-    "modern",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "modern",
+    "muted",
+    "nord",
+    "red"
   ]
 }

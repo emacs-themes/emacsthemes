@@ -6,13 +6,15 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/ianyepan/acme-emacs-theme/master/acme-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Ian Y.E. Pan"
   ],
   "tags": [
     "acme",
-    "dark",
-    "melpa"
+    "black",
+    "light",
+    "melpa",
+    "yellow"
   ]
 }

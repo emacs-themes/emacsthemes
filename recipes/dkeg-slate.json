@@ -14,8 +14,9 @@
     "Uros Perisic"
   ],
   "tags": [
-    "ewal",
     "dark",
+    "ewal",
+    "slate",
     "spacemacs"
   ],
   "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"dkeg-slate\" ewal-json-file (expand-file-name \"dkeg-slate.json\" (car load-path)))"

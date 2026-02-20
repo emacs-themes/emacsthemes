@@ -12,13 +12,14 @@
     "Jason Milkins"
   ],
   "tags": [
+    "autothemer",
+    "blue",
+    "cream",
     "creamsody",
     "dark",
-    "blue",
     "green",
     "muted",
-    "pastel",
-    "autothemer"
+    "pastel"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

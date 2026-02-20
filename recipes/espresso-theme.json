@@ -8,11 +8,12 @@
   ],
   "type": "dark",
   "authors": [
-    "Martin K\u00fchl"
+    "Martin Kühl"
   ],
   "tags": [
-    "espresso",
+    "black",
     "dark",
+    "espresso",
     "melpa"
   ]
 }

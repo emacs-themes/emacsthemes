@@ -11,20 +11,21 @@
     "Sergei Lebedev / Syohei YOSHIDA"
   ],
   "tags": [
+    "black",
+    "blue",
     "color themes",
+    "cyan",
     "dark",
     "desert",
-    "grey",
-    "vim",
-    "blue",
-    "green",
-    "red",
-    "purple",
-    "orange",
-    "yellow",
-    "pink",
-    "cyan",
     "gray",
-    "light"
+    "green",
+    "grey",
+    "light",
+    "orange",
+    "pink",
+    "purple",
+    "red",
+    "vim",
+    "yellow"
   ]
 }

@@ -11,10 +11,13 @@
     "Jason Milkins"
   ],
   "tags": [
-    "slime",
+    "black",
     "dark",
     "emacs24",
     "grey",
-    "new"
+    "melpa",
+    "new",
+    "nongnu-elpa",
+    "slime"
   ]
 }

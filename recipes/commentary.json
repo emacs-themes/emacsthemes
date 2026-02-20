@@ -11,14 +11,17 @@
     "Amirreza Ghaderi & Simon Zelazny "
   ],
   "tags": [
+    "accessibility",
+    "black",
     "commentary",
-    "light",
-    "white",
-    "red",
-    "nord",
-    "gray",
     "dark",
+    "gray",
+    "light",
+    "melpa",
     "minimal",
-    "muted"
+    "muted",
+    "nord",
+    "red",
+    "white"
   ]
 }

@@ -13,11 +13,11 @@
   ],
   "tags": [
     "almost mono white",
-    "light",
-    "white",
-    "monochrome",
+    "black",
     "black and white",
-    "black"
+    "light",
+    "monochrome",
+    "white"
   ],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-white)"
 }

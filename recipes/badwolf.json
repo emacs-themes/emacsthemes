@@ -12,13 +12,15 @@
   ],
   "tags": [
     "badwolf",
-    "dark",
+    "black",
     "brown",
-    "vim",
-    "nord",
-    "red",
+    "dark",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nord",
+    "red",
+    "vim"
   ]
 }

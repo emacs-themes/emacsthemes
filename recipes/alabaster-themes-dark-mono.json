@@ -13,7 +13,9 @@
   ],
   "tags": [
     "alabaster",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "monochrome"
   ]
 }

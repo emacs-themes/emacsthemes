@@ -11,9 +11,11 @@
     "Brian Mastenbrook"
   ],
   "tags": [
-    "termbright",
+    "black",
     "light",
-    "white",
-    "terminal"
+    "melpa",
+    "termbright",
+    "terminal",
+    "white"
   ]
 }

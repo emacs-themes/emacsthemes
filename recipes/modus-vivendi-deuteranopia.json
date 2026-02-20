@@ -12,11 +12,15 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
+    "accessibility",
     "accessible",
-    "wcag-aaa",
+    "color blind",
     "dark",
+    "green",
     "modus",
-    "color blind"
+    "modus-themes",
+    "red",
+    "wcag-aaa"
   ],
   "elispBefore": "(require 'cl-lib) (require 'subr-x)",
   "elispAfter": "(enable-theme 'modus-vivendi-deuteranopia)"

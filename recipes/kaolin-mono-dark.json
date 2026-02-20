@@ -13,10 +13,12 @@
     "Ogden Webb"
   ],
   "tags": [
-    "kaolin",
-    "mono",
     "dark",
-    "green"
+    "green",
+    "kaolin",
+    "kaolin-themes",
+    "mono",
+    "monochrome"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

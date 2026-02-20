@@ -12,13 +12,15 @@
   ],
   "tags": [
     "basic",
+    "black",
+    "dark",
+    "gray",
     "light",
-    "white",
+    "melpa",
     "minimal",
+    "muted",
     "nord",
     "red",
-    "gray",
-    "dark",
-    "muted"
+    "white"
   ]
 }

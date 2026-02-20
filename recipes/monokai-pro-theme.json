@@ -11,8 +11,9 @@
     "Kaleb Elwert"
   ],
   "tags": [
-    "monokai-pro",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "monokai-pro"
   ]
 }

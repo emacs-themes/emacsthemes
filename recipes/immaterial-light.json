@@ -14,7 +14,9 @@
   "tags": [
     "immaterial",
     "light",
-    "material design"
+    "material",
+    "material design",
+    "white"
   ],
   "elispBefore": "(unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'immaterial-light)"

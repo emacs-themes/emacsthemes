@@ -11,13 +11,14 @@
     "Adam Chyła"
   ],
   "tags": [
-    "light",
-    "green",
     "chyla",
-    "nord",
-    "red",
-    "gray",
     "dark",
-    "muted"
+    "gray",
+    "green",
+    "light",
+    "melpa",
+    "muted",
+    "nord",
+    "red"
   ]
 }

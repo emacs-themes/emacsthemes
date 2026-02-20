@@ -15,8 +15,9 @@
     "bliss",
     "dark",
     "emacs 24",
-    "red",
     "gray",
-    "muted"
+    "melpa",
+    "muted",
+    "red"
   ]
 }

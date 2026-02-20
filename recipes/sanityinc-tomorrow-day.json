@@ -13,12 +13,12 @@
   ],
   "tags": [
     "blue",
-    "light",
-    "white",
     "day",
+    "light",
     "popular",
+    "sanityinc",
     "tomorrow",
-    "sanityinc"
+    "white"
   ],
   "elispBefore": "(color-theme-sanityinc-tomorrow-day)"
 }

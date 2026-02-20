@@ -14,8 +14,11 @@
   ],
   "tags": [
     "kaolin",
+    "kaolin-themes",
+    "light",
     "mono",
-    "light"
+    "monochrome",
+    "white"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

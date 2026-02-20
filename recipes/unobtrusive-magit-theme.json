@@ -11,8 +11,9 @@
     "Thomas A. Brown"
   ],
   "tags": [
-    "unobtrusive-magit",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "unobtrusive-magit"
   ]
 }

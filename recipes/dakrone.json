@@ -15,10 +15,11 @@
     "dark",
     "darkrone",
     "emacs 24",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nord",
+    "red"
   ]
 }

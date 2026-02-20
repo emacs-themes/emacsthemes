@@ -11,17 +11,19 @@
     "Lee Hinman"
   ],
   "tags": [
-    "light",
+    "blue",
+    "brown",
+    "dark",
     "darkrone",
     "emacs 24",
-    "grey",
-    "nord",
-    "blue",
-    "green",
-    "red",
-    "purple",
     "gray",
-    "dark",
-    "muted"
+    "green",
+    "grey",
+    "light",
+    "melpa",
+    "muted",
+    "nord",
+    "purple",
+    "red"
   ]
 }

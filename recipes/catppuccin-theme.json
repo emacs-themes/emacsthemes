@@ -1,7 +1,7 @@
 {
   "name": "Catppuccin Theme",
   "id": "catppuccin",
-  "description": "Catppuccin for Emacs - \ud83c\udf44 Soothing pastel theme for Emacs",
+  "description": "Catppuccin for Emacs - 🍄 Soothing pastel theme for Emacs",
   "repoUrl": "https://github.com/catppuccin/emacs",
   "rawUrls": [
     "https://raw.githubusercontent.com/catppuccin/emacs/main/catppuccin-theme.el"
@@ -11,6 +11,7 @@
     "nyxkrage"
   ],
   "tags": [
+    "black",
     "catppuccin",
     "dark",
     "melpa"

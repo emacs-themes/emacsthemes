@@ -11,11 +11,16 @@
     "Andrey Kotlarski"
   ],
   "tags": [
+    "accessibility",
+    "black",
     "emacs 23",
+    "gray",
     "grey",
     "light",
+    "light grey",
+    "melpa",
+    "nongnu-elpa",
     "popular",
-    "zenburn",
-    "gray"
+    "zenburn"
   ]
 }

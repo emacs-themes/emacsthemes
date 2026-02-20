@@ -8,9 +8,11 @@
   ],
   "type": "dark",
   "authors": [
-    "Mart\u00edn Varela (martin@varela.fi)"
+    "Martín Varela (martin@varela.fi)"
   ],
   "tags": [
+    "accessibility",
+    "black",
     "curry-on",
     "dark",
     "melpa"

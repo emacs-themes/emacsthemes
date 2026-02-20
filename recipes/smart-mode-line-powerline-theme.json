@@ -11,8 +11,9 @@
     "Artur Malabarba"
   ],
   "tags": [
-    "smart-mode-line-powerline",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "smart-mode-line-powerline"
   ]
 }

@@ -8,11 +8,12 @@
   ],
   "type": "dark",
   "authors": [
-    "Adam Chy\u0142a  https://chyla.org/"
+    "Adam Chyła  https://chyla.org/"
   ],
   "tags": [
     "chyla-dark",
     "dark",
+    "green",
     "melpa"
   ]
 }

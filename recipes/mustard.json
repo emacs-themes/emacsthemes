@@ -11,9 +11,10 @@
     "Jason Milkins"
   ],
   "tags": [
-    "mustard",
-    "dark",
     "black",
-    "emacs 24"
+    "dark",
+    "emacs 24",
+    "melpa",
+    "mustard"
   ]
 }

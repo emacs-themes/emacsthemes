@@ -11,13 +11,15 @@
     "Dmitry Akatov"
   ],
   "tags": [
-    "danneskjold",
+    "accessibility",
     "black",
+    "danneskjold",
     "dark",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nord",
+    "red"
   ]
 }

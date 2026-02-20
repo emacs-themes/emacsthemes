@@ -13,9 +13,12 @@
     "Ogden Webb"
   ],
   "tags": [
-    "kaolin",
     "dark",
-    "jade"
+    "jade",
+    "kaolin",
+    "kaolin-themes",
+    "red",
+    "vim"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

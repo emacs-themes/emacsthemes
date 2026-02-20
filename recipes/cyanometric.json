@@ -11,9 +11,10 @@
     "Jason Milkins"
   ],
   "tags": [
-    "dark",
+    "autothemer",
     "cyan",
-    "autothemer"
+    "dark",
+    "melpa"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

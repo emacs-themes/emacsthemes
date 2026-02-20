@@ -6,13 +6,15 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/airline-alduin-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Anthonydigirolamo"
   ],
   "tags": [
     "airline",
-    "dark",
-    "melpa"
+    "black",
+    "light",
+    "melpa",
+    "orange"
   ]
 }

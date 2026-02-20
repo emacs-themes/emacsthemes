@@ -15,13 +15,14 @@
     "Lee Machin"
   ],
   "tags": [
-    "gruvbox",
-    "retro",
+    "autothemer",
+    "black",
     "brown",
     "dark",
-    "vim",
+    "gruvbox",
+    "retro",
     "soft",
-    "autothemer"
+    "vim"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

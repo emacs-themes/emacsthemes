@@ -11,15 +11,16 @@
     "MaxSt"
   ],
   "tags": [
+    "black",
     "challenger",
     "dark",
-    "purple",
-    "modern",
     "emacs24",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "modern",
+    "muted",
+    "nord",
+    "purple",
+    "red"
   ]
 }

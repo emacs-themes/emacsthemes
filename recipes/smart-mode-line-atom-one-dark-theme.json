@@ -11,8 +11,10 @@
     "Davide Restivo"
   ],
   "tags": [
-    "smart-mode-line-atom-one-dark",
+    "atom",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "smart-mode-line-atom-one-dark"
   ]
 }

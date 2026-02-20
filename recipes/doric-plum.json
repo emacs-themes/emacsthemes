@@ -12,9 +12,12 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "doric",
     "dark",
-    "minimalist"
+    "doric",
+    "doric-themes",
+    "minimal",
+    "minimalist",
+    "plum"
   ],
   "elispAfter": "(enable-theme 'doric-plum)"
 }

@@ -13,8 +13,9 @@
   ],
   "tags": [
     "almost mono cream",
-    "light",
+    "black",
     "cream",
+    "light",
     "monochrome"
   ],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-cream)"

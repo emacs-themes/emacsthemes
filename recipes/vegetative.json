@@ -11,11 +11,13 @@
     "Jason Milkins"
   ],
   "tags": [
-    "vegetative",
+    "autothemer",
+    "black",
+    "crt",
     "dark",
     "green",
-    "crt",
-    "autothemer"
+    "melpa",
+    "vegetative"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

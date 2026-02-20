@@ -12,11 +12,13 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "ef",
+    "accessible",
+    "black",
+    "colorful",
     "dark",
     "deuteranopia",
-    "colorful",
-    "accessible"
+    "ef",
+    "ef-themes"
   ],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-deuteranopia-dark)"

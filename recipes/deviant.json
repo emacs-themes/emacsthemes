@@ -14,11 +14,11 @@
     "dark",
     "deviant",
     "emacs 24",
-    "green",
-    "nord",
-    "red",
     "gray",
+    "green",
     "light",
-    "muted"
+    "muted",
+    "nord",
+    "red"
   ]
 }

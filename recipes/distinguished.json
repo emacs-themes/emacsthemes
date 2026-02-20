@@ -14,11 +14,12 @@
     "black",
     "dark",
     "distinguished",
-    "vim",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nord",
+    "red",
+    "vim"
   ]
 }

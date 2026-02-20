@@ -11,18 +11,19 @@
     "Thomas Sicheritz-Ponten / Syohei YOSHIDA"
   ],
   "tags": [
+    "black",
     "blippblop",
-    "color themes",
-    "light",
-    "white",
     "blue",
-    "green",
-    "red",
-    "purple",
-    "orange",
-    "yellow",
+    "color themes",
     "cyan",
+    "dark",
     "gray",
-    "dark"
+    "green",
+    "light",
+    "orange",
+    "purple",
+    "red",
+    "white",
+    "yellow"
   ]
 }

@@ -11,11 +11,13 @@
     "Lorenzo Bolla"
   ],
   "tags": [
-    "quasi-monochrome",
+    "accessibility",
+    "black",
+    "black&white",
     "dark",
     "emacs 24",
+    "melpa",
     "monochrome",
-    "black&white",
-    "black"
+    "quasi-monochrome"
   ]
 }

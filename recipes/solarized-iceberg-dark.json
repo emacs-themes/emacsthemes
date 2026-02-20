@@ -11,10 +11,10 @@
     "Naoya Yamashita"
   ],
   "tags": [
-    "dark",
     "blue",
-    "solarized",
-    "iceberg"
+    "dark",
+    "iceberg",
+    "solarized"
   ],
   "elispBefore": "(unless (package-installed-p 'solarized-theme) (package-refresh-contents) (package-install 'solarized-theme))",
   "elispAfter": "(iceberg-theme-create-theme-file) (load-theme 'solarized-iceberg-dark t)"

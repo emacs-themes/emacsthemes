@@ -11,9 +11,10 @@
     "Mekeor Melire"
   ],
   "tags": [
-    "unspecified",
+    "black",
     "dark",
-    "melpa"
+    "melpa",
+    "unspecified"
   ],
   "elispBefore": "(unless (package-installed-p 'most-faces) (package-install 'most-faces))"
 }

@@ -12,10 +12,12 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "ef",
+    "black",
+    "colorful",
     "dark",
-    "owl",
-    "colorful"
+    "ef",
+    "ef-themes",
+    "owl"
   ],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-owl)"

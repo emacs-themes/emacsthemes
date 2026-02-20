@@ -12,12 +12,14 @@
     "Jason Milkins"
   ],
   "tags": [
-    "darktooth",
-    "dark",
+    "autothemer",
+    "black",
     "brown",
-    "soothe",
+    "dark",
+    "darktooth",
     "groovbox",
-    "autothemer"
+    "gruvbox",
+    "soothe"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

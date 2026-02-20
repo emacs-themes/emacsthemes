@@ -11,10 +11,12 @@
     "Wei Jian Gan"
   ],
   "tags": [
+    "black",
     "dark",
+    "melpa",
+    "modern",
     "purple",
-    "snazzy",
-    "modern"
+    "snazzy"
   ],
   "elispBefore": "(unless (package-installed-p 'base16-theme) (package-refresh-contents) (package-install 'base16-theme))"
 }

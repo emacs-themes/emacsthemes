@@ -15,9 +15,10 @@
     "blueberry",
     "dark",
     "emacs 24",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "red"
   ]
 }

@@ -11,9 +11,12 @@
     "Johannes Goslar"
   ],
   "tags": [
-    "labburn",
-    "gray",
+    "black",
     "dark",
-    "modern"
+    "gray",
+    "labburn",
+    "melpa",
+    "modern",
+    "zenburn"
   ]
 }

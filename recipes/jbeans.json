@@ -11,11 +11,12 @@
     "Adam Olsen"
   ],
   "tags": [
-    "jbeans",
     "black",
     "dark",
     "emacs 24",
-    "vim",
-    "modern"
+    "jbeans",
+    "melpa",
+    "modern",
+    "vim"
   ]
 }

@@ -11,11 +11,13 @@
     "KoshVorlon"
   ],
   "tags": [
-    "dark",
-    "light",
+    "black",
     "cacao",
     "chocolate",
+    "dark",
     "emacs 24",
+    "light",
+    "melpa",
     "org-mode",
     "red"
   ]

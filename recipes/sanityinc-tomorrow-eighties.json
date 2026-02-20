@@ -12,13 +12,14 @@
     "Steve Purcell"
   ],
   "tags": [
+    "black",
     "blue",
     "dark",
     "eighties",
     "grey",
     "popular",
-    "tomorrow",
-    "sanityinc"
+    "sanityinc",
+    "tomorrow"
   ],
   "elispBefore": "(color-theme-sanityinc-tomorrow-eighties)"
 }

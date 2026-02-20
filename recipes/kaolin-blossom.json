@@ -13,9 +13,12 @@
     "Ogden Webb"
   ],
   "tags": [
-    "kaolin",
     "blossom",
-    "dark"
+    "dark",
+    "kaolin",
+    "kaolin-themes",
+    "orange",
+    "purple"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

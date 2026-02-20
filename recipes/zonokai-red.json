@@ -11,10 +11,11 @@
     "Alex Sanchez"
   ],
   "tags": [
-    "red",
-    "light",
     "blue",
+    "light",
     "purple",
+    "red",
+    "white",
     "zonokai"
   ],
   "elispBefore": "(unless (package-installed-p 'dash) (package-refresh-contents) (package-install 'dash))",

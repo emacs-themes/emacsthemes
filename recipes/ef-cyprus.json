@@ -12,10 +12,12 @@
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "ef",
-    "light",
+    "colorful",
     "cyprus",
-    "colorful"
+    "ef",
+    "ef-themes",
+    "light",
+    "white"
   ],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-cyprus)"

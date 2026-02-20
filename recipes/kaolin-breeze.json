@@ -13,9 +13,11 @@
     "Ogden Webb"
   ],
   "tags": [
-    "kaolin",
     "breeze",
-    "light"
+    "kaolin",
+    "kaolin-themes",
+    "light",
+    "white"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

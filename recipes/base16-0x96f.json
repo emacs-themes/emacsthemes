@@ -15,12 +15,14 @@
   "tags": [
     "base16",
     "base16 chalk",
+    "black",
     "chalk",
     "dark",
-    "nord",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "nord",
+    "red"
   ]
 }

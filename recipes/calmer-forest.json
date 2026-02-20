@@ -15,11 +15,12 @@
     "calmer forest",
     "dark",
     "emacs 24",
-    "green",
-    "red",
-    "orange",
     "gray",
+    "green",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "orange",
+    "red"
   ]
 }

@@ -8,11 +8,14 @@
   ],
   "type": "dark",
   "authors": [
-    "Jo\u00e3o Lanjoni"
+    "João Lanjoni"
   ],
   "tags": [
-    "nezburn",
+    "accessibility",
     "dark",
-    "melpa"
+    "melpa",
+    "nezburn",
+    "red",
+    "zenburn"
   ]
 }

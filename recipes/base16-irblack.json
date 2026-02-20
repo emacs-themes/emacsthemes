@@ -10,12 +10,13 @@
   "type": "dark",
   "authors": [
     "Kaleb Elwert",
-    "Timoth\u00e9e Poisot"
+    "Timothée Poisot"
   ],
   "tags": [
     "base16",
     "base16 irblack",
-    "irblack",
-    "dark"
+    "black",
+    "dark",
+    "irblack"
   ]
 }

@@ -12,13 +12,16 @@
   ],
   "tags": [
     "berrys",
-    "light",
-    "monochrome",
+    "black",
     "blue",
-    "nord",
-    "red",
-    "gray",
     "dark",
-    "muted"
+    "gray",
+    "light",
+    "melpa",
+    "minimal",
+    "monochrome",
+    "muted",
+    "nord",
+    "red"
   ]
 }

@@ -14,6 +14,8 @@
     "black",
     "dark",
     "dracula",
-    "intellij"
+    "intellij",
+    "melpa",
+    "red"
   ]
 }

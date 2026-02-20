@@ -14,10 +14,11 @@
     "black",
     "blackboard",
     "dark",
-    "textmate",
-    "red",
     "gray",
     "light",
-    "muted"
+    "melpa",
+    "muted",
+    "red",
+    "textmate"
   ]
 }

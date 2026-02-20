@@ -11,8 +11,11 @@
     "Nantas Nardelli"
   ],
   "tags": [
-    "hc-zenburn",
+    "accessibility",
+    "black",
     "dark",
-    "melpa"
+    "hc-zenburn",
+    "melpa",
+    "zenburn"
   ]
 }

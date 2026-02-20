@@ -11,8 +11,10 @@
     "Maxim Kim"
   ],
   "tags": [
-    "wildcharm-light",
     "light",
-    "melpa"
+    "melpa",
+    "vim",
+    "white",
+    "wildcharm-light"
   ]
 }

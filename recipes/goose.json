@@ -11,10 +11,13 @@
     "Stephen Whipple"
   ],
   "tags": [
-    "goose",
-    "light",
-    "grey",
+    "accessibility",
     "black&white",
-    "emacs24"
+    "emacs24",
+    "goose",
+    "grey",
+    "light",
+    "melpa",
+    "red"
   ]
 }

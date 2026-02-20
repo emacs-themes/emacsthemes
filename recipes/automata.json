@@ -11,12 +11,13 @@
     "Lucas Merritt"
   ],
   "tags": [
-    "light",
-    "minimal",
-    "gruvbox",
-    "cream",
     "automata",
-    "autothemer"
+    "autothemer",
+    "black",
+    "cream",
+    "gruvbox",
+    "light",
+    "minimal"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
 }

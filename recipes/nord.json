@@ -11,10 +11,12 @@
     "Arctic Ice Studio"
   ],
   "tags": [
-    "nord",
-    "dark",
+    "black",
     "blue",
-    "terminal",
-    "emacs24"
+    "dark",
+    "emacs24",
+    "melpa",
+    "nord",
+    "terminal"
   ]
 }
