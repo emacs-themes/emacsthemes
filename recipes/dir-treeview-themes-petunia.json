@@ -1,0 +1,20 @@
+{
+  "name": "Dir Treeview Themes Petunia Theme",
+  "id": "dir-treeview-themes-petunia",
+  "description": "A dir-treeview theme with icons based on the Emerald and Tela icon themes.",
+  "repoUrl": "https://github.com/tilmanrassy/emacs-dir-treeview-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/tilmanrassy/emacs-dir-treeview-themes/master/dir-treeview-themes.el",
+    "https://raw.githubusercontent.com/tilmanrassy/emacs-dir-treeview-themes/master/dir-treeview-themes-petunia-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Tilmanrassy"
+  ],
+  "tags": [
+    "black",
+    "light",
+    "dir-treeview",
+    "melpa"
+  ]
+}
