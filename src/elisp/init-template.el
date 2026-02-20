@@ -10,6 +10,8 @@
 
 ;; Initialize package.el for themes that have dependencies
 (require 'package)
+(require 'color)
+
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (setq package-check-signature nil)
 (package-initialize)
