@@ -1,0 +1,20 @@
+{
+  "name": "App Monochrome Themes Light Theme",
+  "id": "app-monochrome-light",
+  "description": "Monochrome theme for OLED",
+  "repoUrl": "https://github.com/Greybeard-Entertainment/app-monochrome",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Greybeard-Entertainment/app-monochrome/refs/heads/main/app-monochrome-themes.el",
+    "https://raw.githubusercontent.com/Greybeard-Entertainment/app-monochrome/main/app-monochrome-themes-light-theme-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Aleksandr Petrosyan"
+  ],
+  "tags": [
+    "app-monochrome",
+    "light",
+    "melpa",
+    "monochrome"
+  ]
+}
