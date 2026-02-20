@@ -6,12 +6,12 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/themkat/pink-bliss-uwu/main/pink-bliss-uwu-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Themkat"
   ],
   "tags": [
-    "dark",
+    "light",
     "melpa",
     "pink",
     "pink-bliss-uwu"
