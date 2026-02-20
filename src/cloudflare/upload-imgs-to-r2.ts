@@ -38,6 +38,11 @@ async function runRclone() {
       `emacsthemes:${BUCKET_NAME}`,
       "--config",
       CONFIG_PATH,
+      "--fast-list",             // Drastically reduces LIST calls
+      "--size-only",             // Skips extra metadata/hash checks
+      "--transfers", "16",       // R2 handles high concurrency well
+      "--checkers", "16",        // Speed up the comparison phase
+      "--s3-no-check-bucket",    // Prevents an extra "Does this bucket exist?" call
       "--progress",
     ], { stdio: "inherit" });
 
