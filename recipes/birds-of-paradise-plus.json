@@ -1,7 +1,7 @@
 {
   "name": "Birds of Paradise Plus Theme",
   "id": "birds-of-paradise-plus",
-  "description": "A Emacs port of Joe Bergantine’s light-on-dark ",
+  "description": "A Emacs port of Joe Bergantine’s light-on-dark",
   "repoUrl": "https://github.com/jimeh/birds-of-paradise-plus-theme.el",
   "rawUrls": [
     "https://raw.githubusercontent.com/jimeh/birds-of-paradise-plus-theme.el/refs/heads/master/birds-of-paradise-plus-theme.el"
@@ -17,7 +17,6 @@
     "dark",
     "emacs 24",
     "gray",
-    "light",
     "melpa",
     "muted",
     "nord",
