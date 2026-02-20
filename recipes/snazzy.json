@@ -18,5 +18,5 @@
     "purple",
     "snazzy"
   ],
-  "elispBefore": "(unless (package-installed-p 'base16-theme) (package-refresh-contents) (package-install 'base16-theme))"
+  "elispBefore": "(unless (package-installed-p 'base16-theme) (package-install 'base16-theme))"
 }

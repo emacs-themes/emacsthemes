@@ -7,7 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-tva.el",
     "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-theme.el"
   ],
-  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))",
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))",
   "type": "dark",
   "authors": [
     "Jason Milkins"

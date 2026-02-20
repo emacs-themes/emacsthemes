@@ -18,5 +18,5 @@
     "light",
     "white"
   ],
-  "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))"
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

@@ -18,6 +18,6 @@
     "material",
     "material design"
   ],
-  "elispBefore": "(unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispBefore": "(unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'immaterial-dark)"
 }

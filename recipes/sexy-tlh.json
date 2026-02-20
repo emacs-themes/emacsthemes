@@ -19,5 +19,5 @@
     "ewal",
     "spacemacs"
   ],
-  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-refresh-contents) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-tlh\" ewal-json-file (expand-file-name \"sexy-tlh.json\" (car load-path)))"
+  "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-tlh\" ewal-json-file (expand-file-name \"sexy-tlh.json\" (car load-path)))"
 }

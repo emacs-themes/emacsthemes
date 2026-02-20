@@ -17,6 +17,6 @@
     "yellow",
     "zonokai"
   ],
-  "elispBefore": "(unless (package-installed-p 'dash) (package-refresh-contents) (package-install 'dash))",
+  "elispBefore": "(unless (package-installed-p 'dash) (package-install 'dash))",
   "elispAfter": "(enable-theme 'zonokai-blue)"
 }

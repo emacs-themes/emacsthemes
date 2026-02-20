@@ -19,6 +19,6 @@
     "ef-themes",
     "rosa"
   ],
-  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-refresh-contents) (package-install 'modus-themes))",
+  "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-rosa)"
 }
