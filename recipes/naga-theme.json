@@ -4,7 +4,8 @@
   "description": "Dark color theme with green foreground color",
   "repoUrl": "https://github.com/kenranunderscore/emacs-naga-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/kenranunderscore/emacs-naga-theme/main/naga-theme.el"
+    "https://raw.githubusercontent.com/kenranunderscore/emacs-naga-theme/main/naga-theme.el",
+    "https://raw.githubusercontent.com/kenranunderscore/emacs-naga-theme/main/naga-base.el"
   ],
   "type": "dark",
   "authors": [
