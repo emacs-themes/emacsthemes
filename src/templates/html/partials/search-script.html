@@ -4,9 +4,51 @@
     const searchInput = document.getElementById('q');
     const searchForm = document.querySelector('.searchbar');
     const cards = document.querySelectorAll('.card');
+    const resultsHeadline = document.getElementById('search-results-headline');
+    const noResultsMessage = document.getElementById('no-results-message');
+    const grid = document.querySelector('.grid');
+
+    function clearNoResultsState() {
+      if (!grid || !noResultsMessage) return;
+      grid.style.display = 'grid';
+      noResultsMessage.style.display = 'none';
+    }
+
+    function setResultsState(query, count) {
+      if (!grid || !noResultsMessage) return;
+
+      if (count === 0) {
+        grid.style.display = 'none';
+        if (resultsHeadline) {
+          resultsHeadline.style.display = 'none';
+        }
+        noResultsMessage.textContent = `No results were found for "${query}".`;
+        noResultsMessage.style.display = 'block';
+        return;
+      }
+
+      clearNoResultsState();
+      if (!resultsHeadline) return;
+      if (!query) {
+        resultsHeadline.style.display = 'none';
+        return;
+      }
+      const suffix = count === 1 ? 'result' : 'results';
+      resultsHeadline.textContent = `${count} ${suffix} found for "${query}".`;
+      resultsHeadline.style.display = 'block';
+    }
 
     function filterThemes(query) {
       const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      if (!q) {
+        cards.forEach(card => {
+          card.style.display = 'flex';
+        });
+        setResultsState('', cards.length);
+        return;
+      }
 
       cards.forEach(card => {
         const id = card.getAttribute('data-id');
@@ -20,7 +62,10 @@
           theme.tags.some(tag => tag.toLowerCase().includes(q));
 
         card.style.display = matches ? 'flex' : 'none';
+        if (matches) visibleCount += 1;
       });
+
+      setResultsState(query.trim(), visibleCount);
     }
 
     function handleSearch(e) {

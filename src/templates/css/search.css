@@ -42,6 +42,16 @@
   filter: brightness(0.95);
 }
 
+#search-results-headline {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+#no-results-message {
+  margin: 0;
+  font-weight: 600;
+}
+
 @media (max-width: 560px) {
   .searchbar {
     flex-direction: column;
