@@ -74,8 +74,8 @@ jobs:
       - run:
           name: Install rclone
           command: |
-            apt-get update && apt-get install -y curl
-            curl https://rclone.org/install.sh | bash
+            apt-get update && apt-get install -y rclone
+            rclone version
       - run:
           name: Deploy to Cloudflare Pages
           command: bun run deploy
