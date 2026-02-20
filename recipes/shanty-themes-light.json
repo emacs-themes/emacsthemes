@@ -1,0 +1,20 @@
+{
+  "name": "Shanty Themes Light",
+  "id": "shanty-themes-light",
+  "description": "A pleasant, worker-focused light Emacs theme.",
+  "repoUrl": "https://github.com/qhga/shanty-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes.el",
+    "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Philip Gaber"
+  ],
+  "tags": [
+    "light",
+    "melpa",
+    "shanty",
+    "worker"
+  ]
+}

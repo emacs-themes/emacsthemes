@@ -1,9 +1,10 @@
 {
-  "name": "Shanty Themes Dark Theme",
+  "name": "Shanty Themes Dark",
   "id": "shanty-themes-dark",
-  "description": "The theme for digital workers (dark)",
+  "description": "A pleasant, worker-focused dark Emacs theme.",
   "repoUrl": "https://github.com/qhga/shanty-themes",
   "rawUrls": [
+    "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes.el",
     "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes-dark-theme.el"
   ],
   "type": "dark",
@@ -11,9 +12,9 @@
     "Philip Gaber"
   ],
   "tags": [
-    "black",
     "dark",
     "melpa",
-    "shanty"
+    "shanty",
+    "worker"
   ]
 }
