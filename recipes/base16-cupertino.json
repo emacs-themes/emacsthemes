@@ -7,7 +7,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-cupertino-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kaleb Elwert",
     "Defman21"
@@ -17,6 +17,6 @@
     "base16 cupertino",
     "black",
     "cupertino",
-    "dark"
+    "light"
   ]
 }

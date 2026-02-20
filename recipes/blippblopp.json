@@ -6,24 +6,22 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blippblopp-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Thomas Sicheritz-Ponten / Syohei YOSHIDA"
   ],
   "tags": [
-    "black",
     "blippblop",
-    "blue",
     "color themes",
-    "cyan",
-    "dark",
-    "gray",
-    "green",
     "light",
-    "orange",
-    "purple",
-    "red",
     "white",
-    "yellow"
+    "blue",
+    "green",
+    "red",
+    "purple",
+    "orange",
+    "yellow",
+    "cyan",
+    "gray"
   ]
 }

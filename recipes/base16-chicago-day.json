@@ -7,7 +7,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-chicago-day-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kaleb Elwert",
     "Wendell",
@@ -18,6 +18,6 @@
     "base16 chicago-day",
     "black",
     "chicago-day",
-    "dark"
+    "light"
   ]
 }

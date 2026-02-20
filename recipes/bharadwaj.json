@@ -6,26 +6,24 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/bharadwaj-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Girish Bharadwaj / Syohei YOSHIDA"
   ],
   "tags": [
     "bharadwaj",
-    "black",
-    "blue",
-    "cyan",
-    "dark",
     "emacs themes",
-    "gray",
-    "green",
     "grey",
     "light",
-    "magenta",
-    "orange",
-    "pink",
-    "purple",
+    "blue",
+    "green",
     "red",
-    "yellow"
+    "purple",
+    "orange",
+    "yellow",
+    "pink",
+    "cyan",
+    "magenta",
+    "gray"
   ]
 }

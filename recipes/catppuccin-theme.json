@@ -6,14 +6,14 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/catppuccin/emacs/main/catppuccin-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "nyxkrage"
   ],
   "tags": [
     "black",
     "catppuccin",
-    "dark",
+    "light",
     "melpa"
   ]
 }

@@ -6,19 +6,17 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/chyla/ChylaThemeForEmacs/refs/heads/master/chyla-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Adam Chyła"
   ],
   "tags": [
-    "chyla",
-    "dark",
-    "gray",
-    "green",
     "light",
-    "melpa",
-    "muted",
+    "green",
+    "chyla",
     "nord",
-    "red"
+    "red",
+    "gray",
+    "muted"
   ]
 }

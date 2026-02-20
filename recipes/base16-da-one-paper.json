@@ -7,7 +7,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-da-one-paper-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kaleb Elwert",
     "NNB"
@@ -17,6 +17,6 @@
     "base16 da-one-paper",
     "black",
     "da-one-paper",
-    "dark"
+    "light"
   ]
 }

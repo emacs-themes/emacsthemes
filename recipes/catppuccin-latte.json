@@ -15,13 +15,12 @@
   "elispBefore": "(setq catppuccin-flavor 'latte)",
   "elispAfter": "(catppuccin-reload)",
   "tags": [
-    "catppuccin",
-    "dracula",
-    "emacs 26",
-    "light",
+    "white",
     "mocha",
     "modern",
-    "nord",
-    "white"
+    "catppuccin",
+    "emacs 26",
+    "dracula",
+    "nord"
   ]
 }

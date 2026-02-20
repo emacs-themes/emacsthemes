@@ -7,7 +7,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-cupcake-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kaleb Elwert",
     "Chris Kempson"
@@ -17,6 +17,6 @@
     "base16 cupcake",
     "black",
     "cupcake",
-    "dark"
+    "light"
   ]
 }

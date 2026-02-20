@@ -6,22 +6,20 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/black-on-gray-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "sbhojwani / Syohei YOSHIDA"
   ],
   "tags": [
-    "black",
     "black on gray",
-    "blue",
     "color themes",
-    "dark",
-    "gray",
-    "green",
     "grey",
     "light",
-    "orange",
+    "blue",
+    "green",
     "red",
-    "yellow"
+    "orange",
+    "yellow",
+    "gray"
   ]
 }
