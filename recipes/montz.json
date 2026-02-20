@@ -6,7 +6,7 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/montz-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Brady Montz",
     "Syohei YOSHIDA"
@@ -15,6 +15,7 @@
     "black",
     "color themes",
     "grey",
+    "light",
     "montz"
   ]
 }

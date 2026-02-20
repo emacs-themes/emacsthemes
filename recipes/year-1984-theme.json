@@ -6,13 +6,14 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/mastro35/year-1984-theme/main/year-1984-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Davide Mastromatteo"
   ],
   "tags": [
-    "black",
-    "dark",
+    "tan",
+    "brown",
+    "light",
     "melpa",
     "year-1984"
   ]

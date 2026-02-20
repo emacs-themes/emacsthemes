@@ -6,13 +6,13 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/antonhibl/tardis-theme/main/tardis-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Anton Hibl"
   ],
   "tags": [
-    "black",
-    "dark",
+    "grey",
+    "light",
     "melpa",
     "tardis"
   ]

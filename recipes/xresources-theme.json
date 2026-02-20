@@ -6,13 +6,15 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/martenlienen/xresources-theme/master/xresources-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Marten Lienen"
   ],
   "tags": [
-    "black",
-    "dark",
+    "white",
+    "black and white",
+    "monochrome",
+    "light",
     "melpa",
     "xresources"
   ]
