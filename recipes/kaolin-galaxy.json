@@ -8,7 +8,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/kaolin-themes-lib.el",
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-galaxy-theme.el"
   ],
-  "type": "light",
+  "type": "dark",
   "authors": [
     "Ogden Webb"
   ],

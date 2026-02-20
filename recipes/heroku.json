@@ -6,7 +6,7 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/jonathanchu/heroku-theme/master/heroku-theme.el"
   ],
-  "type": "light",
+  "type": "dark",
   "authors": [
     "Jonathan Chu"
   ],
@@ -14,8 +14,7 @@
     "emacs 24",
     "grey",
     "heroku",
-    "light",
-    "melpa",
-    "white"
+    "dark",
+    "melpa"
   ]
 }
