@@ -9,13 +9,13 @@
     "https://raw.githubusercontent.com/kunalb/poet/master/poet-dark-monochrome-theme.el",
     "https://raw.githubusercontent.com/kunalb/poet/master/poet-monochrome-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kunal Bhalla"
   ],
   "tags": [
     "brown",
-    "dark",
+    "light",
     "grey",
     "melpa",
     "monochrome",
