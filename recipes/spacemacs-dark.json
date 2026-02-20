@@ -1,0 +1,26 @@
+{
+  "name": "Spacemacs Dark",
+  "id": "spacemacs-dark",
+  "description": "The dark Spacemacs variant, designed for high-contrast coding with broad mode coverage and solid terminal support.",
+  "repoUrl": "https://github.com/nashamri/spacemacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-theme.el",
+    "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Nasser Alshammari"
+  ],
+  "tags": [
+    "black",
+    "blue",
+    "cyan",
+    "dark",
+    "gray",
+    "popular",
+    "pink",
+    "spacemacs",
+    "terminal",
+    "high contrast"
+  ]
+}

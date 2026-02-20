@@ -1,0 +1,27 @@
+{
+  "name": "Spacemacs Light",
+  "id": "spacemacs-light",
+  "description": "The light Spacemacs variant, offering the same extensive face coverage with a bright, readable palette.",
+  "repoUrl": "https://github.com/nashamri/spacemacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-theme.el",
+    "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "Nasser Alshammari"
+  ],
+  "tags": [
+    "blue",
+    "cream",
+    "cyan",
+    "light",
+    "orange",
+    "popular",
+    "red",
+    "spacemacs",
+    "terminal",
+    "readable",
+    "white"
+  ]
+}
