@@ -13,6 +13,7 @@ const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
 const BASE_URL = "https://emacsthemes.org";
+const TITLE_BRAND_SUFFIX = " - Emacs Themes";
 
 /**
  * Options for html-minifier-terser.
@@ -225,12 +226,13 @@ interface PageData {
  */
 function applyBaseTemplate(template: string, data: PageData): string {
   const currentYear = new Date().getFullYear().toString();
+  const brandedTitle = `${data.title}${TITLE_BRAND_SUFFIX}`;
   const extraCssPreloads = (data.extraCssPaths || [])
     .map(path => getCssPreloadTags(path))
     .join("\n");
 
   return template
-    .replace("{{TITLE}}", escapeHtml(data.title))
+    .replace("{{TITLE}}", escapeHtml(brandedTitle))
     .replace("{{DESCRIPTION}}", escapeHtml(data.description))
     .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
     .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
@@ -259,7 +261,7 @@ async function buildHomepage(template: string, cardTemplate: string) {
   const latestThemesHeadline = `<h2 class="latest-headline">Freshly Baked Themes 🥐</h2><p class="subhead">The newest additions to our gallery. Warning: may cause sudden urge to rewrite your init.el.</p>`;
 
   const html = applyBaseTemplate(template, {
-    title: "Emacs Themes - An Emacs Themes Gallery",
+    title: "An Emacs Themes Gallery",
     description: "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
     ogTitle: "Emacs Themes Gallery",
     ogDescription: "Discover and preview the best Emacs themes.",
@@ -413,9 +415,9 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
  */
 async function buildAboutPage(template: string, aboutContentHtml: string) {
   const html = applyBaseTemplate(template, {
-    title: "About the Emacs Themes Site",
+    title: "About the website",
     description: "Learn more about our curated directory of Emacs themes and how to contribute.",
-    ogTitle: "About Emacs Themes",
+    ogTitle: "About Emacs Themes Site",
     ogDescription: "Information about the curated Emacs themes directory.",
     ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: aboutContentHtml,
