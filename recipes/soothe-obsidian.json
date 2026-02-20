@@ -1,11 +1,12 @@
 {
-  "name": "Soothe Theme",
-  "id": "soothe",
-  "description": "Colorful, muted theme for Emacs 24",
+  "name": "Soothe Obsidian Theme",
+  "id": "soothe-obsidian",
+  "description": "An obsidian-black variant of the colorful, muted Soothe theme.",
   "repoUrl": "https://github.com/emacsfodder/emacs-soothe-theme",
   "rawUrls": [
     "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-tva.el",
-    "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-theme.el"
+    "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-theme.el",
+    "https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-obsidian-theme.el"
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-refresh-contents) (package-install 'autothemer))",
   "type": "dark",
@@ -15,8 +16,8 @@
   "tags": [
     "black",
     "dark",
-    "emacs 24",
     "melpa",
+    "obsidian",
     "soothe"
   ]
 }
