@@ -6,14 +6,14 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/dgutov/espresso-theme/master/espresso-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Martin Kühl"
   ],
   "tags": [
     "black",
-    "dark",
     "espresso",
+    "light",
     "melpa"
   ]
 }

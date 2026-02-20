@@ -6,7 +6,7 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/pzel/commentary-theme/refs/heads/master/commentary-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Amirreza Ghaderi & Simon Zelazny "
   ],
@@ -14,7 +14,7 @@
     "accessibility",
     "black",
     "commentary",
-    "dark",
+    "light",
     "gray",
     "light",
     "melpa",

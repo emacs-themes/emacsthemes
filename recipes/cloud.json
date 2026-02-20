@@ -6,14 +6,13 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/vallyscode/cloud-theme/refs/heads/master/cloud-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Valerii Lysenko"
   ],
   "tags": [
     "blue",
     "cloud",
-    "dark",
     "gray",
     "green",
     "light",

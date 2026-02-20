@@ -6,13 +6,13 @@
   "rawUrls": [
     "https://codeberg.org/mekeor/iosevka-theme/raw/branch/default/iosevka-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Mekeor Melire"
   ],
   "tags": [
-    "black",
-    "dark",
+    "white",
+    "light",
     "iosevka",
     "melpa"
   ]

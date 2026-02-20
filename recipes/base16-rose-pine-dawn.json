@@ -7,7 +7,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-rose-pine-dawn-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Kaleb Elwert",
     "Emilia Dunfelt &lt;edun@dunfelt.se&gt;"
@@ -16,7 +16,7 @@
     "base16",
     "base16 rose-pine-dawn",
     "black",
-    "dark",
+    "light",
     "rose-pine-dawn"
   ]
 }

@@ -6,13 +6,13 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/meain/hima-theme/master/hima-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Meain"
   ],
   "tags": [
-    "black",
-    "dark",
+    "white",
+    "light",
     "hima",
     "melpa",
     "minimal"

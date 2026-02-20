@@ -6,13 +6,14 @@
   "rawUrls": [
     "static/themes/firebelly/firebelly-theme.el"
   ],
-  "type": "light",
+  "type": "dark",
   "authors": [
     "startling"
   ],
   "tags": [
     "accessibility",
     "black",
+    "dark",
     "firebelly",
     "grey",
     "white"

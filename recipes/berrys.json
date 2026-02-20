@@ -6,7 +6,7 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/vbuzin/berrys-theme/refs/heads/master/berrys-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Slava Buzin"
   ],
@@ -14,7 +14,6 @@
     "berrys",
     "black",
     "blue",
-    "dark",
     "gray",
     "light",
     "melpa",

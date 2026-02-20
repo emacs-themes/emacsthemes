@@ -6,12 +6,12 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/jimeh/twilight-anti-bright-theme/master/twilight-anti-bright-theme.el"
   ],
-  "type": "light",
+  "type": "dark",
   "authors": [
     "Jim Myhrberg"
   ],
   "tags": [
-    "light",
+    "dark",
     "melpa",
     "twilight-anti-bright",
     "white"

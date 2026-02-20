@@ -6,13 +6,13 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/jaredgorski/nothing.el/master/nothing-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Jared Gorski"
   ],
   "tags": [
     "black",
-    "dark",
+    "light",
     "melpa",
     "monochrome",
     "nothing"

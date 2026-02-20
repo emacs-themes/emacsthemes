@@ -9,13 +9,13 @@
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/spacemacs-themes/ewal-spacemacs-modern-theme.el",
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-euphrasia.json"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Uros Perisic"
   ],
   "tags": [
-    "black",
-    "dark",
+    "blue",
+    "light",
     "ewal",
     "spacemacs"
   ],

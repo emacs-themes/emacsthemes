@@ -6,20 +6,19 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/dakrone/dakrone-light-theme/refs/heads/master/dakrone-light-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Lee Hinman"
   ],
   "tags": [
     "blue",
     "brown",
-    "dark",
+    "light",
     "darkrone",
     "emacs 24",
     "gray",
     "green",
     "grey",
-    "light",
     "melpa",
     "muted",
     "nord",

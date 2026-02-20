@@ -7,14 +7,14 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-eagle-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Protesilaos Stavrou"
   ],
   "tags": [
-    "black",
+    "yellow",
     "colorful",
-    "dark",
+    "light",
     "eagle",
     "ef",
     "ef-themes"

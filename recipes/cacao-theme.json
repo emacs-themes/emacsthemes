@@ -6,7 +6,7 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/Michael-Garibaldi/cacao-theme/master/cacao-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "KoshVorlon"
   ],
@@ -14,7 +14,6 @@
     "black",
     "cacao",
     "chocolate",
-    "dark",
     "emacs 24",
     "light",
     "melpa",

@@ -6,13 +6,13 @@
   "rawUrls": [
     "https://raw.githubusercontent.com/seblemaguer/flatfluc-theme/master/flatfluc-theme.el"
   ],
-  "type": "dark",
+  "type": "light",
   "authors": [
     "Sébastien Le Maguer"
   ],
   "tags": [
-    "black",
-    "dark",
+    "blue",
+    "light",
     "flatfluc",
     "melpa"
   ]
