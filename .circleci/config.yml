@@ -79,7 +79,10 @@ jobs:
             rclone version
       - run:
           name: Deploy to Cloudflare Pages
-          command: bun run deploy
+          command: |
+            test -n "$CLOUDFLARE_API_TOKEN" || (echo "Missing CLOUDFLARE_API_TOKEN" && exit 1)
+            test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "Missing CLOUDFLARE_ACCOUNT_ID" && exit 1)
+            bun run deploy
 
 workflows:
   version: 2
