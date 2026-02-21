@@ -192,15 +192,13 @@ function generateThemeCard(theme: Theme, template: string, relativeRoot: string 
 }
 
 /**
- * Generates HTML tags for preloading a CSS file, with a fallback for non-JS environments.
+ * Generates an HTML stylesheet link tag.
  *
  * @param {string} cssPath - The path to the CSS file.
- * @returns {string} The HTML string containing the preload link and noscript fallback.
+ * @returns {string} The HTML string containing a stylesheet link.
  */
-function getCssPreloadTags(cssPath: string): string {
-  return `
-    <link rel="preload" href="${cssPath}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="${cssPath}"></noscript>`;
+function getCssLinkTag(cssPath: string): string {
+  return `<link rel="stylesheet" href="${cssPath}">`;
 }
 
 interface PageData {
@@ -227,8 +225,8 @@ interface PageData {
 function applyBaseTemplate(template: string, data: PageData): string {
   const currentYear = new Date().getFullYear().toString();
   const brandedTitle = `${data.title}${TITLE_BRAND_SUFFIX}`;
-  const extraCssPreloads = (data.extraCssPaths || [])
-    .map(path => getCssPreloadTags(path))
+  const extraCssLinks = (data.extraCssPaths || [])
+    .map(path => getCssLinkTag(path))
     .join("\n");
 
   return template
@@ -240,8 +238,8 @@ function applyBaseTemplate(template: string, data: PageData): string {
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
     .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
-    .replace("{{MAIN_CSS_PRELOAD}}", getCssPreloadTags(data.mainCssPath))
-    .replace("{{EXTRA_CSS_PRELOAD}}", extraCssPreloads)
+    .replace("{{MAIN_CSS_PRELOAD}}", getCssLinkTag(data.mainCssPath))
+    .replace("{{EXTRA_CSS_PRELOAD}}", extraCssLinks)
     .replace("{{YEAR}}", currentYear)
     .replace("{{SCRIPTS}}", data.scripts || "")
     .replace(/{{GITHUB_URL}}/g, GITHUB_URL);
