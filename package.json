@@ -10,7 +10,7 @@
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
-    "deploy:site": "WRANGLER_LOG=debug rm -rf build/static/imgs && bun wrangler pages deploy build --project-name=emacsthemes",
+    "deploy:site": "rm -rf build/static/imgs && bun wrangler pages deploy build --project-name=emacsthemes --branch=main",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
     "deploy": "bun run deploy:imgs && bun run deploy:site",
     "dev": "bun wrangler pages dev build --binding ENVIRONMENT=development"

@@ -74,15 +74,28 @@ jobs:
       - run:
           name: Install rclone
           command: |
-            apt-get update && apt-get install -y --no-install-recommends ca-certificates rclone
+            NODE_VERSION="22.11.0"
+            apt-get update && apt-get install -y --no-install-recommends ca-certificates rclone git curl xz-utils
+            curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o /tmp/node.tar.xz
+            mkdir -p /usr/local/lib/nodejs
+            tar -xJf /tmp/node.tar.xz -C /usr/local/lib/nodejs
+            ln -sf "/usr/local/lib/nodejs/node-v${NODE_VERSION}-linux-x64/bin/node" /usr/local/bin/node
+            ln -sf "/usr/local/lib/nodejs/node-v${NODE_VERSION}-linux-x64/bin/npm" /usr/local/bin/npm
+            ln -sf "/usr/local/lib/nodejs/node-v${NODE_VERSION}-linux-x64/bin/npx" /usr/local/bin/npx
             update-ca-certificates
             rclone version
+            node --version
+            npm --version
+            npx --version
       - run:
           name: Deploy to Cloudflare Pages
           command: |
             test -n "$CLOUDFLARE_API_TOKEN" || (echo "Missing CLOUDFLARE_API_TOKEN" && exit 1)
             test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "Missing CLOUDFLARE_ACCOUNT_ID" && exit 1)
-            bun run deploy
+            shopt -s expand_aliases
+            alias bun='npm'
+            ls -la build
+            CI=true WRANGLER_SEND_METRICS=false bun run deploy
 
 workflows:
   version: 2
