@@ -120,7 +120,7 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
 
   return themesWithStats
     .filter((t): t is (Theme & { mtime: number }) => t !== null)
-    .sort((a, b) => b.mtime - a.mtime)
+    .toSorted((a, b) => b.mtime - a.mtime)
     .slice(0, limit);
 }
 

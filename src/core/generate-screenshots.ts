@@ -225,7 +225,7 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
   try {
     const files = filesToSearch || await readdir(dir);
     // Sort files to prioritize those that end with -theme.el
-    const sortedFiles = [...files].sort((a, b) => {
+    const sortedFiles = [...files].toSorted((a, b) => {
       const aIsTheme = a.endsWith("-theme.el");
       const bIsTheme = b.endsWith("-theme.el");
       if (aIsTheme && !bIsTheme) return -1;

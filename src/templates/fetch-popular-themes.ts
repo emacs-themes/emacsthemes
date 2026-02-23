@@ -79,7 +79,7 @@ function filterPackages(packages: DownloadCounts, recipes: RecipesIndex): ThemeD
     .filter(
       key => key.includes(themeStr) && !key.startsWith("/") && !ignored[key],
     )
-    .sort((k1, k2) => {
+    .toSorted((k1, k2) => {
       if (packages[k1] >= packages[k2]) {
         return -1;
       }
