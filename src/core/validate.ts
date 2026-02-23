@@ -1,7 +1,8 @@
 import { validateSchema } from "./schema-checker.js";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
-import { RECIPES_DIR } from "./constants.js";
+import { PINNED_THEMES_PATH, RECIPES_DIR } from "./constants.js";
+import { getPinnedThemeIds } from "./pinned-themes.js";
 
 async function getRecipeFiles(dir: string): Promise<string[]> {
   const files = await readdir(dir);
@@ -31,18 +32,47 @@ function checkDuplicateIds(idMap: Map<string, string[]>): boolean {
   return hasDuplicates;
 }
 
+/**
+ * Validates that every pinned theme points to an existing recipe file.
+ *
+ * @param {string[]} pinnedThemeIds - Ordered pinned theme IDs from configuration.
+ * @param {Set<string>} recipeFileIds - Set of recipe IDs derived from recipe filenames.
+ * @returns {boolean} True when at least one pinned theme is missing a recipe file.
+ */
+function checkPinnedThemeFilesExist(pinnedThemeIds: string[], recipeFileIds: Set<string>): boolean {
+  let hasMissingPinnedThemes = false;
+
+  for (const pinnedThemeId of pinnedThemeIds) {
+    if (!recipeFileIds.has(pinnedThemeId)) {
+      console.error(
+        `❌ Pinned theme "${pinnedThemeId}" is missing recipe file: ${join(RECIPES_DIR, `${pinnedThemeId}.json`)}`,
+      );
+      hasMissingPinnedThemes = true;
+    }
+  }
+
+  return hasMissingPinnedThemes;
+}
+
 async function main() {
   try {
     const recipeFiles = await getRecipeFiles(RECIPES_DIR);
+    let pinnedThemeIds: string[];
 
-    if (recipeFiles.length === 0) {
-      console.log(`No recipe files found in "${RECIPES_DIR}" directory.`);
-      process.exit(0);
+    try {
+      pinnedThemeIds = await getPinnedThemeIds(PINNED_THEMES_PATH);
+    } catch (error) {
+      console.error(`❌ ${(error as Error).message}`);
+      process.exit(1);
+      return;
     }
 
     console.log(`Found ${recipeFiles.length} recipe file(s) to validate.`);
 
     const idMap = new Map<string, string[]>();
+    const recipeFileIds = new Set<string>(
+      recipeFiles.map((file) => file.slice(0, -".json".length)),
+    );
     let hasErrors = false;
 
     for (const file of recipeFiles) {
@@ -71,11 +101,17 @@ async function main() {
       hasErrors = true;
     }
 
+    if (checkPinnedThemeFilesExist(pinnedThemeIds, recipeFileIds)) {
+      hasErrors = true;
+    }
+
     if (hasErrors) {
       console.error("\n❌ Validation failed.");
       process.exit(1);
     } else {
-      console.log("\n✅ All recipes validated successfully and IDs are unique.");
+      console.log(
+        "\n✅ All recipes validated successfully, IDs are unique, and pinned theme files exist.",
+      );
       process.exit(0);
     }
   } catch (error) {

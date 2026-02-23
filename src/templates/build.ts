@@ -4,6 +4,7 @@ import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
+import { getPinnedThemeIds } from "../core/pinned-themes.js";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -93,35 +94,27 @@ interface Theme {
 // Data Fetching
 
 /**
- * Retrieves a list of themes sorted by modification time (newest first).
+ * Retrieves homepage themes based on the explicit pinned theme order in configuration.
  *
- * @param {number} [limit=9] - The maximum number of themes to return.
- * @returns {Promise<Theme[]>} A promise that resolves to an array of sorted Theme objects.
+ * @returns {Promise<Theme[]>} A promise that resolves to an array of pinned Theme objects.
+ * @throws {Error} Throws when any pinned theme recipe does not exist.
  */
-async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
-  const files = await readdir(RECIPES_DIR);
-  const themeFiles = files.filter((f) => f.endsWith(".json"));
+async function getPinnedThemes(): Promise<Theme[]> {
+  const pinnedThemeIds = await getPinnedThemeIds();
 
-  const themesWithStats = await Promise.all(
-    themeFiles.map(async (file) => {
-      const filePath = join(RECIPES_DIR, file);
-      const content = (await Bun.file(filePath).json()) as Theme;
-      const screenshotsDir = assertPathWithinRoot(PATHS.assets.src.images, content.id);
+  return await Promise.all(
+    pinnedThemeIds.map(async (themeId) => {
+      const recipePath = assertPathWithinRoot(RECIPES_DIR, `${themeId}.json`);
 
       try {
-        const stats = await stat(screenshotsDir);
-        return { ...content, mtime: stats.mtime.getTime() };
+        return (await Bun.file(recipePath).json()) as Theme;
       } catch {
-        // Skip themes without a screenshots directory
-        return null;
+        throw new Error(
+          `Pinned theme recipe "${themeId}.json" not found. "${recipePath}" does not exist!`,
+        );
       }
     }),
   );
-
-  return themesWithStats
-    .filter((t): t is Theme & { mtime: number } => t !== null)
-    .toSorted((a, b) => b.mtime - a.mtime)
-    .slice(0, limit);
 }
 
 /**
@@ -254,7 +247,7 @@ function applyBaseTemplate(template: string, data: PageData): string {
  * @param {string} cardTemplate - The theme card HTML template.
  */
 async function buildHomepage(template: string, cardTemplate: string) {
-  const themes = await getSortedThemes(9);
+  const themes = await getPinnedThemes();
   const themesGrid =
     `<div class="grid">` +
     themes.map((t) => generateThemeCard(t, cardTemplate)).join("\n") +

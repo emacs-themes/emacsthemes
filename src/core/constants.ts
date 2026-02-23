@@ -1,4 +1,5 @@
 export const RECIPES_DIR = "recipes";
+export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
 
 export interface ModeConfig {
   file: string;

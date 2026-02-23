@@ -101,6 +101,30 @@ Example:
 bun run screenshots --file=kaolin-dark
 ```
 
+### Pinning themes on the homepage
+
+Pinned themes are configured in `src/templates/data/pinned-themes.json`.
+
+Rules:
+
+- Add your entry to the `pinnedThemes` array as the first one and delete the last.
+- The value must match a recipe file name in `recipes/` (file name without `.json`).
+  Example: `recipes/kaolin-dark.json` -> `"kaolin-dark"`.
+
+Example:
+
+```json
+{
+  "pinnedThemes": ["kaolin-dark", "soothe", "tok-dark"]
+}
+```
+
+After updating pinned themes, run a build to verify everything resolves correctly:
+
+```bash
+bun run build
+```
+
 ### Validation
 
 To validate the recipes run:
@@ -113,6 +137,18 @@ To do a check (lint & format) run:
 
 ```bash
 bun run check
+```
+
+To fix lint errors, run:
+
+```bash
+bun run lint:fix
+```
+
+To fix format (fmt:check) errors, run:
+
+```bash
+bun run fmt
 ```
 
 ## License
