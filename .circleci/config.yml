@@ -32,8 +32,8 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: Run Linting
-          command: bun run lint
+          name: Run Check (lint | format)
+          command: bun run check
 
   validate-recipes:
     executor: bun-executor

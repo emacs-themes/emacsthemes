@@ -80,12 +80,6 @@ Examples:
 - recipe with `elispAfter` [doric oak](recipes/doric-oak.json);
 - recipe with both `elispBefore` & `elispAfter` [ef reverie](recipes/ef-reverie.json);
 
-*To validate it run*:
-
-```bash
-bun run validate
-```
-
 
 ### Adding screenshots
 
@@ -108,6 +102,20 @@ Example:
 
 ```bash
 bun run screenshots --file=kaolin-dark
+```
+
+### Validation
+
+To validate the recipes run:
+
+```bash
+bun run validate
+```
+
+To do a check (lint & format) run:
+
+```bash
+bun run check
 ```
 
 ## License

@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "bun test",
-    "lint": "tsc --noEmit && oxlint",
+    "check": "tsc --noEmit && bun run fmt:check && bun run lint",
+    "lint": "oxlint",
     "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
     "build": "bun src/templates/build.ts",
