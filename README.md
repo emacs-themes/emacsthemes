@@ -78,7 +78,7 @@ Examples:
 
 - recipe with `elispBefore` [gruvbox](recipes/gruvbox.json);
 - recipe with `elispAfter` [doric oak](recipes/doric-oak.json);
-- recipe with both `elispBefore` & `elispAfter` [ef reverie](recipes/ef-reverie.json)
+- recipe with both `elispBefore` & `elispAfter` [ef reverie](recipes/ef-reverie.json);
 
 *To validate it run*:
 
