@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-catppuccin-mocha-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "https://github.com/catppuccin/catppuccin"
-  ],
-  "tags": [
-    "base16",
-    "base16 catppuccin-mocha",
-    "black",
-    "catppuccin-mocha",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "https://github.com/catppuccin/catppuccin"],
+  "tags": ["base16", "base16 catppuccin-mocha", "black", "catppuccin-mocha", "dark"]
 }

@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-peacock-theme/master/peacock-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "emacs 24",
-    "green",
-    "melpa",
-    "peacock"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "brown", "dark", "emacs 24", "green", "melpa", "peacock"]
 }

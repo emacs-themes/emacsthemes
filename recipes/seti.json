@@ -3,19 +3,8 @@
   "id": "seti",
   "description": "A dark colored theme, inspired by Seti Atom Theme",
   "repoUrl": "https://github.com/caisah/seti-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/caisah/seti-theme/master/seti-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/caisah/seti-theme/master/seti-theme.el"],
   "type": "dark",
-  "authors": [
-    "Vlad Piersec"
-  ],
-  "tags": [
-    "atom",
-    "black",
-    "dark",
-    "melpa",
-    "red",
-    "seti"
-  ]
+  "authors": ["Vlad Piersec"],
+  "tags": ["atom", "black", "dark", "melpa", "red", "seti"]
 }

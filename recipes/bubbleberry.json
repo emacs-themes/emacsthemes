@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-bubbleberry-theme/refs/heads/master/bubbleberry-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins & Gaurav Giri"
-  ],
-  "tags": [
-    "black",
-    "blueberry",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "muted",
-    "red"
-  ]
+  "authors": ["Jason Milkins & Gaurav Giri"],
+  "tags": ["black", "blueberry", "dark", "emacs 24", "gray", "melpa", "muted", "red"]
 }

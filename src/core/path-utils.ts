@@ -1,4 +1,4 @@
-import { resolve, relative } from 'node:path';
+import { resolve, relative } from "node:path";
 
 /**
  * Asserts that a candidate path is contained within a specified root directory.
@@ -15,7 +15,7 @@ export function assertPathWithinRoot(root: string, candidate: string): string {
   const absoluteCandidate = resolve(absoluteRoot, candidate);
   const relativePath = relative(absoluteRoot, absoluteCandidate);
 
-  const isOutside = relativePath.startsWith('..') || relativePath.startsWith('/');
+  const isOutside = relativePath.startsWith("..") || relativePath.startsWith("/");
 
   if (isOutside) {
     throw new Error(`Security Violation: Path ${candidate} is outside of allowed root ${root}`);

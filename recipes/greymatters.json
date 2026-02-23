@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/greymatters-theme/master/greymatters-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "emacs24",
-    "grey",
-    "greymatters",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["emacs24", "grey", "greymatters", "light", "melpa", "white"]
 }

@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/m00natic/anti-zenburn-theme/master/anti-zenburn-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Andrey Kotlarski"
-  ],
+  "authors": ["Andrey Kotlarski"],
   "tags": [
     "accessibility",
     "emacs 23",

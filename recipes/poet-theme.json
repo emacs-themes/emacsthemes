@@ -10,17 +10,6 @@
     "https://raw.githubusercontent.com/kunalb/poet/master/poet-monochrome-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kunal Bhalla"
-  ],
-  "tags": [
-    "brown",
-    "light",
-    "grey",
-    "melpa",
-    "monochrome",
-    "poet",
-    "popular",
-    "white"
-  ]
+  "authors": ["Kunal Bhalla"],
+  "tags": ["brown", "light", "grey", "melpa", "monochrome", "poet", "popular", "white"]
 }

@@ -8,17 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-kassio-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "colorful",
-    "ef",
-    "ef-themes",
-    "kassio",
-    "light",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["colorful", "ef", "ef-themes", "kassio", "light", "white"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-kassio)"
 }

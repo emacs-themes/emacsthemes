@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/emacsorphanage/omtose-phellack-themes/master/omtose-darker-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alexander F. Adhyatma"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "omtose-phellack"
-  ]
+  "authors": ["Alexander F. Adhyatma"],
+  "tags": ["black", "dark", "melpa", "omtose-phellack"]
 }

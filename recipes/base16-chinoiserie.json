@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-chinoiserie-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Di Wang"
-  ],
-  "tags": [
-    "base16",
-    "base16 chinoiserie",
-    "chinoiserie",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Di Wang"],
+  "tags": ["base16", "base16 chinoiserie", "chinoiserie", "light"]
 }

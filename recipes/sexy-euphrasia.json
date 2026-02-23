@@ -10,14 +10,7 @@
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-euphrasia.json"
   ],
   "type": "light",
-  "authors": [
-    "Uros Perisic"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "ewal",
-    "spacemacs"
-  ],
+  "authors": ["Uros Perisic"],
+  "tags": ["blue", "light", "ewal", "spacemacs"],
   "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-euphrasia\" ewal-json-file (expand-file-name \"sexy-euphrasia.json\" (car load-path)))"
 }

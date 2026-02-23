@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-linux-vt-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "j-c-m"
-  ],
-  "tags": [
-    "base16",
-    "base16 linux-vt",
-    "black",
-    "dark",
-    "linux-vt"
-  ]
+  "authors": ["Kaleb Elwert", "j-c-m"],
+  "tags": ["base16", "base16 linux-vt", "black", "dark", "linux-vt"]
 }

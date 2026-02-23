@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/aalpern/emacs-color-theme-green-phosphor/master/green-phosphor-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Adam Alpern"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "green-phosphor",
-    "melpa"
-  ]
+  "authors": ["Adam Alpern"],
+  "tags": ["dark", "green", "green-phosphor", "melpa"]
 }

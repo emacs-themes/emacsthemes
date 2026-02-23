@@ -3,20 +3,8 @@
   "id": "naquadah",
   "description": "A theme based on Tango color set",
   "repoUrl": "https://github.com/jd/naquadah-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/jd/naquadah-theme/master/naquadah-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/jd/naquadah-theme/master/naquadah-theme.el"],
   "type": "dark",
-  "authors": [
-    "Julien Danjou"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "melpa",
-    "naquadah",
-    "popular",
-    "tango"
-  ]
+  "authors": ["Julien Danjou"],
+  "tags": ["black", "color themes", "dark", "melpa", "naquadah", "popular", "tango"]
 }

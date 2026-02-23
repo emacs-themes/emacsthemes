@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/calm-forest-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Artur Hefczyc / Syohei YOSHIDA"
-  ],
+  "authors": ["Artur Hefczyc / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

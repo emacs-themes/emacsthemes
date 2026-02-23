@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/arturovm/shades-of-purple-emacs/main/shades-of-purple-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Arturo Vergara"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "purple",
-    "shades-of-purple"
-  ]
+  "authors": ["Arturo Vergara"],
+  "tags": ["dark", "melpa", "purple", "shades-of-purple"]
 }

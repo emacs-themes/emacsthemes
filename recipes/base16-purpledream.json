@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-purpledream-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "malet"
-  ],
-  "tags": [
-    "base16",
-    "base16 purpledream",
-    "dark",
-    "purple",
-    "purpledream"
-  ]
+  "authors": ["Kaleb Elwert", "malet"],
+  "tags": ["base16", "base16 purpledream", "dark", "purple", "purpledream"]
 }

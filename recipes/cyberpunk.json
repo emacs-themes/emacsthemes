@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/n3mo/cyberpunk-theme.el/refs/heads/master/cyberpunk-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nicholas M. Van Horn"
-  ],
+  "authors": ["Nicholas M. Van Horn"],
   "tags": [
     "black",
     "cyberpunk",

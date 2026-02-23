@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-deep-thought-theme/refs/heads/master/deep-thought-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "deep thought",
-    "gray",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "blue", "dark", "deep thought", "gray", "muted", "nord", "red"]
 }

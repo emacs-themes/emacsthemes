@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/fourier/idea-darkula-theme/master/idea-darkula-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alexey Veretennikov"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "idea",
-    "idea drakula",
-    "intellij"
-  ]
+  "authors": ["Alexey Veretennikov"],
+  "tags": ["black", "dark", "emacs 24", "idea", "idea drakula", "intellij"]
 }

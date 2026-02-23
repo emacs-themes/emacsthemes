@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/kostafey/organic-green-theme/master/organic-green-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kostafey"
-  ],
-  "tags": [
-    "accessibility",
-    "green",
-    "light",
-    "melpa",
-    "organic green"
-  ]
+  "authors": ["Kostafey"],
+  "tags": ["accessibility", "green", "light", "melpa", "organic green"]
 }

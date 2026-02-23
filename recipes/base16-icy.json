@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-icy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "icyphox"
-  ],
-  "tags": [
-    "base16",
-    "base16 icy",
-    "black",
-    "dark",
-    "icy"
-  ]
+  "authors": ["Kaleb Elwert", "icyphox"],
+  "tags": ["base16", "base16 icy", "black", "dark", "icy"]
 }

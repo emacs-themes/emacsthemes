@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-ashes-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jannik Siebert"
-  ],
-  "tags": [
-    "ashes",
-    "base16",
-    "base16 ashes",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Jannik Siebert"],
+  "tags": ["ashes", "base16", "base16 ashes", "black", "dark"]
 }

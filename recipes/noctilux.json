@@ -3,20 +3,8 @@
   "id": "noctilux",
   "description": "A dark color theme for Emacs 24+, inspired by the default dark theme in ",
   "repoUrl": "https://github.com/stafu/noctilux-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/stafu/noctilux-theme/master/noctilux-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/stafu/noctilux-theme/master/noctilux-theme.el"],
   "type": "dark",
-  "authors": [
-    "Simon M."
-  ],
-  "tags": [
-    "color themes",
-    "dark",
-    "melpa",
-    "noctilux",
-    "popular",
-    "red",
-    "solarized"
-  ]
+  "authors": ["Simon M."],
+  "tags": ["color themes", "dark", "melpa", "noctilux", "popular", "red", "solarized"]
 }

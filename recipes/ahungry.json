@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/ahungry/color-theme-ahungry/master/ahungry-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Matthew Carter"
-  ],
-  "tags": [
-    "ahungry",
-    "black",
-    "dark",
-    "elpa",
-    "melpa",
-    "yellow"
-  ]
+  "authors": ["Matthew Carter"],
+  "tags": ["ahungry", "black", "dark", "elpa", "melpa", "yellow"]
 }

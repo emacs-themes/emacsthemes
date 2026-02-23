@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-penumbra-light-contrast-plus-plus-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Zachary Weiss"
-  ],
+  "authors": ["Kaleb Elwert", "Zachary Weiss"],
   "tags": [
     "base16",
     "base16 penumbra-light-contrast-plus-plus",

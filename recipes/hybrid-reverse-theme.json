@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/Riyyi/emacs-hybrid-reverse/master/hybrid-reverse-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Riyyi"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "hybrid-reverse",
-    "material",
-    "melpa"
-  ]
+  "authors": ["Riyyi"],
+  "tags": ["black", "dark", "hybrid-reverse", "material", "melpa"]
 }

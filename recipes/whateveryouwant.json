@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/whateveryouwant-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Fabien Penso",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "whateveryouwant",
-    "white"
-  ]
+  "authors": ["Fabien Penso", "Syohei YOSHIDA"],
+  "tags": ["color themes", "light", "whateveryouwant", "white"]
 }

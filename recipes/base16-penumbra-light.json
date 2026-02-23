@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-penumbra-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Zachary Weiss"
-  ],
-  "tags": [
-    "base16",
-    "base16 penumbra-light",
-    "light",
-    "penumbra-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Zachary Weiss"],
+  "tags": ["base16", "base16 penumbra-light", "light", "penumbra-light", "white"]
 }

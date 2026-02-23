@@ -8,16 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-oxocarbon-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "shaunsingh/IBM",
-    "Tinted Theming"
-  ],
-  "tags": [
-    "base16",
-    "base16 oxocarbon-dark",
-    "black",
-    "dark",
-    "oxocarbon-dark"
-  ]
+  "authors": ["Kaleb Elwert", "shaunsingh/IBM", "Tinted Theming"],
+  "tags": ["base16", "base16 oxocarbon-dark", "black", "dark", "oxocarbon-dark"]
 }

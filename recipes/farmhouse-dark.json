@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/mattly/emacs-farmhouse-theme/master/farmhouse-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Matthew Lyon"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "farmhouse"
-  ]
+  "authors": ["Matthew Lyon"],
+  "tags": ["black", "dark", "emacs 24", "farmhouse"]
 }

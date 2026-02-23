@@ -3,17 +3,8 @@
   "id": "notink",
   "description": "A custom theme inspired by e-ink displays",
   "repoUrl": "https://github.com/MetroWind/notink-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/MetroWind/notink-theme/master/notink-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/MetroWind/notink-theme/master/notink-theme.el"],
   "type": "light",
-  "authors": [
-    "MetroWind"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "notink",
-    "red"
-  ]
+  "authors": ["MetroWind"],
+  "tags": ["light", "melpa", "notink", "red"]
 }

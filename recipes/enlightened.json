@@ -3,19 +3,8 @@
   "id": "enlightened",
   "description": "An Emacs theme based on the Enlightened Sublime Text theme.",
   "repoUrl": "https://hg.sr.ht/~slondr/enlightened",
-  "rawUrls": [
-    "https://hg.sr.ht/~slondr/enlightened/raw/enlightened-theme.el?rev=tip"
-  ],
+  "rawUrls": ["https://hg.sr.ht/~slondr/enlightened/raw/enlightened-theme.el?rev=tip"],
   "type": "dark",
-  "authors": [
-    "slondr"
-  ],
-  "tags": [
-    "black",
-    "colorful",
-    "dark",
-    "melpa",
-    "sublime",
-    "sublime text"
-  ]
+  "authors": ["slondr"],
+  "tags": ["black", "colorful", "dark", "melpa", "sublime", "sublime text"]
 }

@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/juba/color-theme-tangotango/master/tangotango-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Julien Barnier",
-    "Yesudeep Mangalapilly"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "nongnu-elpa",
-    "popular",
-    "tango",
-    "tangotango"
-  ]
+  "authors": ["Julien Barnier", "Yesudeep Mangalapilly"],
+  "tags": ["black", "dark", "melpa", "nongnu-elpa", "popular", "tango", "tangotango"]
 }

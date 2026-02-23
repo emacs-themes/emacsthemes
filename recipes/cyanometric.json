@@ -7,14 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-cyanometric/refs/heads/master/cyanometric-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "cyan",
-    "dark",
-    "melpa"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "cyan", "dark", "melpa"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-girl-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Qingsong Liao"
-  ],
-  "tags": [
-    "girl",
-    "light",
-    "monochrome",
-    "real mono",
-    "white"
-  ]
+  "authors": ["Qingsong Liao"],
+  "tags": ["girl", "light", "monochrome", "real mono", "white"]
 }

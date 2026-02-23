@@ -3,18 +3,8 @@
   "id": "joker",
   "description": "A minimal theme for Emacs in terminal.",
   "repoUrl": "https://github.com/DogLooksGood/joker-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/DogLooksGood/joker-theme/master/joker-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/DogLooksGood/joker-theme/master/joker-theme.el"],
   "type": "dark",
-  "authors": [
-    "Shi Tianshu"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "gray",
-    "joker",
-    "minimal"
-  ]
+  "authors": ["Shi Tianshu"],
+  "tags": ["black", "dark", "gray", "joker", "minimal"]
 }

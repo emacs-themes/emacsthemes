@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-apathy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jannik Siebert"
-  ],
-  "tags": [
-    "apathy",
-    "base16",
-    "base16 apathy",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Jannik Siebert"],
+  "tags": ["apathy", "base16", "base16 apathy", "black", "dark"]
 }

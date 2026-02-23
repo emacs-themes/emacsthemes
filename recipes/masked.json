@@ -3,18 +3,8 @@
   "id": "masked",
   "description": "A Masked - low-contrast - color theme for GNU Emacs.",
   "repoUrl": "https://github.com/itix-enoks/masked-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/itix-enoks/masked-theme/master/masked-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/itix-enoks/masked-theme/master/masked-theme.el"],
   "type": "dark",
-  "authors": [
-    "Mehmet Enes Kaya"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "dark blue",
-    "low-contrast"
-  ]
+  "authors": ["Mehmet Enes Kaya"],
+  "tags": ["accessibility", "black", "dark", "dark blue", "low-contrast"]
 }

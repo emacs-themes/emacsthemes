@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-material-darker-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Nate Peterson"
-  ],
-  "tags": [
-    "base16",
-    "base16 material-darker",
-    "black",
-    "dark",
-    "material-darker"
-  ]
+  "authors": ["Kaleb Elwert", "Nate Peterson"],
+  "tags": ["base16", "base16 material-darker", "black", "dark", "material-darker"]
 }

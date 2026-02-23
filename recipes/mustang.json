@@ -3,19 +3,8 @@
   "id": "mustang",
   "description": "Port of vim’s mustang theme to emacs24.",
   "repoUrl": "https://github.com/mswift42/mustang-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mswift42/mustang-theme/master/mustang-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mswift42/mustang-theme/master/mustang-theme.el"],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "melpa",
-    "mustang",
-    "vim"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["black", "dark", "emacs 24", "melpa", "mustang", "vim"]
 }

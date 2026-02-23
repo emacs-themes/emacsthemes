@@ -9,16 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-blossom-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "blossom",
-    "dark",
-    "kaolin",
-    "kaolin-themes",
-    "orange",
-    "purple"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["blossom", "dark", "kaolin", "kaolin-themes", "orange", "purple"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

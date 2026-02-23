@@ -8,18 +8,7 @@
     "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/refs/heads/master/sanityinc-tomorrow-eighties-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Steve Purcell"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "eighties",
-    "grey",
-    "popular",
-    "sanityinc",
-    "tomorrow"
-  ],
+  "authors": ["Steve Purcell"],
+  "tags": ["black", "blue", "dark", "eighties", "grey", "popular", "sanityinc", "tomorrow"],
   "elispBefore": "(color-theme-sanityinc-tomorrow-eighties)"
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-darktooth-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jason Milkins"
-  ],
-  "tags": [
-    "base16",
-    "base16 darktooth",
-    "black",
-    "dark",
-    "darktooth"
-  ]
+  "authors": ["Kaleb Elwert", "Jason Milkins"],
+  "tags": ["base16", "base16 darktooth", "black", "dark", "darktooth"]
 }

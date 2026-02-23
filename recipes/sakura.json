@@ -7,16 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-sakura/master/sakura-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "cherry",
-    "dark",
-    "melpa",
-    "purple",
-    "sakura"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "cherry", "dark", "melpa", "purple", "sakura"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

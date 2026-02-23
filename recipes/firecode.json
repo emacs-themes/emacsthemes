@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-firecode-theme/master/firecode-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "firecode",
-    "melpa"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "firecode", "melpa"]
 }

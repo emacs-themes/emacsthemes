@@ -8,16 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/standard-themes/main/standard-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "accessible",
-    "light",
-    "standard",
-    "standard-themes",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["accessible", "light", "standard", "standard-themes", "white"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'standard-light)"
 }

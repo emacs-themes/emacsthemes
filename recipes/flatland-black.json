@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-flatland-black-theme/master/flatland-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "flatland",
-    "flatland black",
-    "melpa"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "flatland", "flatland black", "melpa"]
 }

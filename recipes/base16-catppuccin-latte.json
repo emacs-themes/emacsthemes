@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-catppuccin-latte-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "https://github.com/catppuccin/catppuccin"
-  ],
-  "tags": [
-    "base16",
-    "base16 catppuccin-latte",
-    "catppuccin-latte",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "https://github.com/catppuccin/catppuccin"],
+  "tags": ["base16", "base16 catppuccin-latte", "catppuccin-latte", "light"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/midnight-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Gordon Messmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "midnight"
-  ]
+  "authors": ["Gordon Messmer", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "midnight"]
 }

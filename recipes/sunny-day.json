@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/sunny-day-theme/master/sunny-day-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "melpa",
-    "sunny day",
-    "yellow"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["emacs 24", "light", "melpa", "sunny day", "yellow"]
 }

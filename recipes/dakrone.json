@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/dakrone/dakrone-theme/refs/heads/master/dakrone-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Lee Hinman"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "darkrone",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Lee Hinman"],
+  "tags": ["black", "dark", "darkrone", "emacs 24", "gray", "melpa", "muted", "nord", "red"]
 }

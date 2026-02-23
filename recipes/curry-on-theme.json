@@ -3,18 +3,8 @@
   "id": "curry-on",
   "description": "A low contrast color theme",
   "repoUrl": "https://github.com/mvarela/Curry-On-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mvarela/Curry-On-theme/master/curry-on-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mvarela/Curry-On-theme/master/curry-on-theme.el"],
   "type": "dark",
-  "authors": [
-    "Martín Varela (martin@varela.fi)"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "curry-on",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Martín Varela (martin@varela.fi)"],
+  "tags": ["accessibility", "black", "curry-on", "dark", "melpa"]
 }

@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/osener/emacs-afternoon-theme/master/afternoon-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ozan Sener"
-  ],
-  "tags": [
-    "afternoon",
-    "blue",
-    "dark",
-    "deep blue",
-    "melpa",
-    "modern",
-    "nongnu-elpa",
-    "yellow"
-  ]
+  "authors": ["Ozan Sener"],
+  "tags": ["afternoon", "blue", "dark", "deep blue", "melpa", "modern", "nongnu-elpa", "yellow"]
 }

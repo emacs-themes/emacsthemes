@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/challenger-deep-theme/emacs/master/challenger-deep-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "MaxSt"
-  ],
-  "tags": [
-    "black",
-    "challenger-deep",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["MaxSt"],
+  "tags": ["black", "challenger-deep", "dark", "melpa"]
 }

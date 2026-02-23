@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/jmdeldin/underwater-theme.el/master/underwater-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jon-Michael Deldin"
-  ],
-  "tags": [
-    "blue",
-    "cyan",
-    "dark",
-    "dark blue",
-    "emacs 24",
-    "melpa",
-    "underwater"
-  ]
+  "authors": ["Jon-Michael Deldin"],
+  "tags": ["blue", "cyan", "dark", "dark blue", "emacs 24", "melpa", "underwater"]
 }

@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-da-one-white-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "NNB"
-  ],
-  "tags": [
-    "base16",
-    "base16 da-one-white",
-    "da-one-white",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "NNB"],
+  "tags": ["base16", "base16 da-one-white", "da-one-white", "light"]
 }

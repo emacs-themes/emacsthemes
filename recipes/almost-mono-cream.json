@@ -8,14 +8,7 @@
     "https://raw.githubusercontent.com/cryon/almost-mono-themes/master/almost-mono-cream-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "John Olsson"
-  ],
-  "tags": [
-    "almost mono cream",
-    "cream",
-    "light",
-    "monochrome"
-  ],
+  "authors": ["John Olsson"],
+  "tags": ["almost mono cream", "cream", "light", "monochrome"],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-cream)"
 }

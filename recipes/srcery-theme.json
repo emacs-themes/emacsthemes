@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/srcery-colors/srcery-emacs/master/srcery-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Daniel Berg"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "brown",
-    "dark",
-    "melpa",
-    "popular",
-    "srcery"
-  ]
+  "authors": ["Daniel Berg"],
+  "tags": ["accessibility", "black", "brown", "dark", "melpa", "popular", "srcery"]
 }

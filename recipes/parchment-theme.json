@@ -3,17 +3,8 @@
   "id": "parchment",
   "description": "Light theme inspired by Acme and Leuven",
   "repoUrl": "https://gitlab.com/ajgrf/parchment",
-  "rawUrls": [
-    "https://gitlab.com/ajgrf/parchment/-/raw/master/parchment-theme.el"
-  ],
+  "rawUrls": ["https://gitlab.com/ajgrf/parchment/-/raw/master/parchment-theme.el"],
   "type": "light",
-  "authors": [
-    "Alex Griffin"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "parchment",
-    "red"
-  ]
+  "authors": ["Alex Griffin"],
+  "tags": ["light", "melpa", "parchment", "red"]
 }

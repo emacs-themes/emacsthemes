@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-nord-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "arcticicestudio"
-  ],
-  "tags": [
-    "base16",
-    "base16 nord",
-    "black",
-    "dark",
-    "nord"
-  ]
+  "authors": ["Kaleb Elwert", "arcticicestudio"],
+  "tags": ["base16", "base16 nord", "black", "dark", "nord"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/ahobson/mac-classic-theme/master/mac-classic-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jason Watson"
-  ],
-  "tags": [
-    "light",
-    "mac classic",
-    "textmate",
-    "white"
-  ]
+  "authors": ["Jason Watson"],
+  "tags": ["light", "mac classic", "textmate", "white"]
 }

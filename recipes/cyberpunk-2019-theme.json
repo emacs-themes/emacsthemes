@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/the-frey/cyberpunk-2019/master/cyberpunk-2019-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alex Lynham"
-  ],
-  "tags": [
-    "black",
-    "cyberpunk-2019",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Alex Lynham"],
+  "tags": ["black", "cyberpunk-2019", "dark", "melpa"]
 }

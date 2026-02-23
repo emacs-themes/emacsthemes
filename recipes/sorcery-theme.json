@@ -7,17 +7,7 @@
     "https://raw.githubusercontent.com/mtreca/emacs-theme-sorcery/refs/heads/master/sorcery-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Maxime Treca"
-  ],
-  "tags": [
-    "accessibility",
-    "autothemer",
-    "dark",
-    "low contrast",
-    "melpa",
-    "red",
-    "sorcery"
-  ],
+  "authors": ["Maxime Treca"],
+  "tags": ["accessibility", "autothemer", "dark", "low contrast", "melpa", "red", "sorcery"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

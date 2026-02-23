@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-acer-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Geralld Borbon"
-  ],
-  "tags": [
-    "guava",
-    "light",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Geralld Borbon"],
+  "tags": ["guava", "light", "melpa", "red"]
 }

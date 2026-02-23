@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Vasilij Schneidermann"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "grey",
-    "monochrome",
-    "punpun"
-  ]
+  "authors": ["Vasilij Schneidermann"],
+  "tags": ["black", "dark", "grey", "monochrome", "punpun"]
 }

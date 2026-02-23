@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-material-palenight-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Nate Peterson"
-  ],
-  "tags": [
-    "base16",
-    "base16 material-palenight",
-    "black",
-    "dark",
-    "material-palenight"
-  ]
+  "authors": ["Kaleb Elwert", "Nate Peterson"],
+  "tags": ["base16", "base16 material-palenight", "black", "dark", "material-palenight"]
 }

@@ -8,18 +8,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-creamsody/refs/heads/master/creamsody-obsidian-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "blue",
-    "cream",
-    "creamsody",
-    "green",
-    "muted",
-    "obsidian",
-    "pastel"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "blue", "cream", "creamsody", "green", "muted", "obsidian", "pastel"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

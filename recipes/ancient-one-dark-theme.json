@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/sigvt/ancient-one-dark-emacs/master/ancient-one-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Daniils Petrovs"
-  ],
-  "tags": [
-    "ancient-one-dark",
-    "black",
-    "dark",
-    "melpa",
-    "purple"
-  ]
+  "authors": ["Daniils Petrovs"],
+  "tags": ["ancient-one-dark", "black", "dark", "melpa", "purple"]
 }

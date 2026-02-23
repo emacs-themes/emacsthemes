@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/rotor-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jinwei Shen",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "rotor",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Jinwei Shen", "Syohei YOSHIDA"],
+  "tags": ["color themes", "light", "rotor", "white", "yellow"]
 }

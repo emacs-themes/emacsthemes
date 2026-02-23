@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tomorrow-night-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Chris Kempson"
-  ],
-  "tags": [
-    "base16",
-    "base16 tomorrow-night",
-    "black",
-    "dark",
-    "tomorrow-night"
-  ]
+  "authors": ["Kaleb Elwert", "Chris Kempson"],
+  "tags": ["base16", "base16 tomorrow-night", "black", "dark", "tomorrow-night"]
 }

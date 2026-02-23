@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blippblopp-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Thomas Sicheritz-Ponten / Syohei YOSHIDA"
-  ],
+  "authors": ["Thomas Sicheritz-Ponten / Syohei YOSHIDA"],
   "tags": [
     "blippblop",
     "color themes",

@@ -8,17 +8,6 @@
     "https://github.com/alezost/alect-themes/raw/refs/heads/master/alect-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Alex Kost"
-  ],
-  "tags": [
-    "alect",
-    "beige",
-    "blue",
-    "emacs 24",
-    "light",
-    "light grey",
-    "modern",
-    "popular"
-  ]
+  "authors": ["Alex Kost"],
+  "tags": ["alect", "beige", "blue", "emacs 24", "light", "light grey", "modern", "popular"]
 }

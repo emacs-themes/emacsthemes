@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/einkless-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "einkless",
-    "gray",
-    "light",
-    "white"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["einkless", "gray", "light", "white"]
 }

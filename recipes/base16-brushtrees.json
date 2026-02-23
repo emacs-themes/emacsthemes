@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-brushtrees-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Abraham White &lt;abelincoln.white@gmail.com&gt;"
-  ],
-  "tags": [
-    "base16",
-    "base16 brushtrees",
-    "brushtrees",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Abraham White &lt;abelincoln.white@gmail.com&gt;"],
+  "tags": ["base16", "base16 brushtrees", "brushtrees", "light"]
 }

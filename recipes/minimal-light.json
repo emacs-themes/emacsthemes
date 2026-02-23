@@ -3,18 +3,8 @@
   "id": "minimal-light",
   "description": "A light minimalistic theme for Emacs 24.",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/minimal-light/minimal-light-theme.el"
-  ],
+  "rawUrls": ["static/themes/minimal-light/minimal-light-theme.el"],
   "type": "light",
-  "authors": [
-    "Anler Hp"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "minimal",
-    "minimalistic",
-    "white"
-  ]
+  "authors": ["Anler Hp"],
+  "tags": ["emacs 24", "light", "minimal", "minimalistic", "white"]
 }

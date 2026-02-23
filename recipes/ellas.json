@@ -3,17 +3,8 @@
   "id": "ellas",
   "description": "A pastel-inspired light theme based on a trip to Greece.",
   "repoUrl": "https://gligan.net/emacs-themes",
-  "rawUrls": [
-    "https://gligan.net/ellas-theme.el"
-  ],
+  "rawUrls": ["https://gligan.net/ellas-theme.el"],
   "type": "light",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "ellas",
-    "light",
-    "pastel",
-    "red"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["ellas", "light", "pastel", "red"]
 }

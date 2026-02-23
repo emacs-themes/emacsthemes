@@ -3,19 +3,8 @@
   "id": "vs-light",
   "description": "Visual Studio IDE light theme.",
   "repoUrl": "https://github.com/jcs-elpa/vs-light-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/jcs-elpa/vs-light-theme/master/vs-light-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/jcs-elpa/vs-light-theme/master/vs-light-theme.el"],
   "type": "light",
-  "authors": [
-    "Thomas Friese"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "melpa",
-    "visual studio",
-    "vs light",
-    "white"
-  ]
+  "authors": ["Thomas Friese"],
+  "tags": ["blue", "light", "melpa", "visual studio", "vs light", "white"]
 }

@@ -8,21 +8,7 @@
     "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-light-medium-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jason Milkins",
-    "Martijn Terpstra",
-    "Eduardo Lavaque",
-    "Lee Machin"
-  ],
-  "tags": [
-    "autothemer",
-    "brown",
-    "gruvbox",
-    "light",
-    "medium",
-    "retro",
-    "vim",
-    "white"
-  ],
+  "authors": ["Jason Milkins", "Martijn Terpstra", "Eduardo Lavaque", "Lee Machin"],
+  "tags": ["autothemer", "brown", "gruvbox", "light", "medium", "retro", "vim", "white"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

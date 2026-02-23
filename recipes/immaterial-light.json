@@ -8,16 +8,8 @@
     "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Peter Gardfjäll"
-  ],
-  "tags": [
-    "immaterial",
-    "light",
-    "material",
-    "material design",
-    "white"
-  ],
+  "authors": ["Peter Gardfjäll"],
+  "tags": ["immaterial", "light", "material", "material design", "white"],
   "elispBefore": "(unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'immaterial-light)"
 }

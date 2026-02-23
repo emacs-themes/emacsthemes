@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/lavenderless-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "dark",
-    "lavender",
-    "lavenderless",
-    "melpa",
-    "purple"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["dark", "lavender", "lavenderless", "melpa", "purple"]
 }

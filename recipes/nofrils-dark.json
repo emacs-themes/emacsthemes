@@ -7,15 +7,6 @@
     "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-dark-theme.el?ref_type=heads"
   ],
   "type": "dark",
-  "authors": [
-    "Eric Sessoms"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "monochrome",
-    "nofrils",
-    "nofrils dark",
-    "vim"
-  ]
+  "authors": ["Eric Sessoms"],
+  "tags": ["black", "dark", "monochrome", "nofrils", "nofrils dark", "vim"]
 }

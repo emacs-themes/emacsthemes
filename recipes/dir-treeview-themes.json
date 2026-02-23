@@ -8,12 +8,6 @@
     "https://raw.githubusercontent.com/tilmanrassy/emacs-dir-treeview-themes/master/dir-treeview-themes-hortensia-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Tilmanrassy"
-  ],
-  "tags": [
-    "light",
-    "dir-treeview",
-    "melpa"
-  ]
+  "authors": ["Tilmanrassy"],
+  "tags": ["light", "dir-treeview", "melpa"]
 }

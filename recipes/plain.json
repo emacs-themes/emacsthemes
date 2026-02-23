@@ -3,19 +3,8 @@
   "id": "plain",
   "description": "Plain theme without syntax highlighting",
   "repoUrl": "https://gitlab.com/yegortimoshenko/plain-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/emacsmirror/plain-theme/master/plain-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/emacsmirror/plain-theme/master/plain-theme.el"],
   "type": "light",
-  "authors": [
-    "Yegor Timoshenko"
-  ],
-  "tags": [
-    "black and white",
-    "light",
-    "melpa",
-    "monochrome",
-    "plain",
-    "white"
-  ]
+  "authors": ["Yegor Timoshenko"],
+  "tags": ["black and white", "light", "melpa", "monochrome", "plain", "white"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/theasp/flatui-dark-theme/master/flatui-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Andrew Phillips"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "flatui",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Andrew Phillips"],
+  "tags": ["black", "dark", "flatui", "melpa", "red"]
 }

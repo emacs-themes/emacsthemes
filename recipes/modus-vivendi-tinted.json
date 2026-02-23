@@ -8,18 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-vivendi-tinted-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "accessibility",
-    "accessible",
-    "black",
-    "dark",
-    "modus",
-    "modus-themes",
-    "wcag-aaa"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["accessibility", "accessible", "black", "dark", "modus", "modus-themes", "wcag-aaa"],
   "elispBefore": "(require 'cl-lib) (require 'subr-x)",
   "elispAfter": "(enable-theme 'modus-vivendi-tinted)"
 }

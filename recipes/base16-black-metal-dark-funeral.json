@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-black-metal-dark-funeral-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "metalelf0"
-  ],
-  "tags": [
-    "base16",
-    "base16 black-metal-dark-funeral",
-    "black",
-    "black-metal-dark-funeral",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "metalelf0"],
+  "tags": ["base16", "base16 black-metal-dark-funeral", "black", "black-metal-dark-funeral", "dark"]
 }

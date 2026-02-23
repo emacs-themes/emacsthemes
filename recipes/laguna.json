@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/laguna-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Henry Newcomer"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "laguna",
-    "melpa"
-  ]
+  "authors": ["Henry Newcomer"],
+  "tags": ["black", "blue", "dark", "laguna", "melpa"]
 }

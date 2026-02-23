@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/pzel/commentary-theme/refs/heads/master/commentary-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Amirreza Ghaderi & Simon Zelazny "
-  ],
+  "authors": ["Amirreza Ghaderi & Simon Zelazny "],
   "tags": [
     "accessibility",
     "commentary",

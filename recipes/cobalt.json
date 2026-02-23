@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/cobalt-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nick Ewing"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "cobalt",
-    "dark",
-    "melpa",
-    "pink",
-    "red",
-    "textmate"
-  ]
+  "authors": ["Nick Ewing"],
+  "tags": ["black", "blue", "cobalt", "dark", "melpa", "pink", "red", "textmate"]
 }

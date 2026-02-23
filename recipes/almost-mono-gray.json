@@ -8,15 +8,7 @@
     "https://raw.githubusercontent.com/cryon/almost-mono-themes/master/almost-mono-gray-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "John Olsson"
-  ],
-  "tags": [
-    "almost mono gray",
-    "black",
-    "dark",
-    "gray",
-    "monochrome"
-  ],
+  "authors": ["John Olsson"],
+  "tags": ["almost mono gray", "black", "dark", "gray", "monochrome"],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-gray)"
 }

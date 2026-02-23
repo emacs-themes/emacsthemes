@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/deep-blue-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Tomas Cerha / Syohei YOSHIDA"
-  ],
+  "authors": ["Tomas Cerha / Syohei YOSHIDA"],
   "tags": [
     "blue",
     "color themes",

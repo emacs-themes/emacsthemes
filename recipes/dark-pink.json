@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/j0ni/phoenix-dark-pink/refs/heads/master/phoenix-dark-pink-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "J Irving"
-  ],
-  "tags": [
-    "dark",
-    "dark pink",
-    "gray",
-    "muted",
-    "nord",
-    "pink",
-    "red",
-    "sublime text"
-  ]
+  "authors": ["J Irving"],
+  "tags": ["dark", "dark pink", "gray", "muted", "nord", "pink", "red", "sublime text"]
 }

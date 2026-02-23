@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-bright-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Chris Kempson"
-  ],
-  "tags": [
-    "base16",
-    "base16 bright",
-    "black",
-    "bright",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Chris Kempson"],
+  "tags": ["base16", "base16 bright", "black", "bright", "dark"]
 }

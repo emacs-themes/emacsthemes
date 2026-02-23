@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-uwunicorn-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Fernando Marques"
-  ],
-  "tags": [
-    "base16",
-    "base16 uwunicorn",
-    "black",
-    "dark",
-    "uwunicorn"
-  ]
+  "authors": ["Kaleb Elwert", "Fernando Marques"],
+  "tags": ["base16", "base16 uwunicorn", "black", "dark", "uwunicorn"]
 }

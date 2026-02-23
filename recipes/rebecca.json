@@ -3,19 +3,8 @@
   "id": "rebecca",
   "description": "Rebecca, the purple turtle.",
   "repoUrl": "https://github.com/vic/rebecca-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/vic/rebecca-theme/master/rebecca-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/vic/rebecca-theme/master/rebecca-theme.el"],
   "type": "dark",
-  "authors": [
-    "Victor Hugo Borja"
-  ],
-  "tags": [
-    "dark",
-    "dracula",
-    "gloom",
-    "melpa",
-    "purple",
-    "rebecca"
-  ]
+  "authors": ["Victor Hugo Borja"],
+  "tags": ["dark", "dracula", "gloom", "melpa", "purple", "rebecca"]
 }

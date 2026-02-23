@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atelier-sulphurpool-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Bram de Haan"
-  ],
+  "authors": ["Kaleb Elwert", "Bram de Haan"],
   "tags": [
     "atelier-sulphurpool-light",
     "base16",

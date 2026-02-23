@@ -7,17 +7,6 @@
     "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-acme-theme.el?ref_type=heads"
   ],
   "type": "light",
-  "authors": [
-    "Eric Sessoms"
-  ],
-  "tags": [
-    "acme",
-    "light",
-    "melpa",
-    "nofrils",
-    "nofrils acme",
-    "vim",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Eric Sessoms"],
+  "tags": ["acme", "light", "melpa", "nofrils", "nofrils acme", "vim", "white", "yellow"]
 }

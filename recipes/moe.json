@@ -9,17 +9,6 @@
     "https://raw.githubusercontent.com/kuanyui/moe-theme.el/master/moe-light-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kuanyui"
-  ],
-  "tags": [
-    "256 color",
-    "black",
-    "dark",
-    "melpa",
-    "moe",
-    "nongnu-elpa",
-    "popular",
-    "tango"
-  ]
+  "authors": ["Kuanyui"],
+  "tags": ["256 color", "black", "dark", "melpa", "moe", "nongnu-elpa", "popular", "tango"]
 }

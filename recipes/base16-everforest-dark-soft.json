@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-everforest-dark-soft-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Sainnhe Park"
-  ],
-  "tags": [
-    "base16",
-    "base16 everforest-dark-soft",
-    "black",
-    "dark",
-    "everforest-dark-soft"
-  ]
+  "authors": ["Kaleb Elwert", "Sainnhe Park"],
+  "tags": ["base16", "base16 everforest-dark-soft", "black", "dark", "everforest-dark-soft"]
 }

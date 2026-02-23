@@ -10,17 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-gruvbox-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "gruvbox",
-    "light",
-    "orange",
-    "popular",
-    "red",
-    "retro",
-    "solarized",
-    "warm"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["gruvbox", "light", "orange", "popular", "red", "retro", "solarized", "warm"]
 }

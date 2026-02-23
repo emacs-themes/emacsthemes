@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-digital-rain-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Nathan Byrd"
-  ],
-  "tags": [
-    "base16",
-    "base16 digital-rain",
-    "black",
-    "dark",
-    "digital-rain"
-  ]
+  "authors": ["Kaleb Elwert", "Nathan Byrd"],
+  "tags": ["base16", "base16 digital-rain", "black", "dark", "digital-rain"]
 }

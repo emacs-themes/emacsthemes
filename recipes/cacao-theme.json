@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/Michael-Garibaldi/cacao-theme/master/cacao-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "KoshVorlon"
-  ],
-  "tags": [
-    "cacao",
-    "chocolate",
-    "emacs 24",
-    "light",
-    "melpa",
-    "org-mode",
-    "red"
-  ]
+  "authors": ["KoshVorlon"],
+  "tags": ["cacao", "chocolate", "emacs 24", "light", "melpa", "org-mode", "red"]
 }

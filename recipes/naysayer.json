@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/nickav/naysayer-theme.el/master/naysayer-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nick Aversano"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "melpa",
-    "naysayer",
-    "red"
-  ]
+  "authors": ["Nick Aversano"],
+  "tags": ["dark", "green", "melpa", "naysayer", "red"]
 }

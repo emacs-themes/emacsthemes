@@ -3,19 +3,8 @@
   "id": "paganini",
   "description": "A colorful, dark and warm theme.",
   "repoUrl": "https://github.com/onurtemizkan/paganini",
-  "rawUrls": [
-    "https://github.com/onurtemizkan/paganini/raw/refs/heads/master/paganini-theme.el"
-  ],
+  "rawUrls": ["https://github.com/onurtemizkan/paganini/raw/refs/heads/master/paganini-theme.el"],
   "type": "dark",
-  "authors": [
-    "Onur Temizkan"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "melpa",
-    "paganini",
-    "yellow"
-  ]
+  "authors": ["Onur Temizkan"],
+  "tags": ["black", "brown", "dark", "melpa", "paganini", "yellow"]
 }

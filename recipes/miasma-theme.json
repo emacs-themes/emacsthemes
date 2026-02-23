@@ -3,17 +3,8 @@
   "id": "miasma",
   "description": "Miasma: color theme inspired by the woods",
   "repoUrl": "https://github.com/daut/miasma-theme.el",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/daut/miasma-theme.el/main/miasma-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/daut/miasma-theme.el/main/miasma-theme.el"],
   "type": "dark",
-  "authors": [
-    "Bozidar Dautovic"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "miasma",
-    "red"
-  ]
+  "authors": ["Bozidar Dautovic"],
+  "tags": ["dark", "melpa", "miasma", "red"]
 }

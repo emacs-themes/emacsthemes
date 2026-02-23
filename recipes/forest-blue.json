@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/olkinn/forest-blue-emacs/master/forest-blue-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "olkinn"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "forest-blue",
-    "melpa"
-  ]
+  "authors": ["olkinn"],
+  "tags": ["blue", "dark", "forest-blue", "melpa"]
 }

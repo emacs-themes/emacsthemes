@@ -3,19 +3,8 @@
   "id": "haki",
   "description": "An elegant, high-contrast dark theme in a modern style.",
   "repoUrl": "https://github.com/idlip/haki",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/idlip/haki/haki/haki-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/idlip/haki/haki/haki-theme.el"],
   "type": "dark",
-  "authors": [
-    "Dilip"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "high-contrast",
-    "melpa",
-    "modern"
-  ]
+  "authors": ["Dilip"],
+  "tags": ["accessibility", "black", "dark", "high-contrast", "melpa", "modern"]
 }

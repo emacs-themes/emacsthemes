@@ -9,18 +9,6 @@
     "https://raw.githubusercontent.com/11111000000/tao-theme-emacs/master/tao-yang-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Peter Kosov"
-  ],
-  "tags": [
-    "black",
-    "black&white",
-    "dark",
-    "gold",
-    "gray",
-    "grey",
-    "melpa",
-    "monochrome",
-    "tao"
-  ]
+  "authors": ["Peter Kosov"],
+  "tags": ["black", "black&white", "dark", "gold", "gray", "grey", "melpa", "monochrome", "tao"]
 }

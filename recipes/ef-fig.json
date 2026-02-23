@@ -8,17 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-fig-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "black",
-    "colorful",
-    "dark",
-    "ef",
-    "ef-themes",
-    "fig"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["black", "colorful", "dark", "ef", "ef-themes", "fig"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-fig)"
 }

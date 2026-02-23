@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-woodland-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jay Cornwall"
-  ],
-  "tags": [
-    "base16",
-    "base16 woodland",
-    "black",
-    "dark",
-    "woodland"
-  ]
+  "authors": ["Kaleb Elwert", "Jay Cornwall"],
+  "tags": ["base16", "base16 woodland", "black", "dark", "woodland"]
 }

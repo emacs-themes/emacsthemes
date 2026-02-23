@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/MetroWind/flucui-theme/master/flucui-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Chris Corsair"
-  ],
-  "tags": [
-    "blue",
-    "fluc UI",
-    "light",
-    "red"
-  ]
+  "authors": ["Chris Corsair"],
+  "tags": ["blue", "fluc UI", "light", "red"]
 }

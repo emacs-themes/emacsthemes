@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-ascendancy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "EmergentMind"
-  ],
-  "tags": [
-    "ascendancy",
-    "base16",
-    "base16 ascendancy",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "EmergentMind"],
+  "tags": ["ascendancy", "base16", "base16 ascendancy", "black", "dark"]
 }

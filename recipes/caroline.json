@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/xjackk/caroline-theme/refs/heads/master/caroline-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jack Killilea"
-  ],
-  "tags": [
-    "black",
-    "caroline",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Jack Killilea"],
+  "tags": ["black", "caroline", "dark", "emacs 24", "gray", "melpa", "muted", "nord", "red"]
 }

@@ -7,17 +7,8 @@
     "https://raw.githubusercontent.com/ZehCnaS34/zonokai-emacs/refs/heads/master/zonokai.el"
   ],
   "type": "light",
-  "authors": [
-    "Alex Sanchez"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "purple",
-    "red",
-    "white",
-    "zonokai"
-  ],
+  "authors": ["Alex Sanchez"],
+  "tags": ["blue", "light", "purple", "red", "white", "zonokai"],
   "elispBefore": "(unless (package-installed-p 'dash) (package-install 'dash))",
   "elispAfter": "(enable-theme 'zonokai-red)"
 }

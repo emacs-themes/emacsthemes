@@ -8,18 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-deuteranopia-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "accessible",
-    "colorful",
-    "deuteranopia",
-    "ef",
-    "ef-themes",
-    "light",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["accessible", "colorful", "deuteranopia", "ef", "ef-themes", "light", "white"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-deuteranopia-light)"
 }

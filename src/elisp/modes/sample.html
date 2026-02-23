@@ -1,41 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emacs Themes Gallery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Emacs Themes Gallery" />
     <title>Themes Showcase</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        .inline-style { color: #ff00ff; }
+      .inline-style {
+        color: #ff00ff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header id="main-header">
-        <h1>Emacs Themes Catalog</h1>
-        <nav>
-            <ul>
-                <li><a href="#dark">Dark Themes</a></li>
-                <li><a href="#light">Light Themes</a></li>
-            </ul>
-        </nav>
+      <h1>Emacs Themes Catalog</h1>
+      <nav>
+        <ul>
+          <li><a href="#dark">Dark Themes</a></li>
+          <li><a href="#light">Light Themes</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="gallery" class="container">
-            <article class="theme-item" data-type="dark">
-                <h2>Zenburn</h2>
-                <p>A classic low-contrast theme.</p>
-                <img src="imgs/zenburn.png" alt="Zenburn Preview">
-                <button onclick="alert('Applying...')">Try Theme</button>
-            </article>
-        </section>
+      <section id="gallery" class="container">
+        <article class="theme-item" data-type="dark">
+          <h2>Zenburn</h2>
+          <p>A classic low-contrast theme.</p>
+          <img src="imgs/zenburn.png" alt="Zenburn Preview" />
+          <button onclick="alert('Applying...')">Try Theme</button>
+        </article>
+      </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Emacs Themes Project. Built with <strong>Bun</strong>.</p>
+      <p>&copy; 2024 Emacs Themes Project. Built with <strong>Bun</strong>.</p>
     </footer>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

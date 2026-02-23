@@ -7,12 +7,6 @@
     "https://raw.githubusercontent.com/cstby/solo-jazz-emacs-theme/master/solo-jazz-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Carl Steib"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "solo jazz"
-  ]
+  "authors": ["Carl Steib"],
+  "tags": ["light", "melpa", "solo jazz"]
 }

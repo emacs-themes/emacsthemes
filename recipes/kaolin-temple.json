@@ -9,17 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-temple-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "green",
-    "kaolin",
-    "kaolin-themes",
-    "pink",
-    "temple"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["blue", "dark", "green", "kaolin", "kaolin-themes", "pink", "temple"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

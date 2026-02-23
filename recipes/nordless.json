@@ -8,15 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/nordless-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "nord",
-    "nordless"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["black", "blue", "dark", "melpa", "nord", "nordless"]
 }

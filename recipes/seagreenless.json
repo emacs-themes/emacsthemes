@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/seagreenless-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "green",
-    "light",
-    "seagreenless",
-    "white"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["green", "light", "seagreenless", "white"]
 }

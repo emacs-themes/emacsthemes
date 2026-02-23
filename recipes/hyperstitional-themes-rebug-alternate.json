@@ -8,15 +8,8 @@
     "https://raw.githubusercontent.com/precompute/hyperstitional-themes/master/hyperstitional-themes-rebug-alternate-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "precompute"
-  ],
-  "tags": [
-    "hyperstitional",
-    "light",
-    "melpa",
-    "white"
-  ],
+  "authors": ["precompute"],
+  "tags": ["hyperstitional", "light", "melpa", "white"],
   "elispBefore": "(require 'color) (require 'cl-lib) (unless (fboundp 'color-blend) (defun color-blend (color1 color2 alpha) (let* ((rgb1 (if (stringp color1) (color-name-to-rgb color1) color1)) (rgb2 (if (stringp color2) (color-name-to-rgb color2) color2))) (unless (and (listp rgb1) (listp rgb2) (= (length rgb1) 3) (= (length rgb2) 3)) (error \"Invalid color value(s): %s %s\" color1 color2)) (cl-mapcar (lambda (c1 c2) (+ (* alpha c1) (* (- 1 alpha) c2))) rgb1 rgb2))))",
   "elispAfter": "(load-theme 'hyperstitional-themes-rebug-alternate t)"
 }

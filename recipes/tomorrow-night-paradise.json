@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/jimeh/tomorrow-night-paradise-theme.el/master/tomorrow-night-paradise-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jim Myhrberg"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "red",
-    "tommorow night paradise"
-  ]
+  "authors": ["Jim Myhrberg"],
+  "tags": ["black", "dark", "red", "tommorow night paradise"]
 }

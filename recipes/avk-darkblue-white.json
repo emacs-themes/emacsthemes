@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/avkoval/avk-emacs-themes/master/avk-darkblue-white-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alex V. Koval"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "dark blue",
-    "white"
-  ]
+  "authors": ["Alex V. Koval"],
+  "tags": ["blue", "dark", "dark blue", "white"]
 }

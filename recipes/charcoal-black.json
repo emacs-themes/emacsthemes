@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/charcoal-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Lars Chr. Hausmann / Syohei YOSHIDA"
-  ],
+  "authors": ["Lars Chr. Hausmann / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

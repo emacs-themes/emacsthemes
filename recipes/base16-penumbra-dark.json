@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-penumbra-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Zachary Weiss"
-  ],
-  "tags": [
-    "base16",
-    "base16 penumbra-dark",
-    "black",
-    "dark",
-    "penumbra-dark"
-  ]
+  "authors": ["Kaleb Elwert", "Zachary Weiss"],
+  "tags": ["base16", "base16 penumbra-dark", "black", "dark", "penumbra-dark"]
 }

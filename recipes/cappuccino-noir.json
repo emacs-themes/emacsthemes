@@ -3,17 +3,8 @@
   "id": "cappuccino-noir",
   "description": "A soft dark coffee-toned theme intended to be easy on the eyes.",
   "repoUrl": "https://gligan.net/emacs-themes",
-  "rawUrls": [
-    "https://gligan.net/cappuccino-noir-theme.el"
-  ],
+  "rawUrls": ["https://gligan.net/cappuccino-noir-theme.el"],
   "type": "dark",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "black",
-    "cappuccino-noir",
-    "coffee",
-    "dark"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["black", "cappuccino-noir", "coffee", "dark"]
 }

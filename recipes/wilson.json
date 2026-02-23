@@ -7,12 +7,6 @@
     "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/wilson-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Owain Lewis"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "wilson"
-  ]
+  "authors": ["Owain Lewis"],
+  "tags": ["black", "dark", "wilson"]
 }

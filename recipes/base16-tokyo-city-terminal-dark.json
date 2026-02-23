@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tokyo-city-terminal-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Michaël Ball"
-  ],
-  "tags": [
-    "base16",
-    "base16 tokyo-city-terminal-dark",
-    "black",
-    "dark",
-    "tokyo-city-terminal-dark"
-  ]
+  "authors": ["Kaleb Elwert", "Michaël Ball"],
+  "tags": ["base16", "base16 tokyo-city-terminal-dark", "black", "dark", "tokyo-city-terminal-dark"]
 }

@@ -10,15 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-wombat-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "dark",
-    "grey",
-    "popular",
-    "purple",
-    "solarized",
-    "wombat"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["dark", "grey", "popular", "purple", "solarized", "wombat"]
 }

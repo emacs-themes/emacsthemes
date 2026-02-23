@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/spider-man-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "red",
-    "spider-man"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["dark", "melpa", "red", "spider-man"]
 }

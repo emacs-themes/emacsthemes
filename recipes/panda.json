@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/jamiecollinson/emacs-panda-theme/master/panda-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jamie Collinson"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "grey",
-    "melpa",
-    "minimal",
-    "panda"
-  ]
+  "authors": ["Jamie Collinson"],
+  "tags": ["black", "dark", "grey", "melpa", "minimal", "panda"]
 }

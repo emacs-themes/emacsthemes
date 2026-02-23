@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kelvin Smith"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "monokai",
-    "nongnu-elpa",
-    "pink",
-    "popular",
-    "textmate"
-  ]
+  "authors": ["Kelvin Smith"],
+  "tags": ["black", "dark", "melpa", "monokai", "nongnu-elpa", "pink", "popular", "textmate"]
 }

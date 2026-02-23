@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/andreas-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Andreas Busch",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "andreas",
-    "color themes",
-    "light",
-    "white"
-  ]
+  "authors": ["Andreas Busch", "Syohei YOSHIDA"],
+  "tags": ["andreas", "color themes", "light", "white"]
 }

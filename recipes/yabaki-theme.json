@@ -3,17 +3,8 @@
   "id": "yabaki",
   "description": "Yabaki, the cast shadow",
   "repoUrl": "https://codeberg.com/seahorse/yabaki-theme",
-  "rawUrls": [
-    "https://codeberg.org/seahorse/yabaki-theme/raw/branch/master/yabaki-theme.el"
-  ],
+  "rawUrls": ["https://codeberg.org/seahorse/yabaki-theme/raw/branch/master/yabaki-theme.el"],
   "type": "dark",
-  "authors": [
-    "David Goudou"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "yabaki"
-  ]
+  "authors": ["David Goudou"],
+  "tags": ["black", "dark", "melpa", "yabaki"]
 }

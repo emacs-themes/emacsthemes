@@ -3,17 +3,8 @@
   "id": "iosevka",
   "description": "Theme using various stylistic sets of Iosevka font",
   "repoUrl": "https://codeberg.com/mekeor/iosevka-theme",
-  "rawUrls": [
-    "https://codeberg.org/mekeor/iosevka-theme/raw/branch/default/iosevka-theme.el"
-  ],
+  "rawUrls": ["https://codeberg.org/mekeor/iosevka-theme/raw/branch/default/iosevka-theme.el"],
   "type": "light",
-  "authors": [
-    "Mekeor Melire"
-  ],
-  "tags": [
-    "white",
-    "light",
-    "iosevka",
-    "melpa"
-  ]
+  "authors": ["Mekeor Melire"],
+  "tags": ["white", "light", "iosevka", "melpa"]
 }

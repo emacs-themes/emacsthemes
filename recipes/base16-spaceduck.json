@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-spaceduck-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Guillermo Rodriguez"
-  ],
-  "tags": [
-    "base16",
-    "base16 spaceduck",
-    "black",
-    "dark",
-    "spaceduck"
-  ]
+  "authors": ["Kaleb Elwert", "Guillermo Rodriguez"],
+  "tags": ["base16", "base16 spaceduck", "black", "dark", "spaceduck"]
 }

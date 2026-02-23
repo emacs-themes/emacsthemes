@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-dirtysea-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Kahlil"
-  ],
-  "tags": [
-    "base16",
-    "base16 dirtysea",
-    "dirtysea",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Kahlil"],
+  "tags": ["base16", "base16 dirtysea", "dirtysea", "light"]
 }

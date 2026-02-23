@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/soft-stone-theme/master/soft-stone-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "melpa",
-    "soft stone",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["emacs 24", "light", "melpa", "soft stone", "white", "yellow"]
 }

@@ -10,15 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-high-contrast-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "high contrast",
-    "popular",
-    "solarized"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["accessibility", "black", "dark", "high contrast", "popular", "solarized"]
 }

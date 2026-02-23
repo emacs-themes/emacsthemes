@@ -7,14 +7,6 @@
     "https://github.com/dawidof/emacs-monokai-theme/raw/refs/heads/master/monokai-alt-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Dmytro Koval"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "monokai",
-    "monokai alt"
-  ]
+  "authors": ["Dmytro Koval"],
+  "tags": ["black", "dark", "melpa", "monokai", "monokai alt"]
 }

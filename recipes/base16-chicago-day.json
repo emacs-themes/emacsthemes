@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-chicago-day-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Wendell",
-    "Ryan &lt;ryanjwendell@gmail.com&gt;"
-  ],
-  "tags": [
-    "base16",
-    "base16 chicago-day",
-    "chicago-day",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Wendell", "Ryan &lt;ryanjwendell@gmail.com&gt;"],
+  "tags": ["base16", "base16 chicago-day", "chicago-day", "light"]
 }

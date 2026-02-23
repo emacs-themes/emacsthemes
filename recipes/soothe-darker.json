@@ -10,14 +10,6 @@
   ],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))",
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "darker",
-    "melpa",
-    "soothe"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "darker", "melpa", "soothe"]
 }

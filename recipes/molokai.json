@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/alloy-d/color-theme-molokai/master/molokai-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "molokai",
-    "monokai",
-    "popular"
-  ]
+  "authors": ["Syohei YOSHIDA"],
+  "tags": ["black", "dark", "melpa", "molokai", "monokai", "popular"]
 }

@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/lbolla/emacs-quasi-monochrome/master/quasi-monochrome-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Lorenzo Bolla"
-  ],
+  "authors": ["Lorenzo Bolla"],
   "tags": [
     "accessibility",
     "black",

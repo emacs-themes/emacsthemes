@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/fxn/monochrome-theme.el/master/monochrome-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Noria"
-  ],
-  "tags": [
-    "black",
-    "black&white",
-    "dark",
-    "hacking",
-    "melpa",
-    "monochrome"
-  ]
+  "authors": ["Xavier Noria"],
+  "tags": ["black", "black&white", "dark", "hacking", "melpa", "monochrome"]
 }

@@ -7,14 +7,6 @@
     "https://codeberg.org/ideasman42/emacs-theme-oblivion/raw/branch/main/oblivion-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Campbell Barton"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "nongnu-elpa",
-    "oblivion"
-  ]
+  "authors": ["Campbell Barton"],
+  "tags": ["black", "dark", "melpa", "nongnu-elpa", "oblivion"]
 }

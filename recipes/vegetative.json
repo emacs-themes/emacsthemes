@@ -7,17 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-vegetative/refs/heads/master/vegetative-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "crt",
-    "dark",
-    "green",
-    "melpa",
-    "vegetative"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "black", "crt", "dark", "green", "melpa", "vegetative"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

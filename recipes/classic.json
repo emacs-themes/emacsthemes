@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/classic-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Frederic Giroud / Syohei YOSHIDA"
-  ],
+  "authors": ["Frederic Giroud / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

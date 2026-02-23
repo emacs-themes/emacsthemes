@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/pierson-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Dan L. Pierson",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "orange",
-    "pierson",
-    "white"
-  ]
+  "authors": ["Dan L. Pierson", "Syohei YOSHIDA"],
+  "tags": ["color themes", "light", "orange", "pierson", "white"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/amber-glow-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "amber-glow",
-    "black",
-    "dark",
-    "melpa",
-    "orange"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["amber-glow", "black", "dark", "melpa", "orange"]
 }

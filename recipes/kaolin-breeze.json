@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-breeze-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "breeze",
-    "kaolin",
-    "kaolin-themes",
-    "light",
-    "white"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["breeze", "kaolin", "kaolin-themes", "light", "white"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

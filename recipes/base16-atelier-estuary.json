@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atelier-estuary-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Bram de Haan"
-  ],
-  "tags": [
-    "atelier-estuary",
-    "base16",
-    "base16 atelier-estuary",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Bram de Haan"],
+  "tags": ["atelier-estuary", "base16", "base16 atelier-estuary", "black", "dark"]
 }

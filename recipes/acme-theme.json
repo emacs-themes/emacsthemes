@@ -3,17 +3,8 @@
   "id": "acme",
   "description": "A color theme based on Acme & Sam from Plan 9",
   "repoUrl": "https://github.com/ianyepan/acme-emacs-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/ianyepan/acme-emacs-theme/master/acme-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/ianyepan/acme-emacs-theme/master/acme-theme.el"],
   "type": "light",
-  "authors": [
-    "Ian Y.E. Pan"
-  ],
-  "tags": [
-    "acme",
-    "light",
-    "melpa",
-    "yellow"
-  ]
+  "authors": ["Ian Y.E. Pan"],
+  "tags": ["acme", "light", "melpa", "yellow"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-outrun-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Hugo Delahousse"
-  ],
-  "tags": [
-    "base16",
-    "base16 outrun-dark",
-    "black",
-    "dark",
-    "outrun-dark"
-  ]
+  "authors": ["Kaleb Elwert", "Hugo Delahousse"],
+  "tags": ["base16", "base16 outrun-dark", "black", "dark", "outrun-dark"]
 }

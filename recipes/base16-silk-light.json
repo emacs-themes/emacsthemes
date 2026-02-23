@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-silk-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Gabriel Fontes"
-  ],
-  "tags": [
-    "base16",
-    "base16 silk-light",
-    "light",
-    "silk-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Gabriel Fontes"],
+  "tags": ["base16", "base16 silk-light", "light", "silk-light", "white"]
 }

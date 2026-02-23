@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-shades-of-purple-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Iolar Demartini Junior"
-  ],
-  "tags": [
-    "base16",
-    "base16 shades-of-purple",
-    "dark",
-    "purple",
-    "shades-of-purple"
-  ]
+  "authors": ["Kaleb Elwert", "Iolar Demartini Junior"],
+  "tags": ["base16", "base16 shades-of-purple", "dark", "purple", "shades-of-purple"]
 }

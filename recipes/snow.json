@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/snow-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Nicolas Rist",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "grey",
-    "light",
-    "melpa",
-    "snow",
-    "white"
-  ]
+  "authors": ["Nicolas Rist", "Syohei YOSHIDA"],
+  "tags": ["color themes", "grey", "light", "melpa", "snow", "white"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/raspopovic-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Pedja Raspopovic",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "blue",
-    "color themes",
-    "raspopovic",
-    "white"
-  ]
+  "authors": ["Pedja Raspopovic", "Syohei YOSHIDA"],
+  "tags": ["blue", "color themes", "raspopovic", "white"]
 }

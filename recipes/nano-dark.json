@@ -9,14 +9,6 @@
     "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nicolas P. Rougier"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "minimal",
-    "nano",
-    "nord"
-  ]
+  "authors": ["Nicolas P. Rougier"],
+  "tags": ["black", "dark", "minimal", "nano", "nord"]
 }

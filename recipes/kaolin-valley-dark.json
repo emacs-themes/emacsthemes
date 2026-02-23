@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-valley-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "brown",
-    "dark",
-    "kaolin",
-    "kaolin-themes",
-    "valley"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["brown", "dark", "kaolin", "kaolin-themes", "valley"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

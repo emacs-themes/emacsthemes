@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-espresso-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Unknown. Maintained by Alex Mirrington"
-  ],
-  "tags": [
-    "base16",
-    "base16 espresso",
-    "black",
-    "dark",
-    "espresso"
-  ]
+  "authors": ["Kaleb Elwert", "Unknown. Maintained by Alex Mirrington"],
+  "tags": ["base16", "base16 espresso", "black", "dark", "espresso"]
 }

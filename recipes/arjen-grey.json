@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/credmp/arjen-grey-theme/master/arjen-grey-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Arjen Wiersma"
-  ],
-  "tags": [
-    "arjen",
-    "blue",
-    "dark",
-    "dark grey",
-    "grey",
-    "melpa"
-  ]
+  "authors": ["Arjen Wiersma"],
+  "tags": ["arjen", "blue", "dark", "dark grey", "grey", "melpa"]
 }

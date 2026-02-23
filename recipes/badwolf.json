@@ -7,19 +7,6 @@
     "https://raw.githubusercontent.com/bkruczyk/badwolf-emacs/refs/heads/master/badwolf-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bartłomiej Kruczyk"
-  ],
-  "tags": [
-    "badwolf",
-    "black",
-    "brown",
-    "dark",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red",
-    "vim"
-  ]
+  "authors": ["Bartłomiej Kruczyk"],
+  "tags": ["badwolf", "black", "brown", "dark", "gray", "melpa", "muted", "nord", "red", "vim"]
 }

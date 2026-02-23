@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/kootenpv/emacs-kooten-theme/master/kooten-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Pascal van Kooten"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "kooten",
-    "modern"
-  ]
+  "authors": ["Pascal van Kooten"],
+  "tags": ["black", "blue", "dark", "kooten", "modern"]
 }

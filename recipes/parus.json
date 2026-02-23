@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/parus-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jon K Hellank",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "color themes",
-    "dark",
-    "parus"
-  ]
+  "authors": ["Jon K Hellank", "Syohei YOSHIDA"],
+  "tags": ["black", "blue", "color themes", "dark", "parus"]
 }

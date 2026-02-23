@@ -10,15 +10,7 @@
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-navy-and-ivory.json"
   ],
   "type": "dark",
-  "authors": [
-    "Uros Perisic"
-  ],
-  "tags": [
-    "dark",
-    "ewal",
-    "ivory",
-    "navy",
-    "spacemacs"
-  ],
+  "authors": ["Uros Perisic"],
+  "tags": ["dark", "ewal", "ivory", "navy", "spacemacs"],
   "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-navy-and-ivory\" ewal-json-file (expand-file-name \"sexy-navy-and-ivory.json\" (car load-path)))"
 }

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/NicolasPetton/zerodark-theme/master/zerodark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nicolas Petton"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "zerodark"
-  ]
+  "authors": ["Nicolas Petton"],
+  "tags": ["accessibility", "black", "blue", "dark", "melpa", "zerodark"]
 }

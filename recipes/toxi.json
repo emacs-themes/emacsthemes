@@ -3,19 +3,8 @@
   "id": "toxi",
   "description": "A dark color theme by toxi",
   "repoUrl": "https://bitbucket.org/postspectacular/toxi-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/emacsmirror/toxi-theme/master/toxi-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/emacsmirror/toxi-theme/master/toxi-theme.el"],
   "type": "dark",
-  "authors": [
-    "Karsten Schmidt"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs24",
-    "green",
-    "melpa",
-    "toxi"
-  ]
+  "authors": ["Karsten Schmidt"],
+  "tags": ["black", "dark", "emacs24", "green", "melpa", "toxi"]
 }

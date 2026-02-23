@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-vulcan-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Andrey Varfolomeev"
-  ],
-  "tags": [
-    "base16",
-    "base16 vulcan",
-    "black",
-    "dark",
-    "vulcan"
-  ]
+  "authors": ["Kaleb Elwert", "Andrey Varfolomeev"],
+  "tags": ["base16", "base16 vulcan", "black", "dark", "vulcan"]
 }

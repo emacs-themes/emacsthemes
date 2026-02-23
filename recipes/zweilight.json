@@ -7,13 +7,6 @@
     "https://github.com/emacsattic/zweilight-theme/raw/refs/heads/master/zweilight-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Philip Arvidsson"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "purple",
-    "zweilight"
-  ]
+  "authors": ["Philip Arvidsson"],
+  "tags": ["black", "dark", "purple", "zweilight"]
 }

@@ -7,17 +7,6 @@
     "https://github.com/jessiehildebrandt/mood-one-theme/raw/refs/heads/master/mood-one-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jessie Hildebrandt"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "doom",
-    "melpa",
-    "modern",
-    "mood-one",
-    "purple",
-    "red"
-  ]
+  "authors": ["Jessie Hildebrandt"],
+  "tags": ["blue", "dark", "doom", "melpa", "modern", "mood-one", "purple", "red"]
 }

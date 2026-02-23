@@ -7,13 +7,6 @@
     "https://github.com/emacsmirror/melancholy-theme/raw/refs/heads/master/melancholy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Cooper Oscarfono"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melancholy",
-    "melpa"
-  ]
+  "authors": ["Cooper Oscarfono"],
+  "tags": ["black", "dark", "melancholy", "melpa"]
 }

@@ -3,17 +3,8 @@
   "id": "naga-blue",
   "description": "An electric-blue on black theme.",
   "repoUrl": "https://github.com/amolv06/naga-blue",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/amolv06/naga-blue/master/naga-blue-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/amolv06/naga-blue/master/naga-blue-theme.el"],
   "type": "dark",
-  "authors": [
-    "Big Eatie"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "electric-blue"
-  ]
+  "authors": ["Big Eatie"],
+  "tags": ["black", "blue", "dark", "electric-blue"]
 }

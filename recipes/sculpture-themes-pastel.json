@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes-pastel-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "precompute"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "pastel",
-    "sculpture",
-    "white"
-  ]
+  "authors": ["precompute"],
+  "tags": ["light", "melpa", "pastel", "sculpture", "white"]
 }

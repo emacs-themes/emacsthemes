@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Nasser Alshammari"
-  ],
+  "authors": ["Nasser Alshammari"],
   "tags": [
     "blue",
     "cream",

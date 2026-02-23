@@ -3,18 +3,8 @@
   "id": "year-1984",
   "description": "A retro-futuristic theme",
   "repoUrl": "https://github.com/mastro35/year-1984-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mastro35/year-1984-theme/main/year-1984-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mastro35/year-1984-theme/main/year-1984-theme.el"],
   "type": "light",
-  "authors": [
-    "Davide Mastromatteo"
-  ],
-  "tags": [
-    "tan",
-    "brown",
-    "light",
-    "melpa",
-    "year-1984"
-  ]
+  "authors": ["Davide Mastromatteo"],
+  "tags": ["tan", "brown", "light", "melpa", "year-1984"]
 }

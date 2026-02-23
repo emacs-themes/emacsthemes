@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-lavender-theme/master/lavender-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "brown",
-    "cream",
-    "dark",
-    "emacs 24",
-    "lavender",
-    "melpa",
-    "orange",
-    "purple"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["brown", "cream", "dark", "emacs 24", "lavender", "melpa", "orange", "purple"]
 }

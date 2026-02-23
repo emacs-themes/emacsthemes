@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/balajisivaraman/emacs-one-themes/master/one-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Balaji Sivaraman"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "one",
-    "vim"
-  ]
+  "authors": ["Balaji Sivaraman"],
+  "tags": ["black", "blue", "dark", "one", "vim"]
 }

@@ -3,21 +3,10 @@
   "id": "tok-light",
   "description": "Minimal monochromatic light theme with restrained color highlights.",
   "repoUrl": "https://github.com/topikettunen/tok-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/topikettunen/tok-theme/main/tok-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/topikettunen/tok-theme/main/tok-theme.el"],
   "type": "light",
-  "authors": [
-    "Topi Kettunen"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "minimal",
-    "monochrome",
-    "tok",
-    "white"
-  ],
+  "authors": ["Topi Kettunen"],
+  "tags": ["light", "melpa", "minimal", "monochrome", "tok", "white"],
   "elispBefore": "(setq tok-theme-dark nil tok-theme-light t)",
   "elispAfter": "(load-theme 'tok t)"
 }

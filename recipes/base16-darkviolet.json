@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-darkviolet-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "ruler501"
-  ],
-  "tags": [
-    "base16",
-    "base16 darkviolet",
-    "dark",
-    "darkviolet",
-    "violet"
-  ]
+  "authors": ["Kaleb Elwert", "ruler501"],
+  "tags": ["base16", "base16 darkviolet", "dark", "darkviolet", "violet"]
 }

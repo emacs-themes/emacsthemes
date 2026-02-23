@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/emacsmirror/inkpot-theme/refs/heads/master/inkpot-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Sarah Iovan",
-    "Campbell Barton"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "inkpot",
-    "melpa",
-    "nongnu-elpa",
-    "purple",
-    "vim"
-  ]
+  "authors": ["Sarah Iovan", "Campbell Barton"],
+  "tags": ["black", "dark", "emacs 24", "inkpot", "melpa", "nongnu-elpa", "purple", "vim"]
 }

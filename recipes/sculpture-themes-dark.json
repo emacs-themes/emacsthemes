@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "precompute"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "sculpture"
-  ]
+  "authors": ["precompute"],
+  "tags": ["black", "dark", "melpa", "sculpture"]
 }

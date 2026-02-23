@@ -3,16 +3,8 @@
   "id": "espresso",
   "description": "Espresso Tutti Colori port for Emacs",
   "repoUrl": "https://github.com/dgutov/espresso-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/dgutov/espresso-theme/master/espresso-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/dgutov/espresso-theme/master/espresso-theme.el"],
   "type": "light",
-  "authors": [
-    "Martin Kühl"
-  ],
-  "tags": [
-    "espresso",
-    "light",
-    "melpa"
-  ]
+  "authors": ["Martin Kühl"],
+  "tags": ["espresso", "light", "melpa"]
 }

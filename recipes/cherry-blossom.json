@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/inlinestyle/emacs-cherry-blossom-theme/refs/heads/master/cherry-blossom-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ben Yelsey"
-  ],
-  "tags": [
-    "black",
-    "cherry",
-    "cherry blossom",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "muted",
-    "red"
-  ]
+  "authors": ["Ben Yelsey"],
+  "tags": ["black", "cherry", "cherry blossom", "dark", "emacs 24", "gray", "melpa", "muted", "red"]
 }

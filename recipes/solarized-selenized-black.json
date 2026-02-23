@@ -10,16 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-selenized-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "high contrast",
-    "popular",
-    "selenized",
-    "solarized"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["accessibility", "black", "dark", "high contrast", "popular", "selenized", "solarized"]
 }

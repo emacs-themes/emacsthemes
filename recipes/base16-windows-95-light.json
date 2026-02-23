@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-windows-95-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Fergus Collins"
-  ],
-  "tags": [
-    "base16",
-    "base16 windows-95-light",
-    "light",
-    "white",
-    "windows-95-light"
-  ]
+  "authors": ["Kaleb Elwert", "Fergus Collins"],
+  "tags": ["base16", "base16 windows-95-light", "light", "white", "windows-95-light"]
 }

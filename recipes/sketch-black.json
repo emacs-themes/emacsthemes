@@ -8,16 +8,6 @@
     "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Daw-Ran Liou"
-  ],
-  "tags": [
-    "black",
-    "black and white",
-    "dark",
-    "gray",
-    "grayscale",
-    "monochrome",
-    "sketch"
-  ]
+  "authors": ["Daw-Ran Liou"],
+  "tags": ["black", "black and white", "dark", "gray", "grayscale", "monochrome", "sketch"]
 }

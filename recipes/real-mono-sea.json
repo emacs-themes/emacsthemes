@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-sea-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Qingsong Liao"
-  ],
-  "tags": [
-    "light",
-    "monochrome",
-    "real mono",
-    "sea",
-    "white"
-  ]
+  "authors": ["Qingsong Liao"],
+  "tags": ["light", "monochrome", "real mono", "sea", "white"]
 }

@@ -3,17 +3,8 @@
   "id": "darkokai",
   "description": "A darker variant on Monokai.",
   "repoUrl": "https://github.com/sjrmanning/darkokai",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/sjrmanning/darkokai/master/darkokai-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/sjrmanning/darkokai/master/darkokai-theme.el"],
   "type": "dark",
-  "authors": [
-    "Sjrmanning"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "darkokai",
-    "melpa"
-  ]
+  "authors": ["Sjrmanning"],
+  "tags": ["black", "dark", "darkokai", "melpa"]
 }

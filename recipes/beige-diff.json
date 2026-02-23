@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/beige-diff-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Xavier Maillard & Brian Palmer / Syohei YOSHIDA"
-  ],
-  "tags": [
-    "beige",
-    "beige diff",
-    "color themes",
-    "gray",
-    "light",
-    "red",
-    "white"
-  ]
+  "authors": ["Xavier Maillard & Brian Palmer / Syohei YOSHIDA"],
+  "tags": ["beige", "beige diff", "color themes", "gray", "light", "red", "white"]
 }

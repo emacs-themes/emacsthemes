@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Waymondo"
-  ],
-  "tags": [
-    "apropospriate",
-    "black",
-    "blue",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Waymondo"],
+  "tags": ["apropospriate", "black", "blue", "dark", "melpa"]
 }

@@ -7,10 +7,7 @@
     "https://raw.githubusercontent.com/olcai/occidental-theme/master/occidental-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "William Stevenson",
-    "Erik Timan"
-  ],
+  "authors": ["William Stevenson", "Erik Timan"],
   "tags": [
     "accessibility",
     "adwaita",

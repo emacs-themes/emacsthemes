@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/bharadwaj-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Girish Bharadwaj / Syohei YOSHIDA"
-  ],
+  "authors": ["Girish Bharadwaj / Syohei YOSHIDA"],
   "tags": [
     "bharadwaj",
     "emacs themes",

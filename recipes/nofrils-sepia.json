@@ -7,16 +7,6 @@
     "https://gitlab.com/esessoms/nofrils-theme/-/raw/master/nofrils-sepia-theme.el?ref_type=heads"
   ],
   "type": "light",
-  "authors": [
-    "Eric Sessoms"
-  ],
-  "tags": [
-    "brown",
-    "nofrils",
-    "nofrils sepia",
-    "orange",
-    "sepia",
-    "vim",
-    "white"
-  ]
+  "authors": ["Eric Sessoms"],
+  "tags": ["brown", "nofrils", "nofrils sepia", "orange", "sepia", "vim", "white"]
 }

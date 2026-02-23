@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/jonathanchu/atom-one-dark-theme/master/atom-one-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jonathan Chu"
-  ],
-  "tags": [
-    "atom",
-    "atom one",
-    "blue",
-    "dark",
-    "dark blue",
-    "indigo",
-    "melpa",
-    "new",
-    "purple"
-  ]
+  "authors": ["Jonathan Chu"],
+  "tags": ["atom", "atom one", "blue", "dark", "dark blue", "indigo", "melpa", "new", "purple"]
 }

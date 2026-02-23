@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-chinoiserie-night-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Di Wang"
-  ],
-  "tags": [
-    "base16",
-    "base16 chinoiserie-night",
-    "black",
-    "chinoiserie-night",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Di Wang"],
+  "tags": ["base16", "base16 chinoiserie-night", "black", "chinoiserie-night", "dark"]
 }

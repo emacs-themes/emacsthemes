@@ -3,19 +3,8 @@
   "id": "vs-dark",
   "description": "Visual Studio IDE dark theme.",
   "repoUrl": "https://github.com/jcs-elpa/vs-dark-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/jcs-elpa/vs-dark-theme/master/vs-dark-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/jcs-elpa/vs-dark-theme/master/vs-dark-theme.el"],
   "type": "dark",
-  "authors": [
-    "Thomas Friese"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "visual studio",
-    "vs dark"
-  ]
+  "authors": ["Thomas Friese"],
+  "tags": ["black", "blue", "dark", "melpa", "visual studio", "vs dark"]
 }

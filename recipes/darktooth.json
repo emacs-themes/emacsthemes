@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-darktooth/refs/heads/master/darktooth-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
+  "authors": ["Jason Milkins"],
   "tags": [
     "autothemer",
     "black",

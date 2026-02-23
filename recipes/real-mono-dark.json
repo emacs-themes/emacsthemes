@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Qingsong Liao"
-  ],
-  "tags": [
-    "black",
-    "black and white",
-    "dark",
-    "monochrome",
-    "real mono"
-  ]
+  "authors": ["Qingsong Liao"],
+  "tags": ["black", "black and white", "dark", "monochrome", "real mono"]
 }

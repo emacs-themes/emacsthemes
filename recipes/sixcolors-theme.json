@@ -3,17 +3,8 @@
   "id": "sixcolors",
   "description": "Just another theme",
   "repoUrl": "https://github.com/mastro35/sixcolors-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mastro35/sixcolors-theme/main/sixcolors-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mastro35/sixcolors-theme/main/sixcolors-theme.el"],
   "type": "dark",
-  "authors": [
-    "Davide Mastromatteo"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "sixcolors"
-  ]
+  "authors": ["Davide Mastromatteo"],
+  "tags": ["black", "dark", "melpa", "sixcolors"]
 }

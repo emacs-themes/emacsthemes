@@ -3,16 +3,8 @@
   "id": "eclipse",
   "description": "Theme based on Eclipse circa 2010",
   "repoUrl": "https://github.com/abo-abo/eclipse-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/abo-abo/eclipse-theme/master/eclipse-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/abo-abo/eclipse-theme/master/eclipse-theme.el"],
   "type": "light",
-  "authors": [
-    "Oleh Krehel"
-  ],
-  "tags": [
-    "eclipse",
-    "light",
-    "melpa"
-  ]
+  "authors": ["Oleh Krehel"],
+  "tags": ["eclipse", "light", "melpa"]
 }

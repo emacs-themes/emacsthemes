@@ -3,18 +3,8 @@
   "id": "niflheim",
   "description": "A port of the Nifleim theme to Emacs",
   "repoUrl": "https://github.com/niflheim-theme/emacs",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/niflheim-theme/emacs/master/niflheim-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/niflheim-theme/emacs/master/niflheim-theme.el"],
   "type": "dark",
-  "authors": [
-    "Nicolas Petton",
-    "Benjamin Van Ryseghem"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "grey",
-    "niflheim"
-  ]
+  "authors": ["Nicolas Petton", "Benjamin Van Ryseghem"],
+  "tags": ["black", "dark", "grey", "niflheim"]
 }

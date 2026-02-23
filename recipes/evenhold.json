@@ -3,16 +3,8 @@
   "id": "evenhold",
   "description": "A theme for GNU Emacs.",
   "repoUrl": "https://github.com/evenhold/evenhold-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/evenhold/evenhold-theme/master/evenhold-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/evenhold/evenhold-theme/master/evenhold-theme.el"],
   "type": "dark",
-  "authors": [
-    "Franz Victorio"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "evenhold"
-  ]
+  "authors": ["Franz Victorio"],
+  "tags": ["black", "dark", "evenhold"]
 }

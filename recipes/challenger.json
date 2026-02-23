@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/challenger-deep-theme/emacs/refs/heads/master/challenger-deep-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "MaxSt"
-  ],
+  "authors": ["MaxSt"],
   "tags": [
     "black",
     "challenger",

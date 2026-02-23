@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/don9z/blackboard-theme/refs/heads/master/blackboard-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "JD Huntington"
-  ],
-  "tags": [
-    "black",
-    "blackboard",
-    "dark",
-    "gray",
-    "melpa",
-    "muted",
-    "red",
-    "textmate"
-  ]
+  "authors": ["JD Huntington"],
+  "tags": ["black", "blackboard", "dark", "gray", "melpa", "muted", "red", "textmate"]
 }

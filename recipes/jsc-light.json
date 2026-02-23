@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jsc-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "John S Cooper",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "jsc light",
-    "light",
-    "white"
-  ]
+  "authors": ["John S Cooper", "Syohei YOSHIDA"],
+  "tags": ["color themes", "jsc light", "light", "white"]
 }

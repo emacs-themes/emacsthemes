@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/vs-123/royal-hemlock-theme/main/royal-hemlock-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "vs-123 (GitHub)"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "melpa",
-    "royal-hemlock"
-  ]
+  "authors": ["vs-123 (GitHub)"],
+  "tags": ["blue", "light", "melpa", "royal-hemlock"]
 }

@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-still-alive-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Derrick McKee"
-  ],
-  "tags": [
-    "base16",
-    "base16 still-alive",
-    "still-alive",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Derrick McKee"],
+  "tags": ["base16", "base16 still-alive", "still-alive", "light"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-codeschool-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "blockloop"
-  ],
-  "tags": [
-    "base16",
-    "base16 codeschool",
-    "black",
-    "codeschool",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "blockloop"],
+  "tags": ["base16", "base16 codeschool", "black", "codeschool", "dark"]
 }

@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacsmirror/phoenix-dark-mono-theme/master/phoenix-dark-mono-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "J Irving"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "mono",
-    "phoenix dark mono",
-    "pink",
-    "sublimetext"
-  ]
+  "authors": ["J Irving"],
+  "tags": ["black", "dark", "melpa", "mono", "phoenix dark mono", "pink", "sublimetext"]
 }

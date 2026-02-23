@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-bliss-theme/refs/heads/master/bliss-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "bliss",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "muted",
-    "red"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "bliss", "dark", "emacs 24", "gray", "melpa", "muted", "red"]
 }

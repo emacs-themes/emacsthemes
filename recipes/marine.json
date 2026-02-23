@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/marine-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Girish Bharadwaj",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "blue",
-    "color themes",
-    "light",
-    "marine",
-    "white"
-  ]
+  "authors": ["Girish Bharadwaj", "Syohei YOSHIDA"],
+  "tags": ["blue", "color themes", "light", "marine", "white"]
 }

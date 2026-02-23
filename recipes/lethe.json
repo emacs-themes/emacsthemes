@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/lethe-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ivica Loncar",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "lethe"
-  ]
+  "authors": ["Ivica Loncar", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "lethe"]
 }

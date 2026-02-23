@@ -3,20 +3,9 @@
   "id": "tok-dark",
   "description": "Minimal monochromatic dark theme with restrained color highlights.",
   "repoUrl": "https://github.com/topikettunen/tok-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/topikettunen/tok-theme/main/tok-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/topikettunen/tok-theme/main/tok-theme.el"],
   "type": "dark",
-  "authors": [
-    "Topi Kettunen"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "minimal",
-    "monochrome",
-    "tok"
-  ],
+  "authors": ["Topi Kettunen"],
+  "tags": ["black", "dark", "melpa", "minimal", "monochrome", "tok"],
   "elispBefore": "(setq tok-theme-dark t)"
 }

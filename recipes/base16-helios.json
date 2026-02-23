@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-helios-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Alex Meyer"
-  ],
-  "tags": [
-    "base16",
-    "base16 helios",
-    "black",
-    "dark",
-    "helios"
-  ]
+  "authors": ["Kaleb Elwert", "Alex Meyer"],
+  "tags": ["base16", "base16 helios", "black", "dark", "helios"]
 }

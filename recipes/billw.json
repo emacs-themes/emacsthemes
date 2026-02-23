@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/billw-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Maillard & Brian Palmer / Syohei YOSHIDA"
-  ],
+  "authors": ["Xavier Maillard & Brian Palmer / Syohei YOSHIDA"],
   "tags": [
     "billw",
     "black",

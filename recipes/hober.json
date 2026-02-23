@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/hober-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jonadab the Unsightly One",
-    "Alex Schroeder",
-    "Xavier Maillard",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "hober",
-    "purple"
-  ]
+  "authors": ["Jonadab the Unsightly One", "Alex Schroeder", "Xavier Maillard", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "hober", "purple"]
 }

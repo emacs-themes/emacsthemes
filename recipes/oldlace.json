@@ -3,17 +3,8 @@
   "id": "oldlace",
   "description": "Emacs 24 theme with an 'oldlace' background.",
   "repoUrl": "https://github.com/mswift42/oldlace-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mswift42/oldlace-theme/master/oldlace-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mswift42/oldlace-theme/master/oldlace-theme.el"],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "oldlace",
-    "white"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["light", "melpa", "oldlace", "white"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-brewer-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Timothée Poisot"
-  ],
-  "tags": [
-    "base16",
-    "base16 brewer",
-    "black",
-    "brewer",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Timothée Poisot"],
+  "tags": ["base16", "base16 brewer", "black", "brewer", "dark"]
 }

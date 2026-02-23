@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-vivendi-tritanopia-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
+  "authors": ["Protesilaos Stavrou"],
   "tags": [
     "accessibility",
     "accessible",

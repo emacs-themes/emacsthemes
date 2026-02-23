@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tokyo-night-terminal-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Michaël Ball"
-  ],
+  "authors": ["Kaleb Elwert", "Michaël Ball"],
   "tags": [
     "base16",
     "base16 tokyo-night-terminal-light",

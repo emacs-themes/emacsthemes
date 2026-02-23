@@ -3,16 +3,8 @@
   "id": "aanila",
   "description": "A moderately dark theme",
   "repoUrl": "https://github.com/santoshs/aanila",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/santoshs/aanila/master/aanila-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/santoshs/aanila/master/aanila-theme.el"],
   "type": "dark",
-  "authors": [
-    "Santosh Sivaraj [santosh@fossix.org]"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "grey"
-  ]
+  "authors": ["Santosh Sivaraj [santosh@fossix.org]"],
+  "tags": ["black", "dark", "grey"]
 }

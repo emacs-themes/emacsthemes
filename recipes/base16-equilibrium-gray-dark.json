@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-equilibrium-gray-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Carlo Abelli"
-  ],
-  "tags": [
-    "base16",
-    "base16 equilibrium-gray-dark",
-    "dark",
-    "equilibrium-gray-dark",
-    "gray"
-  ]
+  "authors": ["Kaleb Elwert", "Carlo Abelli"],
+  "tags": ["base16", "base16 equilibrium-gray-dark", "dark", "equilibrium-gray-dark", "gray"]
 }

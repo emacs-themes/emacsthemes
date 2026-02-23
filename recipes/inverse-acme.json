@@ -7,16 +7,7 @@
     "https://raw.githubusercontent.com/dcjohnson/inverse-acme-theme/master/inverse-acme-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Dylan Johnson"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "brown",
-    "dark",
-    "inverse acme",
-    "melpa"
-  ],
+  "authors": ["Dylan Johnson"],
+  "tags": ["autothemer", "black", "brown", "dark", "inverse acme", "melpa"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

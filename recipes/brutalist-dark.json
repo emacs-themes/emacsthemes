@@ -8,15 +8,6 @@
     "static/themes/brutalist/brutalist-dark.el"
   ],
   "type": "dark",
-  "authors": [
-    "Gergely Nagy"
-  ],
-  "tags": [
-    "black",
-    "black and white",
-    "brutalist",
-    "dark",
-    "minimal",
-    "red"
-  ]
+  "authors": ["Gergely Nagy"],
+  "tags": ["black", "black and white", "brutalist", "dark", "minimal", "red"]
 }

@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/dakrone/dakrone-light-theme/refs/heads/master/dakrone-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Lee Hinman"
-  ],
+  "authors": ["Lee Hinman"],
   "tags": [
     "blue",
     "brown",

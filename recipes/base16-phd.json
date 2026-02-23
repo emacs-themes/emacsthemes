@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-phd-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Hennig Hasemann"
-  ],
-  "tags": [
-    "base16",
-    "base16 phd",
-    "black",
-    "dark",
-    "phd"
-  ]
+  "authors": ["Kaleb Elwert", "Hennig Hasemann"],
+  "tags": ["base16", "base16 phd", "black", "dark", "phd"]
 }

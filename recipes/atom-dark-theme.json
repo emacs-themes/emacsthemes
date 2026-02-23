@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/whitlockjc/atom-dark-theme-emacs/master/atom-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jeremy Whitlock"
-  ],
-  "tags": [
-    "atom",
-    "atom-dark",
-    "black",
-    "blue",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Jeremy Whitlock"],
+  "tags": ["atom", "atom-dark", "black", "blue", "dark", "melpa"]
 }

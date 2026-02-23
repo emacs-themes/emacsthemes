@@ -7,16 +7,6 @@
     "https://gitlab.com/aimebertrand/timu-spacegrey-theme/-/raw/main/timu-spacegrey-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Aime Bertrand"
-  ],
-  "tags": [
-    "dark",
-    "gray",
-    "grey",
-    "melpa",
-    "orange",
-    "red",
-    "sublime text"
-  ]
+  "authors": ["Aime Bertrand"],
+  "tags": ["dark", "gray", "grey", "melpa", "orange", "red", "sublime text"]
 }

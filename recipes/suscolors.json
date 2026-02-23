@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/TheSuspiciousWombat/suscolors-emacs/master/suscolors-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Tomas Vojtisek"
-  ],
-  "tags": [
-    "dark",
-    "gruvbox",
-    "melpa",
-    "modern",
-    "red",
-    "suscolors"
-  ]
+  "authors": ["Tomas Vojtisek"],
+  "tags": ["dark", "gruvbox", "melpa", "modern", "red", "suscolors"]
 }

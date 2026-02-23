@@ -223,7 +223,7 @@ async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<st
  */
 async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promise<string | null> {
   try {
-    const files = filesToSearch || await readdir(dir);
+    const files = filesToSearch || (await readdir(dir));
     // Sort files to prioritize those that end with -theme.el
     const sortedFiles = [...files].toSorted((a, b) => {
       const aIsTheme = a.endsWith("-theme.el");
@@ -248,7 +248,8 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
       for (const match of provideThemeMatches) {
         const name = match[1];
         // Skip generic variable names often found in templates or helper functions
-        if (name === "name" || name === "theme-name" || name === "theme" || name === "symbol") continue;
+        if (name === "name" || name === "theme-name" || name === "theme" || name === "symbol")
+          continue;
         return name;
       }
 
@@ -322,7 +323,7 @@ function getLoadFilesElisp(themeDir: string, filesToLoad: string[]): string {
       (f) => `
 (condition-case err
     (load-file "${resolve(join(themeDir, f))}")
-  (error (log-debug "Failed to load ${f}: %s" err)))`
+  (error (log-debug "Failed to load ${f}: %s" err)))`,
     )
     .join("\n");
 }
@@ -347,7 +348,7 @@ async function generateInitEl(
   themeName: string,
   modeName: string,
   config: ModeConfig,
-  readyFilePath: string
+  readyFilePath: string,
 ): Promise<string> {
   const template = await readFile(INIT_TEMPLATE_PATH, "utf-8");
   const modeSpecificLogic = await getModeSpecificLogic(modeName, config);
@@ -392,7 +393,11 @@ async function checkXvfbAvailability(): Promise<boolean> {
  * @param {string} readyFilePath - Path to the readiness signal file.
  * @returns {string} The constructed bash script.
  */
-function getCaptureShellScript(initElPath: string, imagePath: string, readyFilePath: string): string {
+function getCaptureShellScript(
+  initElPath: string,
+  imagePath: string,
+  readyFilePath: string,
+): string {
   return `
     emacs -Q -l "${initElPath}" &
     EMACS_PID=$!
@@ -425,7 +430,11 @@ function getCaptureShellScript(initElPath: string, imagePath: string, readyFileP
  * @param {string} readyFilePath - Path to the 'ready' file that Emacs will create.
  * @returns {Promise<boolean>} True if the screenshot was successfully captured and saved, false otherwise.
  */
-async function captureScreenshot(initElPath: string, imagePath: string, readyFilePath: string): Promise<boolean> {
+async function captureScreenshot(
+  initElPath: string,
+  imagePath: string,
+  readyFilePath: string,
+): Promise<boolean> {
   if (!(await checkXvfbAvailability())) {
     return false;
   }
@@ -433,10 +442,20 @@ async function captureScreenshot(initElPath: string, imagePath: string, readyFil
   const wrapperCmd = getCaptureShellScript(initElPath, imagePath, readyFilePath);
 
   try {
-    const proc = Bun.spawn(["xvfb-run", "--auto-servernum", "--server-args=-screen 0 1280x960x24", "bash", "-c", wrapperCmd], {
-      stdout: "inherit",
-      stderr: "inherit",
-    });
+    const proc = Bun.spawn(
+      [
+        "xvfb-run",
+        "--auto-servernum",
+        "--server-args=-screen 0 1280x960x24",
+        "bash",
+        "-c",
+        wrapperCmd,
+      ],
+      {
+        stdout: "inherit",
+        stderr: "inherit",
+      },
+    );
 
     const exitCode = await proc.exited;
     if (exitCode !== 0) return false;
@@ -459,7 +478,7 @@ async function generatePreview(sourcePath: string, destPath: string): Promise<bo
   try {
     const proc = Bun.spawn(["convert", sourcePath, "-crop", "320x160+0+0", destPath], {
       stdout: "ignore",
-      stderr: "ignore"
+      stderr: "ignore",
     });
 
     const exitCode = await proc.exited;
@@ -502,7 +521,11 @@ async function validateRecipe(recipePath: string): Promise<Theme | null> {
  * @param {boolean} force - Whether to force regeneration.
  * @returns {Promise<boolean>} True if generation should be skipped.
  */
-async function shouldSkipTheme(themeName: string, themeImagesDir: string, force: boolean): Promise<boolean> {
+async function shouldSkipTheme(
+  themeName: string,
+  themeImagesDir: string,
+  force: boolean,
+): Promise<boolean> {
   if (force) return false;
 
   try {
@@ -537,14 +560,22 @@ async function processThemeMode(
   filesToLoad: string[],
   emacsThemeName: string,
   modeName: string,
-  config: ModeConfig
+  config: ModeConfig,
 ): Promise<boolean> {
   console.log(`  Generating screenshot for ${modeName}...`);
   const imagePath = join(themeImagesDir, `${modeName}.png`);
   const initElPath = join(themeTempDir, `init-${modeName}.el`);
   const readyFilePath = join(themeTempDir, `ready-${modeName}`);
 
-  const initContent = await generateInitEl(theme, themeTempDir, filesToLoad, emacsThemeName, modeName, config, readyFilePath);
+  const initContent = await generateInitEl(
+    theme,
+    themeTempDir,
+    filesToLoad,
+    emacsThemeName,
+    modeName,
+    config,
+    readyFilePath,
+  );
   await Bun.write(initElPath, initContent);
 
   const success = await captureScreenshot(initElPath, imagePath, readyFilePath);
@@ -601,10 +632,18 @@ async function captureThemeScreenshots(
   themeTempDir: string,
   themeImagesDir: string,
   filesToLoad: string[],
-  emacsThemeName: string
+  emacsThemeName: string,
 ): Promise<void> {
   for (const [modeName, config] of Object.entries(MODE_SAMPLES)) {
-    const success = await processThemeMode(theme, themeTempDir, themeImagesDir, filesToLoad, emacsThemeName, modeName, config);
+    const success = await processThemeMode(
+      theme,
+      themeTempDir,
+      themeImagesDir,
+      filesToLoad,
+      emacsThemeName,
+      modeName,
+      config,
+    );
     if (!success) {
       throw new Error(`Failed to generate screenshot for ${modeName}`);
     }
@@ -654,7 +693,10 @@ async function cleanupThemeTemp(themeTempDir: string): Promise<void> {
  * @param {boolean} [force=false] - Whether to force screenshot generation.
  * @returns {Promise<{ status: 'skipped' | 'success' | 'failed', name: string }>}
  */
-async function processTheme(recipePath: string, force: boolean = false): Promise<{ status: "skipped" | "success" | "failed"; name: string }> {
+async function processTheme(
+  recipePath: string,
+  force: boolean = false,
+): Promise<{ status: "skipped" | "success" | "failed"; name: string }> {
   const theme = await validateRecipe(recipePath);
   if (!theme) {
     return { status: "failed", name: basename(recipePath) };
@@ -741,7 +783,9 @@ async function main() {
     results[status]++;
   }
 
-  console.log(`\nSummary: Skipped: ${results.skipped}, Success: ${results.success}, Failed: ${results.failed}`);
+  console.log(
+    `\nSummary: Skipped: ${results.skipped}, Success: ${results.success}, Failed: ${results.failed}`,
+  );
   if (results.failed > 0) process.exit(1);
 }
 

@@ -8,15 +8,6 @@
     "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Thibault Polge"
-  ],
-  "tags": [
-    "emacs 24",
-    "eziam",
-    "light",
-    "monochrome",
-    "red",
-    "white"
-  ]
+  "authors": ["Thibault Polge"],
+  "tags": ["emacs 24", "eziam", "light", "monochrome", "red", "white"]
 }

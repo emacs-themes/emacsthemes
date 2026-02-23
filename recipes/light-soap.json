@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/light-soap-theme/master/light-soap-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "light soap",
-    "melpa",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["emacs 24", "light", "light soap", "melpa", "white", "yellow"]
 }

@@ -7,19 +7,6 @@
     "https://raw.githubusercontent.com/ccann/badger-theme/refs/heads/master/badger-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Cody Canning"
-  ],
-  "tags": [
-    "badger",
-    "black",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "modern",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Cody Canning"],
+  "tags": ["badger", "black", "dark", "emacs 24", "gray", "melpa", "modern", "muted", "nord", "red"]
 }

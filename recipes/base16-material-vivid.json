@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-material-vivid-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "joshyrobot"
-  ],
-  "tags": [
-    "base16",
-    "base16 material-vivid",
-    "black",
-    "dark",
-    "material-vivid"
-  ]
+  "authors": ["Kaleb Elwert", "joshyrobot"],
+  "tags": ["base16", "base16 material-vivid", "black", "dark", "material-vivid"]
 }

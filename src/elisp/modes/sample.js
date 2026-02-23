@@ -2,7 +2,7 @@
 /**
  * Complex JavaScript sample for highlighting
  */
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 const GLOBAL_CONSTANT = 42;
 
@@ -18,14 +18,14 @@ class ThemeValidator extends EventEmitter {
    */
   async validate(recipe) {
     try {
-      if (!recipe.id || typeof recipe.id !== 'string') {
-        throw new Error('Invalid ID');
+      if (!recipe.id || typeof recipe.id !== "string") {
+        throw new Error("Invalid ID");
       }
 
       console.log(`Validating ${this.name}...`);
-      
+
       const isValid = this.regex.test(recipe.id);
-      this.emit('validation', { isValid, timestamp: Date.now() });
+      this.emit("validation", { isValid, timestamp: Date.now() });
 
       return isValid;
     } catch (err) {
@@ -35,16 +35,16 @@ class ThemeValidator extends EventEmitter {
   }
 }
 
-const validator = new ThemeValidator('EmacsThemes');
-validator.on('validation', (result) => {
+const validator = new ThemeValidator("EmacsThemes");
+validator.on("validation", (result) => {
   const { isValid } = result;
-  console.log(`Result: ${isValid ? 'PASSED' : 'FAILED'}`);
+  console.log(`Result: ${isValid ? "PASSED" : "FAILED"}`);
 });
 
 const sampleRecipe = {
-  id: 'zenburn-theme',
-  tags: ['dark', 'low-contrast'],
-  complexity: GLOBAL_CONSTANT
+  id: "zenburn-theme",
+  tags: ["dark", "low-contrast"],
+  complexity: GLOBAL_CONSTANT,
 };
 
 validator.validate(sampleRecipe);

@@ -3,17 +3,8 @@
   "id": "somnus",
   "description": "A calm dark blue-and-yellow theme designed for night coding.",
   "repoUrl": "https://gligan.net/emacs-themes",
-  "rawUrls": [
-    "https://gligan.net/somnus-theme.el"
-  ],
+  "rawUrls": ["https://gligan.net/somnus-theme.el"],
   "type": "dark",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "somnus",
-    "yellow"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["blue", "dark", "somnus", "yellow"]
 }

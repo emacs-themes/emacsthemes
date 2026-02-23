@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-0x96f-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Filip Janevski"
-  ],
+  "authors": ["Kaleb Elwert", "Filip Janevski"],
   "tags": [
     "base16",
     "base16 chalk",

@@ -8,16 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-plum-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "dark",
-    "doric",
-    "doric-themes",
-    "minimal",
-    "minimalist",
-    "plum"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["dark", "doric", "doric-themes", "minimal", "minimalist", "plum"],
   "elispAfter": "(enable-theme 'doric-plum)"
 }

@@ -3,17 +3,8 @@
   "id": "helix",
   "description": "Color theme inspired by Helix editor's default colors",
   "repoUrl": "https://github.com/ibakepunk/helix-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/ibakepunk/helix-theme/main/helix-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/ibakepunk/helix-theme/main/helix-theme.el"],
   "type": "dark",
-  "authors": [
-    "Dmitry Osipov"
-  ],
-  "tags": [
-    "dark",
-    "helix",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Dmitry Osipov"],
+  "tags": ["dark", "helix", "melpa", "red"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-railscasts-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Ryan Bates"
-  ],
-  "tags": [
-    "base16",
-    "base16 railscasts",
-    "black",
-    "dark",
-    "railscasts"
-  ]
+  "authors": ["Kaleb Elwert", "Ryan Bates"],
+  "tags": ["base16", "base16 railscasts", "black", "dark", "railscasts"]
 }

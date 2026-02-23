@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/WJCFerguson/emacs-faff-theme/master/faff-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "James Ferguson"
-  ],
-  "tags": [
-    "classic",
-    "faff",
-    "ivory",
-    "light",
-    "melpa",
-    "yellow"
-  ]
+  "authors": ["James Ferguson"],
+  "tags": ["classic", "faff", "ivory", "light", "melpa", "yellow"]
 }

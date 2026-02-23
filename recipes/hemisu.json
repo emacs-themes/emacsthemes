@@ -9,15 +9,6 @@
     "https://raw.githubusercontent.com/andrzejsliwa/hemisu-theme/master/hemisu-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Andrzej Sliwa"
-  ],
-  "tags": [
-    "light",
-    "hemisu",
-    "light",
-    "melpa",
-    "vim",
-    "white"
-  ]
+  "authors": ["Andrzej Sliwa"],
+  "tags": ["light", "hemisu", "light", "melpa", "vim", "white"]
 }

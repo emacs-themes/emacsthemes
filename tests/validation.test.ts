@@ -11,7 +11,7 @@ describe("Strict Validator (Injection Safety)", () => {
     rawUrls: ["https://github.com/example/safe/raw/main/safe.el"],
     type: "dark",
     authors: ["John Doe"],
-    tags: ["safe", "clean"]
+    tags: ["safe", "clean"],
   };
 
   test("accepts a clean recipe", () => {
@@ -24,7 +24,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.errors.some(e => e.includes("contains a script tag"))).toBe(true);
+      expect(result.errors.some((e) => e.includes("contains a script tag"))).toBe(true);
     }
   });
 
@@ -33,7 +33,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.errors.some(e => e.includes("contains HTML-like tags"))).toBe(true);
+      expect(result.errors.some((e) => e.includes("contains HTML-like tags"))).toBe(true);
     }
   });
 
@@ -42,7 +42,9 @@ describe("Strict Validator (Injection Safety)", () => {
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.errors.some(e => e.includes("contains inline event handler syntax"))).toBe(true);
+      expect(result.errors.some((e) => e.includes("contains inline event handler syntax"))).toBe(
+        true,
+      );
     }
   });
 
@@ -51,7 +53,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.errors.some(e => e.includes("must use http, https protocol"))).toBe(true);
+      expect(result.errors.some((e) => e.includes("must use http, https protocol"))).toBe(true);
     }
   });
 
@@ -71,7 +73,9 @@ describe("Strict Validator (Injection Safety)", () => {
 
 describe("HTML Escaping", () => {
   test("escapes basic HTML characters", () => {
-    expect(escapeHtml('<script>alert("XSS")</script>')).toBe("&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;");
+    expect(escapeHtml('<script>alert("XSS")</script>')).toBe(
+      "&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;",
+    );
     expect(escapeHtml("John's Theme & Co")).toBe("John&#039;s Theme &amp; Co");
   });
 

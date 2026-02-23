@@ -8,16 +8,6 @@
     "https://codeberg.org/ashton314/nordic-night/raw/branch/main/nordic-midnight-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ashton Wiersdorf"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "colorful",
-    "dark",
-    "nord",
-    "nordic",
-    "nordic midnight"
-  ]
+  "authors": ["Ashton Wiersdorf"],
+  "tags": ["black", "blue", "colorful", "dark", "nord", "nordic", "nordic midnight"]
 }

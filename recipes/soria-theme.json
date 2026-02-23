@@ -3,17 +3,8 @@
   "id": "soria",
   "description": "A xoria256 theme with some colors from openSUSE",
   "repoUrl": "https://github.com/mssola/soria",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mssola/soria/main/soria-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mssola/soria/main/soria-theme.el"],
   "type": "dark",
-  "authors": [
-    "Miquel Sabaté Solà"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "soria"
-  ]
+  "authors": ["Miquel Sabaté Solà"],
+  "tags": ["black", "dark", "melpa", "soria"]
 }

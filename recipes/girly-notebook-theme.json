@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/melissaboiko/girly-notebook-theme/trunk/girly-notebook-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "elilla&"
-  ],
-  "tags": [
-    "girly-notebook",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["elilla&"],
+  "tags": ["girly-notebook", "light", "melpa", "white"]
 }

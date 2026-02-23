@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-darkmoss-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Gabriel Avanzi"
-  ],
-  "tags": [
-    "base16",
-    "base16 darkmoss",
-    "black",
-    "dark",
-    "darkmoss"
-  ]
+  "authors": ["Kaleb Elwert", "Gabriel Avanzi"],
+  "tags": ["base16", "base16 darkmoss", "black", "dark", "darkmoss"]
 }

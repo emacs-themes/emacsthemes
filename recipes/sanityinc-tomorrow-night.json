@@ -8,16 +8,7 @@
     "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/refs/heads/master/sanityinc-tomorrow-night-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Steve Purcell"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "night",
-    "popular",
-    "sanityinc",
-    "tomorrow"
-  ],
+  "authors": ["Steve Purcell"],
+  "tags": ["black", "dark", "night", "popular", "sanityinc", "tomorrow"],
   "elispBefore": "(color-theme-sanityinc-tomorrow-night)"
 }

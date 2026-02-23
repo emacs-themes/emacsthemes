@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/tty-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Oivvio Polite",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "tty dark"
-  ]
+  "authors": ["Oivvio Polite", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "tty dark"]
 }

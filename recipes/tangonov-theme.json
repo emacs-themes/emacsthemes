@@ -3,18 +3,8 @@
   "id": "tangonov",
   "description": "A 256 color dark theme featuring bright pastels",
   "repoUrl": "https://codeberg.com/trevdev/tangonov-theme",
-  "rawUrls": [
-    "https://codeberg.org/trevdev/tangonov-theme/raw/branch/main/tangonov-theme.el"
-  ],
+  "rawUrls": ["https://codeberg.org/trevdev/tangonov-theme/raw/branch/main/tangonov-theme.el"],
   "type": "dark",
-  "authors": [
-    "Trevor Richards"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "tango",
-    "tangonov"
-  ]
+  "authors": ["Trevor Richards"],
+  "tags": ["black", "dark", "melpa", "tango", "tangonov"]
 }

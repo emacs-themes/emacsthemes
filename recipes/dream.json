@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/djcb/dream-theme/refs/heads/master/dream-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Dirk-Jan C. Binnema"
-  ],
+  "authors": ["Dirk-Jan C. Binnema"],
   "tags": [
     "dark",
     "dream",

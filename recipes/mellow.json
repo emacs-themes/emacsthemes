@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-mellow-theme/master/mellow-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "emacs 24",
-    "mellow",
-    "melpa"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "brown", "dark", "emacs 24", "mellow", "melpa"]
 }

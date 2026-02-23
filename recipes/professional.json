@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/juanjux/emacs-professional-theme/master/professional-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Juanjo Alvarez"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "professional",
-    "vim",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Juanjo Alvarez"],
+  "tags": ["light", "melpa", "professional", "vim", "white", "yellow"]
 }

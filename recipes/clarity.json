@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/clarity-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Richard Wellum / Syohei YOSHIDA"
-  ],
+  "authors": ["Richard Wellum / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

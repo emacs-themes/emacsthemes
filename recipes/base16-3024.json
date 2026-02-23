@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-3024-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jan T. Sott"
-  ],
-  "tags": [
-    "3024",
-    "base16",
-    "base16 3024",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Jan T. Sott"],
+  "tags": ["3024", "base16", "base16 3024", "black", "dark"]
 }

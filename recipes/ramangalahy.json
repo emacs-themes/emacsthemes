@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/ramangalahy-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Solofo Ramangalahy",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color theme",
-    "grey",
-    "light",
-    "ramangalahy",
-    "white"
-  ]
+  "authors": ["Solofo Ramangalahy", "Syohei YOSHIDA"],
+  "tags": ["color theme", "grey", "light", "ramangalahy", "white"]
 }

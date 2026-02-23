@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/lawrence-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Lawrence Mitchell",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "green",
-    "lawrence"
-  ]
+  "authors": ["Lawrence Mitchell", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "green", "lawrence"]
 }

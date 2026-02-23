@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-unikitty-reversible-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Josh W Lewis"
-  ],
-  "tags": [
-    "base16",
-    "base16 unikitty-reversible",
-    "black",
-    "dark",
-    "unikitty-reversible"
-  ]
+  "authors": ["Kaleb Elwert", "Josh W Lewis"],
+  "tags": ["base16", "base16 unikitty-reversible", "black", "dark", "unikitty-reversible"]
 }

@@ -3,17 +3,8 @@
   "id": "madhat2r",
   "description": "dark color theme that is easy on the eyes",
   "repoUrl": "https://github.com/madhat2r/madhat2r-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/madhat2r/madhat2r-theme/master/madhat2r-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/madhat2r/madhat2r-theme/master/madhat2r-theme.el"],
   "type": "dark",
-  "authors": [
-    "Micah Duke"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "madhat2r",
-    "melpa"
-  ]
+  "authors": ["Micah Duke"],
+  "tags": ["black", "dark", "madhat2r", "melpa"]
 }

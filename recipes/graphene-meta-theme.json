@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/rdallasgray/graphene-meta-theme/master/graphene-meta-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Robert Dallas Gray"
-  ],
-  "tags": [
-    "white",
-    "light",
-    "graphene meta",
-    "melpa"
-  ]
+  "authors": ["Robert Dallas Gray"],
+  "tags": ["white", "light", "graphene meta", "melpa"]
 }

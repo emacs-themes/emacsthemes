@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Philip Gaber"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "shanty",
-    "worker"
-  ]
+  "authors": ["Philip Gaber"],
+  "tags": ["light", "melpa", "shanty", "worker"]
 }

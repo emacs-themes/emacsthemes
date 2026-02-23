@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/goldenrod-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "gold",
-    "goldenrod"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "gold", "goldenrod"]
 }

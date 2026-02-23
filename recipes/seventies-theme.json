@@ -3,18 +3,8 @@
   "id": "seventies-theme",
   "description": "Emacs 24 theme with a dark background",
   "repoUrl": "https://github.com/RyanBurnside/Seventies",
-  "rawUrls": [
-    "https://github.com/RyanBurnside/Seventies/raw/refs/heads/master/Seventies-theme.el"
-  ],
+  "rawUrls": ["https://github.com/RyanBurnside/Seventies/raw/refs/heads/master/Seventies-theme.el"],
   "type": "dark",
-  "authors": [
-    "Ryan Burnside"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "seventies",
-    "yellow"
-  ]
+  "authors": ["Ryan Burnside"],
+  "tags": ["black", "brown", "dark", "seventies", "yellow"]
 }

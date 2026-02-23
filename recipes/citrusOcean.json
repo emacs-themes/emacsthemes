@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/huanginch/citrusOcean/refs/heads/master/citrusOcean-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ying Huang"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "gray",
-    "muted",
-    "nord",
-    "orange",
-    "red"
-  ]
+  "authors": ["Ying Huang"],
+  "tags": ["blue", "dark", "gray", "muted", "nord", "orange", "red"]
 }

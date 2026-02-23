@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/busybee-theme/refs/heads/master/busybee-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "black",
-    "busybee",
-    "dark",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red",
-    "vim"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["black", "busybee", "dark", "gray", "melpa", "muted", "nord", "red", "vim"]
 }

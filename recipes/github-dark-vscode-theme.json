@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/Justintime50/github-dark-vscode-emacs-theme/main/github-dark-vscode-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Justintime50"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "github-dark-vscode",
-    "melpa"
-  ]
+  "authors": ["Justintime50"],
+  "tags": ["black", "dark", "github-dark-vscode", "melpa"]
 }

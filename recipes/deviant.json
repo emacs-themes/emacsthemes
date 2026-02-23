@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/MetroWind/emacs-deviant-theme/refs/heads/master/Deviant-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Darksair"
-  ],
-  "tags": [
-    "dark",
-    "deviant",
-    "emacs 24",
-    "gray",
-    "green",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Darksair"],
+  "tags": ["dark", "deviant", "emacs 24", "gray", "green", "muted", "nord", "red"]
 }

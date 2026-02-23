@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/Greybeard-Entertainment/app-monochrome/main/app-monochrome-themes-light-theme-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Aleksandr Petrosyan"
-  ],
-  "tags": [
-    "app-monochrome",
-    "light",
-    "melpa",
-    "monochrome"
-  ]
+  "authors": ["Aleksandr Petrosyan"],
+  "tags": ["app-monochrome", "light", "melpa", "monochrome"]
 }

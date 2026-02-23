@@ -3,18 +3,8 @@
   "id": "planet",
   "description": "Theme for Emacs inspired by the color palette of the former Gmail theme Planets.",
   "repoUrl": "https://github.com/cmack/emacs-planet-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/cmack/emacs-planet-theme/master/planet-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/cmack/emacs-planet-theme/master/planet-theme.el"],
   "type": "dark",
-  "authors": [
-    "Charlie McMackin"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "melpa",
-    "planet",
-    "red"
-  ]
+  "authors": ["Charlie McMackin"],
+  "tags": ["blue", "dark", "melpa", "planet", "red"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-windows-10-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Fergus Collins"
-  ],
-  "tags": [
-    "base16",
-    "base16 windows-10",
-    "black",
-    "dark",
-    "windows-10"
-  ]
+  "authors": ["Kaleb Elwert", "Fergus Collins"],
+  "tags": ["base16", "base16 windows-10", "black", "dark", "windows-10"]
 }

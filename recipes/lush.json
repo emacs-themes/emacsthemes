@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/andre-richter/emacs-lush-theme/master/lush-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Andre Richter"
-  ],
-  "tags": [
-    "black",
-    "blackboard",
-    "blue",
-    "dark",
-    "lush",
-    "melpa"
-  ]
+  "authors": ["Andre Richter"],
+  "tags": ["black", "blackboard", "blue", "dark", "lush", "melpa"]
 }

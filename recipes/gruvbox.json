@@ -8,12 +8,7 @@
     "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins",
-    "Martijn Terpstra",
-    "Eduardo Lavaque",
-    "Lee Machin"
-  ],
+  "authors": ["Jason Milkins", "Martijn Terpstra", "Eduardo Lavaque", "Lee Machin"],
   "tags": [
     "autothemer",
     "black",

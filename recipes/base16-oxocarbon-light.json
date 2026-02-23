@@ -8,16 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-oxocarbon-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "shaunsingh/IBM",
-    "Tinted Theming"
-  ],
-  "tags": [
-    "base16",
-    "base16 oxocarbon-light",
-    "light",
-    "oxocarbon-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "shaunsingh/IBM", "Tinted Theming"],
+  "tags": ["base16", "base16 oxocarbon-light", "light", "oxocarbon-light", "white"]
 }

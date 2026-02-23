@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/digital-ofs1-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Gareth Owen / Syohei YOSHIDA"
-  ],
+  "authors": ["Gareth Owen / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

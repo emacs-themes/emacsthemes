@@ -8,21 +8,7 @@
     "https://raw.githubusercontent.com/Greduan/emacs-theme-gruvbox/master/gruvbox-dark-soft-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins",
-    "Martijn Terpstra",
-    "Eduardo Lavaque",
-    "Lee Machin"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "brown",
-    "dark",
-    "gruvbox",
-    "retro",
-    "soft",
-    "vim"
-  ],
+  "authors": ["Jason Milkins", "Martijn Terpstra", "Eduardo Lavaque", "Lee Machin"],
+  "tags": ["autothemer", "black", "brown", "dark", "gruvbox", "retro", "soft", "vim"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

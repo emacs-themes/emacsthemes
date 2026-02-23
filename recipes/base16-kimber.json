@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-kimber-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Mishka Nguyen"
-  ],
-  "tags": [
-    "base16",
-    "base16 kimber",
-    "black",
-    "dark",
-    "kimber"
-  ]
+  "authors": ["Kaleb Elwert", "Mishka Nguyen"],
+  "tags": ["base16", "base16 kimber", "black", "dark", "kimber"]
 }

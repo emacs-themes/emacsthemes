@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/marron-gold-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "dark",
-    "gold",
-    "marron-gold",
-    "melpa"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["dark", "gold", "marron-gold", "melpa"]
 }

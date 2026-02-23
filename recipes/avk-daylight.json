@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/avkoval/avk-emacs-themes/master/avk-daylight-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Alex V. Koval"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "white",
-    "yellow"
-  ]
+  "authors": ["Alex V. Koval"],
+  "tags": ["blue", "light", "white", "yellow"]
 }

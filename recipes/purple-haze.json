@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-purple-haze-theme/master/purple-haze-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "emacs 24",
-    "melpa",
-    "purple"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "color themes", "dark", "emacs 24", "melpa", "purple"]
 }

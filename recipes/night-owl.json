@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/aaronjensen/night-owl-emacs/master/night-owl-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Aaron Jensen"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "night owl",
-    "vscode"
-  ]
+  "authors": ["Aaron Jensen"],
+  "tags": ["black", "blue", "dark", "melpa", "night owl", "vscode"]
 }

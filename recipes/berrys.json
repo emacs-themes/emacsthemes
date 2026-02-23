@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/vbuzin/berrys-theme/refs/heads/master/berrys-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Slava Buzin"
-  ],
+  "authors": ["Slava Buzin"],
   "tags": [
     "berrys",
     "blue",

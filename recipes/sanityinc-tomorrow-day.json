@@ -8,17 +8,7 @@
     "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-tomorrow/refs/heads/master/sanityinc-tomorrow-day-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Steve Purcell"
-  ],
-  "tags": [
-    "blue",
-    "day",
-    "light",
-    "popular",
-    "sanityinc",
-    "tomorrow",
-    "white"
-  ],
+  "authors": ["Steve Purcell"],
+  "tags": ["blue", "day", "light", "popular", "sanityinc", "tomorrow", "white"],
   "elispBefore": "(color-theme-sanityinc-tomorrow-day)"
 }

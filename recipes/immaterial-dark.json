@@ -8,16 +8,8 @@
     "https://raw.githubusercontent.com/petergardfjall/emacs-immaterial-theme/master/immaterial-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Peter Gardfjäll"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "immaterial",
-    "material",
-    "material design"
-  ],
+  "authors": ["Peter Gardfjäll"],
+  "tags": ["black", "dark", "immaterial", "material", "material design"],
   "elispBefore": "(unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'immaterial-dark)"
 }

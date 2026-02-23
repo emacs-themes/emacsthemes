@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-windows-nt-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Fergus Collins"
-  ],
-  "tags": [
-    "base16",
-    "base16 windows-nt-light",
-    "light",
-    "white",
-    "windows-nt-light"
-  ]
+  "authors": ["Kaleb Elwert", "Fergus Collins"],
+  "tags": ["base16", "base16 windows-nt-light", "light", "white", "windows-nt-light"]
 }

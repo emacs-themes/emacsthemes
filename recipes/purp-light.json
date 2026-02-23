@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/gnuvince/purp/master/purp-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Vincent Foley"
-  ],
-  "tags": [
-    "light",
-    "pink",
-    "purp ",
-    "white"
-  ]
+  "authors": ["Vincent Foley"],
+  "tags": ["light", "pink", "purp ", "white"]
 }

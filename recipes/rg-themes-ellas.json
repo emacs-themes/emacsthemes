@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-ellas-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "rg",
-    "white"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["light", "melpa", "rg", "white"]
 }

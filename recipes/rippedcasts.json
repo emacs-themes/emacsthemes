@@ -3,17 +3,8 @@
   "id": "rippedcasts",
   "description": "Custom face theme for Emacs.",
   "repoUrl": "https://github.com/mdw123/rippedcasts",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mdw123/rippedcasts/master/rippedcasts-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mdw123/rippedcasts/master/rippedcasts-theme.el"],
   "type": "dark",
-  "authors": [
-    "Matt Woodward"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "rippedcasts"
-  ]
+  "authors": ["Matt Woodward"],
+  "tags": ["black", "brown", "dark", "rippedcasts"]
 }

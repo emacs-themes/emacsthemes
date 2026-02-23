@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/thegeorgeous/railscasts-reloaded-theme/master/railscasts-reloaded-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "George Thomas"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "grey",
-    "railcasts",
-    "textmate",
-    "vim"
-  ]
+  "authors": ["George Thomas"],
+  "tags": ["black", "brown", "dark", "grey", "railcasts", "textmate", "vim"]
 }

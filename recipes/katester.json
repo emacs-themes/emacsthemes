@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/katester-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "walterh@rocketmail.com",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "katester",
-    "light",
-    "white",
-    "yellow"
-  ]
+  "authors": ["walterh@rocketmail.com", "Syohei YOSHIDA"],
+  "tags": ["color themes", "katester", "light", "white", "yellow"]
 }

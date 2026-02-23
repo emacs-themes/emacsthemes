@@ -3,19 +3,8 @@
   "id": "firebelly",
   "description": "Low-contrast, dark-background emacs theme. ",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/firebelly/firebelly-theme.el"
-  ],
+  "rawUrls": ["static/themes/firebelly/firebelly-theme.el"],
   "type": "dark",
-  "authors": [
-    "startling"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "firebelly",
-    "grey",
-    "white"
-  ]
+  "authors": ["startling"],
+  "tags": ["accessibility", "black", "dark", "firebelly", "grey", "white"]
 }

@@ -7,16 +7,6 @@
     "https://github.com/anandpiyer/seoul256-emacs/raw/refs/heads/master/seoul256-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Anand Iyer"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "grey",
-    "melpa",
-    "seoul256",
-    "vim"
-  ]
+  "authors": ["Anand Iyer"],
+  "tags": ["accessibility", "black", "dark", "grey", "melpa", "seoul256", "vim"]
 }

@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-windows-highcontrast-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Fergus Collins"
-  ],
+  "authors": ["Kaleb Elwert", "Fergus Collins"],
   "tags": [
     "base16",
     "base16 windows-highcontrast-light",

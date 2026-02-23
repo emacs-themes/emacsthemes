@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/Northcode/northcode-theme.el/master/northcode-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Andreas Larsen @ northcode.no"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "emacs 25",
-    "melpa",
-    "orange"
-  ]
+  "authors": ["Andreas Larsen @ northcode.no"],
+  "tags": ["blue", "dark", "emacs 25", "melpa", "orange"]
 }

@@ -7,16 +7,7 @@
     "https://raw.githubusercontent.com/merrittlj/automata-theme/refs/heads/master/configurations/emacs-automata-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Lucas Merritt"
-  ],
-  "tags": [
-    "automata",
-    "autothemer",
-    "cream",
-    "gruvbox",
-    "light",
-    "minimal"
-  ],
+  "authors": ["Lucas Merritt"],
+  "tags": ["automata", "autothemer", "cream", "gruvbox", "light", "minimal"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

@@ -10,15 +10,7 @@
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/tempus_winter.json"
   ],
   "type": "dark",
-  "authors": [
-    "Uros Perisic"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "ewal",
-    "spacemacs",
-    "tempus-themes"
-  ],
+  "authors": ["Uros Perisic"],
+  "tags": ["black", "dark", "ewal", "spacemacs", "tempus-themes"],
   "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"tempus_winter\" ewal-json-file (expand-file-name \"tempus_winter.json\" (car load-path)))"
 }

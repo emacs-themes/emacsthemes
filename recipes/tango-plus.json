@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/tmalsburg/tango-plus-theme/master/tango-plus-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Titus von der Malsburg"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "melpa",
-    "tango",
-    "tango plus",
-    "white"
-  ]
+  "authors": ["Titus von der Malsburg"],
+  "tags": ["color themes", "light", "melpa", "tango", "tango plus", "white"]
 }

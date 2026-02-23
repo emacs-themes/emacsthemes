@@ -3,19 +3,8 @@
   "id": "aurora",
   "description": "A theme inspired by Sublime Text's Material theme.",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/aurora/aurora-theme.el"
-  ],
+  "rawUrls": ["static/themes/aurora/aurora-theme.el"],
   "type": "dark",
-  "authors": [
-    "Luis Cairampoma"
-  ],
-  "tags": [
-    "aurora",
-    "black",
-    "dark",
-    "green",
-    "material",
-    "sublime text"
-  ]
+  "authors": ["Luis Cairampoma"],
+  "tags": ["aurora", "black", "dark", "green", "material", "sublime text"]
 }

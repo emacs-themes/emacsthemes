@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-ayu-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Tinted Theming"
-  ],
-  "tags": [
-    "ayu-dark",
-    "base16",
-    "base16 ayu-dark",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Tinted Theming"],
+  "tags": ["ayu-dark", "base16", "base16 ayu-dark", "black", "dark"]
 }

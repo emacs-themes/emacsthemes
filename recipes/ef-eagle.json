@@ -8,17 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-eagle-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "yellow",
-    "colorful",
-    "light",
-    "eagle",
-    "ef",
-    "ef-themes"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["yellow", "colorful", "light", "eagle", "ef", "ef-themes"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-eagle)"
 }

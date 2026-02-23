@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/muirmanders/emacs-nova-theme/master/nova-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Muir Manders"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "pastel"
-  ]
+  "authors": ["Muir Manders"],
+  "tags": ["black", "blue", "dark", "melpa", "pastel"]
 }

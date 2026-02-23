@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-pandora-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Cassandra Fox"
-  ],
-  "tags": [
-    "base16",
-    "base16 pandora",
-    "black",
-    "dark",
-    "pandora"
-  ]
+  "authors": ["Kaleb Elwert", "Cassandra Fox"],
+  "tags": ["base16", "base16 pandora", "black", "dark", "pandora"]
 }

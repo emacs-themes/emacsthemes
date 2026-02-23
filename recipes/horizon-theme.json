@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/aodhneine/horizon-theme.el/master/horizon-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Aodnait Étaín"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "horizon",
-    "melpa"
-  ]
+  "authors": ["Aodnait Étaín"],
+  "tags": ["black", "dark", "horizon", "melpa"]
 }

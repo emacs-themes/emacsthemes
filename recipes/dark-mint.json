@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/shaunvxc/dark-mint-theme/refs/heads/master/dark-mint-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Shaun Viguerie"
-  ],
-  "tags": [
-    "awesome",
-    "dark",
-    "emacs",
-    "gray",
-    "melpa",
-    "mint",
-    "muted",
-    "red"
-  ]
+  "authors": ["Shaun Viguerie"],
+  "tags": ["awesome", "dark", "emacs", "gray", "melpa", "mint", "muted", "red"]
 }

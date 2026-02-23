@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/gboncoffee/cybercafe-emacs-theme/master/cybercafe-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Gabriel de Brito gabrielgbrito@icloud.com"
-  ],
-  "tags": [
-    "black",
-    "cybercafe",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Gabriel de Brito gabrielgbrito@icloud.com"],
+  "tags": ["black", "cybercafe", "dark", "melpa"]
 }

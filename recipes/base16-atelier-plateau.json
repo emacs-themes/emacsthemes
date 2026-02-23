@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atelier-plateau-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Bram de Haan"
-  ],
-  "tags": [
-    "atelier-plateau",
-    "base16",
-    "base16 atelier-plateau",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Bram de Haan"],
+  "tags": ["atelier-plateau", "base16", "base16 atelier-plateau", "black", "dark"]
 }

@@ -7,12 +7,6 @@
     "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/graham-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Owain Lewis"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "graham"
-  ]
+  "authors": ["Owain Lewis"],
+  "tags": ["black", "dark", "graham"]
 }

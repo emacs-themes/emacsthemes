@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/belak/emacs-grayscale-theme/master/grayscale-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert"
-  ],
-  "tags": [
-    "atom",
-    "dark",
-    "gray",
-    "grayscale",
-    "grey",
-    "melpa",
-    "monochrome",
-    "zenburn"
-  ]
+  "authors": ["Kaleb Elwert"],
+  "tags": ["atom", "dark", "gray", "grayscale", "grey", "melpa", "monochrome", "zenburn"]
 }

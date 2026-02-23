@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/miloshadzic/color-theme-radiance/master/radiance-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Miloš Hadžić"
-  ],
-  "tags": [
-    "light",
-    "radiance",
-    "ubuntu",
-    "white"
-  ]
+  "authors": ["Miloš Hadžić"],
+  "tags": ["light", "radiance", "ubuntu", "white"]
 }

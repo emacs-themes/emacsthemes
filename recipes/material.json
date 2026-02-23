@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/cpaulik/emacs-material-theme/master/material-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Paulik Christoph"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "green",
-    "material",
-    "melpa",
-    "modern",
-    "nongnu-elpa"
-  ]
+  "authors": ["Paulik Christoph"],
+  "tags": ["black", "dark", "green", "material", "melpa", "modern", "nongnu-elpa"]
 }

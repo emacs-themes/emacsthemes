@@ -8,13 +8,6 @@
     "https://codeberg.org/crmsnbleyd/flexoki-emacs-theme/raw/branch/trunk/flexoki-themes-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Drew Jose"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "flexoki",
-    "melpa"
-  ]
+  "authors": ["Drew Jose"],
+  "tags": ["black", "dark", "flexoki", "melpa"]
 }

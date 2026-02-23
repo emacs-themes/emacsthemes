@@ -3,22 +3,8 @@
   "id": "ample-zen",
   "description": "A combination of ample-theme and zenburn.",
   "repoUrl": "https://github.com/mjwall/ample-zen",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mjwall/ample-zen/master/ample-zen-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mjwall/ample-zen/master/ample-zen-theme.el"],
   "type": "dark",
-  "authors": [
-    "Michael Wall"
-  ],
-  "tags": [
-    "ample",
-    "ample zen",
-    "black",
-    "dark",
-    "green",
-    "melpa",
-    "modern",
-    "zen",
-    "zenburn"
-  ]
+  "authors": ["Michael Wall"],
+  "tags": ["ample", "ample zen", "black", "dark", "green", "melpa", "modern", "zen", "zenburn"]
 }

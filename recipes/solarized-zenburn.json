@@ -10,9 +10,7 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-zenburn-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
+  "authors": ["Bozhidar Batsov"],
   "tags": [
     "accessibility",
     "dark",

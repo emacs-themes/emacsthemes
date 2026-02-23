@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/caffo/monotropic-theme/master/monotropic-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Rodrigo Franco"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "monochrome",
-    "monotropic",
-    "white"
-  ]
+  "authors": ["Rodrigo Franco"],
+  "tags": ["light", "melpa", "monochrome", "monotropic", "white"]
 }

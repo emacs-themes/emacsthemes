@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/nylar/fleetish-emacs-theme/master/fleetish-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Scott Raine"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "fleetish",
-    "intellij",
-    "melpa"
-  ]
+  "authors": ["Scott Raine"],
+  "tags": ["black", "dark", "fleetish", "intellij", "melpa"]
 }

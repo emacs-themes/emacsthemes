@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/pierre-lecocq/darkmine-theme/master/darkmine-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Pierre Lecocq"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "darkmine",
-    "melpa"
-  ]
+  "authors": ["Pierre Lecocq"],
+  "tags": ["black", "dark", "darkmine", "melpa"]
 }

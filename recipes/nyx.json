@@ -3,17 +3,8 @@
   "id": "nyx",
   "description": "Dark theme for original use with circadian theme preview",
   "repoUrl": "https://github.com/guidoschmidt/emacs-nyx-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/guidoschmidt/emacs-nyx-theme/master/nyx-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/guidoschmidt/emacs-nyx-theme/master/nyx-theme.el"],
   "type": "dark",
-  "authors": [
-    "Guido Schmidt"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "nyx"
-  ]
+  "authors": ["Guido Schmidt"],
+  "tags": ["black", "dark", "melpa", "nyx"]
 }

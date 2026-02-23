@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/myTerminal/overcast-theme/master/overcast-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Mohammed Ismail Ansari"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "overcast",
-    "vibrant"
-  ]
+  "authors": ["Mohammed Ismail Ansari"],
+  "tags": ["black", "dark", "melpa", "overcast", "vibrant"]
 }

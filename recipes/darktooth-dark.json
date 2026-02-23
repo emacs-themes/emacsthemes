@@ -8,18 +8,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-darktooth/refs/heads/master/darktooth-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "brown",
-    "dark",
-    "darktooth",
-    "groovbox",
-    "gruvbox",
-    "soothe"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "black", "brown", "dark", "darktooth", "groovbox", "gruvbox", "soothe"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

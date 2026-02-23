@@ -76,16 +76,14 @@ function formatName(name: string): string {
  */
 function filterPackages(packages: DownloadCounts, recipes: RecipesIndex): ThemeDownloadEntry[] {
   return Object.keys(packages)
-    .filter(
-      key => key.includes(themeStr) && !key.startsWith("/") && !ignored[key],
-    )
+    .filter((key) => key.includes(themeStr) && !key.startsWith("/") && !ignored[key])
     .toSorted((k1, k2) => {
       if (packages[k1] >= packages[k2]) {
         return -1;
       }
       return 1;
     })
-    .map(k => ({
+    .map((k) => ({
       name: formatName(k),
       downloads: packages[k],
       url: composeUrl(recipes[k]),
@@ -135,7 +133,7 @@ async function appendLog(filePath: string, message: string): Promise<void> {
  */
 function fetchJson<T>(url: string): Promise<T> {
   return new Promise((resolve, reject) => {
-    const req = https.get(url, resp => {
+    const req = https.get(url, (resp) => {
       const statusCode = resp.statusCode ?? 0;
       if (statusCode < 200 || statusCode >= 300) {
         resp.resume();
@@ -145,7 +143,7 @@ function fetchJson<T>(url: string): Promise<T> {
 
       let data = "";
       resp.setEncoding("utf-8");
-      resp.on("data", chunk => {
+      resp.on("data", (chunk) => {
         data += chunk;
       });
 
@@ -191,15 +189,17 @@ export async function fetchPopularThemes(): Promise<ThemeDownloadEntry[] | undef
 }
 
 if (import.meta.main) {
-  fetchPopularThemes().then(themes => {
-    if (themes) {
-      console.log(`Successfully fetched ${themes.length} popular themes.`);
-    } else {
-      console.error("Failed to fetch popular themes.");
+  fetchPopularThemes()
+    .then((themes) => {
+      if (themes) {
+        console.log(`Successfully fetched ${themes.length} popular themes.`);
+      } else {
+        console.error("Failed to fetch popular themes.");
+        process.exit(1);
+      }
+    })
+    .catch((error) => {
+      console.error("Failed to fetch popular themes:", getErrorMessage(error));
       process.exit(1);
-    }
-  }).catch(error => {
-    console.error("Failed to fetch popular themes:", getErrorMessage(error));
-    process.exit(1);
-  });
+    });
 }

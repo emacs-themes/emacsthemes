@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/aalto-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "aalto dark",
-    "blue",
-    "color themes",
-    "cyan",
-    "dark",
-    "old"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["aalto dark", "blue", "color themes", "cyan", "dark", "old"]
 }

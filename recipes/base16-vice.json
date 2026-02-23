@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-vice-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Thomas Leon Highbaugh thighbaugh@zoho.com"
-  ],
-  "tags": [
-    "base16",
-    "base16 vice",
-    "black",
-    "dark",
-    "vice"
-  ]
+  "authors": ["Kaleb Elwert", "Thomas Leon Highbaugh thighbaugh@zoho.com"],
+  "tags": ["base16", "base16 vice", "black", "dark", "vice"]
 }

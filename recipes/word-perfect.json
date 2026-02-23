@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/word-perfect-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Gehrlein",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "color themes",
-    "intense",
-    "word perfect"
-  ]
+  "authors": ["Thomas Gehrlein", "Syohei YOSHIDA"],
+  "tags": ["black", "blue", "color themes", "intense", "word perfect"]
 }

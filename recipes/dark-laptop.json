@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/dark-laptop-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Laurent Michel / Syohei YOSHIDA"
-  ],
+  "authors": ["Laurent Michel / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

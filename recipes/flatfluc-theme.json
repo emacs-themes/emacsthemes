@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/seblemaguer/flatfluc-theme/master/flatfluc-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Sébastien Le Maguer"
-  ],
-  "tags": [
-    "blue",
-    "light",
-    "flatfluc",
-    "melpa"
-  ]
+  "authors": ["Sébastien Le Maguer"],
+  "tags": ["blue", "light", "flatfluc", "melpa"]
 }

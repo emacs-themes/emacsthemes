@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/jb-simple-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jeff",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "jb simple",
-    "light",
-    "white"
-  ]
+  "authors": ["Jeff", "Syohei YOSHIDA"],
+  "tags": ["color themes", "jb simple", "light", "white"]
 }

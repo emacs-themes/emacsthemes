@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/bruce/emacs-spacegray-theme/master/spacegray-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bruce Williams"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "emacs 24",
-    "gray",
-    "melpa",
-    "space gray",
-    "sublime text"
-  ]
+  "authors": ["Bruce Williams"],
+  "tags": ["blue", "dark", "emacs 24", "gray", "melpa", "space gray", "sublime text"]
 }

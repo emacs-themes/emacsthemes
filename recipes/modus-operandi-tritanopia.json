@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-operandi-tritanopia-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
+  "authors": ["Protesilaos Stavrou"],
   "tags": [
     "accessibility",
     "accessible",

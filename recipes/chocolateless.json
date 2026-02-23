@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/chocolateless-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Letan"
-  ],
+  "authors": ["Thomas Letan"],
   "tags": [
     "black",
     "blue",

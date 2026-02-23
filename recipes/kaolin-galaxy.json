@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-galaxy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "bright",
-    "galaxy",
-    "kaolin",
-    "kaolin-themes",
-    "red"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["bright", "galaxy", "kaolin", "kaolin-themes", "red"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

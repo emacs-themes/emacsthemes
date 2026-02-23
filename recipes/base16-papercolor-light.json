@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-papercolor-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Jon Leopard"
-  ],
-  "tags": [
-    "base16",
-    "base16 papercolor-light",
-    "light",
-    "papercolor-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Jon Leopard"],
+  "tags": ["base16", "base16 papercolor-light", "light", "papercolor-light", "white"]
 }

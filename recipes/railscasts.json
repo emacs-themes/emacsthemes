@@ -7,19 +7,6 @@
     "https://raw.githubusercontent.com/mikenichols/railscasts-theme/master/railscasts-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Oleg Shaldybin",
-    "Yesudeep Mangalapilly",
-    "Yuichi TANIKAWA",
-    "Mike Nichols"
-  ],
-  "tags": [
-    "brown",
-    "dark",
-    "melpa",
-    "purple",
-    "railscasts",
-    "red",
-    "textmate"
-  ]
+  "authors": ["Oleg Shaldybin", "Yesudeep Mangalapilly", "Yuichi TANIKAWA", "Mike Nichols"],
+  "tags": ["brown", "dark", "melpa", "purple", "railscasts", "red", "textmate"]
 }

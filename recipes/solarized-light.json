@@ -10,15 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "beige",
-    "light",
-    "low contrast",
-    "popular",
-    "solarized",
-    "yellow"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["beige", "light", "low contrast", "popular", "solarized", "yellow"]
 }

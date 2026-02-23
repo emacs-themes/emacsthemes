@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-paraiso-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jan T. Sott"
-  ],
-  "tags": [
-    "base16",
-    "base16 paraiso",
-    "black",
-    "dark",
-    "paraiso"
-  ]
+  "authors": ["Kaleb Elwert", "Jan T. Sott"],
+  "tags": ["base16", "base16 paraiso", "black", "dark", "paraiso"]
 }

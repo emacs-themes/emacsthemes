@@ -3,20 +3,8 @@
   "id": "jbeans",
   "description": "Jellybeans.vim based theme for emacs",
   "repoUrl": "https://github.com/synic/jbeans-emacs",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/synic/jbeans-emacs/master/jbeans-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/synic/jbeans-emacs/master/jbeans-theme.el"],
   "type": "dark",
-  "authors": [
-    "Adam Olsen"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "jbeans",
-    "melpa",
-    "modern",
-    "vim"
-  ]
+  "authors": ["Adam Olsen"],
+  "tags": ["black", "dark", "emacs 24", "jbeans", "melpa", "modern", "vim"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-charcoal-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Mubin Muhammad"
-  ],
-  "tags": [
-    "base16",
-    "base16 charcoal-dark",
-    "charcoal",
-    "charcoal-dark",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Mubin Muhammad"],
+  "tags": ["base16", "base16 charcoal-dark", "charcoal", "charcoal-dark", "dark"]
 }

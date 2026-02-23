@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/ShamsParvezArka/fleury-theme.el/master/fleury-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Shams Parvez Arka"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "fleury-theme",
-    "popular",
-    "ryan fleury"
-  ]
+  "authors": ["Shams Parvez Arka"],
+  "tags": ["black", "dark", "fleury-theme", "popular", "ryan fleury"]
 }

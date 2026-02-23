@@ -7,15 +7,7 @@
     "https://raw.githubusercontent.com/SavchenkoValeriy/emacs-chocolate-theme/refs/heads/master/chocolate-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Valeriy Savchenko"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "chocolate",
-    "dark",
-    "melpa"
-  ],
+  "authors": ["Valeriy Savchenko"],
+  "tags": ["autothemer", "black", "chocolate", "dark", "melpa"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/habamax/wildcharm-theme/main/wildcharm-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Maxim Kim"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "vim",
-    "white",
-    "wildcharm-light"
-  ]
+  "authors": ["Maxim Kim"],
+  "tags": ["light", "melpa", "vim", "white", "wildcharm-light"]
 }

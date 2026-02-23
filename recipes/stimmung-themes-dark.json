@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/motform/stimmung-themes/master/stimmung-themes-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Love Lagerkvist"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "stimmung"
-  ]
+  "authors": ["Love Lagerkvist"],
+  "tags": ["black", "dark", "melpa", "stimmung"]
 }

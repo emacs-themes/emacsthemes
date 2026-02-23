@@ -9,16 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-mono-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "kaolin",
-    "kaolin-themes",
-    "mono",
-    "monochrome"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["dark", "green", "kaolin", "kaolin-themes", "mono", "monochrome"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

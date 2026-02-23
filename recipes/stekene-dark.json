@@ -8,12 +8,6 @@
     "static/themes/stekene/stekene-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Fanael Linithien"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "stekene"
-  ]
+  "authors": ["Fanael Linithien"],
+  "tags": ["black", "dark", "stekene"]
 }

@@ -3,18 +3,8 @@
   "id": "paper",
   "description": "A minimal Emacs colour theme",
   "repoUrl": "https://github.com/cadadr/paper-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/cadadr/elisp/master/paper-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/cadadr/elisp/master/paper-theme.el"],
   "type": "light",
-  "authors": [
-    "Göktuğ Kayaalp"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "minimal",
-    "paper",
-    "white"
-  ]
+  "authors": ["Göktuğ Kayaalp"],
+  "tags": ["light", "melpa", "minimal", "paper", "white"]
 }

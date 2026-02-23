@@ -29,10 +29,10 @@ describe("Path Traversal Guard", () => {
     const candidate = "theme-1/\0preview.png";
     // path.resolve might throw or just clean it up depending on OS, but assertPathWithinRoot should eventually catch it if it tries to escape
     try {
-        const resolved = assertPathWithinRoot(root, candidate);
-        expect(resolved).not.toContain("\0");
+      const resolved = assertPathWithinRoot(root, candidate);
+      expect(resolved).not.toContain("\0");
     } catch {
-        // Some systems/path versions throw on null bytes
+      // Some systems/path versions throw on null bytes
     }
   });
 });

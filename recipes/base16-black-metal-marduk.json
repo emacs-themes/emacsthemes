@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-black-metal-marduk-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "metalelf0"
-  ],
-  "tags": [
-    "base16",
-    "base16 black-metal-marduk",
-    "black",
-    "black-metal-marduk",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "metalelf0"],
+  "tags": ["base16", "base16 black-metal-marduk", "black", "black-metal-marduk", "dark"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/SamuelBanya/morrowind-theme/main/morrowind-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Samuel Banya"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "morrowind"
-  ]
+  "authors": ["Samuel Banya"],
+  "tags": ["black", "dark", "melpa", "morrowind"]
 }

@@ -3,17 +3,8 @@
   "id": "starlit",
   "description": "Deep blue dark theme with bright colors from the starlit sky",
   "repoUrl": "https://github.com/SFTtech/starlit-emacs",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/SFTtech/starlit-emacs/master/starlit-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/SFTtech/starlit-emacs/master/starlit-theme.el"],
   "type": "dark",
-  "authors": [
-    "Jonas Jelten"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "melpa",
-    "starlit"
-  ]
+  "authors": ["Jonas Jelten"],
+  "tags": ["blue", "dark", "melpa", "starlit"]
 }

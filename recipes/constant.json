@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/Jannis/emacs-constant-theme/refs/heads/master/constant-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jannis Pohlmann"
-  ],
+  "authors": ["Jannis Pohlmann"],
   "tags": [
     "black",
     "blue",

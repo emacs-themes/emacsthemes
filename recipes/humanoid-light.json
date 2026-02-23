@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/humanoid-colors/emacs-humanoid-themes/master/humanoid-themes.el"
   ],
   "type": "light",
-  "authors": [
-    "Thomas Friese"
-  ],
-  "tags": [
-    "blue",
-    "humanoid light",
-    "light",
-    "white"
-  ]
+  "authors": ["Thomas Friese"],
+  "tags": ["blue", "humanoid light", "light", "white"]
 }

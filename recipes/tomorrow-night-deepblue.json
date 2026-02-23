@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/jamescherti/tomorrow-night-deepblue-theme.el/main/tomorrow-night-deepblue-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "James Cherti"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "dark blue",
-    "deep blue",
-    "melpa",
-    "night",
-    "orange",
-    "tomorrow"
-  ]
+  "authors": ["James Cherti"],
+  "tags": ["blue", "dark", "dark blue", "deep blue", "melpa", "night", "orange", "tomorrow"]
 }

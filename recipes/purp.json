@@ -8,15 +8,6 @@
     "https://raw.githubusercontent.com/gnuvince/purp/master/purp-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Vincent Foley"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "grey",
-    "melpa",
-    "purp ",
-    "purple"
-  ]
+  "authors": ["Vincent Foley"],
+  "tags": ["black", "dark", "grey", "melpa", "purp ", "purple"]
 }

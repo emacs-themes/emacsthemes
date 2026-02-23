@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/edran/hc-zenburn-emacs/master/hc-zenburn-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nantas Nardelli"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "hc-zenburn",
-    "melpa",
-    "zenburn"
-  ]
+  "authors": ["Nantas Nardelli"],
+  "tags": ["accessibility", "black", "dark", "hc-zenburn", "melpa", "zenburn"]
 }

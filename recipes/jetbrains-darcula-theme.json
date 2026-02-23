@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/ianyepan/jetbrains-darcula-emacs-theme/master/jetbrains-darcula-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ian Y.E. Pan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "intellij",
-    "jetbrains-darcula",
-    "melpa"
-  ]
+  "authors": ["Ian Y.E. Pan"],
+  "tags": ["black", "dark", "intellij", "jetbrains-darcula", "melpa"]
 }

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/developernotes/zen-and-art-theme/master/zen-and-art-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nick Parker"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "melpa",
-    "popular",
-    "zen and art"
-  ]
+  "authors": ["Nick Parker"],
+  "tags": ["black", "dark", "emacs 24", "melpa", "popular", "zen and art"]
 }

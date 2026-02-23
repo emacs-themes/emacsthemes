@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/arouene/emacs-kanagawa-theme/refs/heads/main/kanagawa-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Shira Filianore",
-    "Fabio Kleis"
-  ],
-  "tags": [
-    "dark",
-    "kanagawa",
-    "melpa",
-    "red",
-    "smooth",
-    "wave"
-  ]
+  "authors": ["Shira Filianore", "Fabio Kleis"],
+  "tags": ["dark", "kanagawa", "melpa", "red", "smooth", "wave"]
 }

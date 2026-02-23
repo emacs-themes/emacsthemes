@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-aurora-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "aurora",
-    "black",
-    "dark",
-    "kaolin",
-    "kaolin-themes"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["aurora", "black", "dark", "kaolin", "kaolin-themes"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

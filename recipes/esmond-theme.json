@@ -3,17 +3,8 @@
   "id": "esmond",
   "description": "Esmond dark theme",
   "repoUrl": "https://github.com/hsnovel/esmond-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/hsnovel/esmond-theme/master/esmond-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/hsnovel/esmond-theme/master/esmond-theme.el"],
   "type": "dark",
-  "authors": [
-    "Çağan Korkmaz"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "esmond",
-    "melpa"
-  ]
+  "authors": ["Çağan Korkmaz"],
+  "tags": ["black", "dark", "esmond", "melpa"]
 }

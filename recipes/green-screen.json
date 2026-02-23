@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/rbanffy/green-screen-emacs/master/green-screen-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ricardo Banffy"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "green screen",
-    "melpa"
-  ]
+  "authors": ["Ricardo Banffy"],
+  "tags": ["dark", "green", "green screen", "melpa"]
 }

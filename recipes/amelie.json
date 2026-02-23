@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/ranmocy/amelie-theme/refs/heads/master/Amelie-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ranmocy Sheng"
-  ],
-  "tags": [
-    "amelie",
-    "black",
-    "dark",
-    "emacs 24",
-    "gray",
-    "modern",
-    "pink",
-    "red"
-  ]
+  "authors": ["Ranmocy Sheng"],
+  "tags": ["amelie", "black", "dark", "emacs 24", "gray", "modern", "pink", "red"]
 }

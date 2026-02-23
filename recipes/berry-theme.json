@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/berry-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "berry",
-    "dark",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["berry", "dark", "melpa", "red"]
 }

@@ -3,19 +3,8 @@
   "id": "timu-rouge-theme",
   "description": "Color theme inspired by the Rouge Theme for VSCode.",
   "repoUrl": "https://gitlab.com/aimebertrand/timu-rouge-theme",
-  "rawUrls": [
-    "https://gitlab.com/aimebertrand/timu-rouge-theme/-/raw/main/timu-rouge-theme.el"
-  ],
+  "rawUrls": ["https://gitlab.com/aimebertrand/timu-rouge-theme/-/raw/main/timu-rouge-theme.el"],
   "type": "dark",
-  "authors": [
-    "Aime Bertrand"
-  ],
-  "tags": [
-    "dark",
-    "magenta",
-    "marine",
-    "melpa",
-    "red",
-    "vscode"
-  ]
+  "authors": ["Aime Bertrand"],
+  "tags": ["dark", "magenta", "marine", "melpa", "red", "vscode"]
 }

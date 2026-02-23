@@ -8,17 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-melissa-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "colorful",
-    "ef",
-    "ef-themes",
-    "light",
-    "melissa",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["colorful", "ef", "ef-themes", "light", "melissa", "white"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-melissa-light)"
 }

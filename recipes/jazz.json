@@ -3,20 +3,8 @@
   "id": "jazz",
   "description": "Warm dark color theme for Emacs 24 inspired by zenburn color theme.",
   "repoUrl": "https://github.com/donderom/jazz-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/donderom/jazz-theme/master/jazz-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/donderom/jazz-theme/master/jazz-theme.el"],
   "type": "dark",
-  "authors": [
-    "Roman Parykin"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "jazz",
-    "melpa",
-    "red",
-    "warm",
-    "zenburn"
-  ]
+  "authors": ["Roman Parykin"],
+  "tags": ["black", "dark", "jazz", "melpa", "red", "warm", "zenburn"]
 }

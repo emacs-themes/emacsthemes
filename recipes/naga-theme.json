@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/kenranunderscore/emacs-naga-theme/main/naga-base.el"
   ],
   "type": "dark",
-  "authors": [
-    "Johannes Maier"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "melpa",
-    "naga"
-  ]
+  "authors": ["Johannes Maier"],
+  "tags": ["dark", "green", "melpa", "naga"]
 }

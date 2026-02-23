@@ -3,21 +3,8 @@
   "id": "nordic-night",
   "description": "A darker, more colorful version of the lovely Nord theme",
   "repoUrl": "https://codeberg.org/ashton314/nordic-night",
-  "rawUrls": [
-    "https://codeberg.org/ashton314/nordic-night/raw/branch/main/nordic-night-theme.el"
-  ],
+  "rawUrls": ["https://codeberg.org/ashton314/nordic-night/raw/branch/main/nordic-night-theme.el"],
   "type": "dark",
-  "authors": [
-    "Ashton Wiersdorf"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "colorful",
-    "dark",
-    "melpa",
-    "nord",
-    "nordic",
-    "nordic night"
-  ]
+  "authors": ["Ashton Wiersdorf"],
+  "tags": ["black", "blue", "colorful", "dark", "melpa", "nord", "nordic", "nordic night"]
 }

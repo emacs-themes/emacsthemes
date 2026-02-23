@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-rose-pine-moon-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Emilia Dunfelt &lt;edun@dunfelt.se&gt;"
-  ],
-  "tags": [
-    "base16",
-    "base16 rose-pine-moon",
-    "black",
-    "dark",
-    "rose-pine-moon"
-  ]
+  "authors": ["Kaleb Elwert", "Emilia Dunfelt &lt;edun@dunfelt.se&gt;"],
+  "tags": ["base16", "base16 rose-pine-moon", "black", "dark", "rose-pine-moon"]
 }

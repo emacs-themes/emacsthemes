@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-stella-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Shrimpram"
-  ],
-  "tags": [
-    "base16",
-    "base16 stella",
-    "black",
-    "dark",
-    "stella"
-  ]
+  "authors": ["Kaleb Elwert", "Shrimpram"],
+  "tags": ["base16", "base16 stella", "black", "dark", "stella"]
 }

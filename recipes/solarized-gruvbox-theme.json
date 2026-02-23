@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/solarized-gruvbox-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "gruvbox",
-    "melpa",
-    "solarized",
-    "solarized-gruvbox"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["black", "dark", "gruvbox", "melpa", "solarized", "solarized-gruvbox"]
 }

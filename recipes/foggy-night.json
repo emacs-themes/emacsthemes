@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/foggy-night-theme/master/foggy-night-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "brown",
-    "dark",
-    "foggy-night",
-    "melpa"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["accessibility", "black", "brown", "dark", "foggy-night", "melpa"]
 }

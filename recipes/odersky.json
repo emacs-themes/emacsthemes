@@ -7,12 +7,6 @@
     "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/odersky-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Owain Lewis"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "odersky"
-  ]
+  "authors": ["Owain Lewis"],
+  "tags": ["black", "dark", "odersky"]
 }

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/jimeh/twilight-bright-theme.el/master/twilight-bright-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jim Myhrberg"
-  ],
-  "tags": [
-    "bright",
-    "melpa",
-    "textmate",
-    "twilight",
-    "twilight bright",
-    "white"
-  ]
+  "authors": ["Jim Myhrberg"],
+  "tags": ["bright", "melpa", "textmate", "twilight", "twilight bright", "white"]
 }

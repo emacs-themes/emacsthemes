@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/smallwat3r/emacs-creamy-theme/main/creamy-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Smallwat3r"
-  ],
-  "tags": [
-    "cream",
-    "creamy",
-    "light",
-    "melpa"
-  ]
+  "authors": ["Smallwat3r"],
+  "tags": ["cream", "creamy", "light", "melpa"]
 }

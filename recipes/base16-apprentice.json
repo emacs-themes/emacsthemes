@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-apprentice-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "romainl"
-  ],
-  "tags": [
-    "apprentice",
-    "base16",
-    "base16 apprentice",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "romainl"],
+  "tags": ["apprentice", "base16", "base16 apprentice", "black", "dark"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/mccarthy-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Owain Lewis"
-  ],
-  "tags": [
-    "gray",
-    "light",
-    "mccarthy",
-    "white"
-  ]
+  "authors": ["Owain Lewis"],
+  "tags": ["gray", "light", "mccarthy", "white"]
 }

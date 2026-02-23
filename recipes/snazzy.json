@@ -7,16 +7,7 @@
     "https://raw.githubusercontent.com/weijiangan/emacs-snazzy/refs/heads/master/snazzy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Wei Jian Gan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "modern",
-    "purple",
-    "snazzy"
-  ],
+  "authors": ["Wei Jian Gan"],
+  "tags": ["black", "dark", "melpa", "modern", "purple", "snazzy"],
   "elispBefore": "(unless (package-installed-p 'base16-theme) (package-install 'base16-theme))"
 }

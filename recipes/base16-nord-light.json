@@ -8,17 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-nord-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "threddast",
-    "based on fuxialexander&#39;s doom-nord-light-theme"
-  ],
-  "tags": [
-    "base16",
-    "base16 nord-light",
-    "light",
-    "nord",
-    "nord-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "threddast", "based on fuxialexander&#39;s doom-nord-light-theme"],
+  "tags": ["base16", "base16 nord-light", "light", "nord", "nord-light", "white"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/redbeardcreator/hipster-theme/refs/heads/master/hipster-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Luis Angel"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "hipster",
-    "vim"
-  ]
+  "authors": ["Luis Angel"],
+  "tags": ["accessibility", "black", "dark", "hipster", "vim"]
 }

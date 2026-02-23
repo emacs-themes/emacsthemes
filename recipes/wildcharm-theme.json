@@ -3,19 +3,8 @@
   "id": "wildcharm",
   "description": "Port of vim-wildcharm colorscheme",
   "repoUrl": "https://github.com/habamax/wildcharm-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/habamax/wildcharm-theme/main/wildcharm-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/habamax/wildcharm-theme/main/wildcharm-theme.el"],
   "type": "dark",
-  "authors": [
-    "Maxim Kim"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "vim",
-    "wildcharm",
-    "yellow"
-  ]
+  "authors": ["Maxim Kim"],
+  "tags": ["black", "dark", "melpa", "vim", "wildcharm", "yellow"]
 }

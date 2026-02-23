@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/chyla/ChylaThemeForEmacs/refs/heads/master/chyla-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Adam Chyła"
-  ],
-  "tags": [
-    "light",
-    "green",
-    "chyla",
-    "nord",
-    "red",
-    "gray",
-    "muted"
-  ]
+  "authors": ["Adam Chyła"],
+  "tags": ["light", "green", "chyla", "nord", "red", "gray", "muted"]
 }

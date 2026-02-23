@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/rexim/gruber-darker-theme/master/gruber-darker-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alexey Kutepov"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "gruber",
-    "melpa",
-    "nongnu-elpa",
-    "popular"
-  ]
+  "authors": ["Alexey Kutepov"],
+  "tags": ["black", "dark", "gruber", "melpa", "nongnu-elpa", "popular"]
 }

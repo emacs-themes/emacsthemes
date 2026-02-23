@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/high-contrast-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "high contrast",
-    "light",
-    "white"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["color themes", "high contrast", "light", "white"]
 }

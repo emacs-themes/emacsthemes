@@ -7,13 +7,6 @@
     "https://gitlab.com/aimebertrand/timu-caribbean-theme/-/raw/main/timu-caribbean-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Aime Bertrand"
-  ],
-  "tags": [
-    "cyan",
-    "dark",
-    "melpa",
-    "vibrant"
-  ]
+  "authors": ["Aime Bertrand"],
+  "tags": ["cyan", "dark", "melpa", "vibrant"]
 }

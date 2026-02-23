@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/developernotes/twilight-theme/master/twilight-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nick Parker"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "orange",
-    "popular",
-    "textmate",
-    "twilight"
-  ]
+  "authors": ["Nick Parker"],
+  "tags": ["black", "dark", "melpa", "orange", "popular", "textmate", "twilight"]
 }

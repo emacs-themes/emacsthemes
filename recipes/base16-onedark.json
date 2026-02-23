@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-onedark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Lalit Magant"
-  ],
-  "tags": [
-    "base16",
-    "base16 onedark",
-    "black",
-    "dark",
-    "onedark"
-  ]
+  "authors": ["Kaleb Elwert", "Lalit Magant"],
+  "tags": ["base16", "base16 onedark", "black", "dark", "onedark"]
 }

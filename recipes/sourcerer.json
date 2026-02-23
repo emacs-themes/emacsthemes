@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/gilbertw1/sourcerer-emacs/master/sourcerer-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bryan Gilbert"
-  ],
-  "tags": [
-    "brown",
-    "dark",
-    "melpa",
-    "red",
-    "sourcerer"
-  ]
+  "authors": ["Bryan Gilbert"],
+  "tags": ["brown", "dark", "melpa", "red", "sourcerer"]
 }

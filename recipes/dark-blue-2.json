@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/refs/heads/master/dark-blue2-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Chris McMahan / Syohei YOSHIDA"
-  ],
-  "tags": [
-    "blue",
-    "color themes",
-    "dark",
-    "dark blue 2"
-  ]
+  "authors": ["Chris McMahan / Syohei YOSHIDA"],
+  "tags": ["blue", "color themes", "dark", "dark blue 2"]
 }

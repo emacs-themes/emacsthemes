@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/owainlewis/emacs-color-themes/refs/heads/master/themes/dorsey-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Owain Lewis"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "dorsey",
-    "gray",
-    "muted",
-    "nord",
-    "orange",
-    "red"
-  ]
+  "authors": ["Owain Lewis"],
+  "tags": ["black", "blue", "dark", "dorsey", "gray", "muted", "nord", "orange", "red"]
 }

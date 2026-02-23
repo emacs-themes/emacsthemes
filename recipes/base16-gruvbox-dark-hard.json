@@ -8,16 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-gruvbox-dark-hard-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Dawid Kurek"
-  ],
-  "tags": [
-    "base16",
-    "base16 gruvbox-dark-hard",
-    "black",
-    "dark",
-    "gruvbox",
-    "gruvbox-dark-hard"
-  ]
+  "authors": ["Kaleb Elwert", "Dawid Kurek"],
+  "tags": ["base16", "base16 gruvbox-dark-hard", "black", "dark", "gruvbox", "gruvbox-dark-hard"]
 }

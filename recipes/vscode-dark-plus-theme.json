@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/ianyepan/vscode-dark-plus-emacs-theme/master/vscode-dark-plus-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ian Y.E. Pan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "vscode-dark-plus"
-  ]
+  "authors": ["Ian Y.E. Pan"],
+  "tags": ["black", "dark", "melpa", "vscode-dark-plus"]
 }

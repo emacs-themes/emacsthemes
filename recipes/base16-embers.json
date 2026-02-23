@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-embers-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jannik Siebert"
-  ],
-  "tags": [
-    "base16",
-    "base16 embers",
-    "black",
-    "dark",
-    "embers"
-  ]
+  "authors": ["Kaleb Elwert", "Jannik Siebert"],
+  "tags": ["base16", "base16 embers", "black", "dark", "embers"]
 }

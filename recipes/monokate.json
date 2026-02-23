@@ -3,18 +3,8 @@
   "id": "monokate",
   "description": "An Emacs port of the Monokate theme from Sublime Text.",
   "repoUrl": "https://gligan.net/emacs-themes",
-  "rawUrls": [
-    "https://gligan.net/monokate-theme.el"
-  ],
+  "rawUrls": ["https://gligan.net/monokate-theme.el"],
   "type": "dark",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "monokate",
-    "port",
-    "sublime text"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["black", "dark", "monokate", "port", "sublime text"]
 }

@@ -3,17 +3,8 @@
   "id": "klere",
   "description": "A dark theme with lambent color highlights and incremental grays",
   "repoUrl": "https://codeberg.org/tomenzgg/emacs-klere-theme",
-  "rawUrls": [
-    "https://codeberg.org/tomenzgg/emacs-klere-theme/raw/branch/master/klere-theme.el"
-  ],
+  "rawUrls": ["https://codeberg.org/tomenzgg/emacs-klere-theme/raw/branch/master/klere-theme.el"],
   "type": "dark",
-  "authors": [
-    "Jean Libète"
-  ],
-  "tags": [
-    "dark",
-    "gray",
-    "klere",
-    "melpa"
-  ]
+  "authors": ["Jean Libète"],
+  "tags": ["dark", "gray", "klere", "melpa"]
 }

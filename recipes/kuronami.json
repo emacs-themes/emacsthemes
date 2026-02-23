@@ -3,17 +3,8 @@
   "id": "kuronami",
   "description": "Cool autumnal colors against a deep blue background.",
   "repoUrl": "https://github.com/inj0h/kuronami",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/inj0h/kuronami/master/kuronami-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/inj0h/kuronami/master/kuronami-theme.el"],
   "type": "dark",
-  "authors": [
-    "inj0h"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "kuronami",
-    "melpa"
-  ]
+  "authors": ["inj0h"],
+  "tags": ["blue", "dark", "kuronami", "melpa"]
 }

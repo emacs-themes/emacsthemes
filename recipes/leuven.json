@@ -7,14 +7,6 @@
     "https://github.com/fniessen/emacs-leuven-theme/raw/refs/heads/master/lisp/leuven-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Fabrice Niessen"
-  ],
-  "tags": [
-    "color themes",
-    "leuven",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Fabrice Niessen"],
+  "tags": ["color themes", "leuven", "light", "melpa", "white"]
 }

@@ -3,18 +3,8 @@
   "id": "yoshi",
   "description": "Theme named after a cat.",
   "repoUrl": "https://github.com/ryuslash/yoshi-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/ryuslash/yoshi-theme/master/yoshi-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/ryuslash/yoshi-theme/master/yoshi-theme.el"],
   "type": "dark",
-  "authors": [
-    "Tom Willemse"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "yoshi"
-  ]
+  "authors": ["Tom Willemse"],
+  "tags": ["black", "blue", "dark", "melpa", "yoshi"]
 }

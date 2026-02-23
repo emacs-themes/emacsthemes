@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-vesper-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "FormalSnake"
-  ],
-  "tags": [
-    "base16",
-    "base16 vesper",
-    "black",
-    "dark",
-    "vesper"
-  ]
+  "authors": ["Kaleb Elwert", "FormalSnake"],
+  "tags": ["base16", "base16 vesper", "black", "dark", "vesper"]
 }

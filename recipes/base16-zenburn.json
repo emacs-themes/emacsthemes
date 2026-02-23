@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-zenburn-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "elnawe"
-  ],
-  "tags": [
-    "base16",
-    "base16 zenburn",
-    "black",
-    "dark",
-    "zenburn"
-  ]
+  "authors": ["Kaleb Elwert", "elnawe"],
+  "tags": ["base16", "base16 zenburn", "black", "dark", "zenburn"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-solarflare-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Chuck Harmston"
-  ],
-  "tags": [
-    "base16",
-    "base16 solarflare",
-    "black",
-    "dark",
-    "solarflare"
-  ]
+  "authors": ["Kaleb Elwert", "Chuck Harmston"],
+  "tags": ["base16", "base16 solarflare", "black", "dark", "solarflare"]
 }

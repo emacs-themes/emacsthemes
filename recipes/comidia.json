@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/comidia-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Marcelo Dias / Syohei YOSHIDA"
-  ],
+  "authors": ["Marcelo Dias / Syohei YOSHIDA"],
   "tags": [
     "black",
     "blue",

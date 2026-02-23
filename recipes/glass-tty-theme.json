@@ -3,17 +3,8 @@
   "id": "glass-tty",
   "description": "Reverse video-like theme for the Glass TTY VT220 font",
   "repoUrl": "https://github.com/irtnog/glass-tty-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/irtnog/glass-tty-theme/main/glass-tty-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/irtnog/glass-tty-theme/main/glass-tty-theme.el"],
   "type": "dark",
-  "authors": [
-    "Matthew X. Economou"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "glass-tty",
-    "melpa"
-  ]
+  "authors": ["Matthew X. Economou"],
+  "tags": ["black", "dark", "glass-tty", "melpa"]
 }

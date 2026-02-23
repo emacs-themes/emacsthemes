@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/soft-charcoal-theme/master/soft-charcoal-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "black",
-    "charcoal",
-    "dark",
-    "emacs 24",
-    "melpa",
-    "soft charcoal"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["black", "charcoal", "dark", "emacs 24", "melpa", "soft charcoal"]
 }

@@ -8,13 +8,6 @@
     "https://gitlab.com/franksn/majapahit-theme/-/raw/master/majapahit-dark-theme.el?ref_type=heads"
   ],
   "type": "dark",
-  "authors": [
-    "Alexander Adhyatma"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "majapahit"
-  ]
+  "authors": ["Alexander Adhyatma"],
+  "tags": ["black", "dark", "emacs 24", "majapahit"]
 }

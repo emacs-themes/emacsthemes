@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/feng-shui-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "walterh@rocketmail.com",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "feng shui",
-    "light",
-    "white",
-    "yellow"
-  ]
+  "authors": ["walterh@rocketmail.com", "Syohei YOSHIDA"],
+  "tags": ["color themes", "feng shui", "light", "white", "yellow"]
 }

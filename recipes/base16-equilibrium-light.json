@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-equilibrium-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Carlo Abelli"
-  ],
-  "tags": [
-    "base16",
-    "base16 equilibrium-light",
-    "equilibrium-light",
-    "light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Carlo Abelli"],
+  "tags": ["base16", "base16 equilibrium-light", "equilibrium-light", "light", "white"]
 }

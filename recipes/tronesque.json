@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/aurelienbottazini/tronesque/refs/heads/master/themes/tronesque-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Aurélien Bottazini"
-  ],
-  "tags": [
-    "blue",
-    "color themes",
-    "dark",
-    "red",
-    "tronesque"
-  ]
+  "authors": ["Aurélien Bottazini"],
+  "tags": ["blue", "color themes", "dark", "red", "tronesque"]
 }

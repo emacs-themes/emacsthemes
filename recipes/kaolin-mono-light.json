@@ -9,16 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-mono-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "kaolin",
-    "kaolin-themes",
-    "light",
-    "mono",
-    "monochrome",
-    "white"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["kaolin", "kaolin-themes", "light", "mono", "monochrome", "white"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

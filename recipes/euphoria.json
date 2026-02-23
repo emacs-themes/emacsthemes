@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/euphoria-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "oGLOWo",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "euphoria"
-  ]
+  "authors": ["oGLOWo", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "euphoria"]
 }

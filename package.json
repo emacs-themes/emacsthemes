@@ -2,6 +2,18 @@
   "name": "emacsthemes",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/emacs-themes/emacsthemes#readme",
+  "bugs": {
+    "url": "https://github.com/emacs-themes/emacsthemes/issues"
+  },
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emacs-themes/emacsthemes.git"
+  },
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "bun test",
@@ -18,18 +30,6 @@
     "deploy": "bun run deploy:imgs && bun run deploy:site",
     "dev": "bun wrangler pages dev build --binding ENVIRONMENT=development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emacs-themes/emacsthemes.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/emacs-themes/emacsthemes/issues"
-  },
-  "homepage": "https://github.com/emacs-themes/emacsthemes#readme",
   "dependencies": {
     "html-minifier-terser": "^7.2.0",
     "wrangler": "^4.67.0",

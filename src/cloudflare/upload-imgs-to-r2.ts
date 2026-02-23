@@ -20,7 +20,9 @@ async function generateConfig() {
   // Basic interpolation
   for (const [key, value] of Object.entries(vars)) {
     if (!value) {
-      throw new Error(`Missing environment variable: ${key}. Make sure it's defined in your .env file or environment.`);
+      throw new Error(
+        `Missing environment variable: ${key}. Make sure it's defined in your .env file or environment.`,
+      );
     }
     template = template.replace(new RegExp(`\\\${${key}}`, "g"), value);
   }
@@ -38,11 +40,13 @@ async function runRclone() {
     `emacsthemes:${BUCKET_NAME}`,
     "--config",
     CONFIG_PATH,
-    "--fast-list",             // Drastically reduces LIST calls
-    "--size-only",             // Skips extra metadata/hash checks
-    "--transfers", "16",      // R2 handles high concurrency well
-    "--checkers", "16",       // Speed up the comparison phase
-    "--s3-no-check-bucket",    // Prevents an extra "Does this bucket exist?" call
+    "--fast-list", // Drastically reduces LIST calls
+    "--size-only", // Skips extra metadata/hash checks
+    "--transfers",
+    "16", // R2 handles high concurrency well
+    "--checkers",
+    "16", // Speed up the comparison phase
+    "--s3-no-check-bucket", // Prevents an extra "Does this bucket exist?" call
     "--progress",
   ];
 

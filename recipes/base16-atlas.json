@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atlas-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Alex Lende"
-  ],
-  "tags": [
-    "atlas",
-    "base16",
-    "base16 atlas",
-    "black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Alex Lende"],
+  "tags": ["atlas", "base16", "base16 atlas", "black", "dark"]
 }

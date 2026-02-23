@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/monkeyjunglejuice/matrix-emacs-theme/main/the-matrix-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Dan Dee"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "green",
-    "melpa",
-    "red",
-    "the-matrix"
-  ]
+  "authors": ["Dan Dee"],
+  "tags": ["black", "dark", "green", "melpa", "red", "the-matrix"]
 }

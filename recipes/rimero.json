@@ -3,18 +3,8 @@
   "id": "rimero",
   "description": "Theme with a dark background suitable for UI and terminal usage.",
   "repoUrl": "https://github.com/yveszoundi/emacs-rimero-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/emacsmirror/rimero-theme/master/rimero-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/emacsmirror/rimero-theme/master/rimero-theme.el"],
   "type": "dark",
-  "authors": [
-    "Yves Zoundi"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "grey",
-    "rimero"
-  ]
+  "authors": ["Yves Zoundi"],
+  "tags": ["black", "brown", "dark", "grey", "rimero"]
 }

@@ -3,19 +3,8 @@
   "id": "gotham",
   "description": "A very dark Emacs color theme",
   "repoUrl": "https://github.com/wasamasa/gotham-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/wasamasa/gotham-theme/master/gotham-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/wasamasa/gotham-theme/master/gotham-theme.el"],
   "type": "dark",
-  "authors": [
-    "Vasilij Schneidermann"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "gotham",
-    "melpa",
-    "nongnu-elpa",
-    "vim"
-  ]
+  "authors": ["Vasilij Schneidermann"],
+  "tags": ["black", "dark", "gotham", "melpa", "nongnu-elpa", "vim"]
 }

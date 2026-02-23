@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/jcs-legacy/undersea-theme/master/undersea-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Shen",
-    "Jen-Chieh"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "undersea"
-  ]
+  "authors": ["Shen", "Jen-Chieh"],
+  "tags": ["black", "dark", "melpa", "undersea"]
 }

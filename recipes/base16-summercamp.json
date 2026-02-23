@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-summercamp-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "zoe firi"
-  ],
-  "tags": [
-    "base16",
-    "base16 summercamp",
-    "black",
-    "dark",
-    "summercamp"
-  ]
+  "authors": ["Kaleb Elwert", "zoe firi"],
+  "tags": ["base16", "base16 summercamp", "black", "dark", "summercamp"]
 }

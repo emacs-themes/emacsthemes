@@ -8,10 +8,7 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-gruvbox-material-dark-soft-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Mayush Kumar"
-  ],
+  "authors": ["Kaleb Elwert", "Mayush Kumar"],
   "tags": [
     "base16",
     "base16 gruvbox-material-dark-soft",

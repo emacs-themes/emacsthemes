@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/precompute/sculpture-themes/master/sculpture-themes-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "precompute"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "sculpture",
-    "white"
-  ]
+  "authors": ["precompute"],
+  "tags": ["light", "melpa", "sculpture", "white"]
 }

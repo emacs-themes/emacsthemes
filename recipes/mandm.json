@@ -3,19 +3,8 @@
   "id": "mandm",
   "description": "An M&M color theme",
   "repoUrl": "https://github.com/choppsv1/emacs-mandm-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/choppsv1/emacs-mandm-theme/master/mandm-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/choppsv1/emacs-mandm-theme/master/mandm-theme.el"],
   "type": "dark",
-  "authors": [
-    "Christian Hopps"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "green",
-    "m&m",
-    "melpa"
-  ]
+  "authors": ["Christian Hopps"],
+  "tags": ["black", "brown", "dark", "green", "m&m", "melpa"]
 }

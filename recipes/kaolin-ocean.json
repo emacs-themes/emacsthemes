@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-ocean-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "kaolin",
-    "kaolin-themes",
-    "ocean"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["blue", "dark", "kaolin", "kaolin-themes", "ocean"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

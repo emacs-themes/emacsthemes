@@ -8,16 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-hardhacker-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "fe2-Nyxar",
-    "based on the https://github.com/hardhackerlabs"
-  ],
-  "tags": [
-    "base16",
-    "base16 hardhacker",
-    "black",
-    "dark",
-    "hardhacker"
-  ]
+  "authors": ["Kaleb Elwert", "fe2-Nyxar", "based on the https://github.com/hardhackerlabs"],
+  "tags": ["base16", "base16 hardhacker", "black", "dark", "hardhacker"]
 }

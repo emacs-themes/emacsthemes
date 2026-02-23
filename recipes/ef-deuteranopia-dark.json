@@ -8,18 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-deuteranopia-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "accessible",
-    "black",
-    "colorful",
-    "dark",
-    "deuteranopia",
-    "ef",
-    "ef-themes"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["accessible", "black", "colorful", "dark", "deuteranopia", "ef", "ef-themes"],
   "elispBefore": "(require 'subr-x) (unless (package-installed-p 'modus-themes) (package-install 'modus-themes))",
   "elispAfter": "(enable-theme 'ef-deuteranopia-dark)"
 }

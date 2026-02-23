@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-precious-dark-eleven-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "4lex4 &lt;4lex49@zoho.com&gt;"
-  ],
-  "tags": [
-    "base16",
-    "base16 precious-dark-eleven",
-    "black",
-    "dark",
-    "precious-dark-eleven"
-  ]
+  "authors": ["Kaleb Elwert", "4lex4 &lt;4lex49@zoho.com&gt;"],
+  "tags": ["base16", "base16 precious-dark-eleven", "black", "dark", "precious-dark-eleven"]
 }

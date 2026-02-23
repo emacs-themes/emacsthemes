@@ -3,18 +3,8 @@
   "id": "codex",
   "description": "Codex theme, a simple high contrast theme",
   "repoUrl": "https://github.com/hsnovel/codex-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/hsnovel/codex-theme/master/codex-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/hsnovel/codex-theme/master/codex-theme.el"],
   "type": "dark",
-  "authors": [
-    "Çağan Korkmaz"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "codex",
-    "dark",
-    "melpa"
-  ]
+  "authors": ["Çağan Korkmaz"],
+  "tags": ["accessibility", "black", "codex", "dark", "melpa"]
 }

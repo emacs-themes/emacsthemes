@@ -1,40 +1,53 @@
-import { z } from 'zod';
-import { resolve } from 'path';
+import { z } from "zod";
+import { resolve } from "path";
 
-export const ThemeSchema = z.object({
-  name: z.string().min(1, 'Theme name is required'),
-  id: z.string()
-    .min(1, 'ID (url) is required')
-    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'ID must be a slug (lowercase letters and numbers, separated by single hyphens)')
-    .refine(id => !id.includes('..') && !id.includes('/') && !id.includes('\\'), 'ID contains invalid characters'),
-  description: z.string().min(1, 'Description is required'),
-  repoUrl: z.string().min(1, 'Main repository url is required'),
-  rawUrls: z.array(
-    z.string().trim().min(1, 'Actual theme url cannot be empty'))
-     .nonempty('You must list at least one raw theme url'),
-  type: z.enum(['light', 'dark']),
-  authors: z.array(
-    z.string().trim().min(1, 'Authors name cannot be empty'))
-     .nonempty('You must list at least one author'),
-      tags: z.array(
-      z.string().trim().min(1, 'Tags cannot be empty'))
-      .nonempty('You must list at least one tag'),
-    elispBefore: z.string().optional().default(''),
-    elispAfter: z.string().optional().default(''),
-  }).refine((data) => {
-    if (data.repoUrl === "local") {
-      return data.rawUrls.every(url => {
-        const match = url.match(/^static\/themes\/([^/]+)\//);
-        if (!match) return false;
-        const folder = match[1];
-        return data.id.includes(folder);
-      });
-    }
-    return true;
-  }, {
-    message: "Local themes must have rawUrls in 'static/themes/{folder}/' where {folder} is a substring of the theme ID",
-    path: ["rawUrls"]
-  });
+export const ThemeSchema = z
+  .object({
+    name: z.string().min(1, "Theme name is required"),
+    id: z
+      .string()
+      .min(1, "ID (url) is required")
+      .regex(
+        /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+        "ID must be a slug (lowercase letters and numbers, separated by single hyphens)",
+      )
+      .refine(
+        (id) => !id.includes("..") && !id.includes("/") && !id.includes("\\"),
+        "ID contains invalid characters",
+      ),
+    description: z.string().min(1, "Description is required"),
+    repoUrl: z.string().min(1, "Main repository url is required"),
+    rawUrls: z
+      .array(z.string().trim().min(1, "Actual theme url cannot be empty"))
+      .nonempty("You must list at least one raw theme url"),
+    type: z.enum(["light", "dark"]),
+    authors: z
+      .array(z.string().trim().min(1, "Authors name cannot be empty"))
+      .nonempty("You must list at least one author"),
+    tags: z
+      .array(z.string().trim().min(1, "Tags cannot be empty"))
+      .nonempty("You must list at least one tag"),
+    elispBefore: z.string().optional().default(""),
+    elispAfter: z.string().optional().default(""),
+  })
+  .refine(
+    (data) => {
+      if (data.repoUrl === "local") {
+        return data.rawUrls.every((url) => {
+          const match = url.match(/^static\/themes\/([^/]+)\//);
+          if (!match) return false;
+          const folder = match[1];
+          return data.id.includes(folder);
+        });
+      }
+      return true;
+    },
+    {
+      message:
+        "Local themes must have rawUrls in 'static/themes/{folder}/' where {folder} is a substring of the theme ID",
+      path: ["rawUrls"],
+    },
+  );
 export type Theme = z.infer<typeof ThemeSchema>;
 
 interface InjectionIssue {
@@ -147,13 +160,15 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
  * @param jsonData - The raw JSON data to validate.
  * @returns An object indicating success and the validated data, or a list of error messages.
  */
-export function validateRecipeStrict(jsonData: unknown): { success: true; data: Theme } | { success: false; errors: string[] } {
+export function validateRecipeStrict(
+  jsonData: unknown,
+): { success: true; data: Theme } | { success: false; errors: string[] } {
   const result = ThemeSchema.safeParse(jsonData);
 
   if (!result.success) {
     return {
       success: false,
-      errors: [JSON.stringify(result.error.format(), null, 2)]
+      errors: [JSON.stringify(result.error.format(), null, 2)],
     };
   }
 
@@ -161,7 +176,7 @@ export function validateRecipeStrict(jsonData: unknown): { success: true; data: 
   if (injectionIssues.length > 0) {
     return {
       success: false,
-      errors: injectionIssues.map(issue => `Field '${issue.field}' ${issue.reason}`)
+      errors: injectionIssues.map((issue) => `Field '${issue.field}' ${issue.reason}`),
     };
   }
 
@@ -186,7 +201,7 @@ export async function validateSchema(filePath: string): Promise<boolean> {
       return true;
     } else {
       console.error(`❌ Validation failed for ${filePath}:`);
-      result.errors.forEach(err => console.error(err));
+      result.errors.forEach((err) => console.error(err));
       return false;
     }
   } catch (error) {
@@ -205,8 +220,8 @@ if (import.meta.main) {
   const targetFile = Bun.argv[2];
 
   if (!targetFile) {
-    console.error('Please provide a file path to validate.');
-    console.error('Usage: bun src/core/schema-checker.ts <path-to-json-file>');
+    console.error("Please provide a file path to validate.");
+    console.error("Usage: bun src/core/schema-checker.ts <path-to-json-file>");
     process.exit(1);
   }
 

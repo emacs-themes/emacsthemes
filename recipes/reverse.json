@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/syohex/emacs-reverse-theme/master/reverse-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Syohei Yoshida"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "melpa",
-    "reverse"
-  ]
+  "authors": ["Syohei Yoshida"],
+  "tags": ["black", "color themes", "dark", "melpa", "reverse"]
 }

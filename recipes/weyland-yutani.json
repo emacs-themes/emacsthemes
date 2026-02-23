@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/jstaursky/weyland-yutani-theme/master/weyland-yutani-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Joe Staursky"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "indigo",
-    "melpa",
-    "purple",
-    "weyland-yutani"
-  ]
+  "authors": ["Joe Staursky"],
+  "tags": ["black", "dark", "indigo", "melpa", "purple", "weyland-yutani"]
 }

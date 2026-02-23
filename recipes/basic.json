@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/fgeller/basic-theme.el/refs/heads/master/basic-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Felix Geller"
-  ],
-  "tags": [
-    "basic",
-    "light",
-    "white",
-    "minimal",
-    "nord",
-    "red",
-    "gray",
-    "muted"
-  ]
+  "authors": ["Felix Geller"],
+  "tags": ["basic", "light", "white", "minimal", "nord", "red", "gray", "muted"]
 }

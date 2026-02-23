@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-porple-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Niek den Breeje"
-  ],
-  "tags": [
-    "base16",
-    "base16 porple",
-    "black",
-    "dark",
-    "porple"
-  ]
+  "authors": ["Kaleb Elwert", "Niek den Breeje"],
+  "tags": ["base16", "base16 porple", "black", "dark", "porple"]
 }

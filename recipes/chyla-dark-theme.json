@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/chyla/ChylaDarkThemeForEmacs/master/chyla-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Adam Chyła  https://chyla.org/"
-  ],
-  "tags": [
-    "chyla-dark",
-    "dark",
-    "green",
-    "melpa"
-  ]
+  "authors": ["Adam Chyła  https://chyla.org/"],
+  "tags": ["chyla-dark", "dark", "green", "melpa"]
 }

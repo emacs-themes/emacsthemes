@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-rose-pine-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Emilia Dunfelt"
-  ],
-  "tags": [
-    "base16",
-    "base16 rose-pine",
-    "dark",
-    "rose-pine"
-  ]
+  "authors": ["Kaleb Elwert", "Emilia Dunfelt"],
+  "tags": ["base16", "base16 rose-pine", "dark", "rose-pine"]
 }

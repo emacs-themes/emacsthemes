@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/fommil/intellij-theme.el/refs/heads/master/intellij-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Vladimir Polushin",
-    "Sam Halliday"
-  ],
-  "tags": [
-    "blue",
-    "intellij",
-    "light",
-    "melpa",
-    "red",
-    "white"
-  ]
+  "authors": ["Vladimir Polushin", "Sam Halliday"],
+  "tags": ["blue", "intellij", "light", "melpa", "red", "white"]
 }

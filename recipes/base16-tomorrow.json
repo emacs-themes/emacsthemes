@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tomorrow-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Chris Kempson"
-  ],
-  "tags": [
-    "base16",
-    "base16 tomorrow",
-    "tomorrow",
-    "light"
-  ]
+  "authors": ["Kaleb Elwert", "Chris Kempson"],
+  "tags": ["base16", "base16 tomorrow", "tomorrow", "light"]
 }

@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/rails-to-cosmos/danneskjold-theme/refs/heads/master/danneskjold-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Dmitry Akatov"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "danneskjold",
-    "dark",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red"
-  ]
+  "authors": ["Dmitry Akatov"],
+  "tags": ["accessibility", "black", "danneskjold", "dark", "gray", "melpa", "muted", "nord", "red"]
 }

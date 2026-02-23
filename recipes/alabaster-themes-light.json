@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Nikita Prokopov"
-  ],
-  "tags": [
-    "alabaster",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Nikita Prokopov"],
+  "tags": ["alabaster", "light", "melpa", "white"]
 }

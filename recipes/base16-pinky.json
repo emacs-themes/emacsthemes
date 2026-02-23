@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-pinky-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Benjamin"
-  ],
-  "tags": [
-    "base16",
-    "base16 pinky",
-    "dark",
-    "pink",
-    "pinky"
-  ]
+  "authors": ["Kaleb Elwert", "Benjamin"],
+  "tags": ["base16", "base16 pinky", "dark", "pink", "pinky"]
 }

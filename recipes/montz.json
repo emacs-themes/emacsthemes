@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/montz-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Brady Montz",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "grey",
-    "light",
-    "montz"
-  ]
+  "authors": ["Brady Montz", "Syohei YOSHIDA"],
+  "tags": ["color themes", "grey", "light", "montz"]
 }

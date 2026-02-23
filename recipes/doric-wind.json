@@ -8,16 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-wind-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "doric",
-    "doric-themes",
-    "light",
-    "minimal",
-    "minimalist",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["doric", "doric-themes", "light", "minimal", "minimalist", "white"],
   "elispAfter": "(enable-theme 'doric-wind)"
 }

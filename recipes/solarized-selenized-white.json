@@ -10,16 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-selenized-white-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "accessibility",
-    "high contrast",
-    "light",
-    "popular",
-    "selenized",
-    "solarized",
-    "white"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["accessibility", "high contrast", "light", "popular", "selenized", "solarized", "white"]
 }

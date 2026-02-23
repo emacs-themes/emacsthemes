@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/neomantic-zz/Emacs-Sunburst-Color-Theme/master/sunburst-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Chad Albers"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "sunburst",
-    "textmate"
-  ]
+  "authors": ["Chad Albers"],
+  "tags": ["black", "dark", "sunburst", "textmate"]
 }

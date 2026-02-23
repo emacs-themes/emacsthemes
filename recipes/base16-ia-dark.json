@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-ia-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "iA Inc."
-  ],
-  "tags": [
-    "base16",
-    "base16 ia-dark",
-    "black",
-    "dark",
-    "ia-dark"
-  ]
+  "authors": ["Kaleb Elwert", "iA Inc."],
+  "tags": ["base16", "base16 ia-dark", "black", "dark", "ia-dark"]
 }

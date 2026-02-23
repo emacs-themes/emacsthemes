@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-measured-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Measured"
-  ],
-  "tags": [
-    "base16",
-    "base16 measured-light",
-    "light",
-    "measured-light",
-    "red"
-  ]
+  "authors": ["Kaleb Elwert", "Measured"],
+  "tags": ["base16", "base16 measured-light", "light", "measured-light", "red"]
 }

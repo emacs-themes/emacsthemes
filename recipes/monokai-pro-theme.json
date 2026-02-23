@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/belak/emacs-monokai-pro-theme/master/monokai-pro-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "monokai-pro"
-  ]
+  "authors": ["Kaleb Elwert"],
+  "tags": ["black", "dark", "melpa", "monokai-pro"]
 }

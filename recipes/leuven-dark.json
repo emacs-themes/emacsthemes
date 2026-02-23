@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/fniessen/emacs-leuven-theme/refs/heads/master/lisp/leuven-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Fabrice Niessen"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "leuven"
-  ]
+  "authors": ["Fabrice Niessen"],
+  "tags": ["black", "color themes", "dark", "leuven"]
 }

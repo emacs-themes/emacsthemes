@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/jasonm23/emacs-assemblage-theme/master/assemblage-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "assemblage",
-    "black",
-    "dark",
-    "emacs 24",
-    "green"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["assemblage", "black", "dark", "emacs 24", "green"]
 }

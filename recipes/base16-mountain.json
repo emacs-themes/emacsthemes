@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-mountain-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "gnsfujiwara"
-  ],
-  "tags": [
-    "base16",
-    "base16 mountain",
-    "black",
-    "dark",
-    "mountain"
-  ]
+  "authors": ["Kaleb Elwert", "gnsfujiwara"],
+  "tags": ["base16", "base16 mountain", "black", "dark", "mountain"]
 }

@@ -9,16 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "dark",
-    "jade",
-    "kaolin",
-    "kaolin-themes",
-    "red",
-    "vim"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["dark", "jade", "kaolin", "kaolin-themes", "red", "vim"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

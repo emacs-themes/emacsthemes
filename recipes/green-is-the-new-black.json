@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/fredcamps/green-is-the-new-black-emacs/master/green-is-the-new-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Fred Campos"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "green",
-    "green is the new black",
-    "melpa",
-    "minimal"
-  ]
+  "authors": ["Fred Campos"],
+  "tags": ["black", "dark", "green", "green is the new black", "melpa", "minimal"]
 }

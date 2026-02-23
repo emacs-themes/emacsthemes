@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-colonoscopy-theme/refs/heads/master/colonoscopy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
+  "authors": ["Jason Milkins"],
   "tags": [
     "black",
     "blue",

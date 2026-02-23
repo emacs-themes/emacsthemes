@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/vutran1710/Ayu-Theme-Emacs/master/ayu-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Vutran1710"
-  ],
-  "tags": [
-    "ayu",
-    "black",
-    "dark",
-    "melpa",
-    "orange"
-  ]
+  "authors": ["Vutran1710"],
+  "tags": ["ayu", "black", "dark", "melpa", "orange"]
 }

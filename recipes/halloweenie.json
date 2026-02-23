@@ -3,19 +3,9 @@
   "id": "halloweenie",
   "description": "A dark and spooky Halloween color theme.",
   "repoUrl": "https://cicadas.surf/cgit/halloweenie-theme.git",
-  "rawUrls": [
-    "https://cicadas.surf/cgit/halloweenie-theme.git/plain/halloweenie-theme.el"
-  ],
+  "rawUrls": ["https://cicadas.surf/cgit/halloweenie-theme.git/plain/halloweenie-theme.el"],
   "type": "dark",
-  "authors": [
-    "Colin Okay"
-  ],
-  "tags": [
-    "autothemer",
-    "black",
-    "dark",
-    "halloween",
-    "melpa"
-  ],
+  "authors": ["Colin Okay"],
+  "tags": ["autothemer", "black", "dark", "halloween", "melpa"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

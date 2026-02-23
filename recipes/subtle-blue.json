@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/subtle-blue-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Chris McMahan",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "blue",
-    "color themes",
-    "subtle blue"
-  ]
+  "authors": ["Chris McMahan", "Syohei YOSHIDA"],
+  "tags": ["blue", "color themes", "subtle blue"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/shaman-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Shaman",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "green",
-    "shaman"
-  ]
+  "authors": ["Shaman", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "green", "shaman"]
 }

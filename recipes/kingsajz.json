@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/kingsajz-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Olgierd “Kingsajz” Ziolko",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "green",
-    "kingsajz"
-  ]
+  "authors": ["Olgierd “Kingsajz” Ziolko", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "green", "kingsajz"]
 }

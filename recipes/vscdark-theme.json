@@ -3,18 +3,8 @@
   "id": "vscdark",
   "description": "VS Code Dark+ like theme",
   "repoUrl": "https://github.com/abelikoff/vscdark-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/abelikoff/vscdark-theme/master/vscdark-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/abelikoff/vscdark-theme/master/vscdark-theme.el"],
   "type": "dark",
-  "authors": [
-    "Alexander L. Belikoff"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "vscdark",
-    "vscode"
-  ]
+  "authors": ["Alexander L. Belikoff"],
+  "tags": ["black", "dark", "melpa", "vscdark", "vscode"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/themkat/pink-bliss-uwu/main/pink-bliss-uwu-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Themkat"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "pink",
-    "pink-bliss-uwu"
-  ]
+  "authors": ["Themkat"],
+  "tags": ["light", "melpa", "pink", "pink-bliss-uwu"]
 }

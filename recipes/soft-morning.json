@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/soft-morning-theme/master/soft-morning-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "bright",
-    "emacs 24",
-    "melpa",
-    "soft morning",
-    "white"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["bright", "emacs 24", "melpa", "soft morning", "white"]
 }

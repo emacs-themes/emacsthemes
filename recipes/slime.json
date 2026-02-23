@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-slime-theme/master/slime-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs24",
-    "grey",
-    "melpa",
-    "new",
-    "nongnu-elpa",
-    "slime"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "emacs24", "grey", "melpa", "new", "nongnu-elpa", "slime"]
 }

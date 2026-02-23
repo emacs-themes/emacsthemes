@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-somnus-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "red",
-    "rg"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["dark", "melpa", "red", "rg"]
 }

@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/aalto-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Jari Aalto",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "aalto light",
-    "color themes",
-    "light",
-    "old",
-    "purple",
-    "yellow"
-  ]
+  "authors": ["Jari Aalto", "Syohei YOSHIDA"],
+  "tags": ["aalto light", "color themes", "light", "old", "purple", "yellow"]
 }

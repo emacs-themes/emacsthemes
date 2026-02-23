@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/andrzejsliwa/django-theme.el/refs/heads/master/django-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Andrzej Sliwa"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "django",
-    "gray",
-    "green",
-    "melpa",
-    "muted",
-    "red"
-  ]
+  "authors": ["Andrzej Sliwa"],
+  "tags": ["black", "dark", "django", "gray", "green", "melpa", "muted", "red"]
 }

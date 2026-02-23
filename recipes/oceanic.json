@@ -3,18 +3,8 @@
   "id": "oceanic",
   "description": "Port the theme from Oceanic Next Color Scheme.",
   "repoUrl": "https://github.com/terry3/oceanic-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/terry3/oceanic-theme/master/oceanic-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/terry3/oceanic-theme/master/oceanic-theme.el"],
   "type": "dark",
-  "authors": [
-    "Tengfei Guo"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "melpa",
-    "oceanic"
-  ]
+  "authors": ["Tengfei Guo"],
+  "tags": ["black", "blue", "dark", "melpa", "oceanic"]
 }

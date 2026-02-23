@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/tanrax/thankful-eyes-theme.el/master/thankful-eyes-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Andros Fenollosa"
-  ],
+  "authors": ["Andros Fenollosa"],
   "tags": [
     "accessibility",
     "black",

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/MetroWind/flucui-theme/master/flucui-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Chris Corsair"
-  ],
-  "tags": [
-    "blue",
-    "dark",
-    "fluc UI",
-    "red"
-  ]
+  "authors": ["Chris Corsair"],
+  "tags": ["blue", "dark", "fluc UI", "red"]
 }

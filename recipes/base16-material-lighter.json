@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-material-lighter-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Nate Peterson"
-  ],
-  "tags": [
-    "base16",
-    "base16 material-lighter",
-    "light",
-    "material-lighter",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Nate Peterson"],
+  "tags": ["base16", "base16 material-lighter", "light", "material-lighter", "white"]
 }

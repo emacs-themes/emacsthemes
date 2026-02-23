@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/dudleyf/color-theme-github/refs/heads/master/color-theme-github.el"
   ],
   "type": "light",
-  "authors": [
-    "Dudley Flanders"
-  ],
-  "tags": [
-    "emacs 24",
-    "github",
-    "light",
-    "white"
-  ]
+  "authors": ["Dudley Flanders"],
+  "tags": ["emacs 24", "github", "light", "white"]
 }

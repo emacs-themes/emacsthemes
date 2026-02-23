@@ -8,14 +8,6 @@
     "https://github.com/gnuvince/purp/raw/refs/heads/master/blurb-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Vincent Foley"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "blurb",
-    "charcoal",
-    "navy"
-  ]
+  "authors": ["Vincent Foley"],
+  "tags": ["black", "blue", "blurb", "charcoal", "navy"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/matrix-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "walterh@rocketmail.com",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "green",
-    "matrix. dark"
-  ]
+  "authors": ["walterh@rocketmail.com", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "green", "matrix. dark"]
 }

@@ -3,17 +3,8 @@
   "id": "erosiond",
   "description": "A theme for GNU emacs 24",
   "repoUrl": "https://github.com/darrik/erosiond-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/darrik/erosiond-theme/master/erosiond-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/darrik/erosiond-theme/master/erosiond-theme.el"],
   "type": "dark",
-  "authors": [
-    "Rikard Glans"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "erosiond"
-  ]
+  "authors": ["Rikard Glans"],
+  "tags": ["black", "dark", "emacs 24", "erosiond"]
 }

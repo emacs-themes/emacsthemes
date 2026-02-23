@@ -7,16 +7,7 @@
     "https://raw.githubusercontent.com/emacsmirror/unspecified-theme/refs/heads/master/unspecified-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Mekeor Melire"
-  ],
-  "tags": [
-    "white",
-    "light",
-    "melpa",
-    "unspecified",
-    "black and white",
-    "monochrome"
-  ],
+  "authors": ["Mekeor Melire"],
+  "tags": ["white", "light", "melpa", "unspecified", "black and white", "monochrome"],
   "elispBefore": "(unless (package-installed-p 'most-faces) (package-install 'most-faces))"
 }

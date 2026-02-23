@@ -8,16 +8,6 @@
     "https://github.com/alezost/alect-themes/raw/refs/heads/master/alect-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alex Kost"
-  ],
-  "tags": [
-    "alect",
-    "blue",
-    "dark",
-    "dark grey",
-    "emacs 24",
-    "modern",
-    "popular"
-  ]
+  "authors": ["Alex Kost"],
+  "tags": ["alect", "blue", "dark", "dark grey", "emacs 24", "modern", "popular"]
 }

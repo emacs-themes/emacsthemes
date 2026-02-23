@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/MetalHeart-Emacs/master/metalheart-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "accessibility",
-    "blue",
-    "dark",
-    "green",
-    "melpa",
-    "metalheart"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["accessibility", "blue", "dark", "green", "melpa", "metalheart"]
 }

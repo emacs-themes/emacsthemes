@@ -1,16 +1,16 @@
-import { validateSchema } from './schema-checker.js';
-import { readdir, readFile } from 'fs/promises';
-import { join } from 'path';
-import { RECIPES_DIR } from './constants.js';
+import { validateSchema } from "./schema-checker.js";
+import { readdir, readFile } from "fs/promises";
+import { join } from "path";
+import { RECIPES_DIR } from "./constants.js";
 
 async function getRecipeFiles(dir: string): Promise<string[]> {
   const files = await readdir(dir);
-  return files.filter(file => file.endsWith('.json'));
+  return files.filter((file) => file.endsWith(".json"));
 }
 
 async function getRecipeId(filePath: string): Promise<string | null> {
   try {
-    const content = await readFile(filePath, 'utf-8');
+    const content = await readFile(filePath, "utf-8");
     const data = JSON.parse(content);
     return data.id || null;
   } catch (err) {
@@ -24,7 +24,7 @@ function checkDuplicateIds(idMap: Map<string, string[]>): boolean {
 
   for (const [id, files] of idMap.entries()) {
     if (files.length > 1) {
-      console.error(`❌ Duplicate ID "${id}" found in multiple files: ${files.join(', ')}`);
+      console.error(`❌ Duplicate ID "${id}" found in multiple files: ${files.join(", ")}`);
       hasDuplicates = true;
     }
   }
@@ -72,15 +72,14 @@ async function main() {
     }
 
     if (hasErrors) {
-      console.error('\n❌ Validation failed.');
+      console.error("\n❌ Validation failed.");
       process.exit(1);
     } else {
-      console.log('\n✅ All recipes validated successfully and IDs are unique.');
+      console.log("\n✅ All recipes validated successfully and IDs are unique.");
       process.exit(0);
     }
-
   } catch (error) {
-    console.error('An unexpected error occurred during validation:', error);
+    console.error("An unexpected error occurred during validation:", error);
     process.exit(1);
   }
 }

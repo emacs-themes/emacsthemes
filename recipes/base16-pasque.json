@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-pasque-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Gabriel Fontes"
-  ],
-  "tags": [
-    "base16",
-    "base16 pasque",
-    "black",
-    "dark",
-    "pasque"
-  ]
+  "authors": ["Kaleb Elwert", "Gabriel Fontes"],
+  "tags": ["base16", "base16 pasque", "black", "dark", "pasque"]
 }

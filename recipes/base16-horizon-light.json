@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-horizon-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Michaël Ball"
-  ],
-  "tags": [
-    "base16",
-    "base16 horizon-light",
-    "horizon-light",
-    "light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Michaël Ball"],
+  "tags": ["base16", "base16 horizon-light", "horizon-light", "light", "white"]
 }

@@ -3,17 +3,8 @@
   "id": "sweet",
   "description": "Sweet-looking theme",
   "repoUrl": "https://github.com/konkrotte/sweet-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/konkrotte/sweet-theme/master/sweet-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/konkrotte/sweet-theme/master/sweet-theme.el"],
   "type": "dark",
-  "authors": [
-    "2bruh4me"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "sweet"
-  ]
+  "authors": ["2bruh4me"],
+  "tags": ["black", "dark", "melpa", "sweet"]
 }

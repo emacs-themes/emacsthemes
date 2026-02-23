@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/white-sand-theme/master/white-sand-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "melpa",
-    "pink",
-    "white",
-    "white sand"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["emacs 24", "light", "melpa", "pink", "white", "white sand"]
 }

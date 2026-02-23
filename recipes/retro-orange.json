@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/retro-orange-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "color themes",
-    "dark",
-    "orange",
-    "retro orange"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["black", "color themes", "dark", "orange", "retro orange"]
 }

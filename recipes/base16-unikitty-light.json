@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-unikitty-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Josh W Lewis"
-  ],
-  "tags": [
-    "base16",
-    "base16 unikitty-light",
-    "light",
-    "unikitty-light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Josh W Lewis"],
+  "tags": ["base16", "base16 unikitty-light", "light", "unikitty-light", "white"]
 }

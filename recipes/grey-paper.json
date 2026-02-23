@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/gugod/grey-paper-theme/master/grey-paper-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kang-min Liu"
-  ],
-  "tags": [
-    "e-ink",
-    "grayscale",
-    "grey",
-    "light",
-    "melpa"
-  ]
+  "authors": ["Kang-min Liu"],
+  "tags": ["e-ink", "grayscale", "grey", "light", "melpa"]
 }

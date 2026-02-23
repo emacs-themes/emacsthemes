@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-vivendi-deuteranopia-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
+  "authors": ["Protesilaos Stavrou"],
   "tags": [
     "accessibility",
     "accessible",

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/martenlienen/xresources-theme/master/xresources-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Marten Lienen"
-  ],
-  "tags": [
-    "white",
-    "black and white",
-    "monochrome",
-    "light",
-    "melpa",
-    "xresources"
-  ]
+  "authors": ["Marten Lienen"],
+  "tags": ["white", "black and white", "monochrome", "light", "melpa", "xresources"]
 }

@@ -3,17 +3,8 @@
   "id": "sexy",
   "description": "A strong colors variant of the Gruber Darker theme",
   "repoUrl": "https://github.com/thebigcicca/sexy-theme.el",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/thebigcicca/sexy-theme.el/main/sexy-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/thebigcicca/sexy-theme.el/main/sexy-theme.el"],
   "type": "dark",
-  "authors": [
-    "Bruno Ciccarino"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "sexy"
-  ]
+  "authors": ["Bruno Ciccarino"],
+  "tags": ["black", "dark", "melpa", "sexy"]
 }

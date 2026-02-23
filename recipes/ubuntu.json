@@ -3,18 +3,8 @@
   "id": "ubuntu",
   "description": "A theme inspired by the default terminal colors in Ubuntu",
   "repoUrl": "https://github.com/rocher/ubuntu-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/rocher/ubuntu-theme/master/ubuntu-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/rocher/ubuntu-theme/master/ubuntu-theme.el"],
   "type": "dark",
-  "authors": [
-    "Francesc Rocher"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "orange",
-    "purple",
-    "ubuntu"
-  ]
+  "authors": ["Francesc Rocher"],
+  "tags": ["dark", "melpa", "orange", "purple", "ubuntu"]
 }

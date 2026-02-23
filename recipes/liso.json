@@ -3,19 +3,8 @@
   "id": "liso",
   "description": "An eclectic dark theme inspired by TangoTango.",
   "repoUrl": "https://github.com/caisah/liso-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/caisah/liso-theme/master/liso-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/caisah/liso-theme/master/liso-theme.el"],
   "type": "dark",
-  "authors": [
-    "Vlad Piersec"
-  ],
-  "tags": [
-    "dark",
-    "grey",
-    "liso",
-    "melpa",
-    "red",
-    "tango"
-  ]
+  "authors": ["Vlad Piersec"],
+  "tags": ["dark", "grey", "liso", "melpa", "red", "tango"]
 }

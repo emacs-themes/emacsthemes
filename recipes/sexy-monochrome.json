@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/voloyev/sexy-monochrome-theme/master/sexy-monochrome-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Volodymyr Yevtushenko"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "ewal",
-    "melpa",
-    "monochrome",
-    "sexy-monochrome"
-  ]
+  "authors": ["Volodymyr Yevtushenko"],
+  "tags": ["black", "dark", "emacs 24", "ewal", "melpa", "monochrome", "sexy-monochrome"]
 }

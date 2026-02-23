@@ -3,17 +3,8 @@
   "id": "nimbus",
   "description": " An awesome dark theme",
   "repoUrl": "https://github.com/m-cat/nimbus-theme",
-  "rawUrls": [
-    "https://github.com/mrcnski/nimbus-theme/raw/refs/heads/master/nimbus-theme.el"
-  ],
+  "rawUrls": ["https://github.com/mrcnski/nimbus-theme/raw/refs/heads/master/nimbus-theme.el"],
   "type": "dark",
-  "authors": [
-    "Marcin Swieczkowski"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "nimbus"
-  ]
+  "authors": ["Marcin Swieczkowski"],
+  "tags": ["black", "dark", "melpa", "nimbus"]
 }

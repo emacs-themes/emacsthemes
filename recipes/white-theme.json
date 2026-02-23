@@ -3,18 +3,8 @@
   "id": "white",
   "description": "Minimalistic light color theme inspired by basic-theme",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/white/white-theme.el"
-  ],
+  "rawUrls": ["static/themes/white/white-theme.el"],
   "type": "light",
-  "authors": [
-    "Anler Hernandez Peral"
-  ],
-  "tags": [
-    "black & white",
-    "light",
-    "melpa",
-    "minimal",
-    "white"
-  ]
+  "authors": ["Anler Hernandez Peral"],
+  "tags": ["black & white", "light", "melpa", "minimal", "white"]
 }

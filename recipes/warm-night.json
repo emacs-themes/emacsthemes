@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/mswift42/warm-night-theme/master/warm-night-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "brown",
-    "dark",
-    "emacs24",
-    "melpa",
-    "orange",
-    "warm night"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["brown", "dark", "emacs24", "melpa", "orange", "warm night"]
 }

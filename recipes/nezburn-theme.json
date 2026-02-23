@@ -3,19 +3,8 @@
   "id": "nezburn",
   "description": "A low contrast color theme for Emacs (inspired by zenburn).",
   "repoUrl": "https://github.com/lanjoni/nezburn",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/lanjoni/nezburn/main/nezburn-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/lanjoni/nezburn/main/nezburn-theme.el"],
   "type": "dark",
-  "authors": [
-    "João Lanjoni"
-  ],
-  "tags": [
-    "accessibility",
-    "dark",
-    "melpa",
-    "nezburn",
-    "red",
-    "zenburn"
-  ]
+  "authors": ["João Lanjoni"],
+  "tags": ["accessibility", "dark", "melpa", "nezburn", "red", "zenburn"]
 }

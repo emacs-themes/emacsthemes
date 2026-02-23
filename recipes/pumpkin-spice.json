@@ -3,19 +3,9 @@
   "id": "pumpkin-spice",
   "description": "Spice up your day with a delightful pumpkin colored theme.",
   "repoUrl": "https://cicadas.surf/cgit/pumpkin-spice-theme.git",
-  "rawUrls": [
-    "https://cicadas.surf/cgit/pumpkin-spice-theme.git/plain/pumpkin-spice-theme.el"
-  ],
+  "rawUrls": ["https://cicadas.surf/cgit/pumpkin-spice-theme.git/plain/pumpkin-spice-theme.el"],
   "type": "light",
-  "authors": [
-    "Grant Shangreaux"
-  ],
-  "tags": [
-    "autothemer",
-    "halloween",
-    "light",
-    "melpa",
-    "red"
-  ],
+  "authors": ["Grant Shangreaux"],
+  "tags": ["autothemer", "halloween", "light", "melpa", "red"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

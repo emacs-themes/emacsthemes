@@ -7,19 +7,6 @@
     "https://raw.githubusercontent.com/vallyscode/cloud-theme/refs/heads/master/cloud-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Valerii Lysenko"
-  ],
-  "tags": [
-    "blue",
-    "cloud",
-    "gray",
-    "green",
-    "light",
-    "melpa",
-    "muted",
-    "nord",
-    "red",
-    "white"
-  ]
+  "authors": ["Valerii Lysenko"],
+  "tags": ["blue", "cloud", "gray", "green", "light", "melpa", "muted", "nord", "red", "white"]
 }

@@ -3,17 +3,8 @@
   "id": "flatui-emacs",
   "description": "A color theme for Emacs based on ",
   "repoUrl": "https://github.com/john2x/flatui-theme.el",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/john2x/flatui-theme.el/master/flatui-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/john2x/flatui-theme.el/master/flatui-theme.el"],
   "type": "light",
-  "authors": [
-    "John Louis Del Rosario"
-  ],
-  "tags": [
-    "blue",
-    "flatui",
-    "light",
-    "white"
-  ]
+  "authors": ["John Louis Del Rosario"],
+  "tags": ["blue", "flatui", "light", "white"]
 }

@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/hydrangealess-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "hydrangealess"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["black", "blue", "dark", "hydrangealess"]
 }

@@ -10,14 +10,7 @@
     "https://raw.githubusercontent.com/cyruseuros/ewal/master/palettes/dark/sexy-phrak1.json"
   ],
   "type": "dark",
-  "authors": [
-    "Uros Perisic"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "ewal",
-    "spacemacs"
-  ],
+  "authors": ["Uros Perisic"],
+  "tags": ["black", "dark", "ewal", "spacemacs"],
   "elispBefore": "(unless (package-installed-p 'spacemacs-theme) (package-install 'spacemacs-theme)) (setq ewal-use-built-in-always-p t ewal-use-built-in-on-failure-p t ewal-dark-palette-p t ewal-built-in-palette \"sexy-phrak1\" ewal-json-file (expand-file-name \"sexy-phrak1.json\" (car load-path)))"
 }

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/emacs-nw-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "emacs nw",
-    "emacs themes",
-    "light",
-    "white"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["emacs nw", "emacs themes", "light", "white"]
 }

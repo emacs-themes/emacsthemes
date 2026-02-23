@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/ianpan870102/Emacs-Wilmersdorf-Theme/master/wilmersdorf-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ian Y.E. Pan"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "indigo",
-    "purple",
-    "wilmersdorf"
-  ]
+  "authors": ["Ian Y.E. Pan"],
+  "tags": ["black", "blue", "dark", "indigo", "purple", "wilmersdorf"]
 }

@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/sitaramv-nt-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "sitaramv nt",
-    "white"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["color themes", "light", "sitaramv nt", "white"]
 }

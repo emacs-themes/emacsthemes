@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-windows-95-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Fergus Collins"
-  ],
-  "tags": [
-    "base16",
-    "base16 windows-95",
-    "black",
-    "dark",
-    "windows-95"
-  ]
+  "authors": ["Kaleb Elwert", "Fergus Collins"],
+  "tags": ["base16", "base16 windows-95", "black", "dark", "windows-95"]
 }

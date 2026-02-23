@@ -8,15 +8,6 @@
     "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thibault Polge"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "eziam",
-    "monochrome",
-    "red"
-  ]
+  "authors": ["Thibault Polge"],
+  "tags": ["black", "dark", "emacs 24", "eziam", "monochrome", "red"]
 }

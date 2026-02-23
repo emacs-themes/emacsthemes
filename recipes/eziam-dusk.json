@@ -8,16 +8,6 @@
     "https://raw.githubusercontent.com/thblt/eziam-theme-emacs/refs/heads/master/eziam-dusk-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thibault Polge"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "dusk",
-    "emacs 24",
-    "eziam",
-    "monochrome",
-    "red"
-  ]
+  "authors": ["Thibault Polge"],
+  "tags": ["black", "dark", "dusk", "emacs 24", "eziam", "monochrome", "red"]
 }

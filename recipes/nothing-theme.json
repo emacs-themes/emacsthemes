@@ -3,17 +3,8 @@
   "id": "nothing",
   "description": "Monochrome theme",
   "repoUrl": "https://github.com/jaredgorski/nothing.el",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/jaredgorski/nothing.el/master/nothing-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/jaredgorski/nothing.el/master/nothing-theme.el"],
   "type": "light",
-  "authors": [
-    "Jared Gorski"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "monochrome",
-    "nothing"
-  ]
+  "authors": ["Jared Gorski"],
+  "tags": ["light", "melpa", "monochrome", "nothing"]
 }

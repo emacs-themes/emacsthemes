@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tube-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Jan T. Sott"
-  ],
-  "tags": [
-    "base16",
-    "base16 tube",
-    "black",
-    "dark",
-    "tube"
-  ]
+  "authors": ["Kaleb Elwert", "Jan T. Sott"],
+  "tags": ["base16", "base16 tube", "black", "dark", "tube"]
 }

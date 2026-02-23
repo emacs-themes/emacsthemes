@@ -7,13 +7,6 @@
     "https://github.com/jlpaca/minsk-theme/raw/refs/heads/master/theme/emacs/minsk-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jean Lo"
-  ],
-  "tags": [
-    "dark",
-    "green",
-    "melpa",
-    "minsk"
-  ]
+  "authors": ["Jean Lo"],
+  "tags": ["dark", "green", "melpa", "minsk"]
 }

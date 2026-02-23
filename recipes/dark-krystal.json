@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-dark-krystal-theme/refs/heads/master/dark-krystal-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "dark krystal",
-    "gray",
-    "melpa",
-    "muted",
-    "red"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "dark krystal", "gray", "melpa", "muted", "red"]
 }

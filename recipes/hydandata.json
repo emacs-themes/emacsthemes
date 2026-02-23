@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/hydandata/hydandata-light-theme/master/hydandata-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "David Chkhikvadze",
-    "Yves Senn"
-  ],
-  "tags": [
-    "blue",
-    "hydandata",
-    "light",
-    "white"
-  ]
+  "authors": ["David Chkhikvadze", "Yves Senn"],
+  "tags": ["blue", "hydandata", "light", "white"]
 }

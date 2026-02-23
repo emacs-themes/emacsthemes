@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/infodoc-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Frederic Giroud",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "infodoc",
-    "light",
-    "orange",
-    "white"
-  ]
+  "authors": ["Frederic Giroud", "Syohei YOSHIDA"],
+  "tags": ["color themes", "infodoc", "light", "orange", "white"]
 }

@@ -7,14 +7,6 @@
     "https://codeberg.org/fourier/idea-darkula-theme/raw/branch/master/idea-darkula-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alexey Veretennikov"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "idea-darkula",
-    "intellij",
-    "melpa"
-  ]
+  "authors": ["Alexey Veretennikov"],
+  "tags": ["black", "dark", "idea-darkula", "intellij", "melpa"]
 }

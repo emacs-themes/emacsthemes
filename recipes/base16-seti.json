@@ -8,14 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-seti-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert"
-  ],
-  "tags": [
-    "base16",
-    "base16 seti",
-    "black",
-    "dark",
-    "seti"
-  ]
+  "authors": ["Kaleb Elwert"],
+  "tags": ["base16", "base16 seti", "black", "dark", "seti"]
 }

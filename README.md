@@ -33,7 +33,6 @@ bun run dev
 
 Note: run `bun run build` at least once before `bun run dev` so the `build/` directory exists.
 
-
 ## Project Layout
 
 - `recipes/`: theme metadata definitions
@@ -45,12 +44,11 @@ Note: run `bun run build` at least once before `bun run dev` so the `build/` dir
 - `tests/`: validation and security-focused tests
 - `build/`: generated site output
 
-
 ## Contributing
 
 ### Adding metadata
 
-To add a new entry you have to add a *recipe* file to `recipes`. Must be valid JSON and follow the schema enforced in `src/core/schema-checker.ts`.
+To add a new entry you have to add a _recipe_ file to `recipes`. Must be valid JSON and follow the schema enforced in `src/core/schema-checker.ts`.
 
 Required fields:
 
@@ -58,9 +56,9 @@ Required fields:
 - `id`: The unique slug (`kebab-case`) - it will generate the path of the theme;
 - `description`: Theme description - small or large paragraph describing the theme;
 - `repoUrl`: The base repository of the theme. It can also be the string `local` if there is no repository.
-             In this case a folder with the actual theme file must be created in `static/themes`;
+  In this case a folder with the actual theme file must be created in `static/themes`;
 - `rawUrls`: The actual theme URL(s) and dependencies.
-             If the theme is `local` it must be `static/themes/[theme-folder]/[theme-name].el`;
+  If the theme is `local` it must be `static/themes/[theme-folder]/[theme-name].el`;
 - `type`: `light` or `dark`;
 - `authors`: An array with the name of the authors;
 - `tags`: An array of tags - used also to help with theme searching;
@@ -68,18 +66,18 @@ Required fields:
 Optional fields:
 
 - `elispBefore` - The elisp code to run before executing the `rawUrls` files when taking a screenshot;
-                  Usually you want to install theme dependencies here, if any;
+  Usually you want to install theme dependencies here, if any;
 - `elispAfter` - The elisp code to run after executing the `rawUrls` files when taking a screenshot;
-                 This can be used to load the theme if the screenshot script cannot correctly infer it from the `rawUrls`;
+  This can be used to load the theme if the screenshot script cannot correctly infer it from the `rawUrls`;
 
 Examples:
+
 - simple recipe: [zenburn](recipes/zenburn.json);
 - recipe with local source: [minimal](recipes/minimal.json);
 
 - recipe with `elispBefore` [gruvbox](recipes/gruvbox.json);
 - recipe with `elispAfter` [doric oak](recipes/doric-oak.json);
 - recipe with both `elispBefore` & `elispAfter` [ef reverie](recipes/ef-reverie.json);
-
 
 ### Adding screenshots
 
@@ -88,7 +86,6 @@ After the recipe was added, new screenshots can be generated using Docker:
 ```bash
 bun run screenshots
 ```
-
 
 To update screenshots for an existing recipe, delete the screenshots folder or run:
 

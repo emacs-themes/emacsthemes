@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/0xhenrique/pache-dark-theme/master/pache-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Henrique Marques"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "gruvbox",
-    "melpa",
-    "pache-dark"
-  ]
+  "authors": ["Henrique Marques"],
+  "tags": ["accessibility", "black", "dark", "gruvbox", "melpa", "pache-dark"]
 }

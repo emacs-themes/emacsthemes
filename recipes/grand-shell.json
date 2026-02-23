@@ -7,14 +7,6 @@
     "https://framagit.org/steckerhalter/grandshell-theme/-/raw/master/grandshell-theme.el?ref_type=heads"
   ],
   "type": "dark",
-  "authors": [
-    "Steckerhalter"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "grand shell",
-    "popular"
-  ]
+  "authors": ["Steckerhalter"],
+  "tags": ["black", "dark", "emacs 24", "grand shell", "popular"]
 }

@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-creamsody/refs/heads/master/creamsody-pitchblack-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
+  "authors": ["Jason Milkins"],
   "tags": [
     "autothemer",
     "black",

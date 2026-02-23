@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-mustard-theme/master/mustard-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "emacs 24",
-    "melpa",
-    "mustard"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "dark", "emacs 24", "melpa", "mustard"]
 }

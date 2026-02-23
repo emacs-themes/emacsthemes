@@ -3,19 +3,8 @@
   "id": "xp",
   "description": "Color Theme",
   "repoUrl": "https://github.com/emacs-jp/replace-colorthemes",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/xp-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/xp-theme.el"],
   "type": "light",
-  "authors": [
-    "Girish Bharadwaj",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "color themes",
-    "light",
-    "white",
-    "xp",
-    "yellow"
-  ]
+  "authors": ["Girish Bharadwaj", "Syohei YOSHIDA"],
+  "tags": ["color themes", "light", "white", "xp", "yellow"]
 }

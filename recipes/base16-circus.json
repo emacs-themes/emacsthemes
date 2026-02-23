@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-circus-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Stephan Boyer"
-  ],
-  "tags": [
-    "base16",
-    "base16 circus",
-    "black",
-    "circus",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "Stephan Boyer"],
+  "tags": ["base16", "base16 circus", "black", "circus", "dark"]
 }

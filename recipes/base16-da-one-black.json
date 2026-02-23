@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-da-one-black-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "NNB"
-  ],
-  "tags": [
-    "base16",
-    "base16 da-one-black",
-    "black",
-    "da-one-black",
-    "dark"
-  ]
+  "authors": ["Kaleb Elwert", "NNB"],
+  "tags": ["base16", "base16 da-one-black", "black", "da-one-black", "dark"]
 }

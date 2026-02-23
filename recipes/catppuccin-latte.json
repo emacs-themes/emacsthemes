@@ -8,19 +8,8 @@
     "https://raw.githubusercontent.com/catppuccin/emacs/refs/heads/main/catppuccin-definitions.el"
   ],
   "type": "light",
-  "authors": [
-    "nyxkrage",
-    "Jeremy Baxter"
-  ],
+  "authors": ["nyxkrage", "Jeremy Baxter"],
   "elispBefore": "(setq catppuccin-flavor 'latte)",
   "elispAfter": "(catppuccin-reload)",
-  "tags": [
-    "white",
-    "mocha",
-    "modern",
-    "catppuccin",
-    "emacs 26",
-    "dracula",
-    "nord"
-  ]
+  "tags": ["white", "mocha", "modern", "catppuccin", "emacs 26", "dracula", "nord"]
 }

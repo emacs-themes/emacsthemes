@@ -8,16 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-cherry-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "cherry",
-    "doric",
-    "doric-themes",
-    "light",
-    "minimal",
-    "minimalist"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["cherry", "doric", "doric-themes", "light", "minimal", "minimalist"],
   "elispAfter": "(enable-theme 'doric-cherry)"
 }

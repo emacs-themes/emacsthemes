@@ -8,15 +8,6 @@
     "https://raw.githubusercontent.com/NestorLiao/real-mono-theme/main/real-mono-eink-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Qingsong Liao"
-  ],
-  "tags": [
-    "black and white",
-    "eink",
-    "light",
-    "monochrome",
-    "real mono",
-    "white"
-  ]
+  "authors": ["Qingsong Liao"],
+  "tags": ["black and white", "eink", "light", "monochrome", "real mono", "white"]
 }

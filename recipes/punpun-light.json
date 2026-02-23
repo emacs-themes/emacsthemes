@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/wasamasa/punpun-theme/master/punpun-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Vasilij Schneidermann"
-  ],
-  "tags": [
-    "grey",
-    "light",
-    "monochrome",
-    "punpun",
-    "white"
-  ]
+  "authors": ["Vasilij Schneidermann"],
+  "tags": ["grey", "light", "monochrome", "punpun", "white"]
 }

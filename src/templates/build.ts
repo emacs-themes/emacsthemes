@@ -26,7 +26,7 @@ const MINIFY_OPTIONS: MinifyOptions = {
   removeRedundantAttributes: true,
   removeScriptTypeAttributes: true,
   removeStyleLinkTypeAttributes: true,
-  useShortDoctype: true
+  useShortDoctype: true,
 };
 
 /**
@@ -100,12 +100,12 @@ interface Theme {
  */
 async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
   const files = await readdir(RECIPES_DIR);
-  const themeFiles = files.filter(f => f.endsWith(".json"));
+  const themeFiles = files.filter((f) => f.endsWith(".json"));
 
   const themesWithStats = await Promise.all(
     themeFiles.map(async (file) => {
       const filePath = join(RECIPES_DIR, file);
-      const content = await Bun.file(filePath).json() as Theme;
+      const content = (await Bun.file(filePath).json()) as Theme;
       const screenshotsDir = assertPathWithinRoot(PATHS.assets.src.images, content.id);
 
       try {
@@ -115,11 +115,11 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
         // Skip themes without a screenshots directory
         return null;
       }
-    })
+    }),
   );
 
   return themesWithStats
-    .filter((t): t is (Theme & { mtime: number }) => t !== null)
+    .filter((t): t is Theme & { mtime: number } => t !== null)
     .toSorted((a, b) => b.mtime - a.mtime)
     .slice(0, limit);
 }
@@ -132,9 +132,11 @@ async function getSortedThemes(limit: number = 9): Promise<Theme[]> {
 async function getAllThemes(): Promise<Theme[]> {
   const files = await readdir(RECIPES_DIR);
   return await Promise.all(
-    files.filter(f => f.endsWith(".json")).map(async (file) => {
-      return await Bun.file(join(RECIPES_DIR, file)).json();
-    })
+    files
+      .filter((f) => f.endsWith(".json"))
+      .map(async (file) => {
+        return await Bun.file(join(RECIPES_DIR, file)).json();
+      }),
   );
 }
 
@@ -225,9 +227,7 @@ interface PageData {
 function applyBaseTemplate(template: string, data: PageData): string {
   const currentYear = new Date().getFullYear().toString();
   const brandedTitle = `${data.title}${TITLE_BRAND_SUFFIX}`;
-  const extraCssLinks = (data.extraCssPaths || [])
-    .map(path => getCssLinkTag(path))
-    .join("\n");
+  const extraCssLinks = (data.extraCssPaths || []).map((path) => getCssLinkTag(path)).join("\n");
 
   return template
     .replace("{{TITLE}}", escapeHtml(brandedTitle))
@@ -255,19 +255,23 @@ function applyBaseTemplate(template: string, data: PageData): string {
  */
 async function buildHomepage(template: string, cardTemplate: string) {
   const themes = await getSortedThemes(9);
-  const themesGrid = `<div class="grid">` + themes.map(t => generateThemeCard(t, cardTemplate)).join("\n") + `</div>`;
+  const themesGrid =
+    `<div class="grid">` +
+    themes.map((t) => generateThemeCard(t, cardTemplate)).join("\n") +
+    `</div>`;
   const latestThemesHeadline = `<h2 class="latest-headline">Freshly Baked Themes 🥐</h2><p class="subhead">The newest additions to our gallery. Warning: may cause sudden urge to rewrite your init.el.</p>`;
 
   const html = applyBaseTemplate(template, {
     title: "An Emacs Themes Gallery",
-    description: "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
+    description:
+      "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
     ogTitle: "Emacs Themes Gallery",
     ogDescription: "Discover and preview the best Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
     themesGrid,
     latestThemesHeadline,
     mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.card}`]
+    extraCssPaths: [`/${PATHS.css.card}`],
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -283,29 +287,44 @@ async function buildHomepage(template: string, cardTemplate: string) {
  * @param {string} searchBarHtml - The HTML for the search bar partial.
  * @param {string} searchScriptTemplate - The HTML template for the search script.
  */
-async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string, searchScriptTemplate: string) {
+async function buildAllThemesPage(
+  template: string,
+  cardTemplate: string,
+  searchBarHtml: string,
+  searchScriptTemplate: string,
+) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
-  const updatedSearchBarHtml = searchBarHtml.replace("{{TOTAL_THEMES}}", allThemes.length.toLocaleString());
+  const updatedSearchBarHtml = searchBarHtml.replace(
+    "{{TOTAL_THEMES}}",
+    allThemes.length.toLocaleString(),
+  );
 
-  const themesGrid = `<div class="grid">` + allThemes.map(t => generateThemeCard(t, cardTemplate, "../")).join("\n") + `</div>`;
+  const themesGrid =
+    `<div class="grid">` +
+    allThemes.map((t) => generateThemeCard(t, cardTemplate, "../")).join("\n") +
+    `</div>`;
 
-  const themesData = allThemes.map(t => ({
+  const themesData = allThemes.map((t) => ({
     id: t.id,
     name: t.name,
     type: t.type,
-    tags: t.tags
+    tags: t.tags,
   }));
 
-  const scriptWithData = searchScriptTemplate.replace("{{THEMES_DATA}}", JSON.stringify(themesData));
+  const scriptWithData = searchScriptTemplate.replace(
+    "{{THEMES_DATA}}",
+    JSON.stringify(themesData),
+  );
   const scriptContent = scriptWithData.replace("<script>", "").replace("</script>", "");
   const minifiedJs = await minifyJs(scriptContent);
   const scriptHtml = `<script>${minifiedJs}</script>`;
 
   const html = applyBaseTemplate(template, {
     title: "Full Emacs Themes Directory",
-    description: "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
+    description:
+      "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
     ogTitle: "Emacs Themes Directory",
     ogDescription: "Search and filter through all available Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
@@ -313,7 +332,7 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
     searchBar: updatedSearchBarHtml,
     mainCssPath: `../${PATHS.css.main}`,
     extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`],
-    scripts: scriptHtml
+    scripts: scriptHtml,
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -339,23 +358,28 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
 
     try {
       const files = await readdir(themeImgsDir);
-      const pngs = files.filter(f => f.endsWith(".png") && f !== "preview.png");
+      const pngs = files.filter((f) => f.endsWith(".png") && f !== "preview.png");
 
-      screenshotsHtml = pngs.map(file => {
-        const modeName = file.replace(".png", "");
-        return `
+      screenshotsHtml = pngs
+        .map((file) => {
+          const modeName = file.replace(".png", "");
+          return `
       <div class="screenshot-item">
         <h3>${modeName}</h3>
         <img src="../static/imgs/${theme.id}/${file}" alt="${theme.name} in ${modeName}" loading="lazy" />
       </div>`;
-      }).join("\n");
+        })
+        .join("\n");
     } catch {
       console.warn(`No screenshots found for theme ${theme.id}`);
     }
 
-    const tagsHtml = theme.tags.map(tag =>
-      `<a href="/themes/index.html?q=${encodeURIComponent(tag)}" class="tag-link">${tag}</a>`
-    ).join("\n");
+    const tagsHtml = theme.tags
+      .map(
+        (tag) =>
+          `<a href="/themes/index.html?q=${encodeURIComponent(tag)}" class="tag-link">${tag}</a>`,
+      )
+      .join("\n");
 
     const generatedDateObj = await (async () => {
       try {
@@ -366,10 +390,10 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       }
     })();
 
-    const generatedDate = new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    const generatedDate = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     }).format(generatedDateObj);
 
     let repoLinkHtml = `<a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub</a>`;
@@ -380,7 +404,10 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
     const content = contentTemplate
       .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
       .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
-      .replace(/<a href="{{THEME_REPO_URL}}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub<\/a>/g, repoLinkHtml)
+      .replace(
+        /<a href="{{THEME_REPO_URL}}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub<\/a>/g,
+        repoLinkHtml,
+      )
       .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
       .replace(/{{THEME_TYPE}}/g, theme.type)
       .replace(/{{THEME_TAGS}}/g, tagsHtml)
@@ -395,7 +422,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
       themesGrid: content,
       mainCssPath: mainCssPath,
-      extraCssPaths: [detailCssPath]
+      extraCssPaths: [detailCssPath],
     });
 
     const minifiedHtml = await minifyHtml(html);
@@ -419,7 +446,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
     ogDescription: "Information about the curated Emacs themes directory.",
     ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: aboutContentHtml,
-    mainCssPath: `/${PATHS.css.main}`
+    mainCssPath: `/${PATHS.css.main}`,
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -441,24 +468,26 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
     return;
   }
 
-  const themesListHtml = popularThemes.map((theme, index) => {
-    const rank = index + 1;
-    const nameHtml = theme.url
-      ? `<a href="${theme.url}" target="_blank" rel="noopener noreferrer">${theme.name}</a>`
-      : theme.name;
+  const themesListHtml = popularThemes
+    .map((theme, index) => {
+      const rank = index + 1;
+      const nameHtml = theme.url
+        ? `<a href="${theme.url}" target="_blank" rel="noopener noreferrer">${theme.name}</a>`
+        : theme.name;
 
-    return `
+      return `
       <tr>
         <td>${rank}</td>
         <td>${nameHtml}</td>
         <td class="text-right">${theme.downloads.toLocaleString()}</td>
       </tr>`;
-  }).join("\n");
+    })
+    .join("\n");
 
-  const generatedDate = new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  const generatedDate = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   }).format(new Date());
 
   const content = contentTemplate
@@ -467,13 +496,14 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
 
   const html = applyBaseTemplate(template, {
     title: "Popular Emacs Themes - MELPA Statistics",
-    description: "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
+    description:
+      "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
     ogTitle: "Popular Emacs Themes",
     ogDescription: "MELPA download statistics for top Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: content,
     mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.detail}`] // Reusing detail CSS for header consistency
+    extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -496,7 +526,7 @@ async function build404Page(template: string, error404ContentHtml: string) {
     ogImage: `${BASE_URL}/emacs.png`,
     themesGrid: error404ContentHtml,
     mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.error}`]
+    extraCssPaths: [`/${PATHS.css.error}`],
   });
 
   const minifiedHtml = await minifyHtml(html);
@@ -551,7 +581,16 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  const [baseTemplate, cardTemplate, searchBarHtml, detailContentTemplate, aboutContentHtml, popularThemesContentTemplate, error404ContentTemplate, searchScriptTemplate] = await Promise.all([
+  const [
+    baseTemplate,
+    cardTemplate,
+    searchBarHtml,
+    detailContentTemplate,
+    aboutContentHtml,
+    popularThemesContentTemplate,
+    error404ContentTemplate,
+    searchScriptTemplate,
+  ] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
@@ -575,7 +614,7 @@ async function build() {
     linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
-    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng)
+    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng),
   ]);
 
   console.log("Build complete!");

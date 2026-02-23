@@ -7,16 +7,6 @@
     "https://codeberg.org/fourier/borland-blue-theme/raw/branch/master/borland-blue-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Alexey Veretennikov"
-  ],
-  "tags": [
-    "blue",
-    "borland blue",
-    "dark",
-    "gray",
-    "melpa",
-    "red",
-    "yellow"
-  ]
+  "authors": ["Alexey Veretennikov"],
+  "tags": ["blue", "borland blue", "dark", "gray", "melpa", "red", "yellow"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-humanoid-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Thomas"
-  ],
-  "tags": [
-    "base16",
-    "base16 humanoid-light",
-    "humanoid-light",
-    "light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Thomas"],
+  "tags": ["base16", "base16 humanoid-light", "humanoid-light", "light", "white"]
 }

@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-eclipse-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "dark",
-    "eclipse",
-    "kaolin",
-    "kaolin-themes",
-    "purple"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["dark", "eclipse", "kaolin", "kaolin-themes", "purple"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

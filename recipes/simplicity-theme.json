@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/smallwat3r/emacs-simplicity-theme/main/simplicity-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Matthieu Petiteau"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "minimal",
-    "simplicity"
-  ]
+  "authors": ["Matthieu Petiteau"],
+  "tags": ["black", "dark", "melpa", "minimal", "simplicity"]
 }

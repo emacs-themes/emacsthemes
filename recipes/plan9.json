@@ -3,18 +3,8 @@
   "id": "plan9",
   "description": "Emacs theme inspired by the Plan9 project. A light alternative for that classic look.",
   "repoUrl": "https://github.com/john2x/plan9-theme.el",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/john2x/plan9-theme.el/master/plan9-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/john2x/plan9-theme.el/master/plan9-theme.el"],
   "type": "light",
-  "authors": [
-    "John Louis Del Rosario"
-  ],
-  "tags": [
-    "light",
-    "melpa",
-    "plan9",
-    "red",
-    "yellow"
-  ]
+  "authors": ["John Louis Del Rosario"],
+  "tags": ["light", "melpa", "plan9", "red", "yellow"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/guidoschmidt/emacs-hemera-theme/master/hemera-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Guido Schmidt"
-  ],
-  "tags": [
-    "hemera",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Guido Schmidt"],
+  "tags": ["hemera", "light", "melpa", "white"]
 }

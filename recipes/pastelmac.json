@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/bmastenbrook/pastelmac-theme-el/master/pastelmac-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Brian Mastenbrook"
-  ],
-  "tags": [
-    "blue",
-    "emacs24",
-    "light",
-    "melpa",
-    "pastelmac",
-    "white"
-  ]
+  "authors": ["Brian Mastenbrook"],
+  "tags": ["blue", "emacs24", "light", "melpa", "pastelmac", "white"]
 }

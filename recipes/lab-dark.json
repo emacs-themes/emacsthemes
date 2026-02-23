@@ -3,18 +3,8 @@
   "id": "lab-dark",
   "description": "A custom theme carefully constructed in the LAB space",
   "repoUrl": "https://github.com/MetroWind/lab-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/MetroWind/lab-theme/master/lab-dark-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/MetroWind/lab-theme/master/lab-dark-theme.el"],
   "type": "dark",
-  "authors": [
-    "Chris Corsair"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "dark",
-    "lab",
-    "lab-dark"
-  ]
+  "authors": ["Chris Corsair"],
+  "tags": ["black", "blue", "dark", "lab", "lab-dark"]
 }

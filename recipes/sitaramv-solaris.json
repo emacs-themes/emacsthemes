@@ -7,17 +7,6 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/sitaramv-solaris-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Xavier Maillard",
-    "Brian Palmer",
-    "Syohei YOSHIDA"
-  ],
-  "tags": [
-    "black",
-    "blue",
-    "color themes",
-    "dark",
-    "intense",
-    "sitaramv solaris"
-  ]
+  "authors": ["Xavier Maillard", "Brian Palmer", "Syohei YOSHIDA"],
+  "tags": ["black", "blue", "color themes", "dark", "intense", "sitaramv solaris"]
 }

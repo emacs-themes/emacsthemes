@@ -7,16 +7,6 @@
     "https://raw.githubusercontent.com/marktran/color-theme-ujelly/master/ujelly-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Mark Tran"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "nongnu-elpa",
-    "pink",
-    "ujelly",
-    "vim"
-  ]
+  "authors": ["Mark Tran"],
+  "tags": ["black", "dark", "melpa", "nongnu-elpa", "pink", "ujelly", "vim"]
 }

@@ -3,21 +3,8 @@
   "id": "ample",
   "description": "A calm, dark theme for Emacs.",
   "repoUrl": "https://github.com/jordonbiondo/ample-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/jordonbiondo/ample-theme/master/ample-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/jordonbiondo/ample-theme/master/ample-theme.el"],
   "type": "dark",
-  "authors": [
-    "Jordon Biondo"
-  ],
-  "tags": [
-    "ample",
-    "black",
-    "dark",
-    "melpa",
-    "modern",
-    "nongnu-elpa",
-    "popular",
-    "yellow"
-  ]
+  "authors": ["Jordon Biondo"],
+  "tags": ["ample", "black", "dark", "melpa", "modern", "nongnu-elpa", "popular", "yellow"]
 }

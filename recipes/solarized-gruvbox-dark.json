@@ -10,17 +10,6 @@
     "https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-gruvbox-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Bozhidar Batsov"
-  ],
-  "tags": [
-    "dark",
-    "gruvbox",
-    "orange",
-    "popular",
-    "red",
-    "retro",
-    "solarized",
-    "warm"
-  ]
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["dark", "gruvbox", "orange", "popular", "red", "retro", "solarized", "warm"]
 }

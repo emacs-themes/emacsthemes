@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/waymondo/apropospriate-theme/master/apropospriate-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Waymondo"
-  ],
-  "tags": [
-    "apropospriate",
-    "blue",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Waymondo"],
+  "tags": ["apropospriate", "blue", "light", "melpa", "white"]
 }

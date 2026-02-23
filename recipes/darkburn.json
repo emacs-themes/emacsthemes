@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/gorauskas/darkburn-theme/refs/heads/master/darkburn-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jonas Gorauskas"
-  ],
+  "authors": ["Jonas Gorauskas"],
   "tags": [
     "accessibility",
     "black",

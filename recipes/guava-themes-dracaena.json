@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/bormoge/guava-themes/main/themes/guava-themes-dracaena-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Geralld Borbon"
-  ],
-  "tags": [
-    "dark",
-    "guava",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Geralld Borbon"],
+  "tags": ["dark", "guava", "melpa", "red"]
 }

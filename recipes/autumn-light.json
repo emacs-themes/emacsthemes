@@ -7,15 +7,6 @@
     "https://raw.githubusercontent.com/aalpern/emacs-color-theme-autumn-light/master/autumn-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Adam Alpern"
-  ],
-  "tags": [
-    "autumn-light",
-    "cream",
-    "emacs 24",
-    "light",
-    "melpa",
-    "orange"
-  ]
+  "authors": ["Adam Alpern"],
+  "tags": ["autumn-light", "cream", "emacs 24", "light", "melpa", "orange"]
 }

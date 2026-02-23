@@ -7,18 +7,6 @@
     "https://raw.githubusercontent.com/Lokaltog/distinguished-theme/refs/heads/develop/distinguished-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kim Silkebækken"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "distinguished",
-    "gray",
-    "melpa",
-    "muted",
-    "nord",
-    "red",
-    "vim"
-  ]
+  "authors": ["Kim Silkebækken"],
+  "tags": ["black", "dark", "distinguished", "gray", "melpa", "muted", "nord", "red", "vim"]
 }

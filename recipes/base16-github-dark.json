@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-github-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Tinted Theming"
-  ],
-  "tags": [
-    "base16",
-    "base16 github-dark",
-    "black",
-    "dark",
-    "github-dark"
-  ]
+  "authors": ["Kaleb Elwert", "Tinted Theming"],
+  "tags": ["base16", "base16 github-dark", "black", "dark", "github-dark"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-everforest-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Sainnhe Park"
-  ],
-  "tags": [
-    "base16",
-    "base16 everforest",
-    "black",
-    "dark",
-    "everforest"
-  ]
+  "authors": ["Kaleb Elwert", "Sainnhe Park"],
+  "tags": ["base16", "base16 everforest", "black", "dark", "everforest"]
 }

@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-saga-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "https://github.com/SAGAtheme/SAGA"
-  ],
-  "tags": [
-    "base16",
-    "base16 saga",
-    "black",
-    "dark",
-    "saga"
-  ]
+  "authors": ["Kaleb Elwert", "https://github.com/SAGAtheme/SAGA"],
+  "tags": ["base16", "base16 saga", "black", "dark", "saga"]
 }

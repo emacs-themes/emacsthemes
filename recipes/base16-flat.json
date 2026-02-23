@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-flat-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Chris Kempson"
-  ],
-  "tags": [
-    "base16",
-    "base16 flat",
-    "black",
-    "dark",
-    "flat"
-  ]
+  "authors": ["Kaleb Elwert", "Chris Kempson"],
+  "tags": ["base16", "base16 flat", "black", "dark", "flat"]
 }

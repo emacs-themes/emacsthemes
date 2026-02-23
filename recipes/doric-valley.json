@@ -8,16 +8,7 @@
     "https://raw.githubusercontent.com/protesilaos/doric-themes/main/doric-valley-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "doric",
-    "doric-themes",
-    "minimal",
-    "minimalist"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["black", "dark", "doric", "doric-themes", "minimal", "minimalist"],
   "elispAfter": "(enable-theme 'doric-valley)"
 }

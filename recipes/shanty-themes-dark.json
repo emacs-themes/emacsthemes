@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/qhga/shanty-themes/master/shanty-themes-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Philip Gaber"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "shanty",
-    "worker"
-  ]
+  "authors": ["Philip Gaber"],
+  "tags": ["dark", "melpa", "shanty", "worker"]
 }

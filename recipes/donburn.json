@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/ahrytsaienko/doneburn-theme/refs/heads/master/doneburn-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Manuel Uberti"
-  ],
-  "tags": [
-    "doneburn",
-    "light",
-    "white",
-    "zenburn"
-  ]
+  "authors": ["Manuel Uberti"],
+  "tags": ["doneburn", "light", "white", "zenburn"]
 }

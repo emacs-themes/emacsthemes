@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/emacsmirror/colorless-themes/refs/heads/master/nofrils-darkless-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Thomas Letan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "darkless",
-    "nofrils",
-    "purple"
-  ]
+  "authors": ["Thomas Letan"],
+  "tags": ["black", "dark", "darkless", "nofrils", "purple"]
 }

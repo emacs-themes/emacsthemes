@@ -8,18 +8,8 @@
     "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-operandi-tinted-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Protesilaos Stavrou"
-  ],
-  "tags": [
-    "accessibility",
-    "accessible",
-    "light",
-    "modus",
-    "modus-themes",
-    "wcag-aaa",
-    "white"
-  ],
+  "authors": ["Protesilaos Stavrou"],
+  "tags": ["accessibility", "accessible", "light", "modus", "modus-themes", "wcag-aaa", "white"],
   "elispBefore": "(require 'cl-lib) (require 'subr-x)",
   "elispAfter": "(enable-theme 'modus-operandi-tinted)"
 }

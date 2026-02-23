@@ -9,14 +9,6 @@
     "https://raw.githubusercontent.com/rougier/nano-theme/master/nano-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Nicolas P. Rougier"
-  ],
-  "tags": [
-    "light",
-    "material",
-    "minimal",
-    "nano",
-    "white"
-  ]
+  "authors": ["Nicolas P. Rougier"],
+  "tags": ["light", "material", "minimal", "nano", "white"]
 }

@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/a9sk/amaranth-dark-theme/main/amaranth-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Emiliano Rizzonelli"
-  ],
-  "tags": [
-    "amaranth-dark",
-    "black",
-    "dark",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Emiliano Rizzonelli"],
+  "tags": ["amaranth-dark", "black", "dark", "melpa", "red"]
 }

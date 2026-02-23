@@ -8,16 +8,6 @@
     "https://raw.githubusercontent.com/dawranliou/sketch-themes/main/sketch-white-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Daw-Ran Liou"
-  ],
-  "tags": [
-    "black and white",
-    "gray",
-    "grayscale",
-    "light",
-    "monochrome",
-    "sketch",
-    "white"
-  ]
+  "authors": ["Daw-Ran Liou"],
+  "tags": ["black and white", "gray", "grayscale", "light", "monochrome", "sketch", "white"]
 }

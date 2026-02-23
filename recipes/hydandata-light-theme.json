@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/chkhd/hydandata-light-theme/master/hydandata-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Chkhd"
-  ],
-  "tags": [
-    "hydandata-light",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Chkhd"],
+  "tags": ["hydandata-light", "light", "melpa", "white"]
 }

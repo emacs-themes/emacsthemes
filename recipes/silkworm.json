@@ -3,19 +3,8 @@
   "id": "silkworm",
   "description": "Light Emacs theme with low contrast colors",
   "repoUrl": "https://github.com/mswift42/silkworm-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mswift42/silkworm-theme/master/silkworm-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mswift42/silkworm-theme/master/silkworm-theme.el"],
   "type": "light",
-  "authors": [
-    "Martin Haesler"
-  ],
-  "tags": [
-    "accessibility",
-    "brown",
-    "light",
-    "melpa",
-    "silkworm",
-    "white"
-  ]
+  "authors": ["Martin Haesler"],
+  "tags": ["accessibility", "brown", "light", "melpa", "silkworm", "white"]
 }

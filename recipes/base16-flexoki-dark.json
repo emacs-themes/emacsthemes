@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-flexoki-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Steph Ango"
-  ],
-  "tags": [
-    "base16",
-    "base16 flexoki-dark",
-    "black",
-    "dark",
-    "flexoki-dark"
-  ]
+  "authors": ["Kaleb Elwert", "Steph Ango"],
+  "tags": ["base16", "base16 flexoki-dark", "black", "dark", "flexoki-dark"]
 }

@@ -8,9 +8,7 @@
     "https://raw.githubusercontent.com/nashamri/spacemacs-theme/master/spacemacs-dark-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nasser Alshammari"
-  ],
+  "authors": ["Nasser Alshammari"],
   "tags": [
     "black",
     "blue",

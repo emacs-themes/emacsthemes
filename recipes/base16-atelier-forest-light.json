@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-atelier-forest-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Kaleb Elwert",
-    "Bram de Haan"
-  ],
-  "tags": [
-    "atelier-forest-light",
-    "base16",
-    "base16 atelier-forest-light",
-    "light",
-    "white"
-  ]
+  "authors": ["Kaleb Elwert", "Bram de Haan"],
+  "tags": ["atelier-forest-light", "base16", "base16 atelier-forest-light", "light", "white"]
 }

@@ -7,14 +7,7 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-theme-orangey-bits/master/orangey-bits-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "autothemer",
-    "dark",
-    "melpa",
-    "orange"
-  ],
+  "authors": ["Jason Milkins"],
+  "tags": ["autothemer", "dark", "melpa", "orange"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

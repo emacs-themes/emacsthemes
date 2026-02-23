@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{{TITLE}}</title>
-    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="description" content="{{DESCRIPTION}}" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://emacsthemes.org/">
-    <meta property="og:title" content="{{OG_TITLE}}">
-    <meta property="og:description" content="{{OG_DESCRIPTION}}">
-    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emacsthemes.org/" />
+    <meta property="og:title" content="{{OG_TITLE}}" />
+    <meta property="og:description" content="{{OG_DESCRIPTION}}" />
+    <meta property="og:image" content="{{OG_IMAGE}}" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://emacsthemes.org/">
-    <meta property="twitter:title" content="{{OG_TITLE}}">
-    <meta property="twitter:description" content="{{OG_DESCRIPTION}}">
-    <meta property="twitter:image" content="{{OG_IMAGE}}">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://emacsthemes.org/" />
+    <meta property="twitter:title" content="{{OG_TITLE}}" />
+    <meta property="twitter:description" content="{{OG_DESCRIPTION}}" />
+    <meta property="twitter:image" content="{{OG_IMAGE}}" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    {{MAIN_CSS_PRELOAD}}
-    {{EXTRA_CSS_PRELOAD}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    {{MAIN_CSS_PRELOAD}} {{EXTRA_CSS_PRELOAD}}
   </head>
 
   <body>
@@ -34,7 +36,7 @@
       <div class="header-container container">
         <div class="brand">
           <a href="/" aria-label="Go to homepage">
-            <img src="/emacs.png" alt="Emacs logo" width="70" height="70">
+            <img src="/emacs.png" alt="Emacs logo" width="70" height="70" />
           </a>
           <h1 class="title"><span>Emacs</span> Themes</h1>
         </div>
@@ -51,18 +53,30 @@
 
     <main id="themes" class="container">
       {{SEARCH_BAR}}
-      <section aria-label="Theme list">
-        {{LATEST_THEMES_HEADLINE}}
-        {{THEMES_GRID}}
-      </section>
+      <section aria-label="Theme list">{{LATEST_THEMES_HEADLINE}} {{THEMES_GRID}}</section>
     </main>
 
     <footer>
       <div class="footer-container container">
         <span>© {{YEAR}} — <a href="/">emacsthemes.org</a> an Emacs Themes Directory</span>
-        <a href="{{GITHUB_URL}}" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="github-link">
-          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.082.812-.26.812-.579 0-.286-.011-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.382 1.235-3.221-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.839 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.669.825.55C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        <a
+          href="{{GITHUB_URL}}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub Repository"
+          class="github-link"
+        >
+          <svg
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.082.812-.26.812-.579 0-.286-.011-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.382 1.235-3.221-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.839 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.669.825.55C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
           </svg>
         </a>
       </div>

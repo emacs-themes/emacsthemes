@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/ianyepan/tron-legacy-emacs-theme/master/tron-legacy-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ian Y.E. Pan"
-  ],
-  "tags": [
-    "black",
-    "cyan",
-    "dark",
-    "melpa",
-    "tron-legacy"
-  ]
+  "authors": ["Ian Y.E. Pan"],
+  "tags": ["black", "cyan", "dark", "melpa", "tron-legacy"]
 }

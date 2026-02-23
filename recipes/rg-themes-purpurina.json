@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/raegnald/rg-themes/main/rg-themes-purpurina-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ronaldo Gligan"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "rg"
-  ]
+  "authors": ["Ronaldo Gligan"],
+  "tags": ["black", "dark", "melpa", "rg"]
 }

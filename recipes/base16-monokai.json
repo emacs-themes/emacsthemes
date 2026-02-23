@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-monokai-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Wimer Hazenberg"
-  ],
-  "tags": [
-    "base16",
-    "base16 monokai",
-    "black",
-    "dark",
-    "monokai"
-  ]
+  "authors": ["Kaleb Elwert", "Wimer Hazenberg"],
+  "tags": ["base16", "base16 monokai", "black", "dark", "monokai"]
 }

@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/Umer-Arif/unique-emacs-theme-pack/main/Themes/roseline-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Omer Arif"
-  ],
-  "tags": [
-    "black",
-    "dark",
-    "melpa",
-    "roseline"
-  ]
+  "authors": ["Omer Arif"],
+  "tags": ["black", "dark", "melpa", "roseline"]
 }

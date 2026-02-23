@@ -3,21 +3,8 @@
   "id": "abyss",
   "description": "A dark theme with contrasting colours for Emacs24 based on the Lush theme",
   "repoUrl": "https://github.com/mgrbyte/emacs-abyss-theme",
-  "rawUrls": [
-    "https://raw.githubusercontent.com/mgrbyte/emacs-abyss-theme/master/abyss-theme.el"
-  ],
+  "rawUrls": ["https://raw.githubusercontent.com/mgrbyte/emacs-abyss-theme/master/abyss-theme.el"],
   "type": "dark",
-  "authors": [
-    "Matt Russell"
-  ],
-  "tags": [
-    "abyss",
-    "accessibility",
-    "black",
-    "dark",
-    "emacs 24",
-    "lush",
-    "melpa",
-    "red"
-  ]
+  "authors": ["Matt Russell"],
+  "tags": ["abyss", "accessibility", "black", "dark", "emacs 24", "lush", "melpa", "red"]
 }

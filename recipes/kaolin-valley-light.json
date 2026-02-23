@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-valley-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "kaolin",
-    "kaolin-themes",
-    "light",
-    "valley",
-    "white"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["kaolin", "kaolin-themes", "light", "valley", "white"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

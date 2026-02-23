@@ -8,13 +8,6 @@
     "https://raw.githubusercontent.com/mattly/emacs-farmhouse-theme/master/farmhouse-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Matthew Lyon"
-  ],
-  "tags": [
-    "emacs 24",
-    "farmhouse",
-    "light",
-    "white"
-  ]
+  "authors": ["Matthew Lyon"],
+  "tags": ["emacs 24", "farmhouse", "light", "white"]
 }

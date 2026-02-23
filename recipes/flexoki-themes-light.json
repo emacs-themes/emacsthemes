@@ -8,13 +8,6 @@
     "https://codeberg.org/crmsnbleyd/flexoki-emacs-theme/raw/branch/trunk/flexoki-themes-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Drew Jose"
-  ],
-  "tags": [
-    "flexoki",
-    "light",
-    "melpa",
-    "white"
-  ]
+  "authors": ["Drew Jose"],
+  "tags": ["flexoki", "light", "melpa", "white"]
 }

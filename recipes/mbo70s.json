@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/emacsfodder/emacs-mbo70s-theme/master/mbo70s-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jason Milkins"
-  ],
-  "tags": [
-    "black",
-    "brown",
-    "dark",
-    "mbo70s",
-    "melpa"
-  ]
+  "authors": ["Jason Milkins"],
+  "tags": ["black", "brown", "dark", "mbo70s", "melpa"]
 }

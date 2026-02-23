@@ -8,13 +8,6 @@
     "https://gitlab.com/franksn/majapahit-theme/-/raw/master/majapahit-light-theme.el?ref_type=heads"
   ],
   "type": "light",
-  "authors": [
-    "Alexander Adhyatma"
-  ],
-  "tags": [
-    "emacs 24",
-    "light",
-    "majapahit",
-    "white"
-  ]
+  "authors": ["Alexander Adhyatma"],
+  "tags": ["emacs 24", "light", "majapahit", "white"]
 }

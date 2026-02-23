@@ -7,9 +7,7 @@
     "https://raw.githubusercontent.com/emacs-jp/replace-colorthemes/master/blue-mood-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nelson Loyola / Syohei YOSHIDA"
-  ],
+  "authors": ["Nelson Loyola / Syohei YOSHIDA"],
   "tags": [
     "blue",
     "blue mood",

@@ -8,14 +8,6 @@
     "https://raw.githubusercontent.com/vedang/alabaster-themes/main/alabaster-themes-dark-mono-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Nikita Prokopov"
-  ],
-  "tags": [
-    "alabaster",
-    "black",
-    "dark",
-    "melpa",
-    "monochrome"
-  ]
+  "authors": ["Nikita Prokopov"],
+  "tags": ["alabaster", "black", "dark", "melpa", "monochrome"]
 }

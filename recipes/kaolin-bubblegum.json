@@ -9,15 +9,7 @@
     "https://raw.githubusercontent.com/ogdenwebb/emacs-kaolin-themes/main/themes/kaolin-bubblegum-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Ogden Webb"
-  ],
-  "tags": [
-    "blue",
-    "bubblegum",
-    "dark",
-    "kaolin",
-    "kaolin-themes"
-  ],
+  "authors": ["Ogden Webb"],
+  "tags": ["blue", "bubblegum", "dark", "kaolin", "kaolin-themes"],
   "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
 }

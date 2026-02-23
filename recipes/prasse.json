@@ -7,14 +7,6 @@
     "https://raw.githubusercontent.com/prassee/prassee-emacs-theme/master/prassee-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Prassee Sathian"
-  ],
-  "tags": [
-    "accessibility",
-    "black",
-    "dark",
-    "green",
-    "prassee"
-  ]
+  "authors": ["Prassee Sathian"],
+  "tags": ["accessibility", "black", "dark", "green", "prassee"]
 }

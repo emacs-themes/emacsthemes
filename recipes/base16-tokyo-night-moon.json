@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-tokyo-night-moon-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Ólafur Bjarki Bogason"
-  ],
-  "tags": [
-    "base16",
-    "base16 tokyo-night-moon",
-    "black",
-    "dark",
-    "tokyo-night-moon"
-  ]
+  "authors": ["Kaleb Elwert", "Ólafur Bjarki Bogason"],
+  "tags": ["base16", "base16 tokyo-night-moon", "black", "dark", "tokyo-night-moon"]
 }

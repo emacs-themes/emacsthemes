@@ -7,13 +7,6 @@
     "https://raw.githubusercontent.com/jimeh/twilight-anti-bright-theme/master/twilight-anti-bright-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Jim Myhrberg"
-  ],
-  "tags": [
-    "dark",
-    "melpa",
-    "twilight-anti-bright",
-    "white"
-  ]
+  "authors": ["Jim Myhrberg"],
+  "tags": ["dark", "melpa", "twilight-anti-bright", "white"]
 }

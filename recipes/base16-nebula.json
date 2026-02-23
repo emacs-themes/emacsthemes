@@ -8,15 +8,6 @@
     "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/build/base16-nebula-theme.el"
   ],
   "type": "dark",
-  "authors": [
-    "Kaleb Elwert",
-    "Gabriel Fontes"
-  ],
-  "tags": [
-    "base16",
-    "base16 nebula",
-    "black",
-    "dark",
-    "nebula"
-  ]
+  "authors": ["Kaleb Elwert", "Gabriel Fontes"],
+  "tags": ["base16", "base16 nebula", "black", "dark", "nebula"]
 }
