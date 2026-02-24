@@ -13,7 +13,7 @@ const TEMPLATES_DIR = "src/templates";
 const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
-const BASE_URL = "https://emacsthemes.org";
+const BASE_URL = "https://emacsthemes.com";
 const TITLE_BRAND_SUFFIX = " - Emacs Themes";
 
 /**
@@ -199,6 +199,7 @@ function getCssLinkTag(cssPath: string): string {
 interface PageData {
   title: string;
   description: string;
+  canonicalPath: string;
   ogTitle: string;
   ogDescription: string;
   ogImage: string;
@@ -208,6 +209,27 @@ interface PageData {
   mainCssPath: string;
   extraCssPaths?: string[];
   scripts?: string;
+}
+
+/**
+ * Builds an absolute public URL for a generated page.
+ *
+ * @param {string} pagePath - The page path relative to site root (for example: "/about").
+ * @returns {string} The absolute URL under the production domain.
+ */
+function buildAbsolutePageUrl(pagePath: string): string {
+  const trimmedPath = pagePath.trim();
+  if (trimmedPath === "" || trimmedPath === "/") {
+    return BASE_URL;
+  }
+
+  // themes path is special
+  if (trimmedPath === "/themes/") {
+    return `${BASE_URL}${trimmedPath}`;
+  }
+
+  const normalizedPath = `/${trimmedPath.replace(/^\/+|\/+$/g, "")}`;
+  return `${BASE_URL}${normalizedPath}`;
 }
 
 /**
@@ -221,10 +243,14 @@ function applyBaseTemplate(template: string, data: PageData): string {
   const currentYear = new Date().getFullYear().toString();
   const brandedTitle = `${data.title}${TITLE_BRAND_SUFFIX}`;
   const extraCssLinks = (data.extraCssPaths || []).map((path) => getCssLinkTag(path)).join("\n");
+  const pageUrl = buildAbsolutePageUrl(data.canonicalPath);
 
   return template
     .replace("{{TITLE}}", escapeHtml(brandedTitle))
     .replace("{{DESCRIPTION}}", escapeHtml(data.description))
+    .replace("{{CANONICAL_URL}}", escapeHtml(pageUrl))
+    .replace("{{OG_URL}}", escapeHtml(pageUrl))
+    .replace("{{TWITTER_URL}}", escapeHtml(pageUrl))
     .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
     .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
     .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
@@ -258,6 +284,7 @@ async function buildHomepage(template: string, cardTemplate: string) {
     title: "An Emacs Themes Gallery",
     description:
       "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
+    canonicalPath: "/",
     ogTitle: "Emacs Themes Gallery",
     ogDescription: "Discover and preview the best Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
@@ -318,6 +345,7 @@ async function buildAllThemesPage(
     title: "Full Emacs Themes Directory",
     description:
       "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
+    canonicalPath: "/themes/",
     ogTitle: "Emacs Themes Directory",
     ogDescription: "Search and filter through all available Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
@@ -410,6 +438,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
     const html = applyBaseTemplate(template, {
       title: `${theme.name} - Emacs Theme`,
       description: theme.description,
+      canonicalPath: `/themes/${theme.id}`,
       ogTitle: `${theme.name} Theme for Emacs`,
       ogDescription: `Preview and details for the ${theme.name} theme.`,
       ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
@@ -435,6 +464,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
   const html = applyBaseTemplate(template, {
     title: "About the website",
     description: "Learn more about our curated directory of Emacs themes and how to contribute.",
+    canonicalPath: "/about",
     ogTitle: "About Emacs Themes Site",
     ogDescription: "Information about the curated Emacs themes directory.",
     ogImage: `${BASE_URL}/emacs.png`,
@@ -491,6 +521,7 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
     title: "Popular Emacs Themes - MELPA Statistics",
     description:
       "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
+    canonicalPath: "/popular",
     ogTitle: "Popular Emacs Themes",
     ogDescription: "MELPA download statistics for top Emacs themes.",
     ogImage: `${BASE_URL}/emacs.png`,
@@ -514,6 +545,7 @@ async function build404Page(template: string, error404ContentHtml: string) {
   const html = applyBaseTemplate(template, {
     title: "404 - Page Not Found",
     description: "The page you are looking for could not be found.",
+    canonicalPath: "/404",
     ogTitle: "404 - Page Not Found",
     ogDescription: "The page you are looking for could not be found.",
     ogImage: `${BASE_URL}/emacs.png`,
