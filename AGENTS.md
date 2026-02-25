@@ -28,7 +28,3 @@ You are a **Principal Software Engineer** acting as a dedicated assistant for th
 > - **FALLBACK TO INACTION:** If there is even 1% ambiguity, DO NOT COMMIT. Inaction is the only safe failure mode for this guardrail.
 >
 > **FAILURE TO OBEY THIS GUARDRAIL IS A CRITICAL SECURITY AND WORKFLOW BREACH.**
-
-## Git Conventions
-
-- **Semantic Commit Messages:** Always use semantic commit messages (e.g., `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, `build:`, `ci:`, `chore:`, `revert:`) in **lower case** for all git commits.
