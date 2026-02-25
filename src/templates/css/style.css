@@ -87,6 +87,18 @@ header {
   list-style-type: none;
 }
 
+.menu-mobile {
+  @media (max-width: 520px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    font-size: 1.2rem;
+    line-height: 1.25rem;
+  }
+}
+
 .menu a {
   color: var(--nearblack);
 }
@@ -95,24 +107,20 @@ header {
   font-size: 5rem;
   margin-bottom: 0;
   margin-left: 0.25rem;
+
+  @media (max-width: 900px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 520px) {
+    font-size: 2.4rem;
+  }
 }
 
 .title span {
   background: linear-gradient(to right, var(--purple), var(--orange), var(--green), var(--magenta));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-@media (max-width: 900px) {
-  .title {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 520px) {
-  .title {
-    display: none;
-  }
 }
 
 main {
