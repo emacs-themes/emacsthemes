@@ -1,6 +1,7 @@
 import { mkdir, readdir, copyFile, rm, stat, readFile, symlink } from "node:fs/promises";
 import { dirname, join, relative, resolve } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
+import { transform } from "lightningcss";
 import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
@@ -22,7 +23,7 @@ const TITLE_BRAND_SUFFIX = " - Emacs Themes";
 const MINIFY_OPTIONS: MinifyOptions = {
   collapseWhitespace: true,
   removeComments: true,
-  minifyCSS: true,
+  minifyCSS: false,
   minifyJS: true,
   removeRedundantAttributes: true,
   removeScriptTypeAttributes: true,
@@ -146,14 +147,18 @@ async function minifyHtml(html: string): Promise<string> {
 }
 
 /**
- * Minifies CSS content by wrapping it in a style tag and using html-minifier-terser.
+ * Minifies CSS content with lightningcss.
  *
  * @param {string} css - The CSS string to minify.
  * @returns {Promise<string>} The minified CSS string.
  */
 async function minifyCss(css: string): Promise<string> {
-  const minified = await minify(`<style>${css}</style>`, { minifyCSS: true });
-  return minified.replace("<style>", "").replace("</style>", "");
+  const { code } = transform({
+    filename: "styles.css",
+    code: Buffer.from(css),
+    minify: true,
+  });
+  return Buffer.from(code).toString("utf-8");
 }
 
 /**
