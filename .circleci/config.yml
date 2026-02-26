@@ -24,8 +24,8 @@ commands:
             "$HOME/project/.tools/node/bin/npm" --version
             "$HOME/project/.tools/node/bin/npx" --version
 
-  load-node-from-workspace:
-    description: Load Node toolchain and bun alias from workspace.
+  load-node-toolchain:
+    description: Load Node toolchain and bun alias.
     steps:
       - run:
           name: Load Node from Workspace
@@ -38,52 +38,28 @@ commands:
             source "$BASH_ENV"
 
 jobs:
-  setup:
+  qa:
     executor: bun-executor
     steps:
       - checkout
       - install-node-toolchain
+      - load-node-toolchain
       - restore_cache:
           keys:
             - bun-deps-{{ checksum "bun.lock" }}
       - run:
           name: Install Dependencies
-          command: bun ci
+          command: bunbun ci
       - save_cache:
           paths:
             - ~/.bun
           key: bun-deps-{{ checksum "bun.lock" }}
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
-
-  check:
-    executor: bun-executor
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - load-node-from-workspace
       - run:
           name: Run Check (lint | format)
           command: bun run check
-
-  validate-recipes:
-    executor: bun-executor
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - load-node-from-workspace
       - run:
           name: Validate Recipes
           command: bun run validate
-
-  test:
-    executor: bun-executor
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - load-node-from-workspace
       - run:
           name: Run Tests
           command: bun test
@@ -91,8 +67,15 @@ jobs:
   build:
     executor: bun-executor
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
+      - install-node-toolchain
+      - load-node-toolchain
+      - restore_cache:
+          keys:
+            - bun-deps-{{ checksum "bun.lock" }}
+      - run:
+          name: Install Dependencies
+          command: bunbun ci
       - run:
           name: Build Site
           command: bun run build
@@ -104,9 +87,17 @@ jobs:
   deploy:
     executor: bun-executor
     steps:
+      - checkout
       - attach_workspace:
           at: ~/project
-      - load-node-from-workspace
+      - install-node-toolchain
+      - load-node-toolchain
+      - restore_cache:
+          keys:
+            - bun-deps-{{ checksum "bun.lock" }}
+      - run:
+          name: Install Dependencies
+          command: bunbun ci
       - run:
           name: Install rclone
           command: |
@@ -124,21 +115,10 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - setup
-      - check:
-          requires:
-            - setup
-      - validate-recipes:
-          requires:
-            - setup
-      - test:
-          requires:
-            - setup
+      - qa
       - build:
           requires:
-            - check
-            - validate-recipes
-            - test
+            - qa
       - deploy:
           requires:
             - build
