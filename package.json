@@ -18,6 +18,8 @@
   "scripts": {
     "test": "bun test",
     "check": "tsc --noEmit && bun run fmt:check && bun run lint",
+    "lint:css": "stylelint **/*.css",
+    "lint:css:fix": "bun run lint:css -- --fix",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
@@ -44,6 +46,9 @@
     "globals": "^17.3.0",
     "oxfmt": "^0.35.0",
     "oxlint": "^1.50.0",
+    "stylelint": "^17.4.0",
+    "stylelint-config-recess-order": "^7.6.1",
+    "stylelint-config-standard": "^40.0.0",
     "typescript": "^5.9.3"
   }
 }
