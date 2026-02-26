@@ -9,6 +9,6 @@
   ],
   "type": "dark",
   "authors": ["John Olsson"],
-  "tags": ["almost mono gray", "black", "dark", "gray", "monochrome"],
+  "tags": ["almost mono gray", "black", "dark", "gray", "monochrome", "black and white"],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-gray)"
 }

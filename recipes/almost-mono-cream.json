@@ -9,6 +9,6 @@
   ],
   "type": "light",
   "authors": ["John Olsson"],
-  "tags": ["almost mono cream", "cream", "light", "monochrome"],
+  "tags": ["almost mono cream", "cream", "light", "monochrome", "black", "brown"],
   "elispBefore": "(require 'almost-mono-themes) (enable-theme 'almost-mono-cream)"
 }
