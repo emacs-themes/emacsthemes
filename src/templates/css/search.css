@@ -8,19 +8,19 @@
 
 .searchbar label {
   display: block;
-  font-weight: 600;
   margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 
 .searchbar input[type="search"] {
+  flex-grow: 1;
   width: min(520px, 100%);
   padding: 0.75rem 0.9rem;
-  border: 1px solid var(--muted);
-  border-radius: 10px;
   font: inherit;
   color: var(--nearblack);
   background: var(--white);
-  flex-grow: 1;
+  border: 1px solid var(--muted);
+  border-radius: 10px;
 }
 
 .searchbar input::placeholder {
@@ -29,13 +29,13 @@
 
 .searchbar button {
   padding: 0.75rem 2rem;
-  border-radius: 10px;
-  border: 1px solid var(--purple);
-  background: var(--purple);
-  color: var(--white);
   font: inherit;
   font-weight: 700;
+  color: var(--white);
   cursor: pointer;
+  background: var(--purple);
+  border: 1px solid var(--purple);
+  border-radius: 10px;
 }
 
 .searchbar button:hover {
@@ -52,11 +52,12 @@
   font-weight: 600;
 }
 
-@media (max-width: 560px) {
+@media (width <= 560px) {
   .searchbar {
     flex-direction: column;
     align-items: stretch;
   }
+
   .searchbar input[type="search"] {
     width: 100%;
   }

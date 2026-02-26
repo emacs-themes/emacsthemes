@@ -1,6 +1,6 @@
 :root {
   --primary-color: #3498db;
-  --bg-color: #ffffff;
+  --bg-color: #fff;
   --text-color: #2c3e50;
   --spacing-unit: 1rem;
 }
@@ -13,12 +13,12 @@
 }
 
 body {
-  margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .gallery-container {
@@ -29,19 +29,19 @@ body {
 }
 
 .theme-card {
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .theme-card:hover {
-  transform: translateY(-5px);
   outline: 2px solid var(--primary-color);
+  transform: translateY(-5px);
 }
 
 #status-indicator[data-active="true"]::after {
-  content: " ● Active";
-  color: #27ae60;
   font-weight: bold;
+  color: #27ae60;
+  content: " ● Active";
 }
