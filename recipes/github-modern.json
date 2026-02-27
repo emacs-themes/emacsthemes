@@ -3,8 +3,19 @@
   "id": "github-modern",
   "description": "A theme for Emacs, inspired by the GitHub website user interface",
   "repoUrl": "local",
-  "rawUrls": ["static/themes/github-modern/github-modern-theme.el"],
+  "rawUrls": [
+    "static/themes/github-modern/github-modern-theme.el"
+  ],
   "type": "light",
-  "authors": ["Philip Arvidsson"],
-  "tags": ["github", "github-modern", "light", "red", "white"]
+  "authors": [
+    "Philip Arvidsson"
+  ],
+  "tags": [
+    "github",
+    "github-modern",
+    "light",
+    "red",
+    "white",
+    "local"
+  ]
 }

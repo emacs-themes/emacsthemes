@@ -8,6 +8,14 @@
     "static/themes/colorsarenice/colorsarenice-dark-theme.el"
   ],
   "type": "dark",
-  "authors": ["Fanael Linithien"],
-  "tags": ["black", "colorful", "colorsarenice", "dark"]
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "black",
+    "colorful",
+    "colorsarenice",
+    "dark",
+    "local"
+  ]
 }

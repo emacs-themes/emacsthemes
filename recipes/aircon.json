@@ -3,8 +3,23 @@
   "id": "aircon",
   "description": "Cool and legible light theme. Clean and high contrast custom theme.",
   "repoUrl": "local",
-  "rawUrls": ["static/themes/aircon/aircon-theme.el"],
+  "rawUrls": [
+    "static/themes/aircon/aircon-theme.el"
+  ],
   "type": "light",
-  "authors": ["Gregory Chamberlain", "Nicolas Petton"],
-  "tags": ["accessibility", "aircon", "blue", "elpa", "light", "minimal", "white", "green"]
+  "authors": [
+    "Gregory Chamberlain",
+    "Nicolas Petton"
+  ],
+  "tags": [
+    "accessibility",
+    "aircon",
+    "blue",
+    "elpa",
+    "light",
+    "minimal",
+    "white",
+    "green",
+    "local"
+  ]
 }

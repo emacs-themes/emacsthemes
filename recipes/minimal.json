@@ -3,8 +3,20 @@
   "id": "minimal",
   "description": "A dark minimalistic theme for Emacs 24.",
   "repoUrl": "local",
-  "rawUrls": ["static/themes/minimal/minimal-theme.el"],
+  "rawUrls": [
+    "static/themes/minimal/minimal-theme.el"
+  ],
   "type": "dark",
-  "authors": ["Anler Hp"],
-  "tags": ["black", "dark", "emacs 24", "melpa", "minimal", "minimalistic"]
+  "authors": [
+    "Anler Hp"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "emacs 24",
+    "melpa",
+    "minimal",
+    "minimalistic",
+    "local"
+  ]
 }

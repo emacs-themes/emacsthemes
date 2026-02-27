@@ -8,6 +8,13 @@
     "static/themes/stekene/stekene-light-theme.el"
   ],
   "type": "light",
-  "authors": ["Fanael Linithien"],
-  "tags": ["light", "stekene", "white"]
+  "authors": [
+    "Fanael Linithien"
+  ],
+  "tags": [
+    "light",
+    "stekene",
+    "white",
+    "local"
+  ]
 }

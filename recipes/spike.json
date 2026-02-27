@@ -3,8 +3,19 @@
   "id": "spike",
   "description": "A light color theme with muted, autumnal colors.",
   "repoUrl": "local",
-  "rawUrls": ["static/themes/spike/spike-theme.el"],
+  "rawUrls": [
+    "static/themes/spike/spike-theme.el"
+  ],
   "type": "dark",
-  "authors": ["m31271n"],
-  "tags": ["black", "dark", "green", "green-phosphor", "spike"]
+  "authors": [
+    "m31271n"
+  ],
+  "tags": [
+    "black",
+    "dark",
+    "green",
+    "green-phosphor",
+    "spike",
+    "local"
+  ]
 }
