@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif; /* Inter, system-ui, sans-serif; */
+  font-family: Inter, system-ui, sans-serif;
   line-height: 1.6;
   color: var(--text-dim);
   background: var(--white);
