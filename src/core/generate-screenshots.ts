@@ -3,7 +3,10 @@ import { join, basename, resolve } from "node:path";
 import { Theme, validateRecipeStrict } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
 import { assertPathWithinRoot } from "./path-utils";
-import { upsertScreenshotGenerationDate } from "./screenshot-dates";
+import {
+  ensureScreenshotDatesInitialized,
+  upsertScreenshotGenerationDate,
+} from "./screenshot-dates";
 
 const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
@@ -775,6 +778,7 @@ async function getRecipeFiles(targetThemeId: string | null): Promise<string[]> {
 async function main() {
   await mkdir(IMAGES_DIR, { recursive: true });
   await mkdir(TEMP_DIR, { recursive: true });
+  await ensureScreenshotDatesInitialized(IMAGES_DIR);
 
   const { targetThemeId, force } = parseCliArgs();
   const recipes = await getRecipeFiles(targetThemeId);
@@ -784,7 +788,7 @@ async function main() {
   for (const recipeFile of recipes) {
     // If a target theme was provided via --file, or --force was used, force it
     const shouldForce = force || !!targetThemeId;
-    const { status } = await processTheme(join(RECIPES_DIR, recipeFile), shouldForce, force);
+    const { status } = await processTheme(join(RECIPES_DIR, recipeFile), shouldForce, shouldForce);
     results[status]++;
   }
 

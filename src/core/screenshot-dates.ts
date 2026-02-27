@@ -9,6 +9,7 @@ import { assertPathWithinRoot } from "./path-utils";
 export type ScreenshotDatesMap = Record<string, string>;
 
 let screenshotDatesCache: ScreenshotDatesMap | null = null;
+const SCREENSHOT_DATES_LOG_PREFIX = "[screenshot-dates]";
 
 /**
  * Reads the screenshot generation dates file.
@@ -17,17 +18,22 @@ let screenshotDatesCache: ScreenshotDatesMap | null = null;
  */
 export async function readScreenshotDates(): Promise<ScreenshotDatesMap> {
   if (screenshotDatesCache) {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using in-memory cache`);
     return screenshotDatesCache;
   }
 
   const file = Bun.file(SCREENSHOT_DATES_PATH);
   if (!(await file.exists())) {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} file missing, starting with empty map`);
     screenshotDatesCache = {};
     return screenshotDatesCache;
   }
 
   const content = await file.text();
   screenshotDatesCache = JSON.parse(content) as ScreenshotDatesMap;
+  console.log(
+    `${SCREENSHOT_DATES_LOG_PREFIX} loaded ${Object.keys(screenshotDatesCache).length} entries from ${SCREENSHOT_DATES_PATH}`,
+  );
   return screenshotDatesCache;
 }
 
@@ -44,6 +50,9 @@ export async function writeScreenshotDates(dates: ScreenshotDatesMap): Promise<v
   await mkdir(dirname(SCREENSHOT_DATES_PATH), { recursive: true });
   await Bun.write(SCREENSHOT_DATES_PATH, `${JSON.stringify(sortedDates, null, 2)}\n`);
   screenshotDatesCache = sortedDates;
+  console.log(
+    `${SCREENSHOT_DATES_LOG_PREFIX} wrote ${Object.keys(sortedDates).length} entries to ${SCREENSHOT_DATES_PATH}`,
+  );
 }
 
 /**
@@ -63,17 +72,21 @@ export async function upsertScreenshotGenerationDate(
 ): Promise<void> {
   const dates = await readScreenshotDates();
   if (dates[themeId] && !overwrite) {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} skipped existing date for ${themeId}`);
     return;
   }
 
   dates[themeId] = date.toISOString();
+  console.log(
+    `${SCREENSHOT_DATES_LOG_PREFIX} ${overwrite ? "overwrote" : "set"} date for ${themeId}`,
+  );
   await writeScreenshotDates(dates);
 }
 
 /**
  * Initializes missing screenshot generation dates for existing screenshot directories.
  *
- * This is intended to run before site build so every theme screenshot folder has
+ * This is intended to run before screenshot generation so every theme screenshot folder has
  * a persisted generation date entry. Missing dates are initialized from the
  * directory birth time, then fallback to modification time, then current time.
  *
@@ -85,11 +98,15 @@ export async function ensureScreenshotDatesInitialized(
 ): Promise<ScreenshotDatesMap> {
   const dates = await readScreenshotDates();
   let changed = false;
+  let addedCount = 0;
 
   let entries;
   try {
     entries = await readdir(imagesDir, { withFileTypes: true, encoding: "utf8" });
   } catch {
+    console.log(
+      `${SCREENSHOT_DATES_LOG_PREFIX} images directory missing or unreadable (${imagesDir}), skipping initialization`,
+    );
     return dates;
   }
 
@@ -108,10 +125,14 @@ export async function ensureScreenshotDatesInitialized(
     const bestDate = stats.birthtime.getTime() > 0 ? stats.birthtime : stats.mtime;
     dates[themeId] = bestDate.toISOString();
     changed = true;
+    addedCount += 1;
   }
 
   if (changed) {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} initialized ${addedCount} missing date entries`);
     await writeScreenshotDates(dates);
+  } else {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} initialization found no missing entries`);
   }
 
   return dates;
@@ -137,13 +158,16 @@ export async function resolveThemeGeneratedDate(
 ): Promise<Date> {
   const persistedDate = screenshotDates[themeId];
   if (persistedDate) {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using persisted date for ${themeId}`);
     return new Date(persistedDate);
   }
 
   try {
     const stats = await stat(themeImgsDir);
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using mtime fallback for ${themeId}`);
     return stats.mtime;
   } catch {
+    console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using current date fallback for ${themeId}`);
     return new Date();
   }
 }

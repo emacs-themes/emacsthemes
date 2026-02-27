@@ -6,10 +6,7 @@ import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
-import {
-  ensureScreenshotDatesInitialized,
-  resolveThemeGeneratedDate,
-} from "../core/screenshot-dates";
+import { readScreenshotDates, resolveThemeGeneratedDate } from "../core/screenshot-dates";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -409,7 +406,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
   const themes = await getAllThemes();
   const mainCssPath = `../${PATHS.css.main}`;
   const detailCssPath = `../${PATHS.css.detail}`;
-  const screenshotDates = await ensureScreenshotDatesInitialized(PATHS.assets.src.images);
+  const screenshotDates = await readScreenshotDates();
 
   for (const theme of themes) {
     const themeImgsDir = assertPathWithinRoot(PATHS.assets.src.images, theme.id);
