@@ -66,8 +66,10 @@ const PATHS = {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
       themes: join(BUILD_DIR, STATIC_DIR, "themes"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
+      data: join(BUILD_DIR, STATIC_DIR, "data"),
       favicon: join(BUILD_DIR, "favicon.ico"),
       emacsPng: join(BUILD_DIR, "emacs.png"),
+      themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
     },
   },
   pages: {
@@ -90,6 +92,11 @@ interface Theme {
   tags: string[];
   elispBefore?: string;
   elispAfter?: string;
+}
+
+interface SearchThemeIndexEntry {
+  id: string;
+  searchable: string;
 }
 
 // Data Fetching
@@ -170,6 +177,32 @@ async function minifyCss(css: string): Promise<string> {
 async function minifyJs(js: string): Promise<string> {
   const minified = await minify(`<script>${js}</script>`, { minifyJS: true });
   return minified.replace("<script>", "").replace("</script>", "");
+}
+
+/**
+ * Builds a compact theme search index optimized for client-side filtering.
+ *
+ * @param {Theme[]} themes - The collection of themes to index.
+ * @returns {SearchThemeIndexEntry[]} A list of normalized searchable records keyed by theme id.
+ */
+function buildThemeSearchIndex(themes: Theme[]): SearchThemeIndexEntry[] {
+  return themes.map((theme) => {
+    const searchable = `${theme.name} ${theme.type} ${theme.tags.join(" ")}`.toLowerCase();
+    return {
+      id: theme.id,
+      searchable,
+    };
+  });
+}
+
+/**
+ * Writes the generated theme search index to a static JSON file.
+ *
+ * @param {SearchThemeIndexEntry[]} indexEntries - Search index entries for all themes.
+ */
+async function writeThemeSearchIndex(indexEntries: SearchThemeIndexEntry[]) {
+  await mkdir(PATHS.assets.dest.data, { recursive: true });
+  await Bun.write(PATHS.assets.dest.themesIndex, JSON.stringify(indexEntries));
 }
 
 /**
@@ -331,16 +364,11 @@ async function buildAllThemesPage(
     allThemes.map((t) => generateThemeCard(t, cardTemplate, "../")).join("\n") +
     `</div>`;
 
-  const themesData = allThemes.map((t) => ({
-    id: t.id,
-    name: t.name,
-    type: t.type,
-    tags: t.tags,
-  }));
+  await writeThemeSearchIndex(buildThemeSearchIndex(allThemes));
 
   const scriptWithData = searchScriptTemplate.replace(
-    "{{THEMES_DATA}}",
-    JSON.stringify(themesData),
+    "{{THEMES_INDEX_URL}}",
+    "../static/data/themes-index.json",
   );
   const scriptContent = scriptWithData.replace("<script>", "").replace("</script>", "");
   const minifiedJs = await minifyJs(scriptContent);

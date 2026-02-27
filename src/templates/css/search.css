@@ -52,6 +52,10 @@
   font-weight: 600;
 }
 
+.card.is-hidden {
+  display: none;
+}
+
 @media (width <= 560px) {
   .searchbar {
     flex-direction: column;
