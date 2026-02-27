@@ -1,4 +1,4 @@
-import { mkdir, readdir, copyFile, rm, stat, readFile, symlink } from "node:fs/promises";
+import { mkdir, readdir, copyFile, rm, readFile, symlink } from "node:fs/promises";
 import { dirname, join, relative, resolve } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { transform } from "lightningcss";
@@ -6,6 +6,10 @@ import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
+import {
+  ensureScreenshotDatesInitialized,
+  resolveThemeGeneratedDate,
+} from "../core/screenshot-dates";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -405,6 +409,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
   const themes = await getAllThemes();
   const mainCssPath = `../${PATHS.css.main}`;
   const detailCssPath = `../${PATHS.css.detail}`;
+  const screenshotDates = await ensureScreenshotDatesInitialized(PATHS.assets.src.images);
 
   for (const theme of themes) {
     const themeImgsDir = assertPathWithinRoot(PATHS.assets.src.images, theme.id);
@@ -435,14 +440,11 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       )
       .join("\n");
 
-    const generatedDateObj = await (async () => {
-      try {
-        const stats = await stat(themeImgsDir);
-        return stats.mtime;
-      } catch {
-        return new Date();
-      }
-    })();
+    const generatedDateObj = await resolveThemeGeneratedDate(
+      theme.id,
+      themeImgsDir,
+      screenshotDates,
+    );
 
     const generatedDate = new Intl.DateTimeFormat("en-US", {
       year: "numeric",

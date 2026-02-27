@@ -1,5 +1,6 @@
 export const RECIPES_DIR = "recipes";
 export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
+export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-dates.json";
 
 export interface ModeConfig {
   file: string;

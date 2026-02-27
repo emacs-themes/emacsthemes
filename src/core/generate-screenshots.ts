@@ -3,6 +3,7 @@ import { join, basename, resolve } from "node:path";
 import { Theme, validateRecipeStrict } from "./schema-checker";
 import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
 import { assertPathWithinRoot } from "./path-utils";
+import { upsertScreenshotGenerationDate } from "./screenshot-dates";
 
 const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
@@ -691,11 +692,13 @@ async function cleanupThemeTemp(themeTempDir: string): Promise<void> {
  *
  * @param {string} recipePath - The file path to the theme recipe JSON.
  * @param {boolean} [force=false] - Whether to force screenshot generation.
+ * @param {boolean} [overwriteGenerationDate=false] - Whether to overwrite existing generation date.
  * @returns {Promise<{ status: 'skipped' | 'success' | 'failed', name: string }>}
  */
 async function processTheme(
   recipePath: string,
   force: boolean = false,
+  overwriteGenerationDate: boolean = false,
 ): Promise<{ status: "skipped" | "success" | "failed"; name: string }> {
   const theme = await validateRecipe(recipePath);
   if (!theme) {
@@ -718,6 +721,8 @@ async function processTheme(
     const emacsThemeName = detectedName || theme.id;
 
     await captureThemeScreenshots(theme, themeTempDir, themeImagesDir, filesToLoad, emacsThemeName);
+
+    await upsertScreenshotGenerationDate(theme.id, new Date(), overwriteGenerationDate);
 
     return { status: "success", name: theme.name };
   } catch (err) {
@@ -779,7 +784,7 @@ async function main() {
   for (const recipeFile of recipes) {
     // If a target theme was provided via --file, or --force was used, force it
     const shouldForce = force || !!targetThemeId;
-    const { status } = await processTheme(join(RECIPES_DIR, recipeFile), shouldForce);
+    const { status } = await processTheme(join(RECIPES_DIR, recipeFile), shouldForce, force);
     results[status]++;
   }
 
