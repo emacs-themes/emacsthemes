@@ -26,6 +26,7 @@
     "fmt:check": "oxfmt --check",
     "validate": "bun src/core/validate.ts",
     "screenshots": "sh src/docker/run.sh",
+    "preview": "bun run build && bun run dev",
     "build": "bun src/templates/build.ts",
     "deploy:site": "rm -rf build/static/imgs && bun wrangler pages deploy build --project-name=emacsthemes --branch=main",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
