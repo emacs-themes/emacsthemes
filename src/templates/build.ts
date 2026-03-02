@@ -7,6 +7,8 @@ import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
 import { readScreenshotDates, resolveThemeGeneratedDate } from "../core/screenshot-dates";
+import { applyBaseTemplate } from "./core/page-template";
+import { buildThemeCardsGrid } from "./core/theme-card";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -17,6 +19,20 @@ const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
 const BASE_URL = "https://emacsthemes.com";
 const TITLE_BRAND_SUFFIX = " - Emacs Themes";
+const LOG_PREFIX = "[build]";
+const BASE_TEMPLATE_OPTIONS = {
+  baseUrl: BASE_URL,
+  githubUrl: GITHUB_URL,
+  titleBrandSuffix: TITLE_BRAND_SUFFIX,
+};
+
+function logInfo(message: string) {
+  console.log(`${LOG_PREFIX} ${message}`);
+}
+
+function logWarn(message: string) {
+  console.warn(`${LOG_PREFIX} ${message}`);
+}
 
 /**
  * Options for html-minifier-terser.
@@ -43,6 +59,7 @@ const PATHS = {
       searchBar: join(TEMPLATES_DIR, "html/partials/search-bar.html"),
       themeCard: join(TEMPLATES_DIR, "html/partials/theme-card.html"),
       themeDetail: join(TEMPLATES_DIR, "html/partials/theme-detail-content.html"),
+      latestThemesHeadline: join(TEMPLATES_DIR, "html/partials/latest-themes-headline.html"),
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
       popular: join(TEMPLATES_DIR, "html/partials/popular-content.html"),
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
@@ -206,103 +223,6 @@ async function writeThemeSearchIndex(indexEntries: SearchThemeIndexEntry[]) {
   await Bun.write(PATHS.assets.dest.themesIndex, JSON.stringify(indexEntries));
 }
 
-/**
- * Generates the HTML for a single theme card.
- *
- * @param {Theme} theme - The theme object containing details like name, id, description, etc.
- * @param {string} template - The HTML template string for the card.
- * @param {string} [relativeRoot=""] - The relative path to the root directory (used for linking assets).
- * @returns {string} The populated HTML string for the theme card.
- */
-function generateThemeCard(theme: Theme, template: string, relativeRoot: string = ""): string {
-  const imagePath = `${relativeRoot}${STATIC_DIR}/imgs/${theme.id}/preview.png`;
-  return template
-    .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
-    .replace(/{{THEME_ID}}/g, theme.id)
-    .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
-    .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
-    .replace(/{{THEME_LOCAL_URL}}/g, theme.id)
-    .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
-}
-
-/**
- * Generates an HTML stylesheet link tag.
- *
- * @param {string} cssPath - The path to the CSS file.
- * @returns {string} The HTML string containing a stylesheet link.
- */
-function getCssLinkTag(cssPath: string): string {
-  return `<link rel="stylesheet" href="${cssPath}">`;
-}
-
-interface PageData {
-  title: string;
-  description: string;
-  canonicalPath: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogImage: string;
-  themesGrid: string;
-  searchBar?: string;
-  latestThemesHeadline?: string;
-  mainCssPath: string;
-  extraCssPaths?: string[];
-  scripts?: string;
-}
-
-/**
- * Builds an absolute public URL for a generated page.
- *
- * @param {string} pagePath - The page path relative to site root (for example: "/about").
- * @returns {string} The absolute URL under the production domain.
- */
-function buildAbsolutePageUrl(pagePath: string): string {
-  const trimmedPath = pagePath.trim();
-  if (trimmedPath === "" || trimmedPath === "/") {
-    return BASE_URL;
-  }
-
-  // themes path is special
-  if (trimmedPath === "/themes/") {
-    return `${BASE_URL}${trimmedPath}`;
-  }
-
-  const normalizedPath = `/${trimmedPath.replace(/^\/+|\/+$/g, "")}`;
-  return `${BASE_URL}${normalizedPath}`;
-}
-
-/**
- * Injects page-specific data into the base HTML template (layout).
- *
- * @param {string} template - The base HTML template string.
- * @param {PageData} data - An object containing the content and configuration for the page.
- * @returns {string} The fully rendered HTML page.
- */
-function applyBaseTemplate(template: string, data: PageData): string {
-  const currentYear = new Date().getFullYear().toString();
-  const brandedTitle = `${data.title}${TITLE_BRAND_SUFFIX}`;
-  const extraCssLinks = (data.extraCssPaths || []).map((path) => getCssLinkTag(path)).join("\n");
-  const pageUrl = buildAbsolutePageUrl(data.canonicalPath);
-
-  return template
-    .replace("{{TITLE}}", escapeHtml(brandedTitle))
-    .replace("{{DESCRIPTION}}", escapeHtml(data.description))
-    .replace("{{CANONICAL_URL}}", escapeHtml(pageUrl))
-    .replace("{{OG_URL}}", escapeHtml(pageUrl))
-    .replace("{{TWITTER_URL}}", escapeHtml(pageUrl))
-    .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
-    .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
-    .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
-    .replace("{{THEMES_GRID}}", data.themesGrid)
-    .replace("{{SEARCH_BAR}}", data.searchBar || "")
-    .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
-    .replace("{{MAIN_CSS_PRELOAD}}", getCssLinkTag(data.mainCssPath))
-    .replace("{{EXTRA_CSS_PRELOAD}}", extraCssLinks)
-    .replace("{{YEAR}}", currentYear)
-    .replace("{{SCRIPTS}}", data.scripts || "")
-    .replace(/{{GITHUB_URL}}/g, GITHUB_URL);
-}
-
 // Page Builders
 
 /**
@@ -310,32 +230,37 @@ function applyBaseTemplate(template: string, data: PageData): string {
  *
  * @param {string} template - The base HTML template.
  * @param {string} cardTemplate - The theme card HTML template.
+ * @param {string} latestThemesHeadlineHtml - The headline/subhead HTML partial for latest themes.
  */
-async function buildHomepage(template: string, cardTemplate: string) {
+async function buildHomepage(
+  template: string,
+  cardTemplate: string,
+  latestThemesHeadlineHtml: string,
+) {
   const themes = await getPinnedThemes();
-  const themesGrid =
-    `<div class="grid">` +
-    themes.map((t) => generateThemeCard(t, cardTemplate)).join("\n") +
-    `</div>`;
-  const latestThemesHeadline = `<h2 class="latest-headline">Freshly Baked Themes 🥐</h2><p class="subhead">The newest additions to our gallery. Warning: may cause sudden urge to rewrite your init.el.</p>`;
+  const content = buildThemeCardsGrid(themes, cardTemplate);
 
-  const html = applyBaseTemplate(template, {
-    title: "An Emacs Themes Gallery",
-    description:
-      "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
-    canonicalPath: "/",
-    ogTitle: "Emacs Themes Gallery",
-    ogDescription: "Discover and preview the best Emacs themes.",
-    ogImage: `${BASE_URL}/emacs.png`,
-    themesGrid,
-    latestThemesHeadline,
-    mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.card}`],
-  });
+  const html = applyBaseTemplate(
+    template,
+    {
+      title: "An Emacs Themes Gallery",
+      description:
+        "Browse a curated collection of beautiful Emacs themes. Find your next favorite look for the world's most extensible editor.",
+      canonicalPath: "/",
+      ogTitle: "Emacs Themes Gallery",
+      ogDescription: "Discover and preview the best Emacs themes.",
+      ogImage: `${BASE_URL}/emacs.png`,
+      themesGrid: content,
+      latestThemesHeadline: latestThemesHeadlineHtml,
+      mainCssPath: `/${PATHS.css.main}`,
+      extraCssPaths: [`/${PATHS.css.card}`],
+    },
+    BASE_TEMPLATE_OPTIONS,
+  );
 
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.home, minifiedHtml);
-  console.log("Generated index.html");
+  logInfo("Generated index.html");
 }
 
 /**
@@ -360,10 +285,7 @@ async function buildAllThemesPage(
     allThemes.length.toLocaleString(),
   );
 
-  const themesGrid =
-    `<div class="grid">` +
-    allThemes.map((t) => generateThemeCard(t, cardTemplate, "../")).join("\n") +
-    `</div>`;
+  const content = buildThemeCardsGrid(allThemes, cardTemplate, "../");
 
   await writeThemeSearchIndex(buildThemeSearchIndex(allThemes));
 
@@ -375,25 +297,29 @@ async function buildAllThemesPage(
   const minifiedJs = await minifyJs(scriptContent);
   const scriptHtml = `<script>${minifiedJs}</script>`;
 
-  const html = applyBaseTemplate(template, {
-    title: "Full Emacs Themes Directory",
-    description:
-      "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
-    canonicalPath: "/themes/",
-    ogTitle: "Emacs Themes Directory",
-    ogDescription: "Search and filter through all available Emacs themes.",
-    ogImage: `${BASE_URL}/emacs.png`,
-    themesGrid,
-    searchBar: updatedSearchBarHtml,
-    mainCssPath: `../${PATHS.css.main}`,
-    extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`],
-    scripts: scriptHtml,
-  });
+  const html = applyBaseTemplate(
+    template,
+    {
+      title: "Full Emacs Themes Directory",
+      description:
+        "Explore our complete directory of Emacs themes. Filter by name, type, or tags to find the perfect style for your setup.",
+      canonicalPath: "/themes/",
+      ogTitle: "Emacs Themes Directory",
+      ogDescription: "Search and filter through all available Emacs themes.",
+      ogImage: `${BASE_URL}/emacs.png`,
+      themesGrid: content,
+      searchBar: updatedSearchBarHtml,
+      mainCssPath: `../${PATHS.css.main}`,
+      extraCssPaths: [`../${PATHS.css.search}`, `../${PATHS.css.card}`],
+      scripts: scriptHtml,
+    },
+    BASE_TEMPLATE_OPTIONS,
+  );
 
   const minifiedHtml = await minifyHtml(html);
   await mkdir(PATHS.pages.themesDir, { recursive: true });
   await Bun.write(PATHS.pages.themesIndex, minifiedHtml);
-  console.log("Generated themes/index.html");
+  logInfo("Generated themes/index.html");
 }
 
 /**
@@ -427,7 +353,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
         })
         .join("\n");
     } catch {
-      console.warn(`No screenshots found for theme ${theme.id}`);
+      logWarn(`No screenshots found for theme ${theme.id}`);
     }
 
     const tagsHtml = theme.tags
@@ -467,22 +393,26 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       .replace(/{{GENERATED_DATE}}/g, generatedDate)
       .replace("{{SCREENSHOTS}}", screenshotsHtml);
 
-    const html = applyBaseTemplate(template, {
-      title: `${theme.name} - Emacs Theme`,
-      description: theme.description,
-      canonicalPath: `/themes/${theme.id}`,
-      ogTitle: `${theme.name} Theme for Emacs`,
-      ogDescription: `Preview and details for the ${theme.name} theme.`,
-      ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
-      themesGrid: content,
-      mainCssPath: mainCssPath,
-      extraCssPaths: [detailCssPath],
-    });
+    const html = applyBaseTemplate(
+      template,
+      {
+        title: `${theme.name} - Emacs Theme`,
+        description: theme.description,
+        canonicalPath: `/themes/${theme.id}`,
+        ogTitle: `${theme.name} Theme for Emacs`,
+        ogDescription: `Preview and details for the ${theme.name} theme.`,
+        ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
+        themesGrid: content,
+        mainCssPath: mainCssPath,
+        extraCssPaths: [detailCssPath],
+      },
+      BASE_TEMPLATE_OPTIONS,
+    );
 
     const minifiedHtml = await minifyHtml(html);
     const themePagePath = assertPathWithinRoot(PATHS.pages.themesDir, `${theme.id}.html`);
     await Bun.write(themePagePath, minifiedHtml);
-    console.log(`Generated themes/${theme.id}.html`);
+    logInfo(`Generated themes/${theme.id}.html`);
   }
 }
 
@@ -493,20 +423,24 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
  * @param {string} aboutContentHtml - The HTML content for the about page.
  */
 async function buildAboutPage(template: string, aboutContentHtml: string) {
-  const html = applyBaseTemplate(template, {
-    title: "About the website",
-    description: "Learn more about our curated directory of Emacs themes and how to contribute.",
-    canonicalPath: "/about",
-    ogTitle: "About Emacs Themes Site",
-    ogDescription: "Information about the curated Emacs themes directory.",
-    ogImage: `${BASE_URL}/emacs.png`,
-    themesGrid: aboutContentHtml,
-    mainCssPath: `/${PATHS.css.main}`,
-  });
+  const html = applyBaseTemplate(
+    template,
+    {
+      title: "About the website",
+      description: "Learn more about our curated directory of Emacs themes and how to contribute.",
+      canonicalPath: "/about",
+      ogTitle: "About Emacs Themes Site",
+      ogDescription: "Information about the curated Emacs themes directory.",
+      ogImage: `${BASE_URL}/emacs.png`,
+      themesGrid: aboutContentHtml,
+      mainCssPath: `/${PATHS.css.main}`,
+    },
+    BASE_TEMPLATE_OPTIONS,
+  );
 
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.about, minifiedHtml);
-  console.log("Generated about.html");
+  logInfo("Generated about.html");
 }
 
 /**
@@ -519,7 +453,7 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
   const popularThemes = await fetchPopularThemes();
 
   if (!popularThemes) {
-    console.warn("Skipping popular themes page due to fetch failure.");
+    logWarn("Skipping popular themes page due to fetch failure.");
     return;
   }
 
@@ -549,22 +483,26 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
     .replace("{{THEMES_LIST}}", themesListHtml)
     .replace("{{GENERATED_DATE}}", generatedDate);
 
-  const html = applyBaseTemplate(template, {
-    title: "Popular Emacs Themes - MELPA Statistics",
-    description:
-      "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
-    canonicalPath: "/popular",
-    ogTitle: "Popular Emacs Themes",
-    ogDescription: "MELPA download statistics for top Emacs themes.",
-    ogImage: `${BASE_URL}/emacs.png`,
-    themesGrid: content,
-    mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
-  });
+  const html = applyBaseTemplate(
+    template,
+    {
+      title: "Popular Emacs Themes - MELPA Statistics",
+      description:
+        "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
+      canonicalPath: "/popular",
+      ogTitle: "Popular Emacs Themes",
+      ogDescription: "MELPA download statistics for top Emacs themes.",
+      ogImage: `${BASE_URL}/emacs.png`,
+      themesGrid: content,
+      mainCssPath: `/${PATHS.css.main}`,
+      extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
+    },
+    BASE_TEMPLATE_OPTIONS,
+  );
 
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.popular, minifiedHtml);
-  console.log("Generated popular.html");
+  logInfo("Generated popular.html");
 }
 
 /**
@@ -574,21 +512,25 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
  * @param {string} error404ContentHtml - The HTML content for the 404 page.
  */
 async function build404Page(template: string, error404ContentHtml: string) {
-  const html = applyBaseTemplate(template, {
-    title: "404 - Page Not Found",
-    description: "The page you are looking for could not be found.",
-    canonicalPath: "/404",
-    ogTitle: "404 - Page Not Found",
-    ogDescription: "The page you are looking for could not be found.",
-    ogImage: `${BASE_URL}/emacs.png`,
-    themesGrid: error404ContentHtml,
-    mainCssPath: `/${PATHS.css.main}`,
-    extraCssPaths: [`/${PATHS.css.error}`],
-  });
+  const html = applyBaseTemplate(
+    template,
+    {
+      title: "404 - Page Not Found",
+      description: "The page you are looking for could not be found.",
+      canonicalPath: "/404",
+      ogTitle: "404 - Page Not Found",
+      ogDescription: "The page you are looking for could not be found.",
+      ogImage: `${BASE_URL}/emacs.png`,
+      themesGrid: error404ContentHtml,
+      mainCssPath: `/${PATHS.css.main}`,
+      extraCssPaths: [`/${PATHS.css.error}`],
+    },
+    BASE_TEMPLATE_OPTIONS,
+  );
 
   const minifiedHtml = await minifyHtml(html);
   await Bun.write(PATHS.pages.error404, minifiedHtml);
-  console.log("Generated 404.html");
+  logInfo("Generated 404.html");
 }
 
 // Utility
@@ -607,7 +549,7 @@ async function linkDir(src: string, dest: string) {
   const relativeLinkTarget = relative(destParentAbsolutePath, srcAbsolutePath);
 
   await symlink(relativeLinkTarget, dest, "dir");
-  console.log(`Symlinked ${dest} -> ${relativeLinkTarget}`);
+  logInfo(`Symlinked ${dest} -> ${relativeLinkTarget}`);
 }
 
 /**
@@ -633,7 +575,7 @@ async function minifyAndCopyCss(src: string, dest: string) {
  * orchestrates the cleaning, template loading, page generation, and asset copying.
  */
 async function build() {
-  console.log("Starting build...");
+  logInfo("Starting build...");
 
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
@@ -643,6 +585,7 @@ async function build() {
     cardTemplate,
     searchBarHtml,
     detailContentTemplate,
+    latestThemesHeadlineHtml,
     aboutContentHtml,
     popularThemesContentTemplate,
     error404ContentTemplate,
@@ -652,20 +595,21 @@ async function build() {
     Bun.file(PATHS.templates.partials.themeCard).text(),
     Bun.file(PATHS.templates.partials.searchBar).text(),
     Bun.file(PATHS.templates.partials.themeDetail).text(),
+    Bun.file(PATHS.templates.partials.latestThemesHeadline).text(),
     Bun.file(PATHS.templates.partials.about).text(),
     Bun.file(PATHS.templates.partials.popular).text(),
     Bun.file(PATHS.templates.partials.error404).text(),
     Bun.file(PATHS.templates.partials.searchScript).text(),
   ]);
 
-  await buildHomepage(baseTemplate, cardTemplate);
+  await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptTemplate);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
   await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate);
   await build404Page(baseTemplate, error404ContentTemplate);
 
-  console.log("Copying and minifying assets...");
+  logInfo("Copying and minifying assets...");
   await Promise.all([
     linkDir(PATHS.assets.src.images, PATHS.assets.dest.images),
     linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
@@ -674,12 +618,12 @@ async function build() {
     copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng),
   ]);
 
-  console.log("Build complete!");
+  logInfo("Build complete!");
 }
 
 if (import.meta.main) {
   build().catch((err) => {
-    console.error("Build failed:", err);
+    console.error(`${LOG_PREFIX} Build failed:`, err);
     process.exitCode = 1;
   });
 }
