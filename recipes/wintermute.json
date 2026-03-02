@@ -3,18 +3,8 @@
   "id": "wintermute",
   "description": "An icy-looking cyberpunk theme",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/wintermute/wintermute-theme.el"
-  ],
+  "rawUrls": ["static/themes/wintermute/wintermute-theme.el"],
   "type": "dark",
-  "authors": [
-    "Bleu Box"
-  ],
-  "tags": [
-    "black",
-    "cyberpunk",
-    "dark",
-    "low-contrast",
-    "local"
-  ]
+  "authors": ["Bleu Box"],
+  "tags": ["black", "cyberpunk", "dark", "low-contrast", "local"]
 }

@@ -3,13 +3,9 @@
   "id": "brin",
   "description": "An Emacs port of the Space Grey ST2 theme",
   "repoUrl": "local",
-  "rawUrls": [
-    "static/themes/brin/brin-theme.el"
-  ],
+  "rawUrls": ["static/themes/brin/brin-theme.el"],
   "type": "dark",
-  "authors": [
-    "Owain Lewis"
-  ],
+  "authors": ["Owain Lewis"],
   "tags": [
     "black",
     "blue",

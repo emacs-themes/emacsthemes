@@ -8,14 +8,6 @@
     "static/themes/colorsarenice/colorsarenice-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "Fanael Linithien"
-  ],
-  "tags": [
-    "colorful",
-    "colorsarenice",
-    "light",
-    "white",
-    "local"
-  ]
+  "authors": ["Fanael Linithien"],
+  "tags": ["colorful", "colorsarenice", "light", "white", "local"]
 }
