@@ -44,13 +44,24 @@
 }
 
 #search-results-headline {
+  display: none;
   margin: 0 0 1rem;
   font-size: 1.1rem;
 }
 
 #no-results-message {
+  display: none;
   margin: 0;
   font-weight: 600;
+}
+
+#search-results-headline.is-visible,
+#no-results-message.is-visible {
+  display: block;
+}
+
+.grid.is-hidden {
+  display: none;
 }
 
 .card.is-hidden {

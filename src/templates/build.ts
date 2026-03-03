@@ -63,7 +63,7 @@ const PATHS = {
       about: join(TEMPLATES_DIR, "html/partials/about-content.html"),
       popular: join(TEMPLATES_DIR, "html/partials/popular-content.html"),
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
-      searchScript: join(TEMPLATES_DIR, "html/partials/search-script.html"),
+      searchScript: join(TEMPLATES_DIR, "html/partials/search-script.js"),
     },
   },
   css: {
@@ -72,6 +72,9 @@ const PATHS = {
     detail: "static/css/theme-detail.css",
     card: "static/css/card.css",
     error: "static/css/error.css",
+  },
+  js: {
+    themesSearch: "static/js/themes-search.js",
   },
   assets: {
     src: {
@@ -84,10 +87,12 @@ const PATHS = {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
       themes: join(BUILD_DIR, STATIC_DIR, "themes"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
+      js: join(BUILD_DIR, STATIC_DIR, "js"),
       data: join(BUILD_DIR, STATIC_DIR, "data"),
       favicon: join(BUILD_DIR, "favicon.ico"),
       emacsPng: join(BUILD_DIR, "emacs.png"),
       themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
+      themesSearchScript: join(BUILD_DIR, STATIC_DIR, "js", "themes-search.js"),
     },
   },
   pages: {
@@ -223,6 +228,16 @@ async function writeThemeSearchIndex(indexEntries: SearchThemeIndexEntry[]) {
   await Bun.write(PATHS.assets.dest.themesIndex, JSON.stringify(indexEntries));
 }
 
+/**
+ * Writes the minified themes search client script to a static file.
+ *
+ * @param {string} scriptContent - Minified JavaScript for theme search behavior.
+ */
+async function writeThemesSearchScript(scriptContent: string) {
+  await mkdir(PATHS.assets.dest.js, { recursive: true });
+  await Bun.write(PATHS.assets.dest.themesSearchScript, scriptContent);
+}
+
 // Page Builders
 
 /**
@@ -269,13 +284,13 @@ async function buildHomepage(
  * @param {string} template - The base HTML template.
  * @param {string} cardTemplate - The theme card HTML template.
  * @param {string} searchBarHtml - The HTML for the search bar partial.
- * @param {string} searchScriptTemplate - The HTML template for the search script.
+ * @param {string} searchScriptSource - The JavaScript source for the search script.
  */
 async function buildAllThemesPage(
   template: string,
   cardTemplate: string,
   searchBarHtml: string,
-  searchScriptTemplate: string,
+  searchScriptSource: string,
 ) {
   const allThemes = await getAllThemes();
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
@@ -289,13 +304,13 @@ async function buildAllThemesPage(
 
   await writeThemeSearchIndex(buildThemeSearchIndex(allThemes));
 
-  const scriptWithData = searchScriptTemplate.replace(
+  const scriptWithData = searchScriptSource.replace(
     "{{THEMES_INDEX_URL}}",
     "../static/data/themes-index.json",
   );
-  const scriptContent = scriptWithData.replace("<script>", "").replace("</script>", "");
-  const minifiedJs = await minifyJs(scriptContent);
-  const scriptHtml = `<script>${minifiedJs}</script>`;
+  const minifiedJs = await minifyJs(scriptWithData);
+  await writeThemesSearchScript(minifiedJs);
+  const scriptHtml = `<script src="../${PATHS.js.themesSearch}" defer></script>`;
 
   const html = applyBaseTemplate(
     template,
@@ -589,7 +604,7 @@ async function build() {
     aboutContentHtml,
     popularThemesContentTemplate,
     error404ContentTemplate,
-    searchScriptTemplate,
+    searchScriptSource,
   ] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
@@ -603,7 +618,7 @@ async function build() {
   ]);
 
   await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
-  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptTemplate);
+  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptSource);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
   await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate);
