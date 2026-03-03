@@ -16,7 +16,22 @@ export interface PageData {
   mainCssPath: string;
   extraCssPaths?: string[];
   scripts?: string;
+  csp?: string;
 }
+
+const DEFAULT_CSP = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "script-src 'self'",
+  "style-src 'self' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data:",
+  "connect-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
 
 /**
  * Options that customize how the base template is rendered.
@@ -86,6 +101,7 @@ export function applyBaseTemplate(
     .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
     .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
     .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
+    .replace("{{CSP}}", escapeHtml(data.csp || DEFAULT_CSP))
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
     .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
