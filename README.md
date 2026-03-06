@@ -33,6 +33,12 @@ bun run dev
 
 Note: run `bun run build` at least once before `bun run dev` so the `build/` directory exists.
 
+## Theme Preference
+
+- A light/dark toggle is available in the top-right of the site header.
+- The default theme is always light for first-time visitors.
+- The selected theme is saved in `localStorage` under `emacsthemes:theme` and reused on subsequent visits.
+
 ## Project Layout
 
 - `recipes/`: theme metadata definitions
