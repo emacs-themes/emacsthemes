@@ -6,9 +6,9 @@
   margin-bottom: 1rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #555;
+  color: var(--text-soft);
   text-transform: uppercase;
-  background: var(--muted);
+  background: var(--surface-2);
   border-radius: 4px;
 }
 
@@ -19,8 +19,8 @@
 
 .theme-type.type-light {
   color: var(--purple);
-  background: #f0eff5;
-  border: 1px solid var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
 }
 
 .detail-header h2 {
@@ -53,7 +53,7 @@
   margin-top: 1rem;
   font-size: 0.9rem;
   font-style: italic;
-  color: #666;
+  color: var(--text-soft);
 }
 
 .screenshot-grid {
@@ -65,8 +65,8 @@
 
 .screenshot-item {
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--muted);
+  background: var(--surface-1);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
 }
 
@@ -74,8 +74,8 @@
   padding: 0.75rem 1rem;
   margin: 0;
   font-size: 1rem;
-  background: #f8f8fa;
-  border-bottom: 1px solid var(--muted);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .screenshot-item img {
@@ -87,7 +87,7 @@
 .theme-tags {
   padding-top: 2rem;
   margin-top: 4rem;
-  border-top: 1px solid var(--muted);
+  border-top: 1px solid var(--border-color);
 }
 
 .theme-tags h3 {
@@ -104,9 +104,9 @@
 .tag-link {
   padding: 0.35rem 0.75rem;
   font-size: 0.9rem;
-  color: var(--nearblack);
-  background: var(--white);
-  border: 1px solid var(--muted);
+  color: var(--text-main);
+  background: var(--surface-1);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   transition: all 0.2s;
 }
@@ -132,7 +132,7 @@
   font-size: 1.1rem;
   border-spacing: 0;
   border-collapse: separate;
-  border: 1px solid var(--muted);
+  border: 1px solid var(--border-color);
   border-radius: 14px;
 }
 
@@ -140,13 +140,13 @@
 .themes-table td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid var(--muted);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .themes-table th {
   font-weight: 700;
-  color: var(--nearblack);
-  background: #f8f8fa;
+  color: var(--text-main);
+  background: var(--surface-2);
 }
 
 .themes-table th:first-child {
@@ -171,5 +171,5 @@
 }
 
 .themes-table tr:hover {
-  background-color: #fcfcff;
+  background-color: var(--surface-2);
 }

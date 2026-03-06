@@ -64,6 +64,7 @@ const PATHS = {
       popular: join(TEMPLATES_DIR, "html/partials/popular-content.html"),
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
       searchScript: join(TEMPLATES_DIR, "html/partials/search-script.js"),
+      themeToggleScript: join(TEMPLATES_DIR, "html/partials/theme-toggle-script.js"),
     },
   },
   css: {
@@ -75,6 +76,7 @@ const PATHS = {
   },
   js: {
     themesSearch: "static/js/themes-search.js",
+    themeToggle: "static/js/theme-toggle.js",
   },
   assets: {
     src: {
@@ -93,6 +95,7 @@ const PATHS = {
       emacsPng: join(BUILD_DIR, "emacs.png"),
       themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
       themesSearchScript: join(BUILD_DIR, STATIC_DIR, "js", "themes-search.js"),
+      themeToggleScript: join(BUILD_DIR, STATIC_DIR, "js", "theme-toggle.js"),
     },
   },
   pages: {
@@ -238,6 +241,36 @@ async function writeThemesSearchScript(scriptContent: string) {
   await Bun.write(PATHS.assets.dest.themesSearchScript, scriptContent);
 }
 
+/**
+ * Writes the minified theme-toggle client script to a static file.
+ *
+ * @param {string} scriptContent - Minified JavaScript for global theme toggle behavior.
+ */
+async function writeThemeToggleScript(scriptContent: string) {
+  await mkdir(PATHS.assets.dest.js, { recursive: true });
+  await Bun.write(PATHS.assets.dest.themeToggleScript, scriptContent);
+}
+
+/**
+ * Builds a deferred script tag for generated JavaScript assets.
+ *
+ * @param {string} src - Public path to the script file.
+ * @returns {string} Script tag HTML with deferred loading.
+ */
+function buildDeferredScriptTag(src: string): string {
+  return `<script src="${src}" defer></script>`;
+}
+
+/**
+ * Builds the common script tags injected on all pages.
+ *
+ * @param {string} pagePrefix - Relative prefix from the page to the site root.
+ * @returns {string} HTML script tag string for globally shared scripts.
+ */
+function buildCommonScripts(pagePrefix: string): string {
+  return buildDeferredScriptTag(`${pagePrefix}${PATHS.js.themeToggle}`);
+}
+
 // Page Builders
 
 /**
@@ -269,6 +302,7 @@ async function buildHomepage(
       latestThemesHeadline: latestThemesHeadlineHtml,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.card}`],
+      scripts: buildCommonScripts("/"),
     },
     BASE_TEMPLATE_OPTIONS,
   );
@@ -310,7 +344,10 @@ async function buildAllThemesPage(
   );
   const minifiedJs = await minifyJs(scriptWithData);
   await writeThemesSearchScript(minifiedJs);
-  const scriptHtml = `<script src="../${PATHS.js.themesSearch}" defer></script>`;
+  const scriptHtml = [
+    buildCommonScripts("../"),
+    buildDeferredScriptTag(`../${PATHS.js.themesSearch}`),
+  ].join("\n");
 
   const html = applyBaseTemplate(
     template,
@@ -347,6 +384,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
   const themes = await getAllThemes();
   const mainCssPath = `../${PATHS.css.main}`;
   const detailCssPath = `../${PATHS.css.detail}`;
+  const commonScripts = buildCommonScripts("../");
   const screenshotDates = await readScreenshotDates();
 
   for (const theme of themes) {
@@ -420,6 +458,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
         themesGrid: content,
         mainCssPath: mainCssPath,
         extraCssPaths: [detailCssPath],
+        scripts: commonScripts,
       },
       BASE_TEMPLATE_OPTIONS,
     );
@@ -449,6 +488,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
       ogImage: `${BASE_URL}/emacs.png`,
       themesGrid: aboutContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
+      scripts: buildCommonScripts("/"),
     },
     BASE_TEMPLATE_OPTIONS,
   );
@@ -511,6 +551,7 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
       themesGrid: content,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
+      scripts: buildCommonScripts("/"),
     },
     BASE_TEMPLATE_OPTIONS,
   );
@@ -539,6 +580,7 @@ async function build404Page(template: string, error404ContentHtml: string) {
       themesGrid: error404ContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.error}`],
+      scripts: buildCommonScripts("/"),
     },
     BASE_TEMPLATE_OPTIONS,
   );
@@ -605,6 +647,7 @@ async function build() {
     popularThemesContentTemplate,
     error404ContentTemplate,
     searchScriptSource,
+    themeToggleScriptSource,
   ] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
@@ -615,7 +658,11 @@ async function build() {
     Bun.file(PATHS.templates.partials.popular).text(),
     Bun.file(PATHS.templates.partials.error404).text(),
     Bun.file(PATHS.templates.partials.searchScript).text(),
+    Bun.file(PATHS.templates.partials.themeToggleScript).text(),
   ]);
+
+  const minifiedThemeToggleJs = await minifyJs(themeToggleScriptSource);
+  await writeThemeToggleScript(minifiedThemeToggleJs);
 
   await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptSource);
