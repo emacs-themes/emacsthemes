@@ -1,8 +1,6 @@
 # Emacs Themes
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/K5nUbnRBNmjytjcnq2CaLy/Wex5hZdoAwQvLJM5Rz9XvT/tree/main.svg?style=svg&circle-token=CCIPRJ_UMgK9Vdh9tiCpsqBfKxp5x_9d16a0836b49a4d676fb692970fdd45a29c5c45b)](https://dl.circleci.com/status-badge/redirect/circleci/K5nUbnRBNmjytjcnq2CaLy/Wex5hZdoAwQvLJM5Rz9XvT/tree/main)
-
-[emacsthemes.com](https://emacsthemes.com)
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/K5nUbnRBNmjytjcnq2CaLy/Wex5hZdoAwQvLJM5Rz9XvT/tree/main.svg?style=svg&circle-token=CCIPRJ_UMgK9Vdh9tiCpsqBfKxp5x_9d16a0836b49a4d676fb692970fdd45a29c5c45b)](https://dl.circleci.com/status-badge/redirect/circleci/K5nUbnRBNmjytjcnq2CaLy/Wex5hZdoAwQvLJM5Rz9XvT/tree/main) [emacsthemes.com](https://emacsthemes.com)
 
 A system for cataloging Emacs themes from JSON recipes, generating screenshots, and building a static site.
 
@@ -32,12 +30,6 @@ bun run dev
 ```
 
 Note: run `bun run build` at least once before `bun run dev` so the `build/` directory exists.
-
-## Theme Preference
-
-- A light/dark toggle is available in the top-right of the site header.
-- The default theme is always light for first-time visitors.
-- The selected theme is saved in `localStorage` under `emacsthemes:theme` and reused on subsequent visits.
 
 ## Project Layout
 
@@ -80,7 +72,6 @@ Examples:
 
 - simple recipe: [zenburn](recipes/zenburn.json);
 - recipe with local source: [minimal](recipes/minimal.json);
-
 - recipe with `elispBefore` [gruvbox](recipes/gruvbox.json);
 - recipe with `elispAfter` [doric oak](recipes/doric-oak.json);
 - recipe with both `elispBefore` & `elispAfter` [ef reverie](recipes/ef-reverie.json);
@@ -116,14 +107,6 @@ Rules:
 - Add your entry to the `pinnedThemes` array as the first one and delete the last.
 - The value must match a recipe file name in `recipes/` (file name without `.json`).
   Example: `recipes/kaolin-dark.json` -> `"kaolin-dark"`.
-
-Example:
-
-```json
-{
-  "pinnedThemes": ["kaolin-dark", "soothe", "tok-dark"]
-}
-```
 
 After updating pinned themes, run a build to verify everything resolves correctly:
 
