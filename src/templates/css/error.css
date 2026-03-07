@@ -3,15 +3,19 @@
 .error-page {
   padding: 2rem 0 4rem;
   text-align: center;
+
+  & .actions {
+    margin-top: 2rem;
+  }
 }
 
 .error-graphic {
   margin-bottom: 3rem;
-}
 
-.error-graphic svg {
-  display: block;
-  margin: 0 auto;
+  & svg {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .error-message {
@@ -19,8 +23,4 @@
   margin-inline: auto;
   margin-bottom: 2.5rem;
   font-size: 1.25rem;
-}
-
-.error-page .actions {
-  margin-top: 2rem;
 }
