@@ -31,7 +31,7 @@
     "deploy:site": "rm -rf build/static/imgs && bun wrangler pages deploy build --project-name=emacsthemes --branch=main",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
     "deploy": "bun run deploy:imgs && bun run deploy:site",
-    "dev": "bun wrangler pages dev build --binding ENVIRONMENT=development"
+    "dev": "bun --watch src/templates/build.ts & bun wrangler pages dev build --live-reload --binding ENVIRONMENT=development"
   },
   "dependencies": {
     "html-minifier-terser": "^7.2.0",

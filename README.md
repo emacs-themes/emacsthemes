@@ -29,7 +29,7 @@ Start local Pages dev server:
 bun run dev
 ```
 
-Note: run `bun run build` at least once before `bun run dev` so the `build/` directory exists.
+This watches `src/templates/build.ts`, rebuilds the static output on changes, and enables browser live reloading in Wrangler.
 
 ## Project Layout
 
