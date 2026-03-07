@@ -20,7 +20,7 @@
 .theme-type.type-light {
   color: var(--purple);
   background: var(--surface-2);
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
 }
 
 .detail-header h2 {
@@ -41,6 +41,7 @@
   color: var(--white);
   text-decoration: none;
   background: var(--purple);
+  border: var(--border-width) solid var(--purple);
   border-radius: 8px;
 }
 
@@ -66,7 +67,7 @@
 .screenshot-item {
   overflow: hidden;
   background: var(--surface-1);
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
   border-radius: 12px;
 }
 
@@ -75,7 +76,7 @@
   margin: 0;
   font-size: 1rem;
   background: var(--surface-2);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .screenshot-item img {
@@ -87,7 +88,7 @@
 .theme-tags {
   padding-top: 2rem;
   margin-top: 4rem;
-  border-top: 1px solid var(--border-color);
+  border-top: var(--border-width) solid var(--border-color);
 }
 
 .theme-tags h3 {
@@ -106,7 +107,7 @@
   font-size: 0.9rem;
   color: var(--text-main);
   background: var(--surface-1);
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
   border-radius: 20px;
   transition: all 0.2s;
 }
@@ -132,7 +133,7 @@
   font-size: 1.1rem;
   border-spacing: 0;
   border-collapse: separate;
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
   border-radius: 14px;
 }
 
@@ -140,7 +141,7 @@
 .themes-table td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .themes-table th {

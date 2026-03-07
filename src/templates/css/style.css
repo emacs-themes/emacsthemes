@@ -16,6 +16,8 @@
   --border-color: #e6e4f0;
   --menu-text: #4d3b4e;
   --hover-overlay: rgb(0 0 0 / 10%);
+  --border-width: 1px;
+  --focus-outline-width: 3px;
 }
 
 html[data-theme="dark"] {
@@ -33,6 +35,38 @@ html[data-theme="dark"] {
   --border-color: #37334a;
   --menu-text: #d3cce3;
   --hover-overlay: rgb(0 0 0 / 35%);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --purple: #5d2e96;
+    --text-dim: #2f2f36;
+    --muted: #d9d7e6;
+    --surface-2: #f1f1f5;
+    --text-soft: #2f2f36;
+    --text-subtle: #4a4a52;
+    --border-color: #5f5f6d;
+    --menu-text: #2b1f32;
+    --hover-overlay: rgb(0 0 0 / 18%);
+    --border-width: 2px;
+    --focus-outline-width: 4px;
+  }
+
+  html[data-theme="dark"] {
+    --purple: #d7c3ff;
+    --nearblack: #fff;
+    --text-dim: #f2efff;
+    --muted: #4a465e;
+    --bg-body: #0d0c14;
+    --surface-1: #15141d;
+    --surface-2: #1f1d2a;
+    --text-main: #fff;
+    --text-soft: #f2efff;
+    --text-subtle: #e1dcef;
+    --border-color: #d7d0eb;
+    --menu-text: #f2efff;
+    --hover-overlay: rgb(255 255 255 / 16%);
+  }
 }
 
 * {
@@ -72,8 +106,16 @@ a:hover {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 3px solid var(--purple);
+  outline: var(--focus-outline-width) solid var(--purple);
   outline-offset: 3px;
+}
+
+@media (prefers-contrast: more) {
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
 }
 
 .container {
@@ -86,7 +128,7 @@ input:focus-visible {
 header {
   padding-block: 1rem;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .header-container {
@@ -144,7 +186,7 @@ header {
   color: var(--text-main);
   cursor: pointer;
   background: var(--surface-1);
-  border: 1px solid var(--border-color);
+  border: var(--border-width) solid var(--border-color);
   border-radius: 999px;
   box-shadow: 0 8px 20px -16px var(--hover-overlay);
   transition:
@@ -229,6 +271,14 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
+@media (prefers-contrast: more) {
+  .title span {
+    color: var(--text-main);
+    background: none;
+    -webkit-text-fill-color: currentcolor;
+  }
+}
+
 main {
   flex: 1;
 }
@@ -282,7 +332,7 @@ h1 {
 footer {
   padding-block: 1.5rem;
   margin-top: 4rem;
-  border-top: 1px solid var(--border-color);
+  border-top: var(--border-width) solid var(--border-color);
 }
 
 .footer-container {
