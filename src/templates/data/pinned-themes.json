@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "doom-one",
+    "doom-one-light",
     "cacao-theme",
     "fleury-theme",
     "inkpot",
@@ -9,8 +11,6 @@
     "catppuccin-macchiato",
     "catppuccin-mocha",
     "kuronami",
-    "kanagawa",
-    "automata",
-    "naga-blue"
+    "kanagawa"
   ]
 }

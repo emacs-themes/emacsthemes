@@ -1,0 +1,24 @@
+{
+  "name": "Doom One Theme",
+  "id": "doom-one",
+  "description": "A dark theme inspired by Atom One Dark",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-one-theme.el"
+  ],
+  "type": "dark",
+  "authors": [
+    "Henrik Lissner"
+  ],
+  "tags": [
+    "atom",
+    "dark",
+    "doom",
+    "one",
+    "blue",
+    "purple",
+    "green"
+  ]
+}

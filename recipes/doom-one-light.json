@@ -1,0 +1,25 @@
+{
+  "name": "Doom One Light Theme",
+  "id": "doom-one-light",
+  "description": "A light theme inspired by Atom One Light",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-one-light-theme.el"
+  ],
+  "type": "light",
+  "authors": [
+    "ztlevi",
+    "Henrik Lissner"
+  ],
+  "tags": [
+    "atom",
+    "doom",
+    "light",
+    "one",
+    "white",
+    "purple",
+    "red"
+  ]
+}
