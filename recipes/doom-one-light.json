@@ -9,17 +9,6 @@
     "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-one-light-theme.el"
   ],
   "type": "light",
-  "authors": [
-    "ztlevi",
-    "Henrik Lissner"
-  ],
-  "tags": [
-    "atom",
-    "doom",
-    "light",
-    "one",
-    "white",
-    "purple",
-    "red"
-  ]
+  "authors": ["ztlevi", "Henrik Lissner"],
+  "tags": ["atom", "doom", "light", "one", "white", "purple", "red"]
 }
