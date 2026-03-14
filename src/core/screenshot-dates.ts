@@ -12,6 +12,30 @@ let screenshotDatesCache: ScreenshotDatesMap | null = null;
 const SCREENSHOT_DATES_LOG_PREFIX = "[screenshot-dates]";
 
 /**
+ * Returns a deterministically sorted screenshot date map.
+ *
+ * Sorting uses plain code-point comparison so serialized output stays stable across environments.
+ *
+ * @param {ScreenshotDatesMap} dates - Date map keyed by theme id.
+ * @returns {ScreenshotDatesMap} A new map with keys sorted in ascending order.
+ */
+function sortScreenshotDates(dates: ScreenshotDatesMap): ScreenshotDatesMap {
+  return Object.fromEntries(
+    Object.entries(dates).toSorted(([leftId], [rightId]) => {
+      if (leftId < rightId) {
+        return -1;
+      }
+
+      if (leftId > rightId) {
+        return 1;
+      }
+
+      return 0;
+    }),
+  );
+}
+
+/**
  * Reads the screenshot generation dates file.
  *
  * @returns {Promise<ScreenshotDatesMap>} A promise resolving to the parsed screenshot date map.
@@ -44,9 +68,7 @@ export async function readScreenshotDates(): Promise<ScreenshotDatesMap> {
  * @returns {Promise<void>} A promise resolved when write completes.
  */
 export async function writeScreenshotDates(dates: ScreenshotDatesMap): Promise<void> {
-  const sortedDates = Object.fromEntries(
-    Object.entries(dates).toSorted(([a], [b]) => a.localeCompare(b)),
-  );
+  const sortedDates = sortScreenshotDates(dates);
   await mkdir(dirname(SCREENSHOT_DATES_PATH), { recursive: true });
   await Bun.write(SCREENSHOT_DATES_PATH, `${JSON.stringify(sortedDates, null, 2)}\n`);
   screenshotDatesCache = sortedDates;
