@@ -1,0 +1,14 @@
+{
+  "name": "Doom 1337 Theme",
+  "id": "doom-1337",
+  "description": "A dark theme inspired by 1337 Theme",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-1337-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["ccmywish"],
+  "tags": ["1337", "dark", "doom", "vscode", "blue", "black", "yellow", "red"]
+}
