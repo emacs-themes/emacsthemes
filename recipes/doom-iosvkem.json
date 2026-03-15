@@ -1,0 +1,15 @@
+{
+  "name": "Doom Iosvkem Theme",
+  "id": "doom-iosvkem",
+  "description": "A dark theme ported from the default dark theme for Adobe Brackets",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-Iosvkem-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-Iosvkem t)",
+  "type": "dark",
+  "authors": ["neutaaaaan"],
+  "tags": ["doom", "dark", "brackets", "blue", "magenta", "teal"]
+}
