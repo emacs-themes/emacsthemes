@@ -1,0 +1,14 @@
+{
+  "name": "Doom Acario Dark Theme",
+  "id": "doom-acario-dark",
+  "description": "An original dark theme inspired by Acario",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-acario-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Gerry Agbobada"],
+  "tags": ["doom", "dark", "acario", "blue", "red", "magenta"]
+}
