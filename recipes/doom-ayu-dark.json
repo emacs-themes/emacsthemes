@@ -1,0 +1,15 @@
+{
+  "name": "Doom Ayu Dark Theme",
+  "id": "doom-ayu-dark",
+  "description": "A dark theme inspired by Ayu dark",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-ayu-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-ayu-dark t)",
+  "type": "dark",
+  "authors": ["ashton"],
+  "tags": ["doom", "dark", "ayu", "orange", "blue", "green"]
+}
