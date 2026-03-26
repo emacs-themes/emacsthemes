@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-ayu-light",
     "doom-ayu-dark",
     "doom-acario-light",
     "doom-acario-dark",
@@ -10,7 +11,6 @@
     "cacao-theme",
     "fleury-theme",
     "inkpot",
-    "masked",
-    "catppuccin-frappe"
+    "masked"
   ]
 }

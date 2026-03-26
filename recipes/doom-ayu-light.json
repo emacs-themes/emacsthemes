@@ -1,0 +1,15 @@
+{
+  "name": "Doom Ayu Light Theme",
+  "id": "doom-ayu-light",
+  "description": "A light theme inspired by Ayu Light",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-ayu-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-ayu-light t)",
+  "type": "light",
+  "authors": ["LoveSponge"],
+  "tags": ["doom", "light", "ayu", "white", "orange", "blue", "green"]
+}
