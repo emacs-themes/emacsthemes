@@ -1,0 +1,15 @@
+{
+  "name": "Doom Ayu Mirage Theme",
+  "id": "doom-ayu-mirage",
+  "description": "A dark theme inspired by Ayu Mirage",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-ayu-mirage-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-ayu-mirage t)",
+  "type": "dark",
+  "authors": ["LoveSponge"],
+  "tags": ["doom", "dark", "ayu", "mirage", "orange", "blue", "green"]
+}
