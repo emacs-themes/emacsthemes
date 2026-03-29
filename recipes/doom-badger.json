@@ -1,0 +1,15 @@
+{
+  "name": "Doom Badger Theme",
+  "id": "doom-badger",
+  "description": "A dark theme inspired by the original Badger theme",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-badger-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-badger t)",
+  "type": "dark",
+  "authors": ["jsoa"],
+  "tags": ["doom", "dark", "badger", "black", "blue", "orange", "green"]
+}
