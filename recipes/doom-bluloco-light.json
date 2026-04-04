@@ -1,0 +1,15 @@
+{
+  "name": "Doom Bluloco Light Theme",
+  "id": "doom-bluloco-light",
+  "description": "A light theme inspired by Bluloco Light",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-bluloco-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-bluloco-light t)",
+  "type": "light",
+  "authors": ["RazikSF"],
+  "tags": ["doom", "light", "bluloco", "blue", "green", "yellow"]
+}
