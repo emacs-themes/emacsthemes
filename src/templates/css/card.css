@@ -31,9 +31,15 @@
     transform 0.2s,
     box-shadow 0.2s;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     box-shadow: 0 12px 24px -10px var(--hover-overlay);
     transform: translateY(-4px);
+  }
+
+  &:focus-within {
+    outline: 2px solid var(--purple);
+    outline-offset: -2px;
   }
 
   & img {
@@ -47,8 +53,20 @@
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
     padding: 1.25rem;
+  }
+
+  & .card-link {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  & .card-link:focus-visible {
+    outline: none;
   }
 
   & h2 {
@@ -68,13 +86,5 @@
     line-height: 1.5;
     color: var(--text-soft);
     -webkit-box-orient: vertical;
-  }
-
-  & a {
-    display: inline-flex;
-    gap: 0.4rem;
-    align-items: center;
-    font-weight: 600;
-    color: var(--purple);
   }
 }

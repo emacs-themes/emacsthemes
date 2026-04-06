@@ -1,12 +1,14 @@
 <article class="card" data-id="{{THEME_ID}}" data-name="{{THEME_NAME}}">
-  <a href="/themes/{{THEME_LOCAL_URL}}.html" aria-hidden="true" tabindex="-1">
+  <a
+    class="card-link"
+    href="/themes/{{THEME_LOCAL_URL}}.html"
+    aria-labelledby="theme-card-title-{{THEME_ID}}"
+    aria-describedby="theme-card-description-{{THEME_ID}}"
+  >
     <img src="{{THEME_IMAGE_PATH}}" alt="Preview of {{THEME_NAME}} theme" loading="lazy" />
+    <div class="content">
+      <h2 id="theme-card-title-{{THEME_ID}}">{{THEME_NAME}}</h2>
+      <p id="theme-card-description-{{THEME_ID}}">{{THEME_DESCRIPTION}}</p>
+    </div>
   </a>
-  <div class="content">
-    <h2>{{THEME_NAME}}</h2>
-    <p>{{THEME_DESCRIPTION}}</p>
-    <a href="/themes/{{THEME_LOCAL_URL}}.html" aria-label="View {{THEME_NAME}} theme details"
-      >View details</a
-    >
-  </div>
 </article>
