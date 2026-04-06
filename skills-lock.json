@@ -3,9 +3,8 @@
   "skills": {
     "git-commit": {
       "source": "caisah/skills",
-      "ref": "master",
       "sourceType": "github",
-      "computedHash": "c43a332b591194edf1ddeff159998b2b086643bd795dd7801e6fb9c8862dfc79"
+      "computedHash": "9312baf78a6f894d7f59b6f3fff7a80a0461bbbeabce90f3d5b082edd357234f"
     }
   }
 }
