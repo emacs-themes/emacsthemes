@@ -2,7 +2,7 @@
   "name": "Melancholy Theme",
   "id": "melancholy",
   "description": "A dark theme for dark minds",
-  "repoUrl": "https://github.com/oscarfono/melancholy-theme.git",
+  "repoUrl": "https://github.com/oscarfono/melancholy-theme",
   "rawUrls": [
     "https://raw.githubusercontent.com/oscarfono/melancholy-theme/main/melancholy-theme.el"
   ],
