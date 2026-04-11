@@ -82,12 +82,16 @@ const PATHS = {
     src: {
       images: join(STATIC_DIR, "imgs"),
       themes: join(STATIC_DIR, "themes"),
+      fonts: join(STATIC_DIR, "fonts"),
+      headers: join(STATIC_DIR, "_headers"),
       favicon: join(STATIC_DIR, "favicon.ico"),
       emacsPng: join(STATIC_DIR, "emacs.png"),
     },
     dest: {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
       themes: join(BUILD_DIR, STATIC_DIR, "themes"),
+      fonts: join(BUILD_DIR, STATIC_DIR, "fonts"),
+      headers: join(BUILD_DIR, "_headers"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
       js: join(BUILD_DIR, STATIC_DIR, "js"),
       data: join(BUILD_DIR, STATIC_DIR, "data"),
@@ -675,7 +679,9 @@ async function build() {
   await Promise.all([
     linkDir(PATHS.assets.src.images, PATHS.assets.dest.images),
     linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
+    linkDir(PATHS.assets.src.fonts, PATHS.assets.dest.fonts),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
+    copyFile(PATHS.assets.src.headers, PATHS.assets.dest.headers),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
     copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng),
   ]);
