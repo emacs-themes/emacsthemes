@@ -18,6 +18,7 @@
   "scripts": {
     "test": "bun test",
     "check": "tsc --noEmit && bun run fmt:check && bun run lint && bun run lint:css",
+    "convert:theme-imgs": "bun src/scripts/convert-theme-imgs-to-webp.ts",
     "lint:css": "stylelint **/*.css",
     "lint:css:fix": "bun run lint:css -- --fix",
     "lint": "oxlint",

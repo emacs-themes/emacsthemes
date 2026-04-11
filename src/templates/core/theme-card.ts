@@ -25,7 +25,7 @@ export function generateThemeCard(
   relativeRoot: string = "",
   staticDir: string = "static",
 ): string {
-  const imagePath = `${relativeRoot}${staticDir}/imgs/${theme.id}/preview.png`;
+  const imagePath = `${relativeRoot}${staticDir}/imgs/${theme.id}/preview.webp`;
 
   return template
     .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))

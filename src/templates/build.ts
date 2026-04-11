@@ -85,7 +85,7 @@ const PATHS = {
       fonts: join(STATIC_DIR, "fonts"),
       headers: join(STATIC_DIR, "_headers"),
       favicon: join(STATIC_DIR, "favicon.ico"),
-      emacsPng: join(STATIC_DIR, "emacs.png"),
+      emacsWebp: join(STATIC_DIR, "emacs.webp"),
     },
     dest: {
       images: join(BUILD_DIR, STATIC_DIR, "imgs"),
@@ -96,7 +96,7 @@ const PATHS = {
       js: join(BUILD_DIR, STATIC_DIR, "js"),
       data: join(BUILD_DIR, STATIC_DIR, "data"),
       favicon: join(BUILD_DIR, "favicon.ico"),
-      emacsPng: join(BUILD_DIR, "emacs.png"),
+      emacsWebp: join(BUILD_DIR, "emacs.webp"),
       themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
       themesSearchScript: join(BUILD_DIR, STATIC_DIR, "js", "themes-search.js"),
       themeToggleScript: join(BUILD_DIR, STATIC_DIR, "js", "theme-toggle.js"),
@@ -301,7 +301,7 @@ async function buildHomepage(
       canonicalPath: "/",
       ogTitle: "Emacs Themes Gallery",
       ogDescription: "Discover and preview the best Emacs themes.",
-      ogImage: `${BASE_URL}/emacs.png`,
+      ogImage: `${BASE_URL}/emacs.webp`,
       themesGrid: content,
       latestThemesHeadline: latestThemesHeadlineHtml,
       mainCssPath: `/${PATHS.css.main}`,
@@ -362,7 +362,7 @@ async function buildAllThemesPage(
       canonicalPath: "/themes/",
       ogTitle: "Emacs Themes Directory",
       ogDescription: "Search and filter through all available Emacs themes.",
-      ogImage: `${BASE_URL}/emacs.png`,
+      ogImage: `${BASE_URL}/emacs.webp`,
       themesGrid: content,
       searchBar: updatedSearchBarHtml,
       mainCssPath: `../${PATHS.css.main}`,
@@ -397,11 +397,11 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
 
     try {
       const files = await readdir(themeImgsDir);
-      const pngs = files.filter((f) => f.endsWith(".png") && f !== "preview.png");
+      const webps = files.filter((f) => f.endsWith(".webp") && f !== "preview.webp");
 
-      screenshotsHtml = pngs
+      screenshotsHtml = webps
         .map((file) => {
-          const modeName = file.replace(".png", "");
+          const modeName = file.replace(".webp", "");
           return `
       <div class="screenshot-item">
         <h3>${modeName}</h3>
@@ -458,7 +458,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
         canonicalPath: `/themes/${theme.id}`,
         ogTitle: `${theme.name} Theme for Emacs`,
         ogDescription: `Preview and details for the ${theme.name} theme.`,
-        ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.png`,
+        ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.webp`,
         themesGrid: content,
         mainCssPath: mainCssPath,
         extraCssPaths: [detailCssPath],
@@ -489,7 +489,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
       canonicalPath: "/about",
       ogTitle: "About Emacs Themes Site",
       ogDescription: "Information about the curated Emacs themes directory.",
-      ogImage: `${BASE_URL}/emacs.png`,
+      ogImage: `${BASE_URL}/emacs.webp`,
       themesGrid: aboutContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
       scripts: buildCommonScripts("/"),
@@ -551,7 +551,7 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
       canonicalPath: "/popular",
       ogTitle: "Popular Emacs Themes",
       ogDescription: "MELPA download statistics for top Emacs themes.",
-      ogImage: `${BASE_URL}/emacs.png`,
+      ogImage: `${BASE_URL}/emacs.webp`,
       themesGrid: content,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
@@ -580,7 +580,7 @@ async function build404Page(template: string, error404ContentHtml: string) {
       canonicalPath: "/404",
       ogTitle: "404 - Page Not Found",
       ogDescription: "The page you are looking for could not be found.",
-      ogImage: `${BASE_URL}/emacs.png`,
+      ogImage: `${BASE_URL}/emacs.webp`,
       themesGrid: error404ContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.error}`],
@@ -710,7 +710,7 @@ async function build() {
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.headers, PATHS.assets.dest.headers),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
-    copyFile(PATHS.assets.src.emacsPng, PATHS.assets.dest.emacsPng),
+    copyFile(PATHS.assets.src.emacsWebp, PATHS.assets.dest.emacsWebp),
   ]);
 
   logInfo("Build complete!");
