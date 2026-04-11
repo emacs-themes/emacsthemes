@@ -614,6 +614,33 @@ async function linkDir(src: string, dest: string) {
 }
 
 /**
+ * Recursively copies a source directory to the destination path.
+ *
+ * @param {string} src - Source directory path.
+ * @param {string} dest - Destination directory path.
+ */
+async function copyDir(src: string, dest: string) {
+  await mkdir(dest, { recursive: true });
+  const entries = await readdir(src, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
+
+    if (entry.isDirectory()) {
+      await copyDir(srcPath, destPath);
+      continue;
+    }
+
+    if (entry.isFile()) {
+      await copyFile(srcPath, destPath);
+    }
+  }
+
+  logInfo(`Copied ${src} -> ${dest}`);
+}
+
+/**
  * Minifies and copies CSS files from a directory to a destination.
  *
  * @param {string} src - The source directory path containing CSS files.
@@ -679,7 +706,7 @@ async function build() {
   await Promise.all([
     linkDir(PATHS.assets.src.images, PATHS.assets.dest.images),
     linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
-    linkDir(PATHS.assets.src.fonts, PATHS.assets.dest.fonts),
+    copyDir(PATHS.assets.src.fonts, PATHS.assets.dest.fonts),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.headers, PATHS.assets.dest.headers),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
