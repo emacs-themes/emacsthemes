@@ -1,0 +1,15 @@
+{
+  "name": "Doom Challenger Deep Theme",
+  "id": "doom-challenger-deep",
+  "description": "A dark theme inspired by Vim's Challenger Deep theme",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-challenger-deep-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-challenger-deep t)",
+  "type": "dark",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "dark", "challenger-deep", "vim", "purple", "blue", "yellow"]
+}
