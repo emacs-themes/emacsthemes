@@ -18,5 +18,6 @@ export const onRequest = Sentry.sentryPagesPlugin<Env>((context) => {
     enabled: Boolean(context.env.SENTRY_DSN),
     environment: context.env.ENVIRONMENT ?? "production",
     tracesSampleRate: rate,
+    enableLogs: true,
   };
 });
