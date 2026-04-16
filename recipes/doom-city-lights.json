@@ -1,0 +1,15 @@
+{
+  "name": "Doom City Lights Theme",
+  "id": "doom-city-lights",
+  "description": "A dark theme inspired by Atom City Lights",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-city-lights-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-city-lights t)",
+  "type": "dark",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "dark", "city-lights", "atom", "green", "blue", "cyan", "magenta"]
+}
