@@ -25,11 +25,13 @@ const DEFAULT_CSP = [
   "form-action 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
-  "script-src 'self'",
+  // Add static.cloudflareinsights.com here
+  "script-src 'self' static.cloudflareinsights.com",
   "style-src 'self'",
   "font-src 'self'",
   "img-src 'self' data:",
-  "connect-src 'self'",
+  // Add cloudflareinsights.com here
+  "connect-src 'self' cloudflareinsights.com",
   "upgrade-insecure-requests",
 ].join("; ");
 
