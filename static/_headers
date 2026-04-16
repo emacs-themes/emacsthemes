@@ -1,5 +1,6 @@
 /*
   Link: </static/fonts/inter/InterVariable.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin=anonymous
+  Link: </static/fonts/inter/InterVariable-Italic.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin=anonymous
 
 /static/fonts/*
   Cache-Control: public, max-age=31536000, immutable
