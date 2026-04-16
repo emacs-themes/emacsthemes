@@ -18,7 +18,7 @@ const STATIC_DIR = "static";
 const CSS_DIR = join(TEMPLATES_DIR, "css");
 const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
 const BASE_URL = "https://emacsthemes.com";
-const TITLE_BRAND_SUFFIX = " - Emacs Themes";
+const TITLE_BRAND_SUFFIX = " - EmacsThemes";
 const LOG_PREFIX = "[build]";
 const BASE_TEMPLATE_OPTIONS = {
   baseUrl: BASE_URL,
