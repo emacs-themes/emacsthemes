@@ -29,6 +29,8 @@ bun run dev
 
 Add a theme by creating a JSON recipe in `recipes/` that matches the schema in `src/core/schema-checker.ts`.
 
+Update a theme info by modifying the specific `.json` in `recipes/`.
+
 Generate screenshots:
 
 ```bash
