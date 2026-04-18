@@ -407,9 +407,9 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
         .map((file) => {
           const modeName = file.replace(".webp", "");
           return `
-      <div class="screenshot-item">
+      <div class="screenshot-item"">
         <h3>${modeName}</h3>
-        <img src="../static/imgs/${theme.id}/${file}" alt="${theme.name} in ${modeName}" loading="lazy" />
+        <img src="../static/imgs/${theme.id}/${file}" alt="${theme.name} in ${modeName}" loading="lazy" width="1280" height="960" />
       </div>`;
         })
         .join("\n");
