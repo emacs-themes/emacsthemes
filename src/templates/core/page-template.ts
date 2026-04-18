@@ -17,24 +17,7 @@ export interface PageData {
   mainCssPath: string;
   extraCssPaths?: string[];
   scripts?: string;
-  csp?: string;
 }
-
-const DEFAULT_CSP = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  "object-src 'none'",
-  // Add static.cloudflareinsights.com here
-  "script-src 'self' static.cloudflareinsights.com",
-  "style-src 'self'",
-  "font-src 'self'",
-  "img-src 'self' data:",
-  // Add cloudflareinsights.com here
-  "connect-src 'self' cloudflareinsights.com",
-  "upgrade-insecure-requests",
-].join("; ");
 
 /**
  * Options that customize how the base template is rendered.
@@ -119,7 +102,6 @@ export function applyBaseTemplate(
     .replace(/{{OG_TITLE}}/g, escapeHtml(data.ogTitle))
     .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
     .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
-    .replace("{{CSP}}", escapeHtml(data.csp || DEFAULT_CSP))
     .replace("{{FONTS}}", getFontPreloadTags(data.fonts))
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
