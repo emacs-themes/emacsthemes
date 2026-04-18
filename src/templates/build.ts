@@ -20,6 +20,8 @@ const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
 const BASE_URL = "https://emacsthemes.com";
 const TITLE_BRAND_SUFFIX = " - EmacsThemes";
 const LOG_PREFIX = "[build]";
+const INTER_FONT_PATH = "/static/fonts/inter/InterVariable.woff2";
+const INTER_ITALIC_FONT_PATH = "/static/fonts/inter/InterVariable-Italic.woff2";
 const BASE_TEMPLATE_OPTIONS = {
   baseUrl: BASE_URL,
   githubUrl: GITHUB_URL,
@@ -302,6 +304,7 @@ async function buildHomepage(
       ogTitle: "Emacs Themes Gallery",
       ogDescription: "Discover and preview the best Emacs themes.",
       ogImage: `${BASE_URL}/emacs.webp`,
+      fonts: [INTER_FONT_PATH],
       themesGrid: content,
       latestThemesHeadline: latestThemesHeadlineHtml,
       mainCssPath: `/${PATHS.css.main}`,
@@ -363,6 +366,7 @@ async function buildAllThemesPage(
       ogTitle: "Emacs Themes Directory",
       ogDescription: "Search and filter through all available Emacs themes.",
       ogImage: `${BASE_URL}/emacs.webp`,
+      fonts: [INTER_FONT_PATH, INTER_ITALIC_FONT_PATH],
       themesGrid: content,
       searchBar: updatedSearchBarHtml,
       mainCssPath: `../${PATHS.css.main}`,
@@ -459,6 +463,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
         ogTitle: `${theme.name} Theme for Emacs`,
         ogDescription: `Preview and details for the ${theme.name} theme.`,
         ogImage: `${BASE_URL}/static/imgs/${theme.id}/preview.webp`,
+        fonts: [INTER_FONT_PATH],
         themesGrid: content,
         mainCssPath: mainCssPath,
         extraCssPaths: [detailCssPath],
@@ -490,6 +495,7 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
       ogTitle: "About Emacs Themes Site",
       ogDescription: "Information about the curated Emacs themes directory.",
       ogImage: `${BASE_URL}/emacs.webp`,
+      fonts: [INTER_FONT_PATH],
       themesGrid: aboutContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
       scripts: buildCommonScripts("/"),
@@ -552,6 +558,7 @@ async function buildPopularThemesPage(template: string, contentTemplate: string)
       ogTitle: "Popular Emacs Themes",
       ogDescription: "MELPA download statistics for top Emacs themes.",
       ogImage: `${BASE_URL}/emacs.webp`,
+      fonts: [INTER_FONT_PATH],
       themesGrid: content,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
@@ -581,6 +588,7 @@ async function build404Page(template: string, error404ContentHtml: string) {
       ogTitle: "404 - Page Not Found",
       ogDescription: "The page you are looking for could not be found.",
       ogImage: `${BASE_URL}/emacs.webp`,
+      fonts: [INTER_FONT_PATH],
       themesGrid: error404ContentHtml,
       mainCssPath: `/${PATHS.css.main}`,
       extraCssPaths: [`/${PATHS.css.error}`],

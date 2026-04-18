@@ -11,6 +11,7 @@ export interface PageData {
   ogDescription: string;
   ogImage: string;
   themesGrid: string;
+  fonts: string[];
   searchBar?: string;
   latestThemesHeadline?: string;
   mainCssPath: string;
@@ -77,6 +78,21 @@ function getCssLinkTag(cssPath: string): string {
 }
 
 /**
+ * Generates shared font preload tags injected into a rendered page.
+ *
+ * @param {string[]} fonts - Public font asset paths to preload.
+ * @returns {string} HTML preload link tags for required font assets.
+ */
+function getFontPreloadTags(fonts: string[]): string {
+  return fonts
+    .map(
+      (font) =>
+        `<link rel="preload" href="${escapeHtml(font)}" as="font" type="font/woff2" crossorigin>`,
+    )
+    .join("\n");
+}
+
+/**
  * Injects page-specific data into the base HTML template (layout).
  *
  * @param {string} template - The base HTML template string.
@@ -104,6 +120,7 @@ export function applyBaseTemplate(
     .replace(/{{OG_DESCRIPTION}}/g, escapeHtml(data.ogDescription))
     .replace(/{{OG_IMAGE}}/g, escapeHtml(data.ogImage))
     .replace("{{CSP}}", escapeHtml(data.csp || DEFAULT_CSP))
+    .replace("{{FONTS}}", getFontPreloadTags(data.fonts))
     .replace("{{THEMES_GRID}}", data.themesGrid)
     .replace("{{SEARCH_BAR}}", data.searchBar || "")
     .replace("{{LATEST_THEMES_HEADLINE}}", data.latestThemesHeadline || "")
