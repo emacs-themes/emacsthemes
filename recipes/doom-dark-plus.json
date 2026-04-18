@@ -1,0 +1,15 @@
+{
+  "name": "Doom Dark+ Theme",
+  "id": "doom-dark-plus",
+  "description": "A dark theme inspired by dark+ Theme by equinusocio",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-dark+-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-dark+ t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "dark-plus", "vscode", "black", "blue", "purple", "cyan", "orange"]
+}
