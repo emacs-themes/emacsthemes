@@ -1,0 +1,15 @@
+{
+  "name": "Doom Dracula Theme",
+  "id": "doom-dracula",
+  "description": "A dark theme based on Dracula theme",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-dracula-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-dracula t)",
+  "type": "dark",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "dark", "dracula", "purple", "magenta", "cyan", "green", "orange"]
+}
