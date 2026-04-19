@@ -9,4 +9,4 @@ bucket_name = "emacsthemes"
 
 [vars]
 ENVIRONMENT = "production"
-SENTRY_TRACES_SAMPLE_RATE = "0.1"
+SENTRY_TRACES_SAMPLE_RATE = "0.5"
