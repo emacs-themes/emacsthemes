@@ -1,0 +1,15 @@
+{
+  "name": "Doom Earl Grey Theme",
+  "id": "doom-earl-grey",
+  "description": "A gentle color scheme for code",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-earl-grey-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-earl-grey t)",
+  "type": "light",
+  "authors": ["JuneKelly"],
+  "tags": ["doom", "light", "earl-grey", "white", "gentle", "beige", "purple", "blue", "teal"]
+}
