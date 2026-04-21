@@ -1,6 +1,6 @@
 {
   "pinnedThemes": [
-    "doom-earl-grey",
+    "doom-ephemeral",
     "doom-dracula",
     "doom-dark-plus",
     "doom-city-lights",
@@ -10,7 +10,6 @@
     "doom-badger",
     "doom-ayu-mirage",
     "doom-ayu-light",
-    "doom-ayu-dark",
-    "doom-acario-light"
+    "doom-ayu-dark"
   ]
 }

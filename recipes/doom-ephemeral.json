@@ -1,0 +1,15 @@
+{
+  "name": "Doom Ephemeral Theme",
+  "id": "doom-ephemeral",
+  "description": "A dark theme inspired by Nord",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-ephemeral-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-ephemeral t)",
+  "type": "dark",
+  "authors": ["karetsu"],
+  "tags": ["doom", "dark", "ephemeral", "nord", "blue", "purple", "cyan", "pink", "green"]
+}
