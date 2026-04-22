@@ -1,0 +1,15 @@
+{
+  "name": "Doom Fairy Floss Theme",
+  "id": "doom-fairy-floss",
+  "description": "A candy colored theme inspired by Sublime's Fairy Floss",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-fairy-floss-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-fairy-floss t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "fairy floss", "purple", "pink", "cyan", "yellow", "candy"]
+}
