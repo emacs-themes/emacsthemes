@@ -1,0 +1,15 @@
+{
+  "name": "Doom Feather Dark Theme",
+  "id": "doom-feather-dark",
+  "description": "A purple-tinted theme inspired by Doom One Dark",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-feather-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-feather-dark t)",
+  "type": "dark",
+  "authors": ["Lena SAVY-LARIGALDIE"],
+  "tags": ["doom", "dark", "feather", "purple", "blue", "cyan", "green", "magenta"]
+}
