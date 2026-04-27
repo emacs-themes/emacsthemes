@@ -1,0 +1,15 @@
+{
+  "name": "Doom Feather Light Theme",
+  "id": "doom-feather-light",
+  "description": "A light theme based on Doom One Light",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-feather-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-feather-light t)",
+  "type": "light",
+  "authors": ["Lena SAVY-LARIGALDIE"],
+  "tags": ["doom", "light", "feather", "purple", "blue", "cyan", "green", "magenta"]
+}
