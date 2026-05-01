@@ -1,0 +1,15 @@
+{
+  "name": "Doom Flatwhite Theme",
+  "id": "doom-flatwhite",
+  "description": "A minimal light syntax theme inspired by Atom's Flatwhite Syntax theme",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-flatwhite-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-flatwhite t)",
+  "type": "light",
+  "authors": ["JuneKelly"],
+  "tags": ["doom", "light", "flatwhite", "minimal", "white", "purple", "green", "blue"]
+}
