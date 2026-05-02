@@ -1,0 +1,15 @@
+{
+  "name": "Doom Gruvbox Light Theme",
+  "id": "doom-gruvbox-light",
+  "description": "A light theme inspired by morhetz's Gruvbox",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-gruvbox-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-gruvbox-light t)",
+  "type": "light",
+  "authors": ["jsoa"],
+  "tags": ["doom", "gruvbox", "light", "retro", "vim", "yellow", "brown", "orange", "green"]
+}
