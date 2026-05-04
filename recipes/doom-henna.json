@@ -1,0 +1,15 @@
+{
+  "name": "Doom Henna Theme",
+  "id": "doom-henna",
+  "description": "A dark theme inspired by VSCode's Henna theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-henna-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-henna t)",
+  "type": "dark",
+  "authors": ["jsoa"],
+  "tags": ["doom", "henna", "dark", "vscode", "red", "green", "cyan"]
+}

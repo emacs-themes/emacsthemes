@@ -1,0 +1,15 @@
+{
+  "name": "Doom Gruvbox Theme",
+  "id": "doom-gruvbox",
+  "description": "Dark theme with pastel 'retro groove' colors.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-gruvbox-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-gruvbox t)",
+  "type": "dark",
+  "authors": ["JongW"],
+  "tags": ["doom", "gruvbox", "dark", "retro", "vim", "brown", "orange", "green"]
+}

@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "doom-henna",
+    "doom-gruvbox",
     "doom-gruvbox-light",
     "doom-flatwhite",
     "doom-feather-light",
@@ -9,8 +11,6 @@
     "doom-dracula",
     "doom-dark-plus",
     "doom-city-lights",
-    "doom-challenger-deep",
-    "doom-bluloco-light",
-    "doom-bluloco-dark"
+    "doom-challenger-deep"
   ]
 }
