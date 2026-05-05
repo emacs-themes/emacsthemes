@@ -1,0 +1,15 @@
+{
+  "name": "Doom Horizon Theme",
+  "id": "doom-horizon",
+  "description": "A dark theme ported from the Visual Studio Code Horizon theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-horizon-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-horizon t)",
+  "type": "dark",
+  "authors": ["karetsu"],
+  "tags": ["doom", "horizon", "dark", "vscode", "red", "orange", "cyan"]
+}

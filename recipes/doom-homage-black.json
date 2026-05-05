@@ -1,0 +1,15 @@
+{
+  "name": "Doom Homage Black Theme",
+  "id": "doom-homage-black",
+  "description": "A dark theme inspired by eziam, tao, and jbeans with pitch-black backgrounds.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-homage-black-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-homage-black t)",
+  "type": "dark",
+  "authors": ["mskorzhinskiy"],
+  "tags": ["doom", "homage", "black", "dark", "minimal", "monochrome", "blue"]
+}

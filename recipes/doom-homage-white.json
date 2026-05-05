@@ -1,0 +1,15 @@
+{
+  "name": "Doom Homage White Theme",
+  "id": "doom-homage-white",
+  "description": "A light theme inspired by editors from the 2000s, eziam, and tao themes.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-homage-white-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-homage-white t)",
+  "type": "light",
+  "authors": ["mskorzhinskiy"],
+  "tags": ["doom", "homage", "white", "light", "minimal", "2000s", "blue"]
+}
