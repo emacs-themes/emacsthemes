@@ -1,0 +1,15 @@
+{
+  "name": "Doom IR Black Theme",
+  "id": "doom-ir-black",
+  "description": "A port of the original IR Black colorscheme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-ir-black-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-ir-black t)",
+  "type": "dark",
+  "authors": ["Kevin Kainan Li"],
+  "tags": ["doom", "dark", "ir-black", "black", "vim", "green", "blue", "magenta"]
+}
