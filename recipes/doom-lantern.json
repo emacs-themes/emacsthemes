@@ -1,0 +1,15 @@
+{
+  "name": "Doom Lantern Theme",
+  "id": "doom-lantern",
+  "description": "A brown and ochre theme based on Gitleptune's Lantern theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-lantern-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-lantern t)",
+  "type": "dark",
+  "authors": ["paladhammika"],
+  "tags": ["doom", "dark", "lantern", "brown", "ochre", "orange", "green", "blue"]
+}
