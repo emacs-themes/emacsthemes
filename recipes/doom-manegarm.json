@@ -1,0 +1,15 @@
+{
+  "name": "Doom Manegarm Theme",
+  "id": "doom-manegarm",
+  "description": "A dark theme with autumn-inspired colors.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-manegarm-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-manegarm t)",
+  "type": "dark",
+  "authors": ["kenranunderscore"],
+  "tags": ["doom", "dark", "manegarm", "autumn", "brown", "green", "orange", "yellow"]
+}
