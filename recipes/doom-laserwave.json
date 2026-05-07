@@ -1,0 +1,15 @@
+{
+  "name": "Doom Laserwave Theme",
+  "id": "doom-laserwave",
+  "description": "A clean 80's synthwave / outrun theme inspired by VS Code Laserwave.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-laserwave-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-laserwave t)",
+  "type": "dark",
+  "authors": ["hyakt"],
+  "tags": ["doom", "dark", "laserwave", "synthwave", "outrun", "purple", "pink", "cyan"]
+}
