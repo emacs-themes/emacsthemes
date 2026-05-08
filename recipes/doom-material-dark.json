@@ -1,0 +1,15 @@
+{
+  "name": "Doom Material Dark Theme",
+  "id": "doom-material-dark",
+  "description": "A darker version of the Material Theme inspired by xrei",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-material-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-material-dark t)",
+  "type": "dark",
+  "authors": ["trev-dev"],
+  "tags": ["doom", "dark", "material", "black", "blue", "cyan", "green", "magenta", "yellow"]
+}
