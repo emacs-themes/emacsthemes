@@ -1,0 +1,15 @@
+{
+  "name": "Doom Material Theme",
+  "id": "doom-material",
+  "description": "A dark theme inspired by Material Theme by equinusocio",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-material-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-material t)",
+  "type": "dark",
+  "authors": ["tam5"],
+  "tags": ["doom", "dark", "material", "blue", "cyan", "green", "magenta", "yellow"]
+}
