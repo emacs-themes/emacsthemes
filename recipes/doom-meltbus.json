@@ -1,0 +1,15 @@
+{
+  "name": "Doom Meltbus Theme",
+  "id": "doom-meltbus",
+  "description": "A dark mostly monochromatic theme inspired by the eltbus theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-meltbus-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-meltbus t)",
+  "type": "dark",
+  "authors": ["spacefrogg"],
+  "tags": ["doom", "dark", "meltbus", "monochrome", "black", "grey", "blue", "monochrome"]
+}

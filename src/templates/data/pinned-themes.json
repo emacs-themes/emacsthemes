@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-meltbus",
     "doom-material",
     "doom-material-dark",
     "doom-manegarm",
@@ -10,7 +11,6 @@
     "doom-homage-white",
     "doom-homage-black",
     "doom-henna",
-    "doom-gruvbox",
-    "doom-gruvbox-light"
+    "doom-gruvbox"
   ]
 }
