@@ -1,0 +1,15 @@
+{
+  "name": "Doom Miramare Theme",
+  "id": "doom-miramare",
+  "description": "A dark Gruvbox variant with comfortable and pleasant colors.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-miramare-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-miramare t)",
+  "type": "dark",
+  "authors": ["sagittaros"],
+  "tags": ["doom", "dark", "miramare", "brown", "gruvbox", "green", "yellow", "cyan"]
+}
