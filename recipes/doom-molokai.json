@@ -1,0 +1,15 @@
+{
+  "name": "Doom Molokai Theme",
+  "id": "doom-molokai",
+  "description": "A dark, vibrant theme inspired by Textmate's Monokai.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-molokai-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-molokai t)",
+  "type": "dark",
+  "authors": ["Henrik Lissner"],
+  "tags": ["doom", "dark", "molokai", "monokai", "black", "vibrant", "green", "magenta", "orange"]
+}
