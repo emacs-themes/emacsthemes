@@ -1,0 +1,15 @@
+{
+  "name": "Doom Monokai Classic Theme",
+  "id": "doom-monokai-classic",
+  "description": "A dark, vibrant theme inspired by Textmate's Monokai.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-monokai-classic-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-monokai-classic t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "monokai", "classic", "black", "vibrant", "green", "magenta", "orange"]
+}
