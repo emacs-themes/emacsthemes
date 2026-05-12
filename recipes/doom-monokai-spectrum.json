@@ -1,0 +1,15 @@
+{
+  "name": "Doom Monokai Spectrum Theme",
+  "id": "doom-monokai-spectrum",
+  "description": "A dark, vibrant theme inspired by Textmate's Monokai.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-monokai-spectrum-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-monokai-spectrum t)",
+  "type": "dark",
+  "authors": ["minikN"],
+  "tags": ["doom", "dark", "monokai", "spectrum", "vibrant", "green", "cyan", "yellow", "magenta"]
+}

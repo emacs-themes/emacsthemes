@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-monokai-spectrum",
     "doom-monokai-ristretto",
     "doom-monokai-pro",
     "doom-monokai-octagon",
@@ -10,7 +11,6 @@
     "doom-meltbus",
     "doom-material",
     "doom-material-dark",
-    "doom-manegarm",
-    "doom-laserwave"
+    "doom-manegarm"
   ]
 }
