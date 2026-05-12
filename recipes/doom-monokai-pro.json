@@ -1,0 +1,15 @@
+{
+  "name": "Doom Monokai Pro Theme",
+  "id": "doom-monokai-pro",
+  "description": "A port of VS Code's Monokai Pro.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-monokai-pro-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-monokai-pro t)",
+  "type": "dark",
+  "authors": ["minikN"],
+  "tags": ["doom", "dark", "monokai", "pro", "vibrant", "green", "cyan", "yellow", "magenta"]
+}
