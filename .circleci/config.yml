@@ -8,11 +8,16 @@ executors:
 
 commands:
   halt-stale-pipeline:
-    description: Stop this job when a newer commit exists on the same branch.
+    description: Stop this job when it is duplicated or stale.
     steps:
       - run:
           name: Halt Stale Pipeline
           command: |
+            if [ -n "${CIRCLE_PULL_REQUEST:-}" ]; then
+              echo "Skipping pull request pipeline for $CIRCLE_SHA1; branch pipeline handles this commit."
+              circleci-agent step halt
+            fi
+
             if [ -z "${CIRCLE_BRANCH:-}" ] || [ -z "${CIRCLE_SHA1:-}" ]; then
               exit 0
             fi
