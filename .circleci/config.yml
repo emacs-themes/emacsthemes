@@ -7,6 +7,25 @@ executors:
     working_directory: ~/project
 
 commands:
+  halt-stale-pipeline:
+    description: Stop this job when a newer commit exists on the same branch.
+    steps:
+      - run:
+          name: Halt Stale Pipeline
+          command: |
+            if [ -z "${CIRCLE_BRANCH:-}" ] || [ -z "${CIRCLE_SHA1:-}" ]; then
+              exit 0
+            fi
+
+            latest_sha="$(git ls-remote origin "refs/heads/${CIRCLE_BRANCH}" | cut -f1)"
+
+            if [ -z "$latest_sha" ] || [ "$latest_sha" = "$CIRCLE_SHA1" ]; then
+              exit 0
+            fi
+
+            echo "Skipping stale pipeline for $CIRCLE_SHA1; latest $CIRCLE_BRANCH commit is $latest_sha."
+            circleci-agent step halt
+
   install-node-toolchain:
     description: Install Node.js toolchain into workspace.
     steps:
@@ -14,7 +33,7 @@ commands:
           name: Install Node Toolchain
           command: |
             NODE_VERSION="22.11.0"
-            apt-get update && apt-get install -y --no-install-recommends ca-certificates curl xz-utils
+            apt-get update && apt-get install -y --no-install-recommends ca-certificates curl git xz-utils
             mkdir -p "$HOME/project/.tools"
             curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o /tmp/node.tar.xz
             tar -xJf /tmp/node.tar.xz -C "$HOME/project/.tools"
@@ -43,6 +62,7 @@ jobs:
     steps:
       - checkout
       - install-node-toolchain
+      - halt-stale-pipeline
       - load-node-toolchain
       - restore_cache:
           keys:
@@ -69,6 +89,7 @@ jobs:
     steps:
       - checkout
       - install-node-toolchain
+      - halt-stale-pipeline
       - load-node-toolchain
       - restore_cache:
           keys:
@@ -91,6 +112,7 @@ jobs:
       - attach_workspace:
           at: ~/project
       - install-node-toolchain
+      - halt-stale-pipeline
       - load-node-toolchain
       - restore_cache:
           keys:
@@ -101,7 +123,7 @@ jobs:
       - run:
           name: Install rclone
           command: |
-            apt-get update && apt-get install -y --no-install-recommends ca-certificates rclone git
+            apt-get update && apt-get install -y --no-install-recommends ca-certificates rclone
             rclone version
       - run:
           name: Deploy to Cloudflare Pages
