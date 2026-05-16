@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nord Aurora Theme",
+  "id": "doom-nord-aurora",
+  "description": "A dark theme inspired by Nord. Aurora flavour.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-nord-aurora-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nord-aurora t)",
+  "type": "dark",
+  "authors": ["MoskitoHero"],
+  "tags": ["doom", "dark", "nord", "aurora", "blue", "cyan", "green", "magenta"]
+}
