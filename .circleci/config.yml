@@ -109,7 +109,7 @@ jobs:
             test -n "$CLOUDFLARE_API_TOKEN" || (echo "Missing CLOUDFLARE_API_TOKEN" && exit 1)
             test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "Missing CLOUDFLARE_ACCOUNT_ID" && exit 1)
             ls -la build
-            bunbun src/cloudflare/upload-imgs-to-r2.ts && bun run deploy:site
+            bunbun src/cloudflare/upload-imgs-to-r2.ts && bun run deploy:site && bunbun src/cloudflare/delete-oldest-deployment.ts
 
 workflows:
   version: 2

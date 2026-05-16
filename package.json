@@ -31,6 +31,7 @@
     "build": "bun src/templates/build.ts",
     "deploy:site": "rm -rf build/static/imgs && bun wrangler pages deploy build --project-name=emacsthemes --branch=main",
     "deploy:imgs": "bun src/cloudflare/upload-imgs-to-r2.ts",
+    "deploy:delete-oldest": "bun src/cloudflare/delete-oldest-deployment.ts",
     "deploy": "bun run deploy:imgs && bun run deploy:site",
     "dev": "bun --watch src/templates/build.ts & bun wrangler pages dev build --live-reload --binding ENVIRONMENT=development"
   },
