@@ -61,14 +61,22 @@ commands:
             echo "alias bunbun='/usr/local/bin/bun'" >> "$BASH_ENV"
             source "$BASH_ENV"
 
+  cancel-older-workflows:
+    description: Cancel older running CircleCI workflows for this branch.
+    steps:
+      - run:
+          name: Cancel Older Workflows
+          command: bunbun src/ci/cancel-older-circleci-workflows.ts
+
 jobs:
-  qa:
+  build-and-test:
     executor: bun-executor
     steps:
       - checkout
       - install-node-toolchain
       - halt-stale-pipeline
       - load-node-toolchain
+      - cancel-older-workflows
       - restore_cache:
           keys:
             - bun-deps-{{ checksum "bun.lock" }}
@@ -88,20 +96,6 @@ jobs:
       - run:
           name: Run Tests
           command: bun test
-
-  build:
-    executor: bun-executor
-    steps:
-      - checkout
-      - install-node-toolchain
-      - halt-stale-pipeline
-      - load-node-toolchain
-      - restore_cache:
-          keys:
-            - bun-deps-{{ checksum "bun.lock" }}
-      - run:
-          name: Install Dependencies
-          command: bunbun ci
       - run:
           name: Build Site
           command: bun run build
@@ -142,13 +136,10 @@ workflows:
   version: 2
   validate-and-generate:
     jobs:
-      - qa
-      - build:
-          requires:
-            - qa
+      - build-and-test
       - deploy:
           requires:
-            - build
+            - build-and-test
           filters:
             branches:
               only: main
