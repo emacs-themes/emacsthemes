@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nord Light Theme",
+  "id": "doom-nord-light",
+  "description": "A light theme inspired by Nord-Light.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-nord-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nord-light t)",
+  "type": "light",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "light", "nord", "blue", "cyan", "green", "magenta"]
+}
