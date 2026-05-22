@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-nova",
     "doom-nord",
     "doom-nord-light",
     "doom-nord-aurora",
@@ -10,7 +11,6 @@
     "doom-monokai-octagon",
     "doom-monokai-machine",
     "doom-monokai-classic",
-    "doom-molokai",
-    "doom-miramare"
+    "doom-molokai"
   ]
 }

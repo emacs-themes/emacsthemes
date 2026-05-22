@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nova Theme",
+  "id": "doom-nova",
+  "description": "A dark theme inspired by Trevor Miller's Nova.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-nova-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nova t)",
+  "type": "dark",
+  "authors": ["bigardone"],
+  "tags": ["doom", "dark", "nova", "blue", "cyan", "green", "violet"]
+}
