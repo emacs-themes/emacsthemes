@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nord Theme",
+  "id": "doom-nord",
+  "description": "A dark theme inspired by Nord.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-nord-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nord t)",
+  "type": "dark",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "dark", "nord", "blue", "cyan", "green", "magenta"]
+}
