@@ -1,0 +1,15 @@
+{
+  "name": "Doom Oceanic Next Theme",
+  "id": "doom-oceanic-next",
+  "description": "A dark theme inspired by Oceanic Next.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-oceanic-next-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-oceanic-next t)",
+  "type": "dark",
+  "authors": ["juanwolf"],
+  "tags": ["doom", "dark", "oceanic-next", "blue", "teal", "green", "violet"]
+}
