@@ -1,0 +1,14 @@
+{
+  "name": "Doom Oksolar Light Theme",
+  "id": "doom-oksolar-light",
+  "description": "An OKLab variant of Solarized light",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-oksolar-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["logc"],
+  "tags": ["doom", "light", "oksolar", "solarized", "green", "blue"]
+}
