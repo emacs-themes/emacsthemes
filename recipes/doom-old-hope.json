@@ -1,0 +1,15 @@
+{
+  "name": "Doom Old Hope Theme",
+  "id": "doom-old-hope",
+  "description": "A dark theme inspired by An Old Hope.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-old-hope-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-old-hope t)",
+  "type": "dark",
+  "authors": ["teesloane"],
+  "tags": ["doom", "dark", "old-hope", "blue", "red", "yellow", "green", "orange"]
+}
