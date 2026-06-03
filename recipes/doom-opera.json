@@ -1,0 +1,15 @@
+{
+  "name": "Doom Opera Theme",
+  "id": "doom-opera",
+  "description": "A dark Opera theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-opera-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-opera t)",
+  "type": "dark",
+  "authors": ["jwintz"],
+  "tags": ["doom", "dark", "opera", "blue", "green", "teal", "magenta"]
+}
