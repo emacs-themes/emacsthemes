@@ -1,0 +1,15 @@
+{
+  "name": "Doom Opera Light Theme",
+  "id": "doom-opera-light",
+  "description": "A light Opera theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-opera-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-opera-light t)",
+  "type": "light",
+  "authors": ["jwintz"],
+  "tags": ["doom", "light", "opera", "white", "blue", "green", "teal", "magenta"]
+}
