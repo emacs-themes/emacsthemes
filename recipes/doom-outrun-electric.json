@@ -1,0 +1,15 @@
+{
+  "name": "Doom Outrun Electric Theme",
+  "id": "doom-outrun-electric",
+  "description": "A vibrant, neon colored theme inspired by VS Code Outrun Electric.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-outrun-electric-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-outrun-electric t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "outrun", "electric", "neon", "synthwave", "purple", "pink", "blue", "cyan"]
+}
