@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-outrun-electric",
     "doom-opera",
     "doom-opera-light",
     "doom-old-hope",
@@ -10,7 +11,6 @@
     "doom-nord",
     "doom-nord-light",
     "doom-nord-aurora",
-    "doom-moonlight",
-    "doom-monokai-spectrum"
+    "doom-moonlight"
   ]
 }
