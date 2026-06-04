@@ -1,0 +1,15 @@
+{
+  "name": "Doom Palenight Theme",
+  "id": "doom-palenight",
+  "description": "A dark theme inspired by Material-Palenight.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-palenight-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-palenight t)",
+  "type": "dark",
+  "authors": ["Brettm12345"],
+  "tags": ["doom", "dark", "palenight", "material", "blue", "cyan", "purple", "green"]
+}
