@@ -11,5 +11,16 @@
   "elispAfter": "(load-theme 'doom-outrun-electric t)",
   "type": "dark",
   "authors": ["ema2159"],
-  "tags": ["doom", "dark", "outrun", "electric", "neon", "synthwave", "purple", "pink", "blue", "cyan"]
+  "tags": [
+    "doom",
+    "dark",
+    "outrun",
+    "electric",
+    "neon",
+    "synthwave",
+    "purple",
+    "pink",
+    "blue",
+    "cyan"
+  ]
 }
