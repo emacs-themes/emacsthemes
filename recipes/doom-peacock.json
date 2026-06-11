@@ -1,0 +1,26 @@
+{
+  "name": "Doom Peacock Theme",
+  "id": "doom-peacock",
+  "description": "Dark theme inspired by daylerees' Peacock.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-peacock-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-peacock t)",
+  "type": "dark",
+  "authors": ["teesloane"],
+  "tags": [
+    "doom",
+    "peacock",
+    "dark",
+    "daylerees",
+    "orange",
+    "teal",
+    "red",
+    "yellow",
+    "green",
+    "blue"
+  ]
+}
