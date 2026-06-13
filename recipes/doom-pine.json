@@ -1,0 +1,15 @@
+{
+  "name": "Doom Pine Theme",
+  "id": "doom-pine",
+  "description": "Emacs theme for mountain folks.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-pine-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-pine t)",
+  "type": "dark",
+  "authors": ["Roman Hargrave"],
+  "tags": ["doom", "dark", "pine", "gruvbox", "green", "yellow", "orange"]
+}
