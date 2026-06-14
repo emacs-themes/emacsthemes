@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "doom-plain",
+    "doom-plain-dark",
     "doom-pine",
     "doom-peacock",
     "doom-palenight",
@@ -9,8 +11,6 @@
     "doom-old-hope",
     "doom-oksolar-light",
     "doom-oksolar-dark",
-    "doom-oceanic-next",
-    "doom-nova",
-    "doom-nord"
+    "doom-oceanic-next"
   ]
 }
