@@ -1,0 +1,15 @@
+{
+  "name": "Doom Plain Dark Theme",
+  "id": "doom-plain-dark",
+  "description": "Theme inspired by gko's Plain Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-plain-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-plain-dark t)",
+  "type": "dark",
+  "authors": ["das-s"],
+  "tags": ["doom", "plain", "dark", "minimal", "monochrome", "grey"]
+}
