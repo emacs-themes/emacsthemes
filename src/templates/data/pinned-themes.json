@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-rouge",
     "doom-plain",
     "doom-plain-dark",
     "doom-pine",
@@ -10,7 +11,6 @@
     "doom-opera-light",
     "doom-old-hope",
     "doom-oksolar-light",
-    "doom-oksolar-dark",
-    "doom-oceanic-next"
+    "doom-oksolar-dark"
   ]
 }
