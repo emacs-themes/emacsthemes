@@ -1,0 +1,15 @@
+{
+  "name": "Doom Rouge Theme",
+  "id": "doom-rouge",
+  "description": "A dark theme ported from VS Code's Rouge.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-rouge-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-rouge t)",
+  "type": "dark",
+  "authors": ["das-s"],
+  "tags": ["doom", "dark", "rouge", "red", "pink", "blue", "vscode"]
+}
