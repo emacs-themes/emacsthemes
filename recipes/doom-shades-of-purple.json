@@ -1,0 +1,15 @@
+{
+  "name": "Doom Shades of Purple Theme",
+  "id": "doom-shades-of-purple",
+  "description": "A dark theme inspired by VS Code's Shades of Purple.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-shades-of-purple-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-shades-of-purple t)",
+  "type": "dark",
+  "authors": ["jwbaldwin"],
+  "tags": ["doom", "dark", "shades-of-purple", "purple", "vscode", "orange", "green"]
+}
