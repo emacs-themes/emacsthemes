@@ -1,0 +1,15 @@
+{
+  "name": "Doom Solarized Light Theme",
+  "id": "doom-solarized-light",
+  "description": "A light theme inspired by Solarized Light.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-solarized-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-solarized-light t)",
+  "type": "light",
+  "authors": ["fuxialexander"],
+  "tags": ["doom", "light", "solarized", "blue", "green", "cyan"]
+}

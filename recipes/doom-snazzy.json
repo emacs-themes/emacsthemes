@@ -1,0 +1,15 @@
+{
+  "name": "Doom Snazzy Theme",
+  "id": "doom-snazzy",
+  "description": "A dark theme inspired by Atom Snazzy Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-snazzy-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-snazzy t)",
+  "type": "dark",
+  "authors": ["ar1a"],
+  "tags": ["doom", "dark", "snazzy", "atom", "hyper", "magenta", "cyan"]
+}

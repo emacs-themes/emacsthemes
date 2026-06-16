@@ -1,0 +1,15 @@
+{
+  "name": "Doom Solarized Dark Theme",
+  "id": "doom-solarized-dark",
+  "description": "A dark theme inspired by VS Code Solarized Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-solarized-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-solarized-dark t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "solarized", "blue", "green", "cyan"]
+}

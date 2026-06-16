@@ -1,0 +1,15 @@
+{
+  "name": "Doom Solarized Dark High Contrast Theme",
+  "id": "doom-solarized-dark-high-contrast",
+  "description": "A high-contrast Solarized Dark theme inspired by VS Code Solarized Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-solarized-dark-high-contrast-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-solarized-dark-high-contrast t)",
+  "type": "dark",
+  "authors": ["jmorag"],
+  "tags": ["doom", "dark", "solarized", "high-contrast", "blue", "green"]
+}
