@@ -1,5 +1,9 @@
 {
   "pinnedThemes": [
+    "doom-solarized-light",
+    "doom-solarized-dark",
+    "doom-solarized-dark-high-contrast",
+    "doom-snazzy",
     "doom-shades-of-purple",
     "doom-rouge",
     "doom-plain",
@@ -7,10 +11,6 @@
     "doom-pine",
     "doom-peacock",
     "doom-palenight",
-    "doom-outrun-electric",
-    "doom-opera",
-    "doom-opera-light",
-    "doom-old-hope",
-    "doom-oksolar-light"
+    "doom-outrun-electric"
   ]
 }
