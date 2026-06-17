@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-sourcerer",
     "doom-solarized-light",
     "doom-solarized-dark",
     "doom-solarized-dark-high-contrast",
@@ -10,7 +11,6 @@
     "doom-plain-dark",
     "doom-pine",
     "doom-peacock",
-    "doom-palenight",
-    "doom-outrun-electric"
+    "doom-palenight"
   ]
 }
