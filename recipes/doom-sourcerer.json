@@ -1,0 +1,15 @@
+{
+  "name": "Doom Sourcerer Theme",
+  "id": "doom-sourcerer",
+  "description": "A dark theme based off of xero's Sourcerer VIM colorscheme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-sourcerer-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-sourcerer t)",
+  "type": "dark",
+  "authors": ["fm0xb"],
+  "tags": ["doom", "dark", "sourcerer", "vim", "brown", "blue"]
+}
