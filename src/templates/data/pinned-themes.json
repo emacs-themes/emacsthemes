@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-spacegrey",
     "doom-sourcerer",
     "doom-solarized-light",
     "doom-solarized-dark",
@@ -10,7 +11,6 @@
     "doom-plain",
     "doom-plain-dark",
     "doom-pine",
-    "doom-peacock",
-    "doom-palenight"
+    "doom-peacock"
   ]
 }
