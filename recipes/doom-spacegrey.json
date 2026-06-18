@@ -1,0 +1,15 @@
+{
+  "name": "Doom Spacegrey Theme",
+  "id": "doom-spacegrey",
+  "description": "A dark theme inspired by Atom Spacegrey Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-spacegrey-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-spacegrey t)",
+  "type": "dark",
+  "authors": ["teesloane"],
+  "tags": ["doom", "dark", "spacegrey", "spacegray", "atom", "grey", "blue"]
+}
