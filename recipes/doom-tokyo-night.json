@@ -1,0 +1,15 @@
+{
+  "name": "Doom Tokyo Night Theme",
+  "id": "doom-tokyo-night",
+  "description": "A clean, dark theme that celebrates the lights of downtown Tokyo at night.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-tokyo-night-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-tokyo-night t)",
+  "type": "dark",
+  "authors": ["FosterHangdaan"],
+  "tags": ["doom", "dark", "tokyo", "night", "blue", "purple"]
+}
