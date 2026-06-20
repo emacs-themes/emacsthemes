@@ -1,0 +1,15 @@
+{
+  "name": "Doom Tomorrow Day Theme",
+  "id": "doom-tomorrow-day",
+  "description": "A light theme based off of Chris Kempson's Tomorrow Dark.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-tomorrow-day-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-tomorrow-day t)",
+  "type": "light",
+  "authors": ["emacswatcher"],
+  "tags": ["doom", "light", "tomorrow", "day", "white", "blue"]
+}
