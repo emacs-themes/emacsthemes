@@ -1,0 +1,15 @@
+{
+  "name": "Doom Vibrant Theme",
+  "id": "doom-vibrant",
+  "description": "A dark theme based off of doom-one with more vibrant colors.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-vibrant-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-vibrant t)",
+  "type": "dark",
+  "authors": ["Henrik Lissner"],
+  "tags": ["doom", "dark", "vibrant", "one", "blue", "purple", "green"]
+}
