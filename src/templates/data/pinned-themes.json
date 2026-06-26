@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "doom-wilmersdorf",
     "doom-vibrant",
     "doom-tomorrow-night",
     "doom-tomorrow-day",
@@ -10,7 +11,6 @@
     "doom-solarized-dark",
     "doom-solarized-dark-high-contrast",
     "doom-snazzy",
-    "doom-shades-of-purple",
-    "doom-rouge"
+    "doom-shades-of-purple"
   ]
 }
