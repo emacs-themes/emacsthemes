@@ -1,0 +1,15 @@
+{
+  "name": "Doom Wilmersdorf Theme",
+  "id": "doom-wilmersdorf",
+  "description": "A dark theme inspired by Ian Pan's Wilmersdorf",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-wilmersdorf-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-wilmersdorf t)",
+  "type": "dark",
+  "authors": ["ema2159"],
+  "tags": ["doom", "dark", "wilmersdorf", "black", "blue", "indigo", "purple"]
+}
