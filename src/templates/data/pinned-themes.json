@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "doom-winter-is-coming-dark-blue",
+    "doom-winter-is-coming-light",
     "doom-wilmersdorf",
     "doom-vibrant",
     "doom-tomorrow-night",
@@ -9,8 +11,6 @@
     "doom-sourcerer",
     "doom-solarized-light",
     "doom-solarized-dark",
-    "doom-solarized-dark-high-contrast",
-    "doom-snazzy",
-    "doom-shades-of-purple"
+    "doom-solarized-dark-high-contrast"
   ]
 }
