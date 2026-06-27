@@ -1,0 +1,15 @@
+{
+  "name": "Doom Winter is Coming Dark Blue Theme",
+  "id": "doom-winter-is-coming-dark-blue",
+  "description": "Rip-off of Winter is Coming theme for VSCode.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-winter-is-coming-dark-blue-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-winter-is-coming-dark-blue t)",
+  "type": "dark",
+  "authors": ["Philip Arvidsson"],
+  "tags": ["doom", "dark", "winter", "blue", "cyan", "green", "magenta"]
+}

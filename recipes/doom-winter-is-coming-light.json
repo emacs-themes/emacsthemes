@@ -1,0 +1,15 @@
+{
+  "name": "Doom Winter is Coming Light Theme",
+  "id": "doom-winter-is-coming-light",
+  "description": "Rip-off of Winter is Coming theme for VSCode.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-winter-is-coming-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-winter-is-coming-light t)",
+  "type": "light",
+  "authors": ["Philip Arvidsson"],
+  "tags": ["doom", "light", "winter", "blue", "cyan", "green", "magenta"]
+}
