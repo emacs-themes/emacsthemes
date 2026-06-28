@@ -1,0 +1,15 @@
+{
+  "name": "Doom Xcode Theme",
+  "id": "doom-xcode",
+  "description": "A theme based off of the Xcode Dark Theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-xcode-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-xcode t)",
+  "type": "dark",
+  "authors": ["kadenbarlow"],
+  "tags": ["doom", "dark", "xcode", "apple", "blue", "pink"]
+}
