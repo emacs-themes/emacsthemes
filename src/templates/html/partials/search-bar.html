@@ -12,14 +12,16 @@
   <div class="searchbar-field">
     <label for="sort">Sort by</label>
     <select id="sort" name="sort">
-      <option value="name-asc">Name A–Z</option>
-      <option value="name-desc">Name Z–A</option>
-      <option value="date-desc">Add date newest first</option>
-      <option value="date-asc">Add date oldest first</option>
+      <option value="name-asc" data-key="name" data-dir="asc">Name A–Z</option>
+      <option value="name-desc" data-key="name" data-dir="desc">Name Z–A</option>
+      <option value="date-desc" data-key="date" data-dir="desc">Date added (newest first)</option>
+      <option value="date-asc" data-key="date" data-dir="asc">Date added (oldest first)</option>
     </select>
   </div>
   <button type="submit">Filter</button>
-  <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
+  <p class="sr-only" id="search-hint">
+    Type a theme name or keyword, choose a sort order, and press Enter.
+  </p>
 </form>
-<h2 id="search-results-headline" aria-live="polite"></h2>
+<h2 id="search-results-headline" aria-live="polite" aria-atomic="true"></h2>
 <p id="no-results-message" role="status" aria-live="polite" aria-atomic="true"></p>

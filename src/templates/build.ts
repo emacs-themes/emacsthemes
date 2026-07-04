@@ -362,11 +362,14 @@ async function buildAllThemesPage(
   template: string,
   cardTemplate: string,
   searchBarHtml: string,
-  searchScriptSource: string,
+  _searchScriptSource: string,
 ) {
-  const screenshotGeneratedDates = await readScreenshotDates();
-  const allThemes = addScreenshotGeneratedDates(await getAllThemes(), screenshotGeneratedDates);
-  allThemes.sort((a, b) => a.name.localeCompare(b.name));
+  const [screenshotGeneratedDates, rawThemes] = await Promise.all([
+    readScreenshotDates(),
+    getAllThemes(),
+  ]);
+  const allThemes = addScreenshotGeneratedDates(rawThemes, screenshotGeneratedDates);
+  allThemes.sort((a, b) => a.name.localeCompare(b.name, "en"));
 
   const updatedSearchBarHtml = searchBarHtml.replace(
     "{{TOTAL_THEMES}}",
@@ -377,15 +380,24 @@ async function buildAllThemesPage(
 
   await writeThemeSearchIndex(buildThemeSearchIndex(allThemes));
 
-  const scriptWithData = searchScriptSource.replace(
+  // Bundle the search script via Bun.build so the import of
+  // src/templates/core/search-sort.ts is resolved. The placeholder
+  // {{THEMES_INDEX_URL}} lives inside a string literal and survives
+  // bundling/minification, so we replace it afterwards.
+  const buildResult = await Bun.build({
+    entrypoints: [PATHS.templates.partials.searchScript],
+    target: "browser",
+    minify: true,
+  });
+  let scriptContent = await buildResult.outputs[0].text();
+  scriptContent = scriptContent.replaceAll(
     "{{THEMES_INDEX_URL}}",
     "../static/data/themes-index.json",
   );
-  const minifiedJs = await minifyJs(scriptWithData);
-  await writeThemesSearchScript(minifiedJs);
+  await writeThemesSearchScript(scriptContent);
   const scriptHtml = [
     buildCommonScripts("../"),
-    buildDeferredScriptTag(`../${PATHS.js.themesSearch}`),
+    `<script type="module" src="../${PATHS.js.themesSearch}"></script>`,
   ].join("\n");
 
   const html = applyBaseTemplate(

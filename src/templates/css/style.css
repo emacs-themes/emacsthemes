@@ -127,7 +127,8 @@ a {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: var(--focus-outline-width) solid var(--purple);
   outline-offset: 3px;
 }
