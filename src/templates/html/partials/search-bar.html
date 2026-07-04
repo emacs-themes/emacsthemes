@@ -1,6 +1,23 @@
 <form class="searchbar" role="search" aria-label="Search themes">
-  <label for="q">Filter ({{TOTAL_THEMES}} themes)</label>
-  <input id="q" name="q" type="search" placeholder="Try: dark, blue, monokai…" />
+  <div class="searchbar-field searchbar-query">
+    <label for="q">Filter ({{TOTAL_THEMES}} themes)</label>
+    <input
+      id="q"
+      name="q"
+      type="search"
+      placeholder="Try: dark, blue, monokai…"
+      aria-describedby="search-hint"
+    />
+  </div>
+  <div class="searchbar-field">
+    <label for="sort">Sort by</label>
+    <select id="sort" name="sort">
+      <option value="name-asc">Name A–Z</option>
+      <option value="name-desc">Name Z–A</option>
+      <option value="date-desc">Add date newest first</option>
+      <option value="date-asc">Add date oldest first</option>
+    </select>
+  </div>
   <button type="submit">Filter</button>
   <p class="sr-only" id="search-hint">Type a theme name or keyword and press Enter.</p>
 </form>

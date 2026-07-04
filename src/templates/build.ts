@@ -6,7 +6,11 @@ import { fetchPopularThemes } from "./fetch-popular-themes";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
-import { readScreenshotDates, resolveThemeGeneratedDate } from "../core/screenshot-dates";
+import {
+  readScreenshotDates,
+  resolveThemeGeneratedDate,
+  type ScreenshotDatesMap,
+} from "../core/screenshot-dates";
 import { applyBaseTemplate } from "./core/page-template";
 import { buildThemeCardsGrid } from "./core/theme-card";
 
@@ -126,9 +130,15 @@ interface Theme {
   elispAfter?: string;
 }
 
+interface ThemeWithScreenshotGeneratedDate extends Theme {
+  screenshotGeneratedDate: string | null;
+}
+
 interface SearchThemeIndexEntry {
   id: string;
+  name: string;
   searchable: string;
+  screenshotGeneratedDate: string | null;
 }
 
 // Data Fetching
@@ -212,17 +222,38 @@ async function minifyJs(js: string): Promise<string> {
 }
 
 /**
- * Builds a compact theme search index optimized for client-side filtering.
+ * Adds persisted screenshot generation dates to theme records.
  *
- * @param {Theme[]} themes - The collection of themes to index.
+ * @param {Theme[]} themes - Theme records loaded from recipes.
+ * @param {ScreenshotDatesMap} screenshotDates - Persisted screenshot dates keyed by theme id.
+ * @returns {ThemeWithScreenshotGeneratedDate[]} Theme records enriched with screenshot dates.
+ */
+function addScreenshotGeneratedDates(
+  themes: Theme[],
+  screenshotDates: ScreenshotDatesMap,
+): ThemeWithScreenshotGeneratedDate[] {
+  return themes.map((theme) => ({
+    ...theme,
+    screenshotGeneratedDate: screenshotDates[theme.id] ?? null,
+  }));
+}
+
+/**
+ * Builds a compact theme search index optimized for client-side filtering and sorting.
+ *
+ * @param {ThemeWithScreenshotGeneratedDate[]} themes - The collection of themes to index.
  * @returns {SearchThemeIndexEntry[]} A list of normalized searchable records keyed by theme id.
  */
-function buildThemeSearchIndex(themes: Theme[]): SearchThemeIndexEntry[] {
+function buildThemeSearchIndex(
+  themes: ThemeWithScreenshotGeneratedDate[],
+): SearchThemeIndexEntry[] {
   return themes.map((theme) => {
     const searchable = `${theme.name} ${theme.type} ${theme.tags.join(" ")}`.toLowerCase();
     return {
       id: theme.id,
+      name: theme.name,
       searchable,
+      screenshotGeneratedDate: theme.screenshotGeneratedDate,
     };
   });
 }
@@ -333,7 +364,8 @@ async function buildAllThemesPage(
   searchBarHtml: string,
   searchScriptSource: string,
 ) {
-  const allThemes = await getAllThemes();
+  const screenshotGeneratedDates = await readScreenshotDates();
+  const allThemes = addScreenshotGeneratedDates(await getAllThemes(), screenshotGeneratedDates);
   allThemes.sort((a, b) => a.name.localeCompare(b.name));
 
   const updatedSearchBarHtml = searchBarHtml.replace(
