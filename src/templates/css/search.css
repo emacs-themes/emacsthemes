@@ -42,8 +42,8 @@
 
   & select {
     min-width: 220px;
-    cursor: pointer;
     appearance: none;
+    cursor: pointer;
   }
 
   & button {
