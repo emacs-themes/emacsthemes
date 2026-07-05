@@ -90,7 +90,7 @@ const PATHS = {
       themes: join(STATIC_DIR, "themes"),
       fonts: join(STATIC_DIR, "fonts"),
       headers: join(STATIC_DIR, "_headers"),
-      favicon: join(STATIC_DIR, "favicon.ico"),
+      favicon: join(STATIC_DIR, "favicon.png"),
       emacsWebp: join(STATIC_DIR, "emacs.webp"),
     },
     dest: {
@@ -101,7 +101,7 @@ const PATHS = {
       css: join(BUILD_DIR, STATIC_DIR, "css"),
       js: join(BUILD_DIR, STATIC_DIR, "js"),
       data: join(BUILD_DIR, STATIC_DIR, "data"),
-      favicon: join(BUILD_DIR, "favicon.ico"),
+      favicon: join(BUILD_DIR, "favicon.png"),
       emacsWebp: join(BUILD_DIR, "emacs.webp"),
       themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
       themesSearchScript: join(BUILD_DIR, STATIC_DIR, "js", "themes-search.js"),
