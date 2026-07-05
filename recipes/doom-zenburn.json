@@ -1,0 +1,15 @@
+{
+  "name": "Doom Zenburn Theme",
+  "id": "doom-zenburn",
+  "description": "An implementation of the popular Zenburn theme.",
+  "repoUrl": "https://github.com/doomemacs/themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/themes/doom-zenburn-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-zenburn t)",
+  "type": "dark",
+  "authors": ["jsoa"],
+  "tags": ["doom", "dark", "zenburn", "green", "brown", "grey"]
+}
