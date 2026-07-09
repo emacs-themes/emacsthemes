@@ -90,6 +90,7 @@ const PATHS = {
       themes: join(STATIC_DIR, "themes"),
       fonts: join(STATIC_DIR, "fonts"),
       headers: join(STATIC_DIR, "_headers"),
+      robots: join(STATIC_DIR, "robots.txt"),
       favicon: join(STATIC_DIR, "favicon.png"),
       emacsWebp: join(STATIC_DIR, "emacs.webp"),
     },
@@ -98,6 +99,7 @@ const PATHS = {
       themes: join(BUILD_DIR, STATIC_DIR, "themes"),
       fonts: join(BUILD_DIR, STATIC_DIR, "fonts"),
       headers: join(BUILD_DIR, "_headers"),
+      robots: join(BUILD_DIR, "robots.txt"),
       css: join(BUILD_DIR, STATIC_DIR, "css"),
       js: join(BUILD_DIR, STATIC_DIR, "js"),
       data: join(BUILD_DIR, STATIC_DIR, "data"),
@@ -763,6 +765,7 @@ async function build() {
     copyDir(PATHS.assets.src.fonts, PATHS.assets.dest.fonts),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.headers, PATHS.assets.dest.headers),
+    copyFile(PATHS.assets.src.robots, PATHS.assets.dest.robots),
     copyFile(PATHS.assets.src.favicon, PATHS.assets.dest.favicon),
     copyFile(PATHS.assets.src.emacsWebp, PATHS.assets.dest.emacsWebp),
   ]);
