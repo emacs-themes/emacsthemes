@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self' static.cloudflareinsights.com; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' cloudflareinsights.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self' https://eu-assets.i.posthog.com static.cloudflareinsights.com; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://eu.i.posthog.com cloudflareinsights.com; upgrade-insecure-requests
   Link: </static/fonts/inter/InterVariable.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin=anonymous
   Link: </static/fonts/inter/InterVariable-Italic.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin=anonymous
 

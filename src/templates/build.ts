@@ -71,6 +71,7 @@ const PATHS = {
       error404: join(TEMPLATES_DIR, "html/partials/404-content.html"),
       searchScript: join(TEMPLATES_DIR, "html/partials/search-script.js"),
       themeToggleScript: join(TEMPLATES_DIR, "html/partials/theme-toggle-script.js"),
+      posthogScript: join(TEMPLATES_DIR, "html/partials/posthog-script.js"),
     },
   },
   css: {
@@ -108,6 +109,7 @@ const PATHS = {
       themesIndex: join(BUILD_DIR, STATIC_DIR, "data", "themes-index.json"),
       themesSearchScript: join(BUILD_DIR, STATIC_DIR, "js", "themes-search.js"),
       themeToggleScript: join(BUILD_DIR, STATIC_DIR, "js", "theme-toggle.js"),
+      posthogScript: join(BUILD_DIR, STATIC_DIR, "js", "posthog.js"),
     },
   },
   pages: {
@@ -288,6 +290,11 @@ async function writeThemesSearchScript(scriptContent: string) {
 async function writeThemeToggleScript(scriptContent: string) {
   await mkdir(PATHS.assets.dest.js, { recursive: true });
   await Bun.write(PATHS.assets.dest.themeToggleScript, scriptContent);
+}
+
+async function writePosthogScript(scriptContent: string) {
+  await mkdir(PATHS.assets.dest.js, { recursive: true });
+  await Bun.write(PATHS.assets.dest.posthogScript, scriptContent);
 }
 
 /**
@@ -735,6 +742,7 @@ async function build() {
     error404ContentTemplate,
     searchScriptSource,
     themeToggleScriptSource,
+    posthogScriptSource,
   ] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
@@ -746,10 +754,12 @@ async function build() {
     Bun.file(PATHS.templates.partials.error404).text(),
     Bun.file(PATHS.templates.partials.searchScript).text(),
     Bun.file(PATHS.templates.partials.themeToggleScript).text(),
+    Bun.file(PATHS.templates.partials.posthogScript).text(),
   ]);
 
   const minifiedThemeToggleJs = await minifyJs(themeToggleScriptSource);
   await writeThemeToggleScript(minifiedThemeToggleJs);
+  await writePosthogScript(await minifyJs(posthogScriptSource));
 
   await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptSource);

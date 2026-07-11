@@ -2,6 +2,15 @@ import { expect, test, describe } from "bun:test";
 import { assertPathWithinRoot } from "../src/core/path-utils";
 import { ThemeSchema } from "../src/core/schema-checker";
 
+describe("Content Security Policy", () => {
+  test("allows the PostHog script and ingestion endpoints", async () => {
+    const headers = await Bun.file("static/_headers").text();
+
+    expect(headers).toContain("script-src 'self' https://eu-assets.i.posthog.com");
+    expect(headers).toContain("connect-src 'self' https://eu.i.posthog.com");
+  });
+});
+
 describe("Path Traversal Guard", () => {
   const root = "/app/storage";
 
