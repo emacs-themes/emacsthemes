@@ -1,0 +1,14 @@
+{
+  "name": "Batppuccin Macchiato Theme",
+  "id": "batppuccin-macchiato",
+  "description": "An opinionated Emacs port of the Catppuccin color scheme. Macchiato variant (dark).",
+  "repoUrl": "https://github.com/bbatsov/batppuccin-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin.el",
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin-macchiato-theme.el"
+  ],
+  "elispAfter": "(load-theme 'batppuccin-macchiato t)",
+  "type": "dark",
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["catppuccin", "dark", "macchiato", "pastel", "soothing", "purple", "indigo", "blue"]
+}

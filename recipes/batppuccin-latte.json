@@ -1,0 +1,14 @@
+{
+  "name": "Batppuccin Latte Theme",
+  "id": "batppuccin-latte",
+  "description": "An opinionated Emacs port of the Catppuccin color scheme. Latte variant (light).",
+  "repoUrl": "https://github.com/bbatsov/batppuccin-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin.el",
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin-latte-theme.el"
+  ],
+  "elispAfter": "(load-theme 'batppuccin-latte t)",
+  "type": "light",
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["catppuccin", "light", "latte", "pastel", "soothing", "purple", "indigo", "blue"]
+}

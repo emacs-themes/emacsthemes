@@ -1,0 +1,14 @@
+{
+  "name": "Batppuccin Frappe Theme",
+  "id": "batppuccin-frappe",
+  "description": "An opinionated Emacs port of the Catppuccin color scheme. Frappe variant (medium-dark).",
+  "repoUrl": "https://github.com/bbatsov/batppuccin-emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin.el",
+    "https://raw.githubusercontent.com/bbatsov/batppuccin-emacs/main/batppuccin-frappe-theme.el"
+  ],
+  "elispAfter": "(load-theme 'batppuccin-frappe t)",
+  "type": "dark",
+  "authors": ["Bozhidar Batsov"],
+  "tags": ["catppuccin", "dark", "frappe", "pastel", "soothing", "purple", "indigo", "blue"]
+}
