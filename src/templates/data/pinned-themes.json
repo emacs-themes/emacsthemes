@@ -1,5 +1,8 @@
 {
   "pinnedThemes": [
+    "batppuccin-macchiato",
+    "batppuccin-frappe",
+    "batppuccin-latte",
     "batppuccin-mocha",
     "doom-zenburn",
     "doom-xcode",
@@ -9,8 +12,6 @@
     "doom-vibrant",
     "doom-tomorrow-night",
     "doom-tomorrow-day",
-    "doom-tokyo-night",
-    "doom-spacegrey",
-    "doom-sourcerer"
+    "doom-tokyo-night"
   ]
 }
