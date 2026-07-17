@@ -1,0 +1,12 @@
+{
+  "name": "Pure Light Theme",
+  "id": "pure-light",
+  "description": "A light theme using pure colors designed for color e-ink monitors.",
+  "repoUrl": "https://github.com/nyrell/pure-light-eink-color",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/nyrell/pure-light-eink-color/master/pure-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Mattias Nyrell"],
+  "tags": ["color", "e-ink", "light", "melpa", "pure-light", "white", "pink", "blue"]
+}
