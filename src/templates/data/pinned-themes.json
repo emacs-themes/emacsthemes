@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "pure-light",
     "batppuccin-macchiato",
     "batppuccin-frappe",
     "batppuccin-latte",
@@ -10,7 +11,6 @@
     "doom-winter-is-coming-light",
     "doom-wilmersdorf",
     "doom-vibrant",
-    "doom-tomorrow-night",
-    "doom-tomorrow-day"
+    "doom-tomorrow-night"
   ]
 }
