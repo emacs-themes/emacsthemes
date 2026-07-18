@@ -1,0 +1,14 @@
+{
+  "name": "Nibelung Theme",
+  "id": "nibelung",
+  "description": "A minimalist light theme blending cool gray tones with subtle blue accents for clarity during long coding sessions.",
+  "repoUrl": "https://github.com/veschin/nibelung-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/veschin/nibelung-theme/main/nibelung-theme-base.el",
+    "https://raw.githubusercontent.com/veschin/nibelung-theme/main/nibelung-palettes.el",
+    "https://raw.githubusercontent.com/veschin/nibelung-theme/main/nibelung-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Oleg Veschin"],
+  "tags": ["blue", "gray", "light", "minimalist", "nibelung", "monochrome"]
+}
