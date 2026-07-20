@@ -1,0 +1,12 @@
+{
+  "name": "Yotsuba Theme",
+  "id": "yotsuba",
+  "description": "A light theme inspired by the classic Yotsuba imageboard color palette.",
+  "repoUrl": "https://github.com/Senka07/yotsuba-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/Senka07/yotsuba-emacs-theme/main/yotsuba-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Senka07"],
+  "tags": ["beige", "green", "light", "maroon", "old-web", "yotsuba"]
+}
