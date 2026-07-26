@@ -1,0 +1,11 @@
+{
+  "name": "Folio Theme",
+  "id": "folio",
+  "description": "A warm light theme with a paper-like background, deep blue structure, and restrained red accents.",
+  "repoUrl": "https://github.com/kn66/folio-theme.el",
+  "rawUrls": ["https://raw.githubusercontent.com/kn66/folio-theme.el/main/folio-theme.el"],
+  "type": "light",
+  "authors": ["nobu43"],
+  "tags": ["accessible", "blue", "folio", "light", "paper", "red", "warm", "yellow"],
+  "elispBefore": "(unless (package-installed-p 'modus-themes) (package-install 'modus-themes)) (unless (package-installed-p 'ef-themes) (package-install 'ef-themes))"
+}
