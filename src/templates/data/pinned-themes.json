@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "folio",
     "yotsuba",
     "nibelung-dark",
     "nibelung",
@@ -10,7 +11,6 @@
     "batppuccin-mocha",
     "doom-zenburn",
     "doom-xcode",
-    "doom-winter-is-coming-dark-blue",
-    "doom-winter-is-coming-light"
+    "doom-winter-is-coming-dark-blue"
   ]
 }
