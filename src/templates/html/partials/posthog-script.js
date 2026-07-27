@@ -45,6 +45,6 @@
 })(document, window.posthog || []);
 posthog.init("phc_uNQ4tHmDACfNC5fwvV2JW4iY458kYptvmd52RePZ9YXK", {
   api_host: "https://eu.i.posthog.com",
-  defaults: "2026-05-30",
   person_profiles: "identified_only",
+  capture_exceptions: true,
 });
