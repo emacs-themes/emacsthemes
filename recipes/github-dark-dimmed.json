@@ -1,0 +1,13 @@
+{
+  "name": "GitHub Dark Dimmed Theme",
+  "id": "github-dark-dimmed",
+  "description": "A dimmed dark theme inspired by GitHub's Visual Studio Code theme.",
+  "repoUrl": "https://github.com/ladroid/github-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ladroid/github-emacs-theme/main/github-dark-dimmed-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["ladroid"],
+  "tags": ["autothemer", "blue", "dark", "dimmed", "github", "true color", "red"],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}
