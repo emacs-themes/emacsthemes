@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "github-dark-dimmed",
     "folio",
     "yotsuba",
     "nibelung-dark",
@@ -10,7 +11,6 @@
     "batppuccin-latte",
     "batppuccin-mocha",
     "doom-zenburn",
-    "doom-xcode",
-    "doom-winter-is-coming-dark-blue"
+    "doom-xcode"
   ]
 }
