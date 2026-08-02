@@ -1,0 +1,13 @@
+{
+  "name": "GitHub Dark Theme",
+  "id": "github-dark",
+  "description": "A dark theme for Emacs inspired by GitHub's dark color scheme, with treesitter and LSP support.",
+  "repoUrl": "https://github.com/ladroid/github-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ladroid/github-emacs-theme/main/github-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["ladroid"],
+  "tags": ["autothemer", "black", "blue", "dark", "github", "true color", "violet", "yellow"],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}
