@@ -1,0 +1,13 @@
+{
+  "name": "GitHub Light Theme",
+  "id": "github-light",
+  "description": "A light theme for Emacs inspired by GitHub's light color scheme, with treesitter and LSP support.",
+  "repoUrl": "https://github.com/ladroid/github-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/ladroid/github-emacs-theme/main/github-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["ladroid"],
+  "tags": ["autothemer", "blue", "github", "light", "red", "true color", "violet", "white"],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}
