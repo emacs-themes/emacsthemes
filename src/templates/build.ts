@@ -792,8 +792,13 @@ async function build() {
 
   logInfo("Copying and minifying assets...");
   await Promise.all([
+    // `imgs` stays a symlink: it holds ~1GB of screenshots served from R2 in
+    // production (`deploy:site` removes `build/static/imgs` before deploying),
+    // so copying it would only slow every local/CI build down.
     linkDir(PATHS.assets.src.images, PATHS.assets.dest.images),
-    linkDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
+    // `themes` ships inside the deploy bundle, so it must be copied: a
+    // symlink pointing outside `build/` would break standalone deployments.
+    copyDir(PATHS.assets.src.themes, PATHS.assets.dest.themes),
     copyDir(PATHS.assets.src.fonts, PATHS.assets.dest.fonts),
     minifyAndCopyCss(CSS_DIR, PATHS.assets.dest.css),
     copyFile(PATHS.assets.src.headers, PATHS.assets.dest.headers),
