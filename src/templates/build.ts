@@ -389,14 +389,8 @@ async function buildHomepage(
  * @param {string} template - The base HTML template.
  * @param {string} cardTemplate - The theme card HTML template.
  * @param {string} searchBarHtml - The HTML for the search bar partial.
- * @param {string} searchScriptSource - The JavaScript source for the search script.
  */
-async function buildAllThemesPage(
-  template: string,
-  cardTemplate: string,
-  searchBarHtml: string,
-  _searchScriptSource: string,
-) {
+async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string) {
   const [screenshotGeneratedDates, rawThemes] = await Promise.all([
     readScreenshotDates(),
     getAllThemes(),
@@ -770,7 +764,6 @@ async function build() {
     aboutContentHtml,
     popularThemesContentTemplate,
     error404ContentTemplate,
-    searchScriptSource,
     themeToggleScriptSource,
     posthogScriptSource,
   ] = await Promise.all([
@@ -782,7 +775,6 @@ async function build() {
     Bun.file(PATHS.templates.partials.about).text(),
     Bun.file(PATHS.templates.partials.popular).text(),
     Bun.file(PATHS.templates.partials.error404).text(),
-    Bun.file(PATHS.templates.partials.searchScript).text(),
     Bun.file(PATHS.templates.partials.themeToggleScript).text(),
     Bun.file(PATHS.templates.partials.posthogScript).text(),
   ]);
@@ -792,7 +784,7 @@ async function build() {
   await writePosthogScript(await minifyJs(posthogScriptSource));
 
   await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
-  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptSource);
+  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
   await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate, popularThemesPromise);
