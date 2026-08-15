@@ -1,0 +1,111 @@
+/* Popular Themes Page Styles */
+
+.detail-header h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.popular-source {
+  text-align: center;
+
+  & h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  & p {
+    margin: 0 auto 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-soft);
+  }
+
+  & + .popular-source {
+    margin-top: 2rem;
+  }
+}
+
+.popular-notice {
+  margin: 0 auto 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+/* Flexbox with `safe center` keeps the table centered when it fits while
+   avoiding the classic left-clip of `margin-inline: auto` + overflow. */
+.popular-list {
+  display: flex;
+  justify-content: safe center;
+  margin-top: 2rem;
+  overflow-x: auto;
+  text-align: left;
+
+  &:focus-visible {
+    outline: var(--focus-outline-width) solid var(--purple);
+    outline-offset: 3px;
+  }
+}
+
+.themes-table {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 14px;
+
+  & th,
+  & td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+
+  & th {
+    font-weight: 700;
+    color: var(--text-main);
+
+    &:first-child {
+      border-top-left-radius: 14px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 14px;
+    }
+  }
+
+  & td:first-child,
+  & th:first-child {
+    border-right: none;
+  }
+
+  & td:nth-child(2) {
+    overflow-wrap: anywhere;
+  }
+
+  & tr:last-child td {
+    border-bottom: none;
+  }
+
+  & .text-right {
+    text-align: right;
+  }
+
+  & tr:hover {
+    background-color: var(--surface-2);
+  }
+}
+
+@media (width <= 520px) {
+  .themes-table {
+    font-size: 0.9rem;
+
+    & th,
+    & td {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+}

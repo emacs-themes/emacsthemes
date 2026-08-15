@@ -2,9 +2,10 @@ import { mkdir, readdir, copyFile, rm, readFile, symlink } from "node:fs/promise
 import { dirname, join, relative, resolve } from "node:path";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { transform } from "lightningcss";
-import { fetchPopularThemes } from "./fetch-popular-themes";
+import { fetchPopularThemes, writePopularThemesLogs, POPULAR_LOGS_DIR } from "./popular/fetcher";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
+import { DISPLAY_LOCALE } from "../core/constants";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
 import {
   readScreenshotDates,
@@ -12,7 +13,15 @@ import {
   type ScreenshotDatesMap,
 } from "../core/screenshot-dates";
 import { applyBaseTemplate } from "./core/page-template";
+import {
+  renderPopularThemeTables,
+  resolvePopularPageCopy,
+  renderPopularSourceNotice,
+  getAvailablePopularSources,
+  getMissingPopularSources,
+} from "./core/popular-themes";
 import { buildThemeCardsGrid } from "./core/theme-card";
+import type { PopularThemeSourceResult } from "../core/popular-types";
 
 // Constants
 const RECIPES_DIR = "recipes";
@@ -78,6 +87,7 @@ const PATHS = {
     main: "static/css/style.css",
     search: "static/css/search.css",
     detail: "static/css/theme-detail.css",
+    popular: "static/css/popular.css",
     card: "static/css/card.css",
     error: "static/css/error.css",
   },
@@ -317,6 +327,20 @@ function buildCommonScripts(pagePrefix: string): string {
   return buildDeferredScriptTag(`${pagePrefix}${PATHS.js.themeToggle}`);
 }
 
+/**
+ * Formats a date for display with the site-wide locale.
+ *
+ * @param {Date} date - The date to format.
+ * @returns {string} The formatted display date.
+ */
+function formatDisplayDate(date: Date): string {
+  return new Intl.DateTimeFormat(DISPLAY_LOCALE, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+}
+
 // Page Builders
 
 /**
@@ -485,11 +509,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string) 
       screenshotDates,
     );
 
-    const generatedDate = new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(generatedDateObj);
+    const generatedDate = formatDisplayDate(generatedDateObj);
 
     let repoLinkHtml = `<a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub</a>`;
     if (theme.repoUrl === "local") {
@@ -564,59 +584,65 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
 }
 
 /**
- * Builds the "Popular" page, listing popular themes from MELPA.
+ * Builds the "Popular" page, listing popular themes from MELPA and GitHub.
+ *
+ * Fetches all popularity sources concurrently with the rest of the build.
+ * Fails the build when every source fails, so the always-linked `/popular`
+ * page can never silently disappear from a clean build. When only some
+ * sources fail, the page is generated with source-aware copy plus an
+ * availability notice for the missing sources.
  *
  * @param {string} template - The base HTML template.
  * @param {string} contentTemplate - The popular themes content HTML template.
+ * @param {Promise<PopularThemeSourceResult[]>} popularThemesPromise - The in-flight popularity fetch.
  */
-async function buildPopularThemesPage(template: string, contentTemplate: string) {
-  const popularThemes = await fetchPopularThemes();
+async function buildPopularThemesPage(
+  template: string,
+  contentTemplate: string,
+  popularThemesPromise: Promise<PopularThemeSourceResult[]>,
+) {
+  const results = await popularThemesPromise;
+  await writePopularThemesLogs(results, POPULAR_LOGS_DIR);
 
-  if (!popularThemes) {
-    logWarn("Skipping popular themes page due to fetch failure.");
-    return;
+  const available = getAvailablePopularSources(results);
+  const missing = getMissingPopularSources(results);
+
+  if (available.length === 0) {
+    throw new Error(
+      "Failed to fetch popular themes from all sources; refusing to build a site without popular.html",
+    );
   }
 
-  const themesListHtml = popularThemes
-    .map((theme, index) => {
-      const rank = index + 1;
-      const nameHtml = theme.url
-        ? `<a href="${theme.url}" target="_blank" rel="noopener noreferrer">${theme.name}</a>`
-        : theme.name;
+  for (const source of missing) {
+    logWarn(`${source} popularity source unavailable; generating popular page without it.`);
+  }
 
-      return `
-      <tr>
-        <td>${rank}</td>
-        <td>${nameHtml}</td>
-        <td class="text-right">${theme.downloads.toLocaleString()}</td>
-      </tr>`;
-    })
-    .join("\n");
-
-  const generatedDate = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(new Date());
+  const copy = resolvePopularPageCopy(available);
+  const notice = renderPopularSourceNotice(missing);
+  const generatedDate = formatDisplayDate(new Date());
 
   const content = contentTemplate
-    .replace("{{THEMES_LIST}}", themesListHtml)
-    .replace("{{GENERATED_DATE}}", generatedDate);
+    .replace(
+      '<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>',
+      () => (copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : ""),
+    )
+    .replace("{{POPULAR_THEMES_NOTICE}}", () => notice)
+    .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(results))
+    .replace("{{GENERATED_DATE}}", () => generatedDate);
 
   const html = applyBaseTemplate(
     template,
     {
-      title: "Popular Emacs Themes - MELPA Statistics",
-      description:
-        "Discover the most downloaded Emacs themes from MELPA. See which looks are trending in the community.",
+      title: copy.title,
+      description: copy.description,
       canonicalPath: "/popular",
-      ogTitle: "Popular Emacs Themes",
-      ogDescription: "MELPA download statistics for top Emacs themes.",
+      ogTitle: copy.ogTitle,
+      ogDescription: copy.ogDescription,
       ogImage: `${BASE_URL}/emacs.webp`,
       fonts: [INTER_FONT_PATH],
       themesGrid: content,
       mainCssPath: `/${PATHS.css.main}`,
-      extraCssPaths: [`/${PATHS.css.detail}`], // Reusing detail CSS for header consistency
+      extraCssPaths: [`/${PATHS.css.popular}`],
       scripts: buildCommonScripts("/"),
     },
     BASE_TEMPLATE_OPTIONS,
@@ -731,6 +757,10 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
+  // Kick off the popularity fetch immediately so network I/O runs in parallel
+  // with template reading and static page generation.
+  const popularThemesPromise = fetchPopularThemes();
+
   const [
     baseTemplate,
     cardTemplate,
@@ -765,7 +795,7 @@ async function build() {
   await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, searchScriptSource);
   await buildThemeDetailPages(baseTemplate, detailContentTemplate);
   await buildAboutPage(baseTemplate, aboutContentHtml);
-  await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate);
+  await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate, popularThemesPromise);
   await build404Page(baseTemplate, error404ContentTemplate);
 
   logInfo("Copying and minifying assets...");

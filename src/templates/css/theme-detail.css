@@ -50,13 +50,6 @@
   }
 }
 
-.generation-date {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--text-soft);
-}
-
 .screenshot-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -116,61 +109,5 @@
     text-decoration: none;
     background: var(--purple);
     border-color: var(--purple);
-  }
-}
-
-/* Popular Themes Table Styles */
-.popular-list {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.themes-table {
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-  border-spacing: 0;
-  border-collapse: separate;
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 14px;
-
-  & th,
-  & td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: var(--border-width) solid var(--border-color);
-  }
-
-  & th {
-    font-weight: 700;
-    color: var(--text-main);
-    background: var(--surface-2);
-
-    &:first-child {
-      border-top-left-radius: 14px;
-    }
-
-    &:last-child {
-      border-top-right-radius: 14px;
-    }
-  }
-
-  & td:first-child,
-  & th:first-child {
-    border-right: none;
-  }
-
-  & tr:last-child td {
-    border-bottom: none;
-  }
-
-  & .text-right {
-    text-align: right;
-  }
-
-  & tr:hover {
-    background-color: var(--surface-2);
   }
 }

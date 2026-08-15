@@ -325,6 +325,13 @@ h1 {
   color: var(--text-soft);
 }
 
+.generation-date {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
 .latest-headline {
   margin-top: 0;
   margin-bottom: 0.5rem;

@@ -2,6 +2,9 @@ export const RECIPES_DIR = "recipes";
 export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
 export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-dates.json";
 
+/** Locale used for all deterministic date and number formatting across the site. */
+export const DISPLAY_LOCALE = "en-US";
+
 export interface ModeConfig {
   file: string;
   isInstructionFile?: boolean;
