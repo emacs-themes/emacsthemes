@@ -77,6 +77,20 @@
     }
   }
 
+  /* Header row uses the same surface as row hover, so the header always
+     stands out as the "hovered" state. */
+  & thead th {
+    background-color: var(--surface-2);
+  }
+
+  /* The rank column only holds a small number: shrink it to its content
+     width and keep the count on one line. */
+  & th[scope="row"] {
+    width: 1%;
+    padding-right: 0.75rem;
+    white-space: nowrap;
+  }
+
   & td:first-child,
   & th:first-child {
     border-right: none;
