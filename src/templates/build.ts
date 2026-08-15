@@ -616,9 +616,8 @@ async function buildPopularThemesPage(
   const generatedDate = formatDisplayDate(new Date());
 
   const content = contentTemplate
-    .replace(
-      '<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>',
-      () => (copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : ""),
+    .replace('<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>', () =>
+      copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : "",
     )
     .replace("{{POPULAR_THEMES_NOTICE}}", () => notice)
     .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(results))

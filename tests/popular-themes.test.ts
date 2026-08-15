@@ -273,9 +273,8 @@ describe("popular content partial", () => {
     const partial = await Bun.file(partialPath).text();
     const copy = resolvePopularPageCopy(["melpa"]);
     const rendered = partial
-      .replace(
-        '<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>',
-        () => (copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : ""),
+      .replace('<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>', () =>
+        copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : "",
       )
       .replace("{{POPULAR_THEMES_NOTICE}}", () => renderPopularSourceNotice([]))
       .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(bothResults))
