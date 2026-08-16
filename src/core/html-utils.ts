@@ -18,10 +18,15 @@ export function escapeHtml(str: string): string {
 /**
  * Returns a normalized `http:`/`https:` URL string, or undefined for unsafe values.
  *
- * Unparseable URLs (for example relative paths) and non-http(s) schemes
- * (`javascript:`, `data:`, ...) are never linked. The returned value is the
- * normalized URL (`new URL(url).toString()`), so escaping/encoding is applied
- * consistently before the value reaches an `href` attribute.
+ * Unparseable URLs (for example relative paths), non-http(s) schemes
+ * (`javascript:`, `data:`, ...), and credential-bearing URLs are never
+ * linked. The returned value is the normalized URL (`new URL(url).toString()`),
+ * so escaping/encoding is applied consistently before the value reaches an
+ * `href` attribute.
+ *
+ * Note: unlike {@link normalizeRepositoryUrl} (which derives a canonical
+ * HTTPS identity for matching), this helper renders the original link target:
+ * an `http:` scheme and query/fragment are preserved. Both reject credentials.
  *
  * @param {string} url - The candidate link URL.
  * @returns {string | undefined} The normalized URL when safe, or undefined.
@@ -30,6 +35,9 @@ export function toSafeUrl(url: string): string | undefined {
   try {
     const parsed = new URL(url);
     if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+      if (parsed.username !== "" || parsed.password !== "") {
+        return undefined;
+      }
       return parsed.toString();
     }
   } catch {
