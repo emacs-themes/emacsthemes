@@ -10,6 +10,8 @@ import {
   buildSortComparators,
   filterThemes,
   sortThemes,
+  buildResultsHeadline,
+  buildNoResultsMessage,
   type CardEntry,
   type ThemeIndexRecord,
   type ThemeIndexEntry,
@@ -39,12 +41,19 @@ function makeIndexEntry(id: string, overrides: Partial<ThemeIndexEntry> = {}): T
     name: `Theme ${id}`,
     searchable: `theme ${id} dark`,
     screenshotGeneratedDate: null,
+    repositoryUrl: null,
     ...overrides,
   };
 }
 
 function makeIndexRecord(overrides: Partial<ThemeIndexRecord> = {}): ThemeIndexRecord {
-  return { name: "", searchable: "", screenshotGeneratedDate: null, ...overrides };
+  return {
+    name: "",
+    searchable: "",
+    screenshotGeneratedDate: null,
+    repositoryUrl: null,
+    ...overrides,
+  };
 }
 
 // ── getSortValue ──────────────────────────────────────────────────────────
@@ -115,6 +124,27 @@ describe("buildSearchMap", () => {
     ).toBe(true);
 
     console.warn = warn;
+  });
+
+  test("keeps only string repositoryUrl values and fails closed otherwise", () => {
+    const map = new Map<string, ThemeIndexRecord>();
+    const entries = [
+      makeIndexEntry("with-repo", { repositoryUrl: "https://github.com/owner/theme" }),
+      makeIndexEntry("null-repo", { repositoryUrl: null }),
+      makeIndexEntry("missing-repo"),
+      {
+        id: "bad-repo",
+        searchable: "x",
+        repositoryUrl: 42,
+      } as unknown as ThemeIndexEntry,
+    ];
+
+    buildSearchMap(map, entries);
+
+    expect(map.get("with-repo")?.repositoryUrl).toBe("https://github.com/owner/theme");
+    expect(map.get("null-repo")?.repositoryUrl).toBeNull();
+    expect(map.get("missing-repo")?.repositoryUrl).toBeNull();
+    expect(map.get("bad-repo")?.repositoryUrl).toBeNull();
   });
 
   test("clears the map before building", () => {
@@ -347,7 +377,11 @@ describe("filterThemes", () => {
     const map = new Map<string, ThemeIndexRecord>();
     const visibility: string[] = [];
 
-    const count = filterThemes(entries, map, "", (e, v) => visibility.push(`${e.id}:${v}`));
+    const count = filterThemes(entries, map, {
+      query: "",
+      repositoryUrl: null,
+      onCardVisibility: (e, v) => visibility.push(`${e.id}:${v}`),
+    });
 
     expect(count).toBe(3);
     expect(visibility).toEqual(["a:true", "b:true", "c:true"]);
@@ -361,7 +395,11 @@ describe("filterThemes", () => {
     const entries = [makeEntry("a"), makeEntry("b")];
     const visible: string[] = [];
 
-    const count = filterThemes(entries, map, "dark", (e, v) => visible.push(`${e.id}:${v}`));
+    const count = filterThemes(entries, map, {
+      query: "dark",
+      repositoryUrl: null,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
 
     expect(count).toBe(1);
     expect(visible).toEqual(["a:true", "b:false"]);
@@ -372,7 +410,11 @@ describe("filterThemes", () => {
       ["a", makeIndexRecord({ name: "Alpha", searchable: "alpha dark" })],
     ]);
 
-    const count = filterThemes([makeEntry("a")], map, "nonexistent", () => {});
+    const count = filterThemes([makeEntry("a"), makeEntry("b")], map, {
+      query: "nonexistent",
+      repositoryUrl: null,
+      onCardVisibility: () => {},
+    });
 
     expect(count).toBe(0);
   });
@@ -381,7 +423,11 @@ describe("filterThemes", () => {
     const map = new Map<string, ThemeIndexRecord>();
     const visible: string[] = [];
 
-    filterThemes([makeEntry("a")], map, "anything", (e, v) => visible.push(`${e.id}:${v}`));
+    filterThemes([makeEntry("a")], map, {
+      query: "anything",
+      repositoryUrl: null,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
 
     expect(visible).toEqual(["a:false"]);
   });
@@ -393,11 +439,193 @@ describe("filterThemes", () => {
     ]);
     const visible: string[] = [];
 
-    filterThemes([makeEntry("a"), makeEntry("b")], map, "dark", (e, v) =>
-      visible.push(`${e.id}:${v}`),
-    );
+    filterThemes([makeEntry("a"), makeEntry("b")], map, {
+      query: "dark",
+      repositoryUrl: null,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
 
     expect(visible).toEqual(["a:true", "b:false"]);
+  });
+});
+
+// ── filterThemes with repository filter ───────────────────────────────────
+
+describe("filterThemes repository filtering", () => {
+  const repoA = "https://github.com/owner/theme-a";
+  const repoB = "https://github.com/owner/theme-b";
+
+  test("shows only cards with the exact canonical repository when filtering", () => {
+    const map = new Map<string, ThemeIndexRecord>([
+      ["a", makeIndexRecord({ name: "A", searchable: "a", repositoryUrl: repoA })],
+      ["b", makeIndexRecord({ name: "B", searchable: "b", repositoryUrl: repoB })],
+      ["c", makeIndexRecord({ name: "C", searchable: "c", repositoryUrl: repoA })],
+    ]);
+    const visible: string[] = [];
+
+    const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
+      query: "",
+      repositoryUrl: repoA,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
+
+    expect(count).toBe(2);
+    expect(visible).toEqual(["a:true", "b:false", "c:true"]);
+  });
+
+  test("similar repository prefixes and unrelated repositories do not match", () => {
+    const map = new Map<string, ThemeIndexRecord>([
+      [
+        "a",
+        makeIndexRecord({
+          name: "A",
+          searchable: "a",
+          repositoryUrl: "https://github.com/owner/theme",
+        }),
+      ],
+      [
+        "b",
+        makeIndexRecord({
+          name: "B",
+          searchable: "b",
+          repositoryUrl: "https://github.com/owner/theme2",
+        }),
+      ],
+      [
+        "c",
+        makeIndexRecord({
+          name: "C",
+          searchable: "c",
+          repositoryUrl: "https://github.com/other/theme",
+        }),
+      ],
+    ]);
+
+    const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
+      query: "",
+      repositoryUrl: "https://github.com/owner/theme",
+      onCardVisibility: () => {},
+    });
+
+    expect(count).toBe(1);
+  });
+
+  test("intersects the text query with the repository filter", () => {
+    const map = new Map<string, ThemeIndexRecord>([
+      ["a", makeIndexRecord({ name: "A", searchable: "alpha dark", repositoryUrl: repoA })],
+      ["b", makeIndexRecord({ name: "B", searchable: "beta light", repositoryUrl: repoA })],
+      ["c", makeIndexRecord({ name: "C", searchable: "alpha light", repositoryUrl: repoB })],
+    ]);
+    const visible: string[] = [];
+
+    const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
+      query: "alpha",
+      repositoryUrl: repoA,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
+
+    expect(count).toBe(1);
+    expect(visible).toEqual(["a:true", "b:false", "c:false"]);
+  });
+
+  test("cards without valid index metadata never match an active repository filter", () => {
+    const map = new Map<string, ThemeIndexRecord>([
+      ["a", makeIndexRecord({ name: "A", searchable: "alpha", repositoryUrl: repoA })],
+      ["c", makeIndexRecord({ name: "C", searchable: "alpha", repositoryUrl: null })],
+    ]);
+    const visible: string[] = [];
+
+    // "b" has no index metadata at all; "c" has a null repositoryUrl.
+    const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
+      query: "",
+      repositoryUrl: repoA,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
+
+    expect(count).toBe(1);
+    expect(visible).toEqual(["a:true", "b:false", "c:false"]);
+  });
+
+  test("empty filters retain the existing show-all behavior and visible counts", () => {
+    const map = new Map<string, ThemeIndexRecord>([
+      ["a", makeIndexRecord({ name: "A", searchable: "a", repositoryUrl: repoA })],
+      ["b", makeIndexRecord({ name: "B", searchable: "b", repositoryUrl: null })],
+    ]);
+    const visible: string[] = [];
+
+    const count = filterThemes([makeEntry("a"), makeEntry("b")], map, {
+      query: "",
+      repositoryUrl: null,
+      onCardVisibility: (e, v) => visible.push(`${e.id}:${v}`),
+    });
+
+    expect(count).toBe(2);
+    expect(visible).toEqual(["a:true", "b:true"]);
+  });
+});
+
+// ── results messaging ─────────────────────────────────────────────────────
+
+describe("buildResultsHeadline", () => {
+  const repo = "https://github.com/owner/theme";
+
+  test("returns null when nothing is filtered and no sort label is given", () => {
+    expect(buildResultsHeadline("", 42, null)).toBeNull();
+  });
+
+  test("describes query results with singular and plural forms", () => {
+    expect(buildResultsHeadline("dark", 1, null)).toBe('1 result found for "dark".');
+    expect(buildResultsHeadline("dark", 3, null)).toBe('3 results found for "dark".');
+  });
+
+  test("names the active repository in the headline", () => {
+    expect(buildResultsHeadline("", 1, repo)).toBe("1 theme in github.com/owner/theme.");
+    expect(buildResultsHeadline("", 3, repo)).toBe("3 themes in github.com/owner/theme.");
+  });
+
+  test("combines the query, repository, and result count", () => {
+    expect(buildResultsHeadline("dark", 2, repo)).toBe(
+      '2 results found for "dark" in github.com/owner/theme.',
+    );
+  });
+
+  test("keeps the sort label only when neither query nor repository is active", () => {
+    expect(buildResultsHeadline("", 7, null, "Name A–Z")).toBe("Name A–Z — 7 themes");
+    expect(buildResultsHeadline("dark", 7, null, "Name A–Z")).toBe('7 results found for "dark".');
+    expect(buildResultsHeadline("", 7, repo, "Name A–Z")).toBe(
+      "7 themes in github.com/owner/theme.",
+    );
+  });
+
+  test("returns null for zero counts so callers show the no-results message", () => {
+    expect(buildResultsHeadline("dark", 0, null)).toBeNull();
+  });
+});
+
+describe("buildNoResultsMessage", () => {
+  const repo = "https://github.com/owner/theme";
+
+  test("distinguishes query and repository-only states", () => {
+    expect(buildNoResultsMessage("dark", null, false)).toBe('No results were found for "dark".');
+    expect(buildNoResultsMessage("", null, false)).toBe("No themes were found.");
+  });
+
+  test("names the active repository in no-results copy", () => {
+    expect(buildNoResultsMessage("", repo, false)).toBe(
+      "No themes were found in github.com/owner/theme.",
+    );
+    expect(buildNoResultsMessage("dark", repo, false)).toBe(
+      'No results were found for "dark" in github.com/owner/theme.',
+    );
+  });
+
+  test("reports an invalid repository filter explicitly instead of silently broadening", () => {
+    expect(buildNoResultsMessage("dark", "not a url", true)).toBe(
+      'The repository filter "not a url" is not valid.',
+    );
+    expect(buildNoResultsMessage("", "not a url", true)).toBe(
+      'The repository filter "not a url" is not valid.',
+    );
   });
 });
 

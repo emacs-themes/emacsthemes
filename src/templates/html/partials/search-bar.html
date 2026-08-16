@@ -20,8 +20,16 @@
   </div>
   <button type="submit">Filter</button>
   <p class="sr-only" id="search-hint">
-    Type a theme name or keyword, choose a sort order, and press Enter.
+    Type a theme name or keyword, choose a sort order, and press Enter. When a repository filter is
+    active, a chip appears below the controls — use its clear button to remove it.
   </p>
 </form>
+<div id="repository-filter" class="repository-filter" hidden>
+  <span class="repository-filter-label">Repository:</span>
+  <span id="repository-filter-name" class="repository-filter-name"></span>
+  <button id="repository-filter-clear" type="button" aria-label="Clear repository filter">
+    &times;
+  </button>
+</div>
 <h2 id="search-results-headline" aria-live="polite" aria-atomic="true"></h2>
 <p id="no-results-message" role="status" aria-live="polite" aria-atomic="true"></p>

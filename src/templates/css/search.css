@@ -73,6 +73,52 @@
   }
 }
 
+/* Active repository filter chip, shown only when a repo param is set. */
+.repository-filter {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: var(--surface-1);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 999px;
+
+  &[hidden] {
+    display: none;
+  }
+
+  & .repository-filter-label {
+    font-weight: 600;
+  }
+
+  & .repository-filter-name {
+    overflow-wrap: anywhere;
+  }
+
+  & button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--text-main);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    &:hover {
+      background: var(--border-color);
+    }
+  }
+}
+
 #search-results-headline {
   display: none;
   margin: 0 0 1rem;

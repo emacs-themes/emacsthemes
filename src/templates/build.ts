@@ -1,10 +1,12 @@
 import { mkdir, readdir, copyFile, rm, readFile, symlink } from "node:fs/promises";
 import { dirname, join, relative, resolve } from "node:path";
+import { createHash } from "node:crypto";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
 import { transform } from "lightningcss";
 import { fetchPopularThemes, writePopularThemesLogs, POPULAR_LOGS_DIR } from "./popular/fetcher";
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
+import { normalizeRepositoryUrl } from "../core/theme-identity";
 import { DISPLAY_LOCALE } from "../core/constants";
 import { getPinnedThemeIds } from "../core/pinned-themes.js";
 import {
@@ -154,6 +156,8 @@ interface SearchThemeIndexEntry {
   name: string;
   searchable: string;
   screenshotGeneratedDate: string | null;
+  /** Canonical repository URL for exact repo filtering; null for local/invalid values. */
+  repositoryUrl: string | null;
 }
 
 // Data Fetching
@@ -269,6 +273,7 @@ function buildThemeSearchIndex(
       name: theme.name,
       searchable,
       screenshotGeneratedDate: theme.screenshotGeneratedDate,
+      repositoryUrl: normalizeRepositoryUrl(theme.repoUrl) ?? null,
     };
   });
 }
@@ -276,11 +281,11 @@ function buildThemeSearchIndex(
 /**
  * Writes the generated theme search index to a static JSON file.
  *
- * @param {SearchThemeIndexEntry[]} indexEntries - Search index entries for all themes.
+ * @param {string} indexJson - The serialized search index entries.
  */
-async function writeThemeSearchIndex(indexEntries: SearchThemeIndexEntry[]) {
+async function writeThemeSearchIndex(indexJson: string) {
   await mkdir(PATHS.assets.dest.data, { recursive: true });
-  await Bun.write(PATHS.assets.dest.themesIndex, JSON.stringify(indexEntries));
+  await Bun.write(PATHS.assets.dest.themesIndex, indexJson);
 }
 
 /**
@@ -409,7 +414,13 @@ async function buildAllThemesPage(
 
   const content = buildThemeCardsGrid(allThemes, cardTemplate, "../");
 
-  await writeThemeSearchIndex(buildThemeSearchIndex(allThemes));
+  // The index URL carries a hash of its own content so an HTTP-cached index
+  // from a previous deploy (e.g. one without the repositoryUrl field) can
+  // never be served to a page that filters on it: any schema or data change
+  // produces a fresh URL and therefore a fresh fetch.
+  const indexJson = JSON.stringify(buildThemeSearchIndex(allThemes));
+  await writeThemeSearchIndex(indexJson);
+  const indexHash = createHash("sha256").update(indexJson).digest("hex").slice(0, 12);
 
   // Bundle the search script via Bun.build so the import of
   // src/templates/core/search-sort.ts is resolved. The placeholder
@@ -423,7 +434,7 @@ async function buildAllThemesPage(
   let scriptContent = await buildResult.outputs[0].text();
   scriptContent = scriptContent.replaceAll(
     "{{THEMES_INDEX_URL}}",
-    "../static/data/themes-index.json",
+    `../static/data/themes-index.json?v=${indexHash}`,
   );
   await writeThemesSearchScript(scriptContent);
   const scriptHtml = [

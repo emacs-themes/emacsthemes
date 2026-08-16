@@ -6,6 +6,8 @@
  * the responsibility of the caller.
  */
 
+import { getRepositoryDisplayName } from "../../core/theme-identity";
+
 export interface CardEntry {
   card: Element;
   id: string;
@@ -16,12 +18,16 @@ export interface ThemeIndexEntry {
   name?: string;
   searchable: string;
   screenshotGeneratedDate?: string | null;
+  /** Canonical repository URL; may be absent or null in old/malformed indexes. */
+  repositoryUrl?: string | null;
 }
 
 export interface ThemeIndexRecord {
   name: string;
   searchable: string;
   screenshotGeneratedDate: string | null;
+  /** Canonical repository URL, or null when the entry carried none. */
+  repositoryUrl: string | null;
 }
 
 export interface SortConfig {
@@ -64,6 +70,7 @@ export function buildSearchMap(
       searchable: entry.searchable,
       screenshotGeneratedDate:
         typeof entry.screenshotGeneratedDate === "string" ? entry.screenshotGeneratedDate : null,
+      repositoryUrl: typeof entry.repositoryUrl === "string" ? entry.repositoryUrl : null,
     });
   });
 }
@@ -186,28 +193,113 @@ export function buildSortComparators(
 }
 
 /**
+ * Options for {@link filterThemes}.
+ */
+export interface FilterThemesOptions {
+  /** The case-insensitive text query; empty matches everything. */
+  query: string;
+  /** Canonical repository URL to restrict results to, or null for no repository filter. */
+  repositoryUrl: string | null;
+  /** Called once per card with its computed visibility. */
+  onCardVisibility: (entry: CardEntry, visible: boolean) => void;
+}
+
+/**
  * Filters rendered theme cards using the precomputed searchable index.
+ *
+ * A card is visible only when the case-insensitive text query matches (or is
+ * empty) AND the repository filter is absent or the metadata carries the exact
+ * same canonical repository URL. Cards without valid index metadata never
+ * match an active repository filter.
  *
  * @returns The number of visible (matching) cards after filtering.
  */
 export function filterThemes(
   cardEntries: CardEntry[],
   themeIndexById: Map<string, ThemeIndexRecord>,
-  query: string,
-  onCardVisibility: (entry: CardEntry, visible: boolean) => void,
+  options: FilterThemesOptions,
 ): number {
+  const { query, repositoryUrl, onCardVisibility } = options;
   const q = query.toLowerCase().trim();
   let visibleCount = 0;
 
   cardEntries.forEach((entry) => {
     const metadata = themeIndexById.get(entry.id);
     const searchable = metadata ? metadata.searchable : "";
-    const matches = q === "" || searchable.includes(q);
+    const textMatches = q === "" || searchable.includes(q);
+    const repoMatches =
+      repositoryUrl === null ||
+      (metadata !== undefined && metadata.repositoryUrl === repositoryUrl);
+    const matches = textMatches && repoMatches;
     onCardVisibility(entry, matches);
     if (matches) visibleCount += 1;
   });
 
   return visibleCount;
+}
+
+/**
+ * Builds the results headline text for the current filter state.
+ *
+ * The headline names the active repository so visitors and screen-reader
+ * users always know what they are looking at. The sort label is used only
+ * when neither a text query nor a repository filter is active (the sort
+ * change announcement), so query/repository context is never dropped by a
+ * sort change. Returns null when the headline should stay hidden (nothing
+ * filtered and no sort announcement).
+ *
+ * @param {string} query - The active text query (empty when none).
+ * @param {number} count - The number of visible themes.
+ * @param {string | null} repositoryUrl - The active repository filter, or null.
+ * @param {string} [sortLabel] - Optional sort label for the sort-change announcement.
+ * @returns {string | null} The headline text, or null when no headline is needed.
+ */
+export function buildResultsHeadline(
+  query: string,
+  count: number,
+  repositoryUrl: string | null,
+  sortLabel?: string,
+): string | null {
+  if (count === 0) {
+    return null;
+  }
+  const repoName = repositoryUrl ? ` in ${getRepositoryDisplayName(repositoryUrl)}` : "";
+  if (query) {
+    return `${count} ${count === 1 ? "result" : "results"} found for "${query}"${repoName}.`;
+  }
+  if (repositoryUrl) {
+    return `${count} ${count === 1 ? "theme" : "themes"} in ${getRepositoryDisplayName(repositoryUrl)}.`;
+  }
+  if (sortLabel) {
+    return `${sortLabel} — ${count} ${count === 1 ? "theme" : "themes"}`;
+  }
+  return null;
+}
+
+/**
+ * Builds the no-results message for the current filter state.
+ *
+ * Names the active repository when one is set. A present-but-invalid
+ * repository parameter is reported explicitly (fail closed) instead of
+ * silently broadening the result set to the full directory.
+ *
+ * @param {string} query - The active text query (empty when none).
+ * @param {string | null} repositoryUrl - The active repository filter value (raw when invalid).
+ * @param {boolean} invalidRepository - Whether the repository parameter was present but unusable.
+ * @returns {string} The no-results message.
+ */
+export function buildNoResultsMessage(
+  query: string,
+  repositoryUrl: string | null,
+  invalidRepository: boolean,
+): string {
+  if (invalidRepository) {
+    return `The repository filter "${repositoryUrl ?? ""}" is not valid.`;
+  }
+  const repoName = repositoryUrl ? ` in ${getRepositoryDisplayName(repositoryUrl)}` : "";
+  return query
+    ? `No results were found for "${query}"${repoName}.`
+    : `No themes were found${repoName}.`;
 }
 
 /**

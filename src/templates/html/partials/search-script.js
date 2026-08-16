@@ -11,13 +11,28 @@ import {
   sortThemes,
   parseSortConfigFromSelect,
   getSortValue,
+  buildResultsHeadline,
+  buildNoResultsMessage,
 } from "../../core/search-sort";
+import {
+  getRepositoryDisplayName,
+  normalizeRepositoryUrl,
+  REPOSITORY_URL_PARAM,
+} from "../../../core/theme-identity";
 
 (function () {
   "use strict";
 
   const themesIndexUrl = "{{THEMES_INDEX_URL}}";
-  const themesIndexCacheKey = `emacsthemes:index:v2:${themesIndexUrl}`;
+  // Bump CACHE_VERSION when the ThemeIndexRecord JSON shape changes. The URL
+  // carries a per-build content hash (see build.ts), so schema changes get a
+  // fresh network fetch automatically.
+  const CACHE_VERSION = "v3";
+  const CACHE_KEY_PREFIX = "emacsthemes:index:";
+  // Known older schema versions, removed on first load. Unknown future
+  // versions are left alone so a rollback cannot clobber newer caches.
+  const LEGACY_CACHE_VERSIONS = ["v1", "v2"];
+  const themesIndexCacheKey = `${CACHE_KEY_PREFIX}${CACHE_VERSION}:${themesIndexUrl}`;
   const searchInput = /** @type {HTMLInputElement | null} */ (document.getElementById("q"));
   const sortSelect = /** @type {HTMLSelectElement | null} */ (document.getElementById("sort"));
   const searchForm = document.querySelector(".searchbar");
@@ -25,7 +40,9 @@ import {
   const resultsHeadline = document.getElementById("search-results-headline");
   const noResultsMessage = document.getElementById("no-results-message");
   const grid = document.querySelector(".grid");
-  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  const repositoryFilter = document.getElementById("repository-filter");
+  const repositoryFilterName = document.getElementById("repository-filter-name");
+  const repositoryFilterClear = document.getElementById("repository-filter-clear");
   const themeIndexById = new Map();
   const cardEntries = cards
     .map((card) => {
@@ -45,12 +62,16 @@ import {
     appliedSortComparators = buildSortComparators(sortConfigs, themeIndexById);
   }
 
-  // Clean up stale pre-v2 sessionStorage keys on first load.
+  // Clean up stale legacy-version sessionStorage keys on first load
+  // (iterating backwards so removals cannot skip keys).
   try {
-    const oldPrefix = "emacsthemes:index:";
-    for (let i = 0; i < window.sessionStorage.length; i++) {
+    for (let i = window.sessionStorage.length - 1; i >= 0; i--) {
       const key = window.sessionStorage.key(i);
-      if (key && key.startsWith(oldPrefix) && !key.includes(":v2:")) {
+      if (
+        key &&
+        key.startsWith(CACHE_KEY_PREFIX) &&
+        LEGACY_CACHE_VERSIONS.some((version) => key.includes(`:${version}:`))
+      ) {
         window.sessionStorage.removeItem(key);
       }
     }
@@ -78,15 +99,51 @@ import {
   }
 
   /**
+   * Reads the cached index from sessionStorage, or null when unavailable.
+   */
+  function readCachedIndex() {
+    try {
+      return window.sessionStorage.getItem(themesIndexCacheKey);
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * Writes the index to sessionStorage, ignoring quota/storage failures.
+   *
+   * A QuotaExceededError must not disable the search UI: the in-memory
+   * copy returned to the caller works without the cache.
+   */
+  function writeCachedIndex(value) {
+    try {
+      window.sessionStorage.setItem(themesIndexCacheKey, value);
+    } catch {
+      // Cache is an optimization; keep serving from memory.
+    }
+  }
+
+  /**
+   * Removes a corrupt cache entry, ignoring storage failures.
+   */
+  function removeCachedIndex() {
+    try {
+      window.sessionStorage.removeItem(themesIndexCacheKey);
+    } catch {
+      // Nothing to recover — the fetch below will repopulate.
+    }
+  }
+
+  /**
    * Loads the theme search index from sessionStorage or network, then caches it.
    */
   async function fetchThemesIndex() {
-    const cached = window.sessionStorage.getItem(themesIndexCacheKey);
+    const cached = readCachedIndex();
     if (cached) {
       try {
         return JSON.parse(cached);
       } catch {
-        window.sessionStorage.removeItem(themesIndexCacheKey);
+        removeCachedIndex();
       }
     }
 
@@ -96,21 +153,32 @@ import {
     }
 
     const indexEntries = await response.json();
-    window.sessionStorage.setItem(themesIndexCacheKey, JSON.stringify(indexEntries));
+    writeCachedIndex(JSON.stringify(indexEntries));
     return indexEntries;
   }
 
   /**
-   * Updates URL search parameters for the current filter and sort state.
-   * Uses replaceState when the URL hasn't changed to avoid polluting history.
+   * Updates URL search parameters for the current filter, repository, and sort state.
+   *
+   * Writes history only when the URL actually changed. `urlMode` controls how:
+   * "push" for user-initiated changes, "replace" for initial hydration of a
+   * non-canonical URL (normalization must not add a duplicate history entry),
+   * and "none" while restoring state from popstate (Back/Forward must never
+   * be re-trapped by a re-push of the same entry).
    */
-  function updateUrlState(query, sortValue) {
+  function updateUrlState(query, sortValue, repositoryUrl, urlMode) {
     const url = new URL(window.location);
 
     if (query) {
       url.searchParams.set("q", query);
     } else {
       url.searchParams.delete("q");
+    }
+
+    if (repositoryUrl) {
+      url.searchParams.set(REPOSITORY_URL_PARAM, repositoryUrl);
+    } else {
+      url.searchParams.delete(REPOSITORY_URL_PARAM);
     }
 
     if (sortValue === defaultSortValue) {
@@ -121,17 +189,13 @@ import {
 
     const urlStr = url.toString();
     if (urlStr !== window.location.href) {
-      window.history.pushState({}, "", urlStr);
+      if (urlMode === "push") {
+        window.history.pushState({}, "", urlStr);
+      } else if (urlMode === "replace") {
+        window.history.replaceState({}, "", urlStr);
+      }
+      // "none": leave history untouched (popstate restoration).
     }
-    updateCanonicalUrl(urlStr);
-  }
-
-  /**
-   * Updates the canonical link to reflect the current URL after query changes.
-   */
-  function updateCanonicalUrl(url) {
-    if (!canonicalLink) return;
-    canonicalLink.setAttribute("href", url || window.location.href);
   }
 
   /**
@@ -144,22 +208,14 @@ import {
   }
 
   /**
-   * Announces a message to screen readers via the results headline live region.
-   */
-  function announceSortChange(sortValue, count) {
-    if (!resultsHeadline) return;
-    const cfg = sortConfigs.find((c) => c.value === sortValue);
-    const label = cfg ? cfg.label : sortValue;
-    resultsHeadline.textContent = `${label} — ${count} theme${count !== 1 ? "s" : ""}`;
-    if (count > 0) {
-      resultsHeadline.classList.add("is-visible");
-    }
-  }
-
-  /**
    * Updates search result messaging and grid visibility based on the current match count.
+   *
+   * The repository filter is reflected in both the headline and the
+   * no-results message; a repository-only landing URL exposes the active
+   * filter even when the text query is empty. All text is assigned via
+   * `textContent` because it derives from URL parameters.
    */
-  function setResultsState(query, count) {
+  function setResultsState(query, count, repositoryUrl, invalidRepository, sortLabel) {
     if (!grid || !noResultsMessage) return;
 
     if (count === 0) {
@@ -167,19 +223,19 @@ import {
       if (resultsHeadline) {
         resultsHeadline.classList.remove("is-visible");
       }
-      noResultsMessage.textContent = 'No results were found for "' + query + '".';
+      noResultsMessage.textContent = buildNoResultsMessage(query, repositoryUrl, invalidRepository);
       noResultsMessage.classList.add("is-visible");
       return;
     }
 
     clearNoResultsState();
     if (!resultsHeadline) return;
-    if (!query) {
+    const headline = buildResultsHeadline(query, count, repositoryUrl, sortLabel);
+    if (headline === null) {
       resultsHeadline.classList.remove("is-visible");
       return;
     }
-    const suffix = count === 1 ? "result" : "results";
-    resultsHeadline.textContent = count + " " + suffix + ' found for "' + query + '".';
+    resultsHeadline.textContent = headline;
     resultsHeadline.classList.add("is-visible");
   }
 
@@ -197,15 +253,79 @@ import {
   }
 
   /**
-   * Applies the full search-and-sort state: filters, sorts, updates a11y and URL.
+   * Shows or hides the repository filter chip next to the search bar.
    */
-  function applySearchState(query, sortValue) {
-    const visibleCount = filterThemes(cardEntries, themeIndexById, query, (entry, visible) => {
-      entry.card.classList.toggle("is-hidden", !visible);
+  function updateRepositoryFilterChip(repositoryUrl) {
+    if (!repositoryFilter || !repositoryFilterName) return;
+    if (repositoryUrl) {
+      repositoryFilterName.textContent = getRepositoryDisplayName(repositoryUrl);
+      repositoryFilter.hidden = false;
+    } else {
+      repositoryFilter.hidden = true;
+    }
+  }
+
+  // The active repository filter persists across searches and sort changes
+  // so users keep searching within the matched recipe set. An invalid `repo`
+  // parameter is kept as the raw value so filtering fails closed (zero
+  // results) instead of silently broadening to the full directory.
+  let activeRepositoryUrl = null;
+  let activeRepositoryInvalid = false;
+
+  /**
+   * Applies the full search-and-sort state: filters, sorts, updates a11y and URL.
+   *
+   * @param {Object} state - The state to apply.
+   * @param {string} state.query - The text query (empty when none).
+   * @param {string} state.sortValue - The validated sort value.
+   * @param {string | null} state.repositoryUrl - The active repository filter, or null.
+   * @param {boolean} [state.invalidRepository] - Whether the repo param was present but unusable.
+   * @param {string} [state.urlMode] - "push" | "replace" | "none" for URL history writes.
+   * @param {string} [state.sortLabel] - Sort label for the sort-change announcement.
+   */
+  function applySearchState({
+    query,
+    sortValue,
+    repositoryUrl,
+    invalidRepository = false,
+    urlMode = "push",
+    sortLabel = null,
+  }) {
+    const visibleCount = filterThemes(cardEntries, themeIndexById, {
+      query,
+      repositoryUrl,
+      onCardVisibility: (entry, visible) => {
+        entry.card.classList.toggle("is-hidden", !visible);
+      },
     });
+    activeRepositoryUrl = repositoryUrl;
+    activeRepositoryInvalid = invalidRepository;
     sortThemes(grid, cardEntries, appliedSortComparators, sortValue);
-    setResultsState(query, visibleCount);
-    updateUrlState(query, sortValue);
+    setResultsState(query, visibleCount, repositoryUrl, invalidRepository, sortLabel);
+    updateRepositoryFilterChip(repositoryUrl);
+    updateUrlState(query, sortValue, repositoryUrl, urlMode);
+  }
+
+  /**
+   * Reads and normalizes the `repo` URL parameter.
+   *
+   * Distinguishes "parameter absent" from "parameter present but invalid":
+   * an invalid value is returned raw so the filter fails closed and the UI
+   * can report it instead of silently showing the full directory.
+   *
+   * @param {URLSearchParams} params - The current URL parameters.
+   * @returns {{ repositoryUrl: string | null, invalidRepository: boolean }} The parsed filter state.
+   */
+  function readRepositoryParam(params) {
+    const raw = params.get(REPOSITORY_URL_PARAM);
+    if (!raw) {
+      return { repositoryUrl: null, invalidRepository: false };
+    }
+    const normalized = normalizeRepositoryUrl(raw);
+    if (normalized) {
+      return { repositoryUrl: normalized, invalidRepository: false };
+    }
+    return { repositoryUrl: raw, invalidRepository: true };
   }
 
   /**
@@ -216,22 +336,32 @@ import {
     if (!searchInput) return;
     const query = searchInput.value;
     const sortValue = getValidSortValue(sortSelect ? sortSelect.value : null);
-    applySearchState(query, sortValue);
+    applySearchState({
+      query,
+      sortValue,
+      repositoryUrl: activeRepositoryUrl,
+      invalidRepository: activeRepositoryInvalid,
+    });
   }
 
   /**
    * Handles sort selection changes.
+   *
+   * Routes through the same state pipeline as search submission so the
+   * visible/announced headline keeps the query and repository context.
    */
   function handleSortChange() {
     if (!sortSelect) return;
     const query = searchInput ? searchInput.value : "";
     const sortValue = getValidSortValue(sortSelect.value);
-    const visibleCount = filterThemes(cardEntries, themeIndexById, query, (entry, visible) => {
-      entry.card.classList.toggle("is-hidden", !visible);
+    const sortConfig = sortConfigs.find((c) => c.value === sortValue);
+    applySearchState({
+      query,
+      sortValue,
+      repositoryUrl: activeRepositoryUrl,
+      invalidRepository: activeRepositoryInvalid,
+      sortLabel: sortConfig ? sortConfig.label : sortValue,
     });
-    sortThemes(grid, cardEntries, appliedSortComparators, sortValue);
-    announceSortChange(sortValue, visibleCount);
-    updateUrlState(query, sortValue);
   }
 
   /**
@@ -255,12 +385,28 @@ import {
 
     const params = new URLSearchParams(window.location.search);
     const initialQuery = params.get("q") || "";
+    const { repositoryUrl: initialRepositoryUrl, invalidRepository: initialInvalidRepository } =
+      readRepositoryParam(params);
     const initialSortValue = getValidSortValue(params.get("sort"));
     searchInput.value = initialQuery;
     if (sortSelect) {
       sortSelect.value = initialSortValue;
     }
-    applySearchState(initialQuery, initialSortValue);
+    applySearchState({
+      query: initialQuery,
+      sortValue: initialSortValue,
+      repositoryUrl: initialRepositoryUrl,
+      invalidRepository: initialInvalidRepository,
+      urlMode: "replace",
+    });
+
+    if (repositoryFilterClear) {
+      repositoryFilterClear.addEventListener("click", () => {
+        const query = searchInput ? searchInput.value : "";
+        const sortValue = getValidSortValue(sortSelect ? sortSelect.value : null);
+        applySearchState({ query, sortValue, repositoryUrl: null });
+      });
+    }
 
     if (searchForm) {
       searchForm.addEventListener("submit", handleSearch);
@@ -274,12 +420,19 @@ import {
       if (!searchInput) return;
       const nextParams = new URLSearchParams(window.location.search);
       const query = nextParams.get("q") || "";
+      const { repositoryUrl, invalidRepository } = readRepositoryParam(nextParams);
       const sortValue = getValidSortValue(nextParams.get("sort"));
       searchInput.value = query;
       if (sortSelect) {
         sortSelect.value = sortValue;
       }
-      applySearchState(query, sortValue);
+      applySearchState({
+        query,
+        sortValue,
+        repositoryUrl,
+        invalidRepository,
+        urlMode: "none",
+      });
     });
   }
 
