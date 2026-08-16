@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "sanityinc-solarized-light",
+    "sanityinc-solarized-dark",
     "github-light",
     "github-dark",
     "github-dark-dimmed",
@@ -9,8 +11,6 @@
     "nibelung",
     "pure-light",
     "batppuccin-macchiato",
-    "batppuccin-frappe",
-    "batppuccin-latte",
-    "batppuccin-mocha"
+    "batppuccin-frappe"
   ]
 }
