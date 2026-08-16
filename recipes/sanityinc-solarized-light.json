@@ -1,0 +1,14 @@
+{
+  "name": "Sanityinc Solarized Light",
+  "id": "sanityinc-solarized-light",
+  "description": "An alternate light Emacs color-theme version of Ethan Schoonover’s popular Solarized theme.",
+  "repoUrl": "https://github.com/purcell/color-theme-sanityinc-solarized",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-solarized/main/color-theme-sanityinc-solarized.el",
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-solarized/main/sanityinc-solarized-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Steve Purcell"],
+  "tags": ["beige", "light", "low contrast", "popular", "sanityinc", "solarized", "yellow"],
+  "elispBefore": "(require 'cl-lib)"
+}

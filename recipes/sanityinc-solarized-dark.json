@@ -1,0 +1,14 @@
+{
+  "name": "Sanityinc Solarized Dark",
+  "id": "sanityinc-solarized-dark",
+  "description": "An alternate dark Emacs color-theme version of Ethan Schoonover’s popular Solarized theme.",
+  "repoUrl": "https://github.com/purcell/color-theme-sanityinc-solarized",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-solarized/main/color-theme-sanityinc-solarized.el",
+    "https://raw.githubusercontent.com/purcell/color-theme-sanityinc-solarized/main/sanityinc-solarized-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Steve Purcell"],
+  "tags": ["blue", "dark", "low contrast", "popular", "sanityinc", "solarized", "teal"],
+  "elispBefore": "(require 'cl-lib)"
+}
