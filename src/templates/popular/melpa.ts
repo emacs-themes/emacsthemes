@@ -39,12 +39,12 @@ type DownloadCounts = Record<string, number>;
 type RecipesIndex = Record<string, RecipeMeta>;
 
 /**
- * Builds a repository URL for a MELPA recipe entry.
+ * Builds the external source URL for a MELPA recipe entry.
  *
  * @param {RecipeMeta | undefined} pck - The MELPA recipe metadata entry.
  * @returns {string | undefined} The fully qualified repository URL, or undefined when data is incomplete.
  */
-function composeUrl(pck?: RecipeMeta): string | undefined {
+function composeSourceUrl(pck?: RecipeMeta): string | undefined {
   if (!pck) {
     return undefined;
   }
@@ -109,7 +109,7 @@ export function filterPackages(
     .map((k) => ({
       name: formatName(k),
       downloads: packages[k],
-      url: composeUrl(recipes[k]),
+      sourceUrl: composeSourceUrl(recipes[k]),
     }));
 }
 

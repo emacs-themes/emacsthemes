@@ -5,6 +5,12 @@ export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-da
 /** Locale used for all deterministic date and number formatting across the site. */
 export const DISPLAY_LOCALE = "en-US";
 
+/** URL prefix for theme detail pages (e.g. `/themes/doom-one`). */
+export const THEME_DETAIL_PATH_PREFIX = "/themes/";
+
+/** URL of the themes directory page with the search UI. */
+export const THEMES_INDEX_PATH = "/themes/index.html";
+
 export interface ModeConfig {
   file: string;
   isInstructionFile?: boolean;

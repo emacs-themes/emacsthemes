@@ -183,7 +183,7 @@ describe("MELPA selection and limit", () => {
     }
 
     // Top entry and equal-download tie broken by package name ascending.
-    expect(melpa[0]).toEqual({ name: "zzz theme", downloads: 1_000_000, url: undefined });
+    expect(melpa[0]).toEqual({ name: "zzz theme", downloads: 1_000_000, sourceUrl: undefined });
     expect(melpa[1].name).toBe("aaa theme");
     expect(melpa[2].name).toBe("bbb theme");
     expect(melpa[1].downloads).toBe(900_000);
@@ -212,32 +212,34 @@ describe("MELPA selection and limit", () => {
     expect(melpa[POPULAR_THEMES_LIMIT - 1]).toEqual({
       name: "theme 029 theme",
       downloads: 29,
-      url: undefined,
+      sourceUrl: undefined,
     });
 
     // Recipe URL composition with an explicit fetcher domain map.
-    expect(melpa.find((entry) => entry.name === "github theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "github theme")?.sourceUrl).toBe(
       "https://github.com/owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "direct url theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "direct url theme")?.sourceUrl).toBe(
       "https://gitlab.com/owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "sourcehut theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "sourcehut theme")?.sourceUrl).toBe(
       "https://git.sr.ht/~owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "codeberg theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "codeberg theme")?.sourceUrl).toBe(
       "https://codeberg.org/owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "savannah theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "savannah theme")?.sourceUrl).toBe(
       "https://savannah.gnu.org/owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "bitbucket theme")?.url).toBe(
+    expect(melpa.find((entry) => entry.name === "bitbucket theme")?.sourceUrl).toBe(
       "https://bitbucket.org/owner/repo",
     );
-    expect(melpa.find((entry) => entry.name === "unknown fetcher theme")?.url).toBeUndefined();
-    expect(melpa.find((entry) => entry.name === "no repo theme")?.url).toBeUndefined();
-    expect(melpa.find((entry) => entry.name === "empty meta theme")?.url).toBeUndefined();
-    expect(melpa.find((entry) => entry.name === "missing recipe theme")?.url).toBeUndefined();
+    expect(
+      melpa.find((entry) => entry.name === "unknown fetcher theme")?.sourceUrl,
+    ).toBeUndefined();
+    expect(melpa.find((entry) => entry.name === "no repo theme")?.sourceUrl).toBeUndefined();
+    expect(melpa.find((entry) => entry.name === "empty meta theme")?.sourceUrl).toBeUndefined();
+    expect(melpa.find((entry) => entry.name === "missing recipe theme")?.sourceUrl).toBeUndefined();
   });
 
   test("ignores non-finite download counts", async () => {
@@ -250,7 +252,7 @@ describe("MELPA selection and limit", () => {
     );
 
     const results = await fetchPopularThemes();
-    expect(melpaOk(results)).toEqual([{ name: "ok theme", downloads: 10, url: undefined }]);
+    expect(melpaOk(results)).toEqual([{ name: "ok theme", downloads: 10, sourceUrl: undefined }]);
   });
 
   test("ties between huge equal counts break deterministically by name", async () => {
@@ -393,7 +395,7 @@ describe("GitHub mapping and ordering", () => {
     expect(github[0]).toEqual({
       name: "zzz/theme",
       stars: 1000,
-      url: "https://github.com/zzz/theme",
+      sourceUrl: "https://github.com/zzz/theme",
     });
     expect(github[1].name).toBe("aaa/theme");
     expect(github[2].name).toBe("bbb/theme");
@@ -408,7 +410,7 @@ describe("GitHub mapping and ordering", () => {
     expect(github[POPULAR_THEMES_LIMIT - 1]).toEqual({
       name: "owner/repo-023",
       stars: 23,
-      url: "https://github.com/owner/repo-023",
+      sourceUrl: "https://github.com/owner/repo-023",
     });
   });
 
@@ -627,12 +629,12 @@ describe("Independent source behavior", () => {
 
     const results = await fetchPopularThemes();
 
-    expect(melpaOk(results)).toEqual([{ name: "ok theme", downloads: 1, url: undefined }]);
+    expect(melpaOk(results)).toEqual([{ name: "ok theme", downloads: 1, sourceUrl: undefined }]);
     expect(githubOk(results)).toEqual([
       {
         name: "owner/theme",
         stars: 10,
-        url: "https://github.com/owner/theme",
+        sourceUrl: "https://github.com/owner/theme",
       },
     ]);
   });
@@ -720,7 +722,9 @@ describe("Popular themes logging", () => {
           {
             source: "github",
             status: "ok",
-            entries: [{ name: "owner/theme", stars: 10, url: "https://github.com/owner/theme" }],
+            entries: [
+              { name: "owner/theme", stars: 10, sourceUrl: "https://github.com/owner/theme" },
+            ],
             warning: "GitHub search results are incomplete",
           },
         ],

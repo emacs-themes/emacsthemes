@@ -19,6 +19,7 @@ import {
   renderPopularSourceNotice,
   getAvailablePopularSources,
   getMissingPopularSources,
+  toPopularThemeRecipes,
 } from "./core/popular-themes";
 import { buildThemeCardsGrid } from "./core/theme-card";
 import type { PopularThemeSourceResult } from "../core/popular-types";
@@ -389,12 +390,15 @@ async function buildHomepage(
  * @param {string} template - The base HTML template.
  * @param {string} cardTemplate - The theme card HTML template.
  * @param {string} searchBarHtml - The HTML for the search bar partial.
+ * @param {Theme[]} rawThemes - The single build-wide recipe snapshot.
  */
-async function buildAllThemesPage(template: string, cardTemplate: string, searchBarHtml: string) {
-  const [screenshotGeneratedDates, rawThemes] = await Promise.all([
-    readScreenshotDates(),
-    getAllThemes(),
-  ]);
+async function buildAllThemesPage(
+  template: string,
+  cardTemplate: string,
+  searchBarHtml: string,
+  rawThemes: Theme[],
+) {
+  const screenshotGeneratedDates = await readScreenshotDates();
   const allThemes = addScreenshotGeneratedDates(rawThemes, screenshotGeneratedDates);
   allThemes.sort((a, b) => a.name.localeCompare(b.name, "en"));
 
@@ -458,9 +462,9 @@ async function buildAllThemesPage(template: string, cardTemplate: string, search
  *
  * @param {string} template - The base HTML template.
  * @param {string} contentTemplate - The theme detail content HTML template.
+ * @param {Theme[]} themes - The single build-wide recipe snapshot.
  */
-async function buildThemeDetailPages(template: string, contentTemplate: string) {
-  const themes = await getAllThemes();
+async function buildThemeDetailPages(template: string, contentTemplate: string, themes: Theme[]) {
   const mainCssPath = `../${PATHS.css.main}`;
   const detailCssPath = `../${PATHS.css.detail}`;
   const commonScripts = buildCommonScripts("../");
@@ -584,19 +588,23 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
  * Fails the build when every source fails, so the always-linked `/popular`
  * page can never silently disappear from a clean build. When only some
  * sources fail, the page is generated with source-aware copy plus an
- * availability notice for the missing sources.
+ * availability notice for the missing sources. Recipe destinations resolve
+ * against the same build-wide recipe snapshot as every other page.
  *
  * @param {string} template - The base HTML template.
  * @param {string} contentTemplate - The popular themes content HTML template.
  * @param {Promise<PopularThemeSourceResult[]>} popularThemesPromise - The in-flight popularity fetch.
+ * @param {Theme[]} allThemes - The single build-wide recipe snapshot.
  */
 async function buildPopularThemesPage(
   template: string,
   contentTemplate: string,
   popularThemesPromise: Promise<PopularThemeSourceResult[]>,
+  allThemes: Theme[],
 ) {
   const results = await popularThemesPromise;
   await writePopularThemesLogs(results, POPULAR_LOGS_DIR);
+  const recipes = toPopularThemeRecipes(allThemes);
 
   const available = getAvailablePopularSources(results);
   const missing = getMissingPopularSources(results);
@@ -620,7 +628,7 @@ async function buildPopularThemesPage(
       copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : "",
     )
     .replace("{{POPULAR_THEMES_NOTICE}}", () => notice)
-    .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(results))
+    .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(results, recipes))
     .replace("{{GENERATED_DATE}}", () => generatedDate);
 
   const html = applyBaseTemplate(
@@ -750,9 +758,12 @@ async function build() {
   await rm(BUILD_DIR, { recursive: true, force: true });
   await mkdir(BUILD_DIR, { recursive: true });
 
-  // Kick off the popularity fetch immediately so network I/O runs in parallel
-  // with template reading and static page generation.
+  // Kick off the popularity fetch and the recipe snapshot immediately so
+  // network and disk I/O run in parallel with template reading and static
+  // page generation. Every page builder shares this one recipe snapshot,
+  // so a recipe change mid-build can never make pages disagree.
   const popularThemesPromise = fetchPopularThemes();
+  const allThemesPromise = getAllThemes();
 
   const [
     baseTemplate,
@@ -765,6 +776,7 @@ async function build() {
     error404ContentTemplate,
     themeToggleScriptSource,
     posthogScriptSource,
+    allThemes,
   ] = await Promise.all([
     Bun.file(PATHS.templates.base).text(),
     Bun.file(PATHS.templates.partials.themeCard).text(),
@@ -776,6 +788,7 @@ async function build() {
     Bun.file(PATHS.templates.partials.error404).text(),
     Bun.file(PATHS.templates.partials.themeToggleScript).text(),
     Bun.file(PATHS.templates.partials.posthogScript).text(),
+    allThemesPromise,
   ]);
 
   const minifiedThemeToggleJs = await minifyJs(themeToggleScriptSource);
@@ -783,10 +796,15 @@ async function build() {
   await writePosthogScript(await minifyJs(posthogScriptSource));
 
   await buildHomepage(baseTemplate, cardTemplate, latestThemesHeadlineHtml);
-  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml);
-  await buildThemeDetailPages(baseTemplate, detailContentTemplate);
+  await buildAllThemesPage(baseTemplate, cardTemplate, searchBarHtml, allThemes);
+  await buildThemeDetailPages(baseTemplate, detailContentTemplate, allThemes);
   await buildAboutPage(baseTemplate, aboutContentHtml);
-  await buildPopularThemesPage(baseTemplate, popularThemesContentTemplate, popularThemesPromise);
+  await buildPopularThemesPage(
+    baseTemplate,
+    popularThemesContentTemplate,
+    popularThemesPromise,
+    allThemes,
+  );
   await build404Page(baseTemplate, error404ContentTemplate);
 
   logInfo("Copying and minifying assets...");

@@ -1,5 +1,10 @@
-import { DISPLAY_LOCALE } from "../../core/constants";
+import { DISPLAY_LOCALE, THEME_DETAIL_PATH_PREFIX, THEMES_INDEX_PATH } from "../../core/constants";
 import { escapeHtml, toSafeUrl } from "../../core/html-utils";
+import {
+  normalizeRepositoryUrl,
+  normalizeThemeIdentity,
+  REPOSITORY_URL_PARAM,
+} from "../../core/theme-identity";
 import type {
   GitHubThemeEntry,
   MelpaThemeEntry,
@@ -21,8 +26,22 @@ interface PopularTableConfig {
   nameLabel: string;
   /** Label for the metric column. */
   metricLabel: string;
+  /** Label for the source column. */
+  sourceLabel: string;
   /** Screen-reader caption describing the table contents. */
   caption: string;
+}
+
+/**
+ * Minimal recipe data used to resolve internal destinations for popular entries.
+ */
+export interface PopularThemeRecipe {
+  /** Recipe id used to build internal detail URLs. */
+  id: string;
+  /** Display name of the theme. */
+  name: string;
+  /** Raw repository URL from the recipe. */
+  repoUrl: string;
 }
 
 /**
@@ -31,8 +50,36 @@ interface PopularTableConfig {
 interface NormalizedThemeEntry {
   name: string;
   count: number;
-  url?: string;
+  /** Original external repository URL shown in the Source cell. */
+  sourceUrl?: string;
+  /** Resolved internal destination for the name cell, when one exists. */
+  internalHref?: string;
 }
+
+/**
+ * A resolved internal destination for a popular entry's name cell.
+ */
+type InternalDestination = { href: string } | null;
+
+/**
+ * Prebuilt recipe lookup maps used for deterministic destination resolution.
+ */
+interface RecipeLookups {
+  /** Normalized recipe id to the candidate recipes. */
+  byId: Map<string, PopularThemeRecipe[]>;
+  /** Normalized recipe name to the candidate recipes. */
+  byName: Map<string, PopularThemeRecipe[]>;
+  /** Canonical repository URL to the candidate recipes. */
+  byRepositoryUrl: Map<string, PopularThemeRecipe[]>;
+}
+
+/**
+ * One reusable chain-link icon for source anchors. Inline SVG with no
+ * external dependency; hidden from assistive technology because the anchor's
+ * accessible name already describes the action.
+ */
+const SOURCE_ICON_SVG =
+  '<svg class="source-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
 
 /**
  * Registry of table configurations keyed by source id. Adding a new
@@ -47,6 +94,7 @@ const TABLE_CONFIGS: Record<PopularSourceId, PopularTableConfig> = {
       "The most downloaded themes from the MELPA package archive, ranked by download count.",
     nameLabel: "Theme Name",
     metricLabel: "Downloads",
+    sourceLabel: "Source",
     caption: "MELPA themes ranked by total download count",
   },
   github: {
@@ -55,6 +103,7 @@ const TABLE_CONFIGS: Record<PopularSourceId, PopularTableConfig> = {
     description: "Public Emacs Lisp theme repositories ranked by star count.",
     nameLabel: "Repository Name",
     metricLabel: "Stars",
+    sourceLabel: "Source",
     caption: "GitHub theme repositories ranked by star count",
   },
 };
@@ -68,26 +117,164 @@ const SOURCE_DISPLAY_NAMES: Record<PopularSourceId, string> = {
 };
 
 /**
- * Maps a source entry onto the normalized table entry shape.
+ * Appends a value to a map bucket, creating the bucket on first use.
+ *
+ * @param {Map<string, T[]>} map - The bucket map.
+ * @param {string} key - The bucket key.
+ * @param {T} value - The value to append.
+ * @template T
+ */
+function pushBucket<T>(map: Map<string, T[]>, key: string, value: T): void {
+  const bucket = map.get(key) ?? [];
+  bucket.push(value);
+  map.set(key, bucket);
+}
+
+/**
+ * Builds the recipe lookup maps used for destination resolution.
+ *
+ * Indexes every recipe under its normalized id and its normalized name
+ * (separate maps, so a unique id match can beat an ambiguous name match),
+ * and under its canonical repository URL. All candidates are kept per key so
+ * ambiguity stays explicit; recipe filesystem order is never relied upon.
+ * Malformed recipes (missing or non-string `id`/`name`/`repoUrl`) are
+ * skipped with a warning instead of aborting the whole build, mirroring
+ * `buildSearchMap`. Recipes with `local` or invalid repository URLs are
+ * skipped for repository lookups.
+ *
+ * @param {readonly PopularThemeRecipe[]} recipes - The recipe summaries.
+ * @returns {RecipeLookups} The populated lookup maps.
+ */
+function buildRecipeLookups(recipes: readonly PopularThemeRecipe[]): RecipeLookups {
+  const byId = new Map<string, PopularThemeRecipe[]>();
+  const byName = new Map<string, PopularThemeRecipe[]>();
+  const byRepositoryUrl = new Map<string, PopularThemeRecipe[]>();
+
+  for (const recipe of recipes) {
+    if (
+      !recipe ||
+      typeof recipe.id !== "string" ||
+      typeof recipe.name !== "string" ||
+      typeof recipe.repoUrl !== "string"
+    ) {
+      console.warn("[popular] Skipping malformed recipe:", recipe);
+      continue;
+    }
+
+    const idIdentity = normalizeThemeIdentity(recipe.id);
+    if (idIdentity) {
+      pushBucket(byId, idIdentity, recipe);
+    }
+    const nameIdentity = normalizeThemeIdentity(recipe.name);
+    if (nameIdentity) {
+      pushBucket(byName, nameIdentity, recipe);
+    }
+
+    const repositoryUrl = normalizeRepositoryUrl(recipe.repoUrl);
+    if (repositoryUrl) {
+      pushBucket(byRepositoryUrl, repositoryUrl, recipe);
+    }
+  }
+
+  return { byId, byName, byRepositoryUrl };
+}
+
+/**
+ * Resolves the internal destination for a popular entry's name cell.
+ *
+ * Applies the documented precedence: a unique normalized id match wins;
+ * otherwise a unique normalized name match; otherwise a unique canonical
+ * repository match; otherwise an exact repository-filter URL when several
+ * recipes share the repository; otherwise no destination. Ambiguous matches
+ * never select an arbitrary recipe.
+ *
+ * @param {string} name - The popular entry name.
+ * @param {string | undefined} sourceUrl - The entry's original source repository URL.
+ * @param {RecipeLookups} lookups - The prebuilt recipe lookups.
+ * @returns {InternalDestination} The resolved destination.
+ */
+function resolveInternalDestination(
+  name: string,
+  sourceUrl: string | undefined,
+  lookups: RecipeLookups,
+): InternalDestination {
+  const identity = normalizeThemeIdentity(name);
+  if (identity) {
+    const idCandidates = lookups.byId.get(identity);
+    if (idCandidates && idCandidates.length === 1) {
+      return { href: `${THEME_DETAIL_PATH_PREFIX}${idCandidates[0].id}` };
+    }
+    const nameCandidates = lookups.byName.get(identity);
+    if (nameCandidates && nameCandidates.length === 1) {
+      return { href: `${THEME_DETAIL_PATH_PREFIX}${nameCandidates[0].id}` };
+    }
+  }
+
+  const repositoryUrl = sourceUrl ? normalizeRepositoryUrl(sourceUrl) : undefined;
+  if (repositoryUrl) {
+    const repoCandidates = lookups.byRepositoryUrl.get(repositoryUrl);
+    if (repoCandidates && repoCandidates.length === 1) {
+      return { href: `${THEME_DETAIL_PATH_PREFIX}${repoCandidates[0].id}` };
+    }
+    if (repoCandidates && repoCandidates.length > 1) {
+      const params = new URLSearchParams({ [REPOSITORY_URL_PARAM]: repositoryUrl });
+      return { href: `${THEMES_INDEX_PATH}?${params.toString()}` };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Maps a source entry onto the normalized table entry shape, resolving its
+ * internal destination against the recipe lookups.
  *
  * @param {MelpaThemeEntry | GitHubThemeEntry} entry - The source entry.
+ * @param {RecipeLookups} lookups - The prebuilt recipe lookups.
  * @returns {NormalizedThemeEntry} The normalized entry.
  */
-function toNormalizedEntry(entry: MelpaThemeEntry | GitHubThemeEntry): NormalizedThemeEntry {
+function toNormalizedEntry(
+  entry: MelpaThemeEntry | GitHubThemeEntry,
+  lookups: RecipeLookups,
+): NormalizedThemeEntry {
+  const destination = resolveInternalDestination(entry.name, entry.sourceUrl, lookups);
   return {
     name: entry.name,
     count: "downloads" in entry ? entry.downloads : entry.stars,
-    url: entry.url,
+    sourceUrl: entry.sourceUrl,
+    ...(destination ? { internalHref: destination.href } : {}),
   };
+}
+
+/**
+ * Renders the Source cell for one entry.
+ *
+ * A safe `http:`/`https:` source URL becomes an icon-only external anchor
+ * with `target="_blank"`, `rel="noopener noreferrer"`, and an entry-specific
+ * accessible name announcing the new tab. Missing or rejected URLs render a
+ * non-link unavailable marker with equivalent screen-reader text.
+ *
+ * @param {NormalizedThemeEntry} entry - The normalized entry.
+ * @returns {string} The source cell content.
+ */
+function renderSourceCell(entry: NormalizedThemeEntry): string {
+  const safeUrl = entry.sourceUrl ? toSafeUrl(entry.sourceUrl) : undefined;
+  if (!safeUrl) {
+    return `<span class="source-unavailable"><span aria-hidden="true">—</span><span class="sr-only">Source code unavailable for ${escapeHtml(entry.name)}</span></span>`;
+  }
+  return `<a class="source-link" href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" title="View source code for ${escapeHtml(entry.name)}" aria-label="View source code for ${escapeHtml(entry.name)} (opens in a new tab)">${SOURCE_ICON_SVG}</a>`;
 }
 
 /**
  * Renders one accessible popularity table with a source heading and explanation.
  *
- * Emits one-based rank row headers, `scope="col"` column headers, a
- * screen-reader caption, a keyboard-focusable scroll region, and deterministic
- * {@link DISPLAY_LOCALE} thousands separators. Names and links are escaped;
- * links are rendered only for safe `http:`/`https:` URLs.
+ * Emits one-based rank row headers, `scope="col"` column headers (including
+ * the final Source column), a screen-reader caption, a keyboard-focusable
+ * scroll region, and deterministic {@link DISPLAY_LOCALE} thousands
+ * separators. Name cells link to resolved internal destinations (detail or
+ * repository-filter pages) in the current tab; source cells link to the
+ * original external repository in a new tab. All text and hrefs are escaped
+ * at this HTML boundary.
  *
  * @param {PopularTableConfig} config - The source table configuration.
  * @param {NormalizedThemeEntry[]} entries - The ranked entries to render.
@@ -97,15 +284,15 @@ function renderPopularTable(config: PopularTableConfig, entries: NormalizedTheme
   const rows = entries
     .map((entry, index) => {
       const rank = index + 1;
-      const safeUrl = entry.url ? toSafeUrl(entry.url) : undefined;
-      const nameHtml = safeUrl
-        ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.name)}<span class="sr-only"> (opens in a new tab)</span></a>`
+      const nameHtml = entry.internalHref
+        ? `<a href="${escapeHtml(entry.internalHref)}">${escapeHtml(entry.name)}</a>`
         : escapeHtml(entry.name);
       return `
         <tr>
           <th scope="row">${rank}</th>
           <td>${nameHtml}</td>
           <td class="text-right">${entry.count.toLocaleString(DISPLAY_LOCALE)}</td>
+          <td class="source-cell">${renderSourceCell(entry)}</td>
         </tr>`;
     })
     .join("\n");
@@ -122,6 +309,7 @@ function renderPopularTable(config: PopularTableConfig, entries: NormalizedTheme
             <th scope="col">Rank</th>
             <th scope="col">${escapeHtml(config.nameLabel)}</th>
             <th scope="col" class="text-right">${escapeHtml(config.metricLabel)}</th>
+            <th scope="col" class="source-cell">${escapeHtml(config.sourceLabel)}</th>
           </tr>
         </thead>
         <tbody>
@@ -136,21 +324,46 @@ ${rows}
  * Renders the popular-themes tables for the available sources.
  *
  * Renders one table per successful source result, preserving result order
- * (MELPA before GitHub). Failed sources are skipped entirely.
+ * (MELPA before GitHub). Failed sources are skipped entirely. Recipe lookups
+ * are built once and shared by both tables.
  *
  * @param {PopularThemeSourceResult[]} results - The per-source fetch outcomes.
+ * @param {readonly PopularThemeRecipe[]} recipes - The recipe summaries used to resolve internal destinations.
  * @returns {string} The rendered source sections, or an empty string when no source succeeded.
  */
-export function renderPopularThemeTables(results: readonly PopularThemeSourceResult[]): string {
+export function renderPopularThemeTables(
+  results: readonly PopularThemeSourceResult[],
+  recipes: readonly PopularThemeRecipe[],
+): string {
+  const lookups = buildRecipeLookups(recipes);
   return results
     .filter(
       (result): result is Extract<PopularThemeSourceResult, { status: "ok" }> =>
         result.status === "ok",
     )
     .map((result) =>
-      renderPopularTable(TABLE_CONFIGS[result.source], result.entries.map(toNormalizedEntry)),
+      renderPopularTable(
+        TABLE_CONFIGS[result.source],
+        result.entries.map((entry) => toNormalizedEntry(entry, lookups)),
+      ),
     )
     .join("\n");
+}
+
+/**
+ * Narrows full theme records to the minimal shape the popular page renderer needs.
+ *
+ * The narrowing is explicit so the build-time `Theme` contract cannot drift
+ * silently into `PopularThemeRecipe` through structural typing: a field
+ * rename surfaces here instead of at the render call site.
+ *
+ * @param {readonly { id: string; name: string; repoUrl: string }[]} themes - Full theme records.
+ * @returns {PopularThemeRecipe[]} The narrowed recipe summaries.
+ */
+export function toPopularThemeRecipes(
+  themes: readonly { id: string; name: string; repoUrl: string }[],
+): PopularThemeRecipe[] {
+  return themes.map((theme) => ({ id: theme.id, name: theme.name, repoUrl: theme.repoUrl }));
 }
 
 /**

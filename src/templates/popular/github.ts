@@ -180,7 +180,7 @@ export async function fetchGitHubThemes(limit: number): Promise<{
     .map((item) => ({
       name: item.full_name,
       stars: item.stargazers_count,
-      url: item.html_url,
+      sourceUrl: item.html_url,
     }));
 
   return { entries, warning };

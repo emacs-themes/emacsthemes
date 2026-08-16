@@ -13,14 +13,20 @@ export type PopularSourceId = "melpa" | "github";
 export interface MelpaThemeEntry {
   name: string;
   downloads: number;
-  url?: string;
+  /**
+   * The original external repository URL from the MELPA recipe. It feeds the
+   * Source-cell link and is independent of the internal name-cell destination
+   * resolved at render time.
+   */
+  sourceUrl?: string;
 }
 
 /** A GitHub repository ranked by star count. */
 export interface GitHubThemeEntry {
   name: string; // GitHub full_name
   stars: number;
-  url: string; // GitHub html_url
+  /** The original GitHub html_url; see the MELPA entry note on `sourceUrl`. */
+  sourceUrl: string;
 }
 
 /**

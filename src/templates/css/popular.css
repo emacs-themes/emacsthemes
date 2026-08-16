@@ -108,6 +108,34 @@
     text-align: right;
   }
 
+  /* The source column holds only a small icon: center it, keep it on one
+     line, and shrink it to its content width. */
+  & .source-cell {
+    width: 1%;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Inline-flex target with a usable hit area. No fixed colors here: the
+     icon renders via currentColor so dark theme and increased-contrast
+     variants keep working, and the global a:focus-visible outline applies. */
+  & .source-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  & .source-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  & .source-unavailable {
+    color: var(--text-soft);
+  }
+
   & tr:hover {
     background-color: var(--surface-2);
   }
