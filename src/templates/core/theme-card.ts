@@ -7,7 +7,6 @@ export interface ThemeCardTheme {
   id: string;
   name: string;
   description: string;
-  repoUrl: string;
 }
 
 /**
@@ -31,7 +30,6 @@ export function generateThemeCard(
     .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
     .replace(/{{THEME_ID}}/g, theme.id)
     .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
-    .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
     .replace(/{{THEME_LOCAL_URL}}/g, theme.id)
     .replace(/{{THEME_IMAGE_PATH}}/g, imagePath);
 }

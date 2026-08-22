@@ -1,4 +1,5 @@
 import { mkdir, readdir, copyFile, rm, readFile, symlink } from "node:fs/promises";
+import { statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { minify, Options as MinifyOptions } from "html-minifier-terser";
@@ -24,6 +25,7 @@ import {
   toPopularThemeRecipes,
 } from "./core/popular-themes";
 import { buildThemeCardsGrid } from "./core/theme-card";
+import { renderThemeSourceLinksSafely } from "./core/theme-source-links";
 import type { PopularThemeSourceResult } from "../core/popular-types";
 
 // Constants
@@ -50,6 +52,23 @@ function logInfo(message: string) {
 
 function logWarn(message: string) {
   console.warn(`${LOG_PREFIX} ${message}`);
+}
+
+/**
+ * Checks that a validated local source file exists and is a regular file.
+ *
+ * The paths come from validated recipe `rawUrls` entries, so they are already
+ * confined to the themes root; this check only guards against dangling
+ * references (e.g. a recipe committed before its assets).
+ *
+ * @param {string} relativePath - Validated path relative to the themes root.
+ * @returns {boolean} True when the file exists and is a regular file.
+ */
+function localThemeSourceExists(relativePath: string): boolean {
+  const stats = statSync(join(PATHS.assets.src.themes, relativePath), {
+    throwIfNoEntry: false,
+  });
+  return stats?.isFile() ?? false;
 }
 
 /**
@@ -520,19 +539,12 @@ async function buildThemeDetailPages(template: string, contentTemplate: string, 
 
     const generatedDate = formatDisplayDate(generatedDateObj);
 
-    let repoLinkHtml = `<a href="${theme.repoUrl}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub</a>`;
-    if (theme.repoUrl === "local") {
-      repoLinkHtml = "";
-    }
+    const sourceLinksHtml = renderThemeSourceLinksSafely(theme, localThemeSourceExists, logWarn);
 
     const content = contentTemplate
       .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
       .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
-      .replace(
-        /<a href="{{THEME_REPO_URL}}" target="_blank" rel="noopener noreferrer" class="button">View Source on GitHub<\/a>/g,
-        repoLinkHtml,
-      )
-      .replace(/{{THEME_REPO_URL}}/g, theme.repoUrl)
+      .replaceAll("{{THEME_SOURCE_LINKS}}", sourceLinksHtml)
       .replace(/{{THEME_TYPE}}/g, theme.type)
       .replace(/{{THEME_TAGS}}/g, tagsHtml)
       .replace(/{{GENERATED_DATE}}/g, generatedDate)
