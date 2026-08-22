@@ -24,15 +24,6 @@ import {
   "use strict";
 
   const themesIndexUrl = "{{THEMES_INDEX_URL}}";
-  // Bump CACHE_VERSION when the ThemeIndexRecord JSON shape changes. The URL
-  // carries a per-build content hash (see build.ts), so schema changes get a
-  // fresh network fetch automatically.
-  const CACHE_VERSION = "v3";
-  const CACHE_KEY_PREFIX = "emacsthemes:index:";
-  // Known older schema versions, removed on first load. Unknown future
-  // versions are left alone so a rollback cannot clobber newer caches.
-  const LEGACY_CACHE_VERSIONS = ["v1", "v2"];
-  const themesIndexCacheKey = `${CACHE_KEY_PREFIX}${CACHE_VERSION}:${themesIndexUrl}`;
   const searchInput = /** @type {HTMLInputElement | null} */ (document.getElementById("q"));
   const sortSelect = /** @type {HTMLSelectElement | null} */ (document.getElementById("sort"));
   const searchForm = document.querySelector(".searchbar");
@@ -62,23 +53,6 @@ import {
     appliedSortComparators = buildSortComparators(sortConfigs, themeIndexById);
   }
 
-  // Clean up stale legacy-version sessionStorage keys on first load
-  // (iterating backwards so removals cannot skip keys).
-  try {
-    for (let i = window.sessionStorage.length - 1; i >= 0; i--) {
-      const key = window.sessionStorage.key(i);
-      if (
-        key &&
-        key.startsWith(CACHE_KEY_PREFIX) &&
-        LEGACY_CACHE_VERSIONS.some((version) => key.includes(`:${version}:`))
-      ) {
-        window.sessionStorage.removeItem(key);
-      }
-    }
-  } catch {
-    // sessionStorage may be unavailable — silently skip cleanup.
-  }
-
   /**
    * Toggles the loading state of search controls while index data is fetched.
    */
@@ -99,62 +73,15 @@ import {
   }
 
   /**
-   * Reads the cached index from sessionStorage, or null when unavailable.
-   */
-  function readCachedIndex() {
-    try {
-      return window.sessionStorage.getItem(themesIndexCacheKey);
-    } catch {
-      return null;
-    }
-  }
-
-  /**
-   * Writes the index to sessionStorage, ignoring quota/storage failures.
-   *
-   * A QuotaExceededError must not disable the search UI: the in-memory
-   * copy returned to the caller works without the cache.
-   */
-  function writeCachedIndex(value) {
-    try {
-      window.sessionStorage.setItem(themesIndexCacheKey, value);
-    } catch {
-      // Cache is an optimization; keep serving from memory.
-    }
-  }
-
-  /**
-   * Removes a corrupt cache entry, ignoring storage failures.
-   */
-  function removeCachedIndex() {
-    try {
-      window.sessionStorage.removeItem(themesIndexCacheKey);
-    } catch {
-      // Nothing to recover — the fetch below will repopulate.
-    }
-  }
-
-  /**
-   * Loads the theme search index from sessionStorage or network, then caches it.
+   * Fetches the generated theme search index through the browser HTTP cache.
    */
   async function fetchThemesIndex() {
-    const cached = readCachedIndex();
-    if (cached) {
-      try {
-        return JSON.parse(cached);
-      } catch {
-        removeCachedIndex();
-      }
-    }
-
     const response = await window.fetch(themesIndexUrl, { cache: "force-cache" });
     if (!response.ok) {
       throw new Error("Failed to load themes index: " + response.status);
     }
 
-    const indexEntries = await response.json();
-    writeCachedIndex(JSON.stringify(indexEntries));
-    return indexEntries;
+    return await response.json();
   }
 
   /**
