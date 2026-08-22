@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { resolve } from "path";
+import { LOCAL_THEME_REPO_URL, LOCAL_THEMES_DIR } from "./constants";
+import { toLocalThemeRelativePath } from "./local-theme-sources";
 
 export const ThemeSchema = z
   .object({
@@ -32,19 +34,23 @@ export const ThemeSchema = z
   })
   .refine(
     (data) => {
-      if (data.repoUrl === "local") {
-        return data.rawUrls.every((url) => {
-          const match = url.match(/^static\/themes\/([^/]+)\//);
-          if (!match) return false;
-          const folder = match[1];
-          return data.id.includes(folder);
-        });
+      if (data.repoUrl !== LOCAL_THEME_REPO_URL) {
+        return true;
       }
-      return true;
+      return data.rawUrls.every((url) => {
+        // toLocalThemeRelativePath enforces the same segment safety rules as
+        // the link renderer; the folder/substring rule below is an additional
+        // data-quality constraint (the theme folder must relate to the ID).
+        const relativePath = toLocalThemeRelativePath(url);
+        if (relativePath === null) {
+          return false;
+        }
+        const folder = relativePath.slice(0, relativePath.indexOf("/"));
+        return data.id.includes(folder);
+      });
     },
     {
-      message:
-        "Local themes must have rawUrls in 'static/themes/{folder}/' where {folder} is a substring of the theme ID",
+      message: `Local themes must have rawUrls in '${LOCAL_THEMES_DIR}/{folder}/' where {folder} is a substring of the theme ID`,
       path: ["rawUrls"],
     },
   );
@@ -75,7 +81,7 @@ function detectInjectionPattern(value: string): string | null {
 }
 
 function validateUrlProtocol(field: string, value: string): InjectionIssue | null {
-  if (value === "local" || value.startsWith("static/themes/")) {
+  if (value === LOCAL_THEME_REPO_URL || value.startsWith(`${LOCAL_THEMES_DIR}/`)) {
     return null;
   }
   try {

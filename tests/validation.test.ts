@@ -83,6 +83,26 @@ describe("Strict Validator (Source-link contract)", () => {
     tags: ["local"],
   };
 
+  test("accepts a local theme with safe rawUrls", () => {
+    expect(validateRecipeStrict(baseRecipe).success).toBe(true);
+  });
+
+  test.each([
+    "static/themes/safe-theme/../evil.el",
+    "static/themes/safe-theme/./evil.el",
+    "static/themes/safe-theme//evil.el",
+    "static\\themes\\safe-theme\\evil.el",
+    "https://example.com/evil.el",
+  ])("rejects unsafe local source path %s", (rawUrl) => {
+    const result = validateRecipeStrict({ ...baseRecipe, rawUrls: [rawUrl] });
+    expect(result.success).toBe(false);
+  });
+
+  test("rejects a local rawUrls entry without a file below the theme folder", () => {
+    const result = validateRecipeStrict({ ...baseRecipe, rawUrls: ["static/themes/safe-theme"] });
+    expect(result.success).toBe(false);
+  });
+
   test("rejects credential-bearing repository URLs", () => {
     const result = validateRecipeStrict({
       ...baseRecipe,

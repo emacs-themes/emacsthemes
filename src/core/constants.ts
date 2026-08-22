@@ -2,6 +2,12 @@ export const RECIPES_DIR = "recipes";
 export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
 export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-dates.json";
 
+/** Sentinel `repoUrl` value marking a theme whose sources are bundled in this repository. */
+export const LOCAL_THEME_REPO_URL = "local";
+
+/** Repository-relative directory holding bundled local theme sources. */
+export const LOCAL_THEMES_DIR = "static/themes";
+
 /** Locale used for all deterministic date and number formatting across the site. */
 export const DISPLAY_LOCALE = "en-US";
 

@@ -1,8 +1,15 @@
 import { mkdir, readdir, readFile, rm, copyFile } from "node:fs/promises";
 import { join, basename, resolve } from "node:path";
 import { Theme, validateRecipeStrict } from "./schema-checker";
-import { RECIPES_DIR, MODE_SAMPLES, ModeConfig } from "./constants";
+import {
+  RECIPES_DIR,
+  MODE_SAMPLES,
+  ModeConfig,
+  LOCAL_THEMES_DIR,
+  LOCAL_THEME_REPO_URL,
+} from "./constants";
 import { assertPathWithinRoot } from "./path-utils";
+import { toLocalThemeRelativePath } from "./local-theme-sources";
 import {
   ensureScreenshotDatesInitialized,
   upsertScreenshotGenerationDate,
@@ -17,7 +24,6 @@ const IMAGES_DIR = "static/imgs";
 const TEMP_DIR = ".tmp/theme-gen";
 const INIT_TEMPLATE_PATH = "src/elisp/init-template.el";
 const MODES_SAMPLES_DIR = "src/elisp/modes";
-const LOCAL_THEMES_DIR = "static/themes";
 
 /**
  * Represents the parsed command-line arguments for the screenshot generation script.
@@ -194,8 +200,10 @@ async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<
  */
 async function prepareLocalThemeFiles(theme: Theme, themeTempDir: string): Promise<string[]> {
   const firstRawUrl = theme.rawUrls[0];
-  const match = firstRawUrl.match(/^static\/themes\/([^/]+)\//);
-  const folderName = match ? match[1] : theme.id;
+  // rawUrls entries are schema-validated when recipes are loaded; the shared
+  // parser keeps the folder extraction identical to validation and rendering.
+  const relativePath = toLocalThemeRelativePath(firstRawUrl);
+  const folderName = relativePath ? relativePath.slice(0, relativePath.indexOf("/")) : theme.id;
   const localThemeDir = assertPathWithinRoot(LOCAL_THEMES_DIR, folderName);
 
   console.log(`  Copying local theme directory from ${localThemeDir}...`);
@@ -216,7 +224,7 @@ async function prepareLocalThemeFiles(theme: Theme, themeTempDir: string): Promi
  * @returns {Promise<string[]>} A list of filenames that should be loaded in Emacs.
  */
 async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<string[]> {
-  if (theme.repoUrl === "local") {
+  if (theme.repoUrl === LOCAL_THEME_REPO_URL) {
     return await prepareLocalThemeFiles(theme, themeTempDir);
   }
   return await downloadThemeFiles(theme.rawUrls, themeTempDir);
