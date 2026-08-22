@@ -226,6 +226,31 @@ describe("internal name destinations", () => {
     expect(html).toContain('<a href="/themes/doom-one">doom one</a>');
   });
 
+  test("links the MELPA Phoenix Dark Pink entry to the canonical dark-pink recipe", async () => {
+    const darkPinkRecipe = (await Bun.file(
+      new URL("../recipes/dark-pink.json", import.meta.url),
+    ).json()) as { id: string; name: string; repoUrl: string };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "melpa",
+          status: "ok",
+          entries: [
+            {
+              name: "phoenix dark pink theme",
+              downloads: 1,
+              sourceUrl: "https://git.sr.ht/~mhcat/emacs-phoenix-dark-pink-theme",
+            },
+          ],
+        },
+      ],
+      [darkPinkRecipe],
+    );
+
+    expect(html).toContain('<a href="/themes/dark-pink">phoenix dark pink theme</a>');
+    expect(html).not.toContain('href="/themes/phoenix-dark-pink"');
+  });
+
   test("an ambiguous name match falls through to repository matching instead of picking the first recipe", () => {
     const recipes = [
       { id: "zen", name: "Zenburn", repoUrl: "https://github.com/owner/zenburn" },
