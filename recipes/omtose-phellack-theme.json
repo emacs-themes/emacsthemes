@@ -1,0 +1,12 @@
+{
+  "name": "Omtose Phellack Theme",
+  "id": "omtose-phellack-theme",
+  "description": "A dark, soothing theme for Emacs with a cold bluish touch.",
+  "repoUrl": "https://github.com/franksn/omtose-phellack-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/franksn/omtose-phellack-theme/master/variants/omtose-darker-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Alexander F. Adhyatma"],
+  "tags": ["black", "dark", "melpa", "omtose-phellack"]
+}

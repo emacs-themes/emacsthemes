@@ -1,0 +1,12 @@
+{
+  "name": "Omtose Softer Theme",
+  "id": "omtose-softer",
+  "description": "A dark, soothing theme with a cold bluish touch.",
+  "repoUrl": "https://github.com/franksn/omtose-phellack-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/franksn/omtose-phellack-theme/master/variants/omtose-softer-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Alexander F. Adhyatma"],
+  "tags": ["black", "dark", "melpa", "omtose-phellack", "softer"]
+}

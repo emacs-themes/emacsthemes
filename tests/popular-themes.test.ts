@@ -251,6 +251,25 @@ describe("internal name destinations", () => {
     expect(html).not.toContain('href="/themes/phoenix-dark-pink"');
   });
 
+  test("links the MELPA Omtose Phellack Theme entry to the canonical omtose-phellack-theme recipe", async () => {
+    const omtoseRecipe = (await Bun.file(
+      new URL("../recipes/omtose-phellack-theme.json", import.meta.url),
+    ).json()) as { id: string; name: string; repoUrl: string };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "melpa",
+          status: "ok",
+          entries: [{ name: "omtose phellack theme", downloads: 1 }],
+        },
+      ],
+      [omtoseRecipe],
+    );
+
+    expect(html).toContain('<a href="/themes/omtose-phellack-theme">omtose phellack theme</a>');
+    expect(html).not.toContain('href="/themes/omtose-darker"');
+  });
+
   test("an ambiguous name match falls through to repository matching instead of picking the first recipe", () => {
     const recipes = [
       { id: "zen", name: "Zenburn", repoUrl: "https://github.com/owner/zenburn" },
