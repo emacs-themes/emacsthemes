@@ -71,6 +71,37 @@ describe("Strict Validator (Injection Safety)", () => {
   });
 });
 
+describe("Strict Validator (Source-link contract)", () => {
+  const baseRecipe = {
+    name: "Local Theme",
+    id: "safe-theme",
+    description: "A local theme",
+    repoUrl: "local",
+    rawUrls: ["static/themes/safe-theme/safe-theme.el"],
+    type: "dark",
+    authors: ["Jane Doe"],
+    tags: ["local"],
+  };
+
+  test("rejects credential-bearing repository URLs", () => {
+    const result = validateRecipeStrict({
+      ...baseRecipe,
+      repoUrl: "https://user:pass@github.com/example/safe",
+      rawUrls: ["https://github.com/example/safe/raw/main/safe.el"],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  test("rejects credential-bearing rawUrls", () => {
+    const result = validateRecipeStrict({
+      ...baseRecipe,
+      repoUrl: "https://github.com/example/safe",
+      rawUrls: ["https://user:pass@github.com/example/safe/raw/main/safe.el"],
+    });
+    expect(result.success).toBe(false);
+  });
+});
+
 describe("HTML Escaping", () => {
   test("escapes basic HTML characters", () => {
     expect(escapeHtml('<script>alert("XSS")</script>')).toBe(

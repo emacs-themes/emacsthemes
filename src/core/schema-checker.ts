@@ -83,6 +83,9 @@ function validateUrlProtocol(field: string, value: string): InjectionIssue | nul
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
       return { field, reason: "must use http, https protocol or be a local static/themes/ path" };
     }
+    if (parsed.username !== "" || parsed.password !== "") {
+      return { field, reason: "must not embed user credentials" };
+    }
   } catch {
     return { field, reason: "must be a valid absolute URL or a local static/themes/ path" };
   }
