@@ -54,6 +54,12 @@
   font-size: 1.1rem;
   border-spacing: 0;
   border-collapse: separate;
+
+  /* Subtle elevation: a luminance delta near the just-noticeable difference
+     (~2%, per Weber's law) keeps the surface perceptibly distinct from the
+     page background without competing with the header's stronger surface-2.
+     The border still carries the WCAG 1.4.11 boundary contrast. */
+  background-color: var(--surface-subtle);
   border: var(--border-width) solid var(--border-color);
   border-radius: 14px;
 
