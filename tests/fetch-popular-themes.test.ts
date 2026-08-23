@@ -472,6 +472,11 @@ describe("GitHub mapping and ordering", () => {
         stargazers_count: 4000,
       },
       {
+        full_name: "domtronn/spaceline-all-the-icons.el",
+        html_url: "https://github.com/domtronn/spaceline-all-the-icons.el",
+        stargazers_count: 3500,
+      },
+      {
         full_name: "hadronzoo/theme-changer",
         html_url: "https://github.com/hadronzoo/theme-changer",
         stargazers_count: 3000,
