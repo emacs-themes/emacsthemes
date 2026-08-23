@@ -1,0 +1,14 @@
+{
+  "name": "Color Theme Solarized",
+  "id": "color-theme-solarized",
+  "description": "The original Solarized color theme for Emacs, ported by Greg Pfeil, with frame-aware light and dark appearances.",
+  "repoUrl": "https://github.com/sellout/emacs-color-theme-solarized",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/sellout/emacs-color-theme-solarized/master/solarized-definitions.el",
+    "https://raw.githubusercontent.com/sellout/emacs-color-theme-solarized/master/solarized-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Ethan Schoonover", "Greg Pfeil"],
+  "tags": ["blue", "dark", "emacs 24", "low contrast", "popular", "solarized", "teal"],
+  "elispBefore": "(setq frame-background-mode 'dark) (set-frame-parameter nil 'background-mode 'dark) (set-terminal-parameter nil 'background-mode 'dark)"
+}
