@@ -242,6 +242,55 @@ describe("MELPA selection and limit", () => {
     expect(melpa.find((entry) => entry.name === "missing recipe theme")?.sourceUrl).toBeUndefined();
   });
 
+  test("adds source URLs for archived themes missing from MELPA recipes", async () => {
+    mockFetch(
+      combinedHandler(
+        melpaHandler({
+          "color-theme-solarized": 6,
+          "darkburn-theme": 5,
+          "eziam-theme": 4,
+          "farmhouse-theme": 3,
+          "majapahit-theme": 2,
+          "omtose-phellack-theme": 1,
+        }),
+        githubHandler(defaultGitHubItems),
+      ),
+    );
+
+    expect(melpaOk(await fetchPopularThemes())).toEqual([
+      {
+        name: "color theme solarized",
+        downloads: 6,
+        sourceUrl: "https://github.com/sellout/emacs-color-theme-solarized",
+      },
+      {
+        name: "darkburn theme",
+        downloads: 5,
+        sourceUrl: "https://github.com/gorauskas/darkburn-theme",
+      },
+      {
+        name: "eziam theme",
+        downloads: 4,
+        sourceUrl: "https://github.com/thblt/eziam-theme-emacs",
+      },
+      {
+        name: "farmhouse theme",
+        downloads: 3,
+        sourceUrl: "https://github.com/mattly/emacs-farmhouse-theme",
+      },
+      {
+        name: "majapahit theme",
+        downloads: 2,
+        sourceUrl: "https://gitlab.com/franksn/majapahit-theme/-/tree/master?ref_type=heads",
+      },
+      {
+        name: "omtose phellack theme",
+        downloads: 1,
+        sourceUrl: "https://github.com/franksn/omtose-phellack-theme",
+      },
+    ]);
+  });
+
   test("ignores non-finite download counts", async () => {
     const countsBody = '{"huge-theme": 1e999, "ok-theme": 10}';
     mockFetch(

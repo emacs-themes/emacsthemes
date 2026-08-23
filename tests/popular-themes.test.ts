@@ -251,23 +251,118 @@ describe("internal name destinations", () => {
     expect(html).not.toContain('href="/themes/phoenix-dark-pink"');
   });
 
-  test("links the MELPA Omtose Phellack Theme entry to the canonical omtose-phellack-theme recipe", async () => {
-    const omtoseRecipe = (await Bun.file(
-      new URL("../recipes/omtose-phellack-theme.json", import.meta.url),
+  test("links the MELPA Color Theme Solarized entry to its detail page and source", async () => {
+    const recipe = (await Bun.file(
+      new URL("../recipes/color-theme-solarized.json", import.meta.url),
     ).json()) as { id: string; name: string; repoUrl: string };
     const html = renderPopularThemeTables(
       [
         {
           source: "melpa",
           status: "ok",
-          entries: [{ name: "omtose phellack theme", downloads: 1 }],
+          entries: [
+            {
+              name: "color theme solarized",
+              downloads: 1,
+              sourceUrl: "https://github.com/sellout/emacs-color-theme-solarized",
+            },
+          ],
         },
       ],
-      [omtoseRecipe],
+      [recipe],
     );
 
-    expect(html).toContain('<a href="/themes/omtose-phellack-theme">omtose phellack theme</a>');
-    expect(html).not.toContain('href="/themes/omtose-darker"');
+    expect(html).toContain('<a href="/themes/color-theme-solarized">color theme solarized</a>');
+    expect(html).toContain(
+      'class="source-link" href="https://github.com/sellout/emacs-color-theme-solarized"',
+    );
+  });
+
+  test("links the MELPA Omtose Phellack Theme entry to all themes from its repository", async () => {
+    const [omtoseRecipe, softerRecipe] = (await Promise.all([
+      Bun.file(new URL("../recipes/omtose-phellack-theme.json", import.meta.url)).json(),
+      Bun.file(new URL("../recipes/omtose-softer.json", import.meta.url)).json(),
+    ])) as Array<{ id: string; name: string; repoUrl: string }>;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "melpa",
+          status: "ok",
+          entries: [
+            {
+              name: "omtose phellack theme",
+              downloads: 1,
+              sourceUrl: "https://github.com/franksn/omtose-phellack-theme",
+            },
+          ],
+        },
+      ],
+      [omtoseRecipe, softerRecipe],
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fgithub.com%2Ffranksn%2Fomtose-phellack-theme">omtose phellack theme</a>',
+    );
+    expect(html).not.toContain('href="/themes/omtose-phellack-theme"');
+    expect(html).toContain(
+      'class="source-link" href="https://github.com/franksn/omtose-phellack-theme"',
+    );
+  });
+
+  test("links the MELPA Majapahit and Farmhouse entries to their repository themes and sources", async () => {
+    const recipes = (await Promise.all(
+      ["majapahit-dark", "majapahit-light", "farmhouse-dark", "farmhouse-light"].map((id) =>
+        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+      ),
+    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const majapahitSourceUrl = recipes[0].repoUrl;
+    const farmhouseSourceUrl = recipes[2].repoUrl;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "melpa",
+          status: "ok",
+          entries: [
+            { name: "majapahit theme", downloads: 2, sourceUrl: majapahitSourceUrl },
+            { name: "farmhouse theme", downloads: 1, sourceUrl: farmhouseSourceUrl },
+          ],
+        },
+      ],
+      recipes,
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fgitlab.com%2Ffranksn%2Fmajapahit-theme%2F-%2Ftree%2Fmaster">majapahit theme</a>',
+    );
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fgithub.com%2Fmattly%2Femacs-farmhouse-theme">farmhouse theme</a>',
+    );
+    expect(html).toContain(`class="source-link" href="${majapahitSourceUrl}"`);
+    expect(html).toContain(`class="source-link" href="${farmhouseSourceUrl}"`);
+  });
+
+  test("links the MELPA Eziam entry to its repository themes and source", async () => {
+    const recipes = (await Promise.all(
+      ["eziam-dark", "eziam-dusk", "eziam-light"].map((id) =>
+        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+      ),
+    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const sourceUrl = recipes[0].repoUrl;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "melpa",
+          status: "ok",
+          entries: [{ name: "eziam theme", downloads: 1, sourceUrl }],
+        },
+      ],
+      recipes,
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fgithub.com%2Fthblt%2Feziam-theme-emacs">eziam theme</a>',
+    );
+    expect(html).toContain(`class="source-link" href="${sourceUrl}"`);
   });
 
   test("an ambiguous name match falls through to repository matching instead of picking the first recipe", () => {

@@ -182,11 +182,11 @@ function buildRecipeLookups(recipes: readonly PopularThemeRecipe[]): RecipeLooku
 /**
  * Resolves the internal destination for a popular entry's name cell.
  *
- * Applies the documented precedence: a unique normalized id match wins;
- * otherwise a unique normalized name match; otherwise a unique canonical
- * repository match; otherwise an exact repository-filter URL when several
- * recipes share the repository; otherwise no destination. Ambiguous matches
- * never select an arbitrary recipe.
+ * Applies the documented precedence: an entry named after a repository that
+ * contains several recipes links to the exact repository filter; otherwise a
+ * unique normalized id match wins, then a unique normalized name match, then
+ * a unique canonical repository match, then a repository filter for any other
+ * shared repository. Ambiguous matches never select an arbitrary recipe.
  *
  * @param {string} name - The popular entry name.
  * @param {string | undefined} sourceUrl - The entry's original source repository URL.
@@ -199,6 +199,17 @@ function resolveInternalDestination(
   lookups: RecipeLookups,
 ): InternalDestination {
   const identity = normalizeThemeIdentity(name);
+  const repositoryUrl = sourceUrl ? normalizeRepositoryUrl(sourceUrl) : undefined;
+  const repoCandidates = repositoryUrl ? lookups.byRepositoryUrl.get(repositoryUrl) : undefined;
+
+  if (identity && repositoryUrl && repoCandidates && repoCandidates.length > 1) {
+    const repositoryName = new URL(repositoryUrl).pathname.split("/").filter(Boolean).at(-1) ?? "";
+    if (normalizeThemeIdentity(repositoryName) === identity) {
+      const params = new URLSearchParams({ [REPOSITORY_URL_PARAM]: repositoryUrl });
+      return { href: `${THEMES_INDEX_PATH}?${params.toString()}` };
+    }
+  }
+
   if (identity) {
     const idCandidates = lookups.byId.get(identity);
     if (idCandidates && idCandidates.length === 1) {
@@ -210,13 +221,11 @@ function resolveInternalDestination(
     }
   }
 
-  const repositoryUrl = sourceUrl ? normalizeRepositoryUrl(sourceUrl) : undefined;
-  if (repositoryUrl) {
-    const repoCandidates = lookups.byRepositoryUrl.get(repositoryUrl);
-    if (repoCandidates && repoCandidates.length === 1) {
+  if (repositoryUrl && repoCandidates) {
+    if (repoCandidates.length === 1) {
       return { href: `${THEME_DETAIL_PATH_PREFIX}${repoCandidates[0].id}` };
     }
-    if (repoCandidates && repoCandidates.length > 1) {
+    if (repoCandidates.length > 1) {
       const params = new URLSearchParams({ [REPOSITORY_URL_PARAM]: repositoryUrl });
       return { href: `${THEMES_INDEX_PATH}?${params.toString()}` };
     }

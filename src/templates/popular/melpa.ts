@@ -9,7 +9,21 @@ const downloadsUrl = "https://melpa.org/download_counts.json";
 const THEME_NAME_PATTERN = /-theme(s)?(-|$)/;
 
 /**
- * Packages that contain "-theme" but are utilities rather than themes.
+ * Repository URLs for archived packages retained in MELPA's download counts
+ * after their recipe metadata was removed.
+ */
+const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
+  "color-theme-solarized": "https://github.com/sellout/emacs-color-theme-solarized",
+  "darkburn-theme": "https://github.com/gorauskas/darkburn-theme",
+  "eziam-theme": "https://github.com/thblt/eziam-theme-emacs",
+  "farmhouse-theme": "https://github.com/mattly/emacs-farmhouse-theme",
+  "majapahit-theme": "https://gitlab.com/franksn/majapahit-theme/-/tree/master?ref_type=heads",
+  "omtose-phellack-theme": "https://github.com/franksn/omtose-phellack-theme",
+};
+
+/**
+ * Packages omitted because they are utilities or have no resolvable theme and
+ * source links for the popular page.
  */
 const ignored: Record<string, true> = {
   "helm-themes": true,
@@ -109,7 +123,7 @@ export function filterPackages(
     .map((k) => ({
       name: formatName(k),
       downloads: packages[k],
-      sourceUrl: composeSourceUrl(recipes[k]),
+      sourceUrl: composeSourceUrl(recipes[k]) ?? SOURCE_URL_OVERRIDES[k],
     }));
 }
 
