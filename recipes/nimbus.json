@@ -1,8 +1,8 @@
 {
   "name": "Nimbus Theme",
   "id": "nimbus",
-  "description": " An awesome dark theme",
-  "repoUrl": "https://github.com/m-cat/nimbus-theme",
+  "description": "Beautiful, slightly retro dark theme that is easy on the eyes",
+  "repoUrl": "https://github.com/mrcnski/nimbus-theme",
   "rawUrls": ["https://github.com/mrcnski/nimbus-theme/raw/refs/heads/master/nimbus-theme.el"],
   "type": "dark",
   "authors": ["Marcin Swieczkowski"],
