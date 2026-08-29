@@ -477,6 +477,11 @@ describe("GitHub mapping and ordering", () => {
         stargazers_count: 3500,
       },
       {
+        full_name: "ThorstenRhau/token",
+        html_url: "https://github.com/ThorstenRhau/token",
+        stargazers_count: 3250,
+      },
+      {
         full_name: "hadronzoo/theme-changer",
         html_url: "https://github.com/hadronzoo/theme-changer",
         stargazers_count: 3000,

@@ -20,6 +20,7 @@ const GITHUB_USER_AGENT = "emacs-themes/emacsthemes";
 const KNOWN_NON_THEME_REPOS: ReadonlySet<string> = new Set([
   "thebb/spaceline",
   "domtronn/spaceline-all-the-icons.el",
+  "thorstenrhau/token",
   "ianyepan/yay-evil-emacs",
   "emacs-jp/replace-colorthemes",
   "lionyxml/auto-dark-emacs",
