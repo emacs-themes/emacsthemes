@@ -1,0 +1,14 @@
+{
+  "name": "Bespoke Dark Theme",
+  "id": "bespoke-dark",
+  "description": "The dark variant of the custom, medium-contrast Bespoke theme.",
+  "repoUrl": "https://github.com/mclear-tools/bespoke-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mclear-tools/bespoke-themes/main/bespoke-themes.el",
+    "https://raw.githubusercontent.com/mclear-tools/bespoke-themes/main/bespoke-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Colin McLear"],
+  "tags": ["bespoke", "blue", "dark", "grey", "medium contrast", "purple"],
+  "elispBefore": "(setq bespoke-set-theme 'dark)"
+}

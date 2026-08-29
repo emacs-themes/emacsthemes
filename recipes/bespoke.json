@@ -1,0 +1,13 @@
+{
+  "name": "Bespoke Theme",
+  "id": "bespoke",
+  "description": "A custom, medium-contrast Emacs theme with light and dark variants.",
+  "repoUrl": "https://github.com/mclear-tools/bespoke-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/mclear-tools/bespoke-themes/main/bespoke-themes.el",
+    "https://raw.githubusercontent.com/mclear-tools/bespoke-themes/main/bespoke-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Colin McLear"],
+  "tags": ["bespoke", "blue", "light", "medium contrast", "purple", "white"]
+}

@@ -226,6 +226,37 @@ describe("internal name destinations", () => {
     expect(html).toContain('<a href="/themes/doom-one">doom one</a>');
   });
 
+  test("links the GitHub Bespoke Themes entry to both variants", async () => {
+    const recipes = (await Promise.all(
+      ["bespoke", "bespoke-dark"].map((id) =>
+        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+      ),
+    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "mclear-tools/bespoke-themes",
+              stars: 1,
+              sourceUrl: "https://github.com/mclear-tools/bespoke-themes",
+            },
+          ],
+        },
+      ],
+      recipes,
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fgithub.com%2Fmclear-tools%2Fbespoke-themes">mclear-tools/bespoke-themes</a>',
+    );
+    expect(html).toContain(
+      'class="source-link" href="https://github.com/mclear-tools/bespoke-themes"',
+    );
+  });
+
   test("links the MELPA Phoenix Dark Pink entry to the canonical dark-pink recipe", async () => {
     const darkPinkRecipe = (await Bun.file(
       new URL("../recipes/dark-pink.json", import.meta.url),
