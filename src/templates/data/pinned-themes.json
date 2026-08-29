@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "bespoke",
+    "bespoke-dark",
     "color-theme-solarized",
     "omtose-phellack-theme",
     "omtose-softer",
@@ -9,8 +11,6 @@
     "github-dark",
     "github-dark-dimmed",
     "folio",
-    "yotsuba",
-    "nibelung-dark",
-    "nibelung"
+    "yotsuba"
   ]
 }
