@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "lambda-dark",
+    "lambda-light",
     "bespoke",
     "bespoke-dark",
     "color-theme-solarized",
@@ -9,8 +11,6 @@
     "sanityinc-solarized-dark",
     "github-light",
     "github-dark",
-    "github-dark-dimmed",
-    "folio",
-    "yotsuba"
+    "github-dark-dimmed"
   ]
 }
