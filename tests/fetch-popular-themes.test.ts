@@ -463,6 +463,26 @@ describe("GitHub mapping and ordering", () => {
     });
   });
 
+  test("links the archived Lambda Themes result to its maintained Codeberg repository", async () => {
+    const items = [
+      {
+        full_name: "Lambda-Emacs/lambda-themes",
+        html_url: "https://github.com/Lambda-Emacs/lambda-themes",
+        stargazers_count: 207,
+      },
+    ];
+
+    mockFetch(combinedHandler(okMelpa(), githubHandler(items)));
+
+    expect(githubOk(await fetchPopularThemes())).toEqual([
+      {
+        name: "Lambda-Emacs/lambda-themes",
+        stars: 207,
+        sourceUrl: "https://codeberg.org/Lambda-Emacs/lambda-themes",
+      },
+    ]);
+  });
+
   test("excludes known non-theme repositories from the ranking", async () => {
     const items = [
       { full_name: "real/theme", html_url: "https://github.com/real/theme", stargazers_count: 500 },

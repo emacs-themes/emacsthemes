@@ -25,7 +25,10 @@ export interface MelpaThemeEntry {
 export interface GitHubThemeEntry {
   name: string; // GitHub full_name
   stars: number;
-  /** The original GitHub html_url; see the MELPA entry note on `sourceUrl`. */
+  /**
+   * The canonical external repository URL. This is normally GitHub's
+   * `html_url`, but points to the maintained upstream after a migration.
+   */
   sourceUrl: string;
 }
 

@@ -1,0 +1,13 @@
+{
+  "name": "Lambda Dark Theme",
+  "id": "lambda-dark",
+  "description": "A medium-contrast dark Emacs theme with a limited, functionally organized color palette.",
+  "repoUrl": "https://codeberg.org/Lambda-Emacs/lambda-themes",
+  "rawUrls": [
+    "https://codeberg.org/Lambda-Emacs/lambda-themes/raw/branch/main/lambda-themes.el",
+    "https://codeberg.org/Lambda-Emacs/lambda-themes/raw/branch/main/lambda-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Colin McLear"],
+  "tags": ["black", "blue", "dark", "lambda", "medium contrast", "purple"]
+}

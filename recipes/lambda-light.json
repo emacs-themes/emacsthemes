@@ -1,0 +1,13 @@
+{
+  "name": "Lambda Light Theme",
+  "id": "lambda-light",
+  "description": "A medium-contrast light Emacs theme with a limited, functionally organized color palette.",
+  "repoUrl": "https://codeberg.org/Lambda-Emacs/lambda-themes",
+  "rawUrls": [
+    "https://codeberg.org/Lambda-Emacs/lambda-themes/raw/branch/main/lambda-themes.el",
+    "https://codeberg.org/Lambda-Emacs/lambda-themes/raw/branch/main/lambda-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Colin McLear"],
+  "tags": ["blue", "lambda", "light", "medium contrast", "purple", "white"]
+}

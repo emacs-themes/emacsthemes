@@ -50,7 +50,7 @@ export interface PopularThemeRecipe {
 interface NormalizedThemeEntry {
   name: string;
   count: number;
-  /** Original external repository URL shown in the Source cell. */
+  /** Canonical external repository URL shown in the Source cell. */
   sourceUrl?: string;
   /** Resolved internal destination for the name cell, when one exists. */
   internalHref?: string;
@@ -189,7 +189,7 @@ function buildRecipeLookups(recipes: readonly PopularThemeRecipe[]): RecipeLooku
  * shared repository. Ambiguous matches never select an arbitrary recipe.
  *
  * @param {string} name - The popular entry name.
- * @param {string | undefined} sourceUrl - The entry's original source repository URL.
+ * @param {string | undefined} sourceUrl - The entry's canonical source repository URL.
  * @param {RecipeLookups} lookups - The prebuilt recipe lookups.
  * @returns {InternalDestination} The resolved destination.
  */
@@ -282,7 +282,7 @@ function renderSourceCell(entry: NormalizedThemeEntry): string {
  * scroll region, and deterministic {@link DISPLAY_LOCALE} thousands
  * separators. Name cells link to resolved internal destinations (detail or
  * repository-filter pages) in the current tab; source cells link to the
- * original external repository in a new tab. All text and hrefs are escaped
+ * canonical external repository in a new tab. All text and hrefs are escaped
  * at this HTML boundary.
  *
  * @param {PopularTableConfig} config - The source table configuration.

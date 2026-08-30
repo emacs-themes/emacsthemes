@@ -14,6 +14,15 @@ const GITHUB_API_VERSION = "2022-11-28";
 const GITHUB_USER_AGENT = "emacs-themes/emacsthemes";
 
 /**
+ * Canonical upstream URLs for ranked GitHub repositories that have migrated.
+ * The archived GitHub repository still supplies its star count, while links
+ * target the maintained upstream repository.
+ */
+const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
+  "lambda-emacs/lambda-themes": "https://codeberg.org/Lambda-Emacs/lambda-themes",
+};
+
+/**
  * Repositories the keyword search returns that are not actual themes
  * (mode-line packages, theme utilities, configs). Curated from live results.
  */
@@ -182,7 +191,7 @@ export async function fetchGitHubThemes(limit: number): Promise<{
     .map((item) => ({
       name: item.full_name,
       stars: item.stargazers_count,
-      sourceUrl: item.html_url,
+      sourceUrl: SOURCE_URL_OVERRIDES[item.full_name.toLowerCase()] ?? item.html_url,
     }));
 
   return { entries, warning };

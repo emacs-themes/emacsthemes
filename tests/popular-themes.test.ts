@@ -284,6 +284,37 @@ describe("internal name destinations", () => {
     expect(html).toContain('class="source-link" href="https://github.com/nordtheme/emacs"');
   });
 
+  test("links the migrated GitHub Lambda Themes entry to its Codeberg recipes", async () => {
+    const recipes = (await Promise.all(
+      ["lambda-dark", "lambda-light"].map((id) =>
+        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+      ),
+    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "Lambda-Emacs/lambda-themes",
+              stars: 207,
+              sourceUrl: "https://codeberg.org/Lambda-Emacs/lambda-themes",
+            },
+          ],
+        },
+      ],
+      recipes,
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/index.html?repo=https%3A%2F%2Fcodeberg.org%2Flambda-emacs%2Flambda-themes">Lambda-Emacs/lambda-themes</a>',
+    );
+    expect(html).toContain(
+      'class="source-link" href="https://codeberg.org/Lambda-Emacs/lambda-themes"',
+    );
+  });
+
   test("links the MELPA Phoenix Dark Pink entry to the canonical dark-pink recipe", async () => {
     const darkPinkRecipe = (await Bun.file(
       new URL("../recipes/dark-pink.json", import.meta.url),
