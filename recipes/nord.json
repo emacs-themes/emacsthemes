@@ -1,10 +1,10 @@
 {
   "name": "Nord Theme",
   "id": "nord",
-  "description": "Ahungry color theme",
-  "repoUrl": "https://github.com/arcticicestudio/nord-emacs",
-  "rawUrls": ["https://raw.githubusercontent.com/arcticicestudio/nord-emacs/master/nord-theme.el"],
+  "description": "An arctic, north-bluish clean and elegant Emacs theme.",
+  "repoUrl": "https://github.com/nordtheme/emacs",
+  "rawUrls": ["https://raw.githubusercontent.com/nordtheme/emacs/main/nord-theme.el"],
   "type": "dark",
-  "authors": ["Arctic Ice Studio"],
-  "tags": ["black", "blue", "dark", "emacs24", "melpa", "nord", "terminal"]
+  "authors": ["Sven Greb"],
+  "tags": ["black", "blue", "dark", "emacs 24", "melpa", "nord", "terminal"]
 }

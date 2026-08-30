@@ -257,6 +257,33 @@ describe("internal name destinations", () => {
     );
   });
 
+  test("links the GitHub Nord entry to its detail page", async () => {
+    const recipe = (await Bun.file(new URL("../recipes/nord.json", import.meta.url)).json()) as {
+      id: string;
+      name: string;
+      repoUrl: string;
+    };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "nordtheme/emacs",
+              stars: 1,
+              sourceUrl: "https://github.com/nordtheme/emacs",
+            },
+          ],
+        },
+      ],
+      [recipe],
+    );
+
+    expect(html).toContain('<a href="/themes/nord">nordtheme/emacs</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/nordtheme/emacs"');
+  });
+
   test("links the MELPA Phoenix Dark Pink entry to the canonical dark-pink recipe", async () => {
     const darkPinkRecipe = (await Bun.file(
       new URL("../recipes/dark-pink.json", import.meta.url),
