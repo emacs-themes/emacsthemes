@@ -46,7 +46,7 @@
 posthog.init("phc_uNQ4tHmDACfNC5fwvV2JW4iY458kYptvmd52RePZ9YXK", {
   api_host: "/ingest",
   ui_host: "https://eu.posthog.com",
-  person_profiles: "identified_only",
+  person_profiles: "always",
   capture_exceptions: true,
   capture_performance: true,
 });
