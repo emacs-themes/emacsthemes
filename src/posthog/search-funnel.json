@@ -1,0 +1,39 @@
+{
+  "name": "Search → theme view → source click",
+  "description": "Unique visitors who search, view a theme detail page, and click a detail-page source link, in that order within 30 minutes. Includes submitted searches and search URL landings; excludes blank searches, sort changes, and Back/Forward restoration. Measures any theme, not necessarily a result of that search. No-results searches remain in the denominator. Data starts when these events were deployed.",
+  "saved": true,
+  "query": {
+    "kind": "InsightVizNode",
+    "source": {
+      "kind": "FunnelsQuery",
+      "version": 2,
+      "dateRange": { "date_from": "-30d" },
+      "filterTestAccounts": true,
+      "series": [
+        { "kind": "EventsNode", "event": "theme_search", "custom_name": "Search" },
+        { "kind": "EventsNode", "event": "theme_viewed", "custom_name": "Theme view" },
+        {
+          "kind": "EventsNode",
+          "event": "theme_source_clicked",
+          "custom_name": "Source click",
+          "properties": [
+            {
+              "type": "event",
+              "key": "source_location",
+              "operator": "exact",
+              "value": ["theme_detail"]
+            }
+          ]
+        }
+      ],
+      "funnelsFilter": {
+        "layout": "horizontal",
+        "funnelVizType": "steps",
+        "funnelOrderType": "ordered",
+        "funnelWindowInterval": 30,
+        "funnelWindowIntervalUnit": "minute",
+        "funnelStepReference": "total"
+      }
+    }
+  }
+}

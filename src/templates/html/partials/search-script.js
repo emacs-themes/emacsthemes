@@ -19,6 +19,7 @@ import {
   normalizeRepositoryUrl,
   REPOSITORY_URL_PARAM,
 } from "../../../core/theme-identity";
+import { captureThemeSearch } from "./posthog-search";
 
 (function () {
   "use strict";
@@ -209,6 +210,7 @@ import {
    * @param {boolean} [state.invalidRepository] - Whether the repo param was present but unusable.
    * @param {string} [state.urlMode] - "push" | "replace" | "none" for URL history writes.
    * @param {string} [state.sortLabel] - Sort label for the sort-change announcement.
+   * @param {string | null} [state.searchOrigin] - "submit" or "url" when recording a search.
    */
   function applySearchState({
     query,
@@ -217,6 +219,7 @@ import {
     invalidRepository = false,
     urlMode = "push",
     sortLabel = null,
+    searchOrigin = null,
   }) {
     const visibleCount = filterThemes(cardEntries, themeIndexById, {
       query,
@@ -231,6 +234,15 @@ import {
     setResultsState(query, visibleCount, repositoryUrl, invalidRepository, sortLabel);
     updateRepositoryFilterChip(repositoryUrl);
     updateUrlState(query, sortValue, repositoryUrl, urlMode);
+
+    captureThemeSearch({
+      query,
+      resultCount: visibleCount,
+      repositoryUrl,
+      invalidRepository,
+      sortValue,
+      origin: searchOrigin,
+    });
   }
 
   /**
@@ -268,6 +280,7 @@ import {
       sortValue,
       repositoryUrl: activeRepositoryUrl,
       invalidRepository: activeRepositoryInvalid,
+      searchOrigin: "submit",
     });
   }
 
@@ -325,6 +338,7 @@ import {
       repositoryUrl: initialRepositoryUrl,
       invalidRepository: initialInvalidRepository,
       urlMode: "replace",
+      searchOrigin: "url",
     });
 
     if (repositoryFilterClear) {

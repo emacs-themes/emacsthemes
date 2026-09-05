@@ -3,11 +3,16 @@ import { assertPathWithinRoot } from "../src/core/path-utils";
 import { ThemeSchema } from "../src/core/schema-checker";
 
 describe("Content Security Policy", () => {
-  test("allows the PostHog script and ingestion endpoints", async () => {
+  test("allows same-origin PostHog requests without direct upstream access", async () => {
     const headers = await Bun.file("static/_headers").text();
+    const script = await Bun.file("src/templates/html/partials/posthog-script.js").text();
 
-    expect(headers).toContain("script-src 'self' https://eu-assets.i.posthog.com");
-    expect(headers).toContain("connect-src 'self' https://eu.i.posthog.com");
+    expect(headers).toContain("script-src 'self'");
+    expect(headers).toContain("connect-src 'self'");
+    expect(headers).not.toContain("posthog.com");
+    expect(script).toContain('api_host: "/ingest"');
+    expect(script).toContain('ui_host: "https://eu.posthog.com"');
+    expect(script).toContain("capture_performance: true");
   });
 });
 

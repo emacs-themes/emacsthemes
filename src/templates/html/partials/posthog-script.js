@@ -44,7 +44,37 @@
     (e.__SV = 1));
 })(document, window.posthog || []);
 posthog.init("phc_uNQ4tHmDACfNC5fwvV2JW4iY458kYptvmd52RePZ9YXK", {
-  api_host: "https://eu.i.posthog.com",
+  api_host: "/ingest",
+  ui_host: "https://eu.posthog.com",
   person_profiles: "identified_only",
   capture_exceptions: true,
+  capture_performance: true,
 });
+
+/** Records a detail-page view once the theme markup is available. */
+document.addEventListener("DOMContentLoaded", () => {
+  const detail = document.querySelector(".theme-detail[data-theme-id]");
+  if (detail) {
+    posthog.capture("theme_viewed", { theme_id: detail.dataset.themeId });
+  }
+});
+
+/**
+ * Records source-link activation without delaying navigation or collecting link text.
+ * @param {MouseEvent} event - A primary/keyboard click or middle-button activation.
+ */
+function captureThemeSourceClick(event) {
+  if (event.type === "auxclick" && event.button !== 1) return;
+  const link = event.target.closest?.(".source-links a, a.source-link");
+  if (!link) return;
+  const detail = link.closest(".theme-detail[data-theme-id]");
+  const url = new URL(link.href);
+  posthog.capture("theme_source_clicked", {
+    theme_id: detail?.dataset.themeId ?? null,
+    source_location: detail ? "theme_detail" : "popular",
+    source_url: url.origin + url.pathname,
+    source_kind: url.pathname.startsWith("/static/themes/") ? "local_file" : "repository",
+  });
+}
+document.addEventListener("click", captureThemeSourceClick);
+document.addEventListener("auxclick", captureThemeSourceClick);
