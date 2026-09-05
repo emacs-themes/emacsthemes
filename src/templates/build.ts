@@ -542,6 +542,7 @@ async function buildThemeDetailPages(template: string, contentTemplate: string, 
     const sourceLinksHtml = renderThemeSourceLinksSafely(theme, localThemeSourceExists, logWarn);
 
     const content = contentTemplate
+      .replaceAll("{{THEME_ID}}", escapeHtml(theme.id))
       .replace(/{{THEME_NAME}}/g, escapeHtml(theme.name))
       .replace(/{{THEME_DESCRIPTION}}/g, escapeHtml(theme.description))
       .replaceAll("{{THEME_SOURCE_LINKS}}", sourceLinksHtml)
