@@ -36,8 +36,8 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   object.writeHttpMetadata(headers);
   headers.set("etag", object.httpEtag);
 
-  // Cache for 1 year (important for performance!)
-  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  // Stable screenshot URLs may be replaced, so bound how long stale images can persist.
+  headers.set("Cache-Control", "public, max-age=86400, must-revalidate");
 
   return new Response(object.body, {
     headers,
