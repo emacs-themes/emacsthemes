@@ -29,6 +29,7 @@ const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
 const KNOWN_NON_THEME_REPOS: ReadonlySet<string> = new Set([
   "thebb/spaceline",
   "domtronn/spaceline-all-the-icons.el",
+  "anthonydigirolamo/airline-themes",
   "thorstenrhau/token",
   "ianyepan/yay-evil-emacs",
   "emacs-jp/replace-colorthemes",

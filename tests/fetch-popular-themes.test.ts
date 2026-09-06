@@ -497,6 +497,11 @@ describe("GitHub mapping and ordering", () => {
         stargazers_count: 3500,
       },
       {
+        full_name: "AnthonyDiGirolamo/airline-themes",
+        html_url: "https://github.com/AnthonyDiGirolamo/airline-themes",
+        stargazers_count: 3400,
+      },
+      {
         full_name: "ThorstenRhau/token",
         html_url: "https://github.com/ThorstenRhau/token",
         stargazers_count: 3250,
