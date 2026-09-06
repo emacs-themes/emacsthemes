@@ -1,12 +1,12 @@
 {
-    "name": "Metropolis Light Theme",
-    "id": "metropolis-light",
-    "description": "A light theme based on the color palette of the Metropolis LaTeX Beamer theme.",
-    "repoUrl": "https://github.com/bitorhugo/metropolis-light-theme",
-    "rawUrls": [
-	"https://raw.githubusercontent.com/bitorhugo/metropolis-light-theme/main/metropolis-light-theme.el"
-    ],
-    "type": "light",
-    "authors": ["Vítor Santos"],
-    "tags": ["light", "minimal", "beamer", "metropolis"]
+  "name": "Metropolis Light Theme",
+  "id": "metropolis-light",
+  "description": "A light theme based on the color palette of the Metropolis LaTeX Beamer theme.",
+  "repoUrl": "https://github.com/bitorhugo/metropolis-light-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/bitorhugo/metropolis-light-theme/main/metropolis-light-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Vítor Santos"],
+  "tags": ["light", "minimal", "beamer", "metropolis"]
 }
