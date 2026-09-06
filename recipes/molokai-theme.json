@@ -1,0 +1,10 @@
+{
+  "name": "Molokai Theme",
+  "id": "molokai-theme",
+  "description": "A dark Emacs theme based on the Molokai color scheme for Vim.",
+  "repoUrl": "https://github.com/hbin/molokai-theme",
+  "rawUrls": ["https://raw.githubusercontent.com/hbin/molokai-theme/master/molokai-theme.el"],
+  "type": "dark",
+  "authors": ["Huang Bin"],
+  "tags": ["black", "dark", "molokai", "monokai", "pink", "vim"]
+}
