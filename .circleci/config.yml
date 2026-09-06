@@ -8,16 +8,11 @@ executors:
 
 commands:
   halt-stale-pipeline:
-    description: Stop this job when it is duplicated or stale.
+    description: Stop this job when a newer commit exists on the same branch.
     steps:
       - run:
           name: Halt Stale Pipeline
           command: |
-            if [ -n "${CIRCLE_PULL_REQUEST:-}" ]; then
-              echo "Skipping pull request pipeline for $CIRCLE_SHA1; branch pipeline handles this commit."
-              circleci-agent step halt
-            fi
-
             if [ -z "${CIRCLE_BRANCH:-}" ] || [ -z "${CIRCLE_SHA1:-}" ]; then
               exit 0
             fi
@@ -62,12 +57,11 @@ commands:
             source "$BASH_ENV"
 
 jobs:
-  build-and-test:
+  check-and-test:
     executor: bun-executor
     steps:
       - checkout
       - install-node-toolchain
-      - halt-stale-pipeline
       - load-node-toolchain
       - restore_cache:
           keys:
@@ -83,25 +77,16 @@ jobs:
           name: Run Check (lint | format)
           command: bun run check
       - run:
+          name: Run Tests
+          command: bun run test
+      - run:
           name: Validate Recipes
           command: bun run validate
-      - run:
-          name: Run Tests
-          command: bun test
-      - run:
-          name: Build Site
-          command: bun run build
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - build
 
   deploy:
     executor: bun-executor
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/project
       - install-node-toolchain
       - halt-stale-pipeline
       - load-node-toolchain
@@ -117,6 +102,9 @@ jobs:
             apt-get update && apt-get install -y --no-install-recommends ca-certificates rclone
             rclone version
       - run:
+          name: Build Site
+          command: bun run build
+      - run:
           name: Deploy to Cloudflare Pages
           command: |
             test -n "$CLOUDFLARE_API_TOKEN" || (echo "Missing CLOUDFLARE_API_TOKEN" && exit 1)
@@ -126,12 +114,21 @@ jobs:
 
 workflows:
   version: 2
-  validate-and-generate:
+  pull-request:
+    when: pipeline.event.name == "pull_request"
     jobs:
-      - build-and-test
+      - check-and-test
+
+  validate-and-generate:
+    when: pipeline.event.name == "push"
+    jobs:
+      - check-and-test:
+          filters:
+            branches:
+              only: main
       - deploy:
           requires:
-            - build-and-test
+            - check-and-test
           filters:
             branches:
               only: main
