@@ -1,0 +1,12 @@
+{
+  "name": "Hopscotch Theme",
+  "id": "hopscotch",
+  "description": "A dark color theme inspired by the Hopscotch learning platform for kids.",
+  "repoUrl": "https://github.com/idleberg/Hopscotch",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/idleberg/Hopscotch/master/Emacs/hopscotch-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Jan T. Sott"],
+  "tags": ["base16", "blue", "dark", "green", "hopscotch", "orange", "pink", "purple"]
+}
