@@ -163,6 +163,7 @@ describe("search analytics", () => {
       [
         "theme_search",
         {
+          search_term: "dark",
           query_length: 4,
           result_count: 1,
           has_repository_filter: false,
@@ -180,7 +181,11 @@ describe("search analytics", () => {
       "theme_search",
       "theme_search_no_results",
     ]);
-    expect(app.captures.every(([, properties]) => properties.result_count === 0)).toBe(true);
+    expect(
+      app.captures.every(
+        ([, properties]) => properties.result_count === 0 && properties.search_term === "missing",
+      ),
+    ).toBe(true);
   });
 
   test("does not count blanks, sorting, popstate, or keystrokes", async () => {
@@ -204,6 +209,7 @@ describe("search analytics", () => {
     expect(app.captures).toHaveLength(1);
     expect(app.captures[0][0]).toBe("theme_search");
     expect(app.captures[0][1]).toMatchObject({
+      search_term: "dark",
       result_count: 1,
       search_origin: "url",
     });

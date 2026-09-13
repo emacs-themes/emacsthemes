@@ -1,8 +1,8 @@
 /**
  * Records a nonblank submitted or URL-loaded search, plus a separate zero-results event.
- * Raw query text is omitted. Untracked state changes and unavailable PostHog are ignored.
+ * Search text is trimmed before capture. Untracked state changes and unavailable PostHog are ignored.
  * @param {Object} search - The applied search state and rendered result count.
- * @param {string} search.query - The search text, used only for its trimmed length.
+ * @param {string} search.query - The search text.
  * @param {number} search.resultCount - Number of matching themes.
  * @param {string | null} search.repositoryUrl - Active repository filter.
  * @param {boolean} search.invalidRepository - Whether the repository filter is invalid.
@@ -18,10 +18,12 @@ export function captureThemeSearch({
   sortValue,
   origin,
 }) {
-  if (!origin || !query.trim()) return;
+  const searchTerm = query.trim();
+  if (!origin || !searchTerm) return;
 
   const properties = {
-    query_length: query.trim().length,
+    search_term: searchTerm,
+    query_length: searchTerm.length,
     result_count: resultCount,
     has_repository_filter: Boolean(repositoryUrl),
     invalid_repository_filter: invalidRepository,
