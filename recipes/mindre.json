@@ -1,0 +1,10 @@
+{
+  "name": "Mindre Theme",
+  "id": "mindre",
+  "description": "A minimal, almost monochrome light theme with a splash of color.",
+  "repoUrl": "https://github.com/erikbackman/mindre-theme",
+  "rawUrls": ["https://raw.githubusercontent.com/erikbackman/mindre-theme/master/mindre-theme.el"],
+  "type": "light",
+  "authors": ["Erik Bäckman"],
+  "tags": ["green", "light", "melpa", "minimal", "mindre", "monochrome", "purple", "white"]
+}
