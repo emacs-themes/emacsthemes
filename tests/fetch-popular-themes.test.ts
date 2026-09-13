@@ -483,9 +483,14 @@ describe("GitHub mapping and ordering", () => {
     ]);
   });
 
-  test("excludes known non-theme repositories from the ranking", async () => {
+  test("excludes configured repositories from the ranking", async () => {
     const items = [
       { full_name: "real/theme", html_url: "https://github.com/real/theme", stargazers_count: 500 },
+      {
+        full_name: "sjrmanning/noctilux-theme",
+        html_url: "https://github.com/sjrmanning/noctilux-theme",
+        stargazers_count: 5000,
+      },
       {
         full_name: "TheBB/spaceline",
         html_url: "https://github.com/TheBB/spaceline",

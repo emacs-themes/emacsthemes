@@ -5,9 +5,9 @@ import type { GitHubThemeEntry } from "../../core/popular-types";
 import { fetchJson } from "./fetch-json";
 
 const GITHUB_SEARCH_URL = "https://api.github.com/search/repositories";
-// Broad keyword search over names and descriptions. Known false positives
-// (theme-adjacent tools rather than themes) are excluded by
-// KNOWN_NON_THEME_REPOS below; the query itself cannot express that nuance.
+// Broad keyword search over names and descriptions. Curated exceptions are
+// excluded by EXCLUDED_GITHUB_REPOS below; the query itself cannot express
+// those nuances.
 const GITHUB_SEARCH_QUERY =
   'theme OR "color scheme" OR "colour scheme" OR colorscheme OR colourscheme in:name,description language:"Emacs Lisp" is:public';
 const GITHUB_API_VERSION = "2022-11-28";
@@ -23,10 +23,11 @@ const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
 };
 
 /**
- * Repositories the keyword search returns that are not actual themes
- * (mode-line packages, theme utilities, configs). Curated from live results.
+ * Repositories intentionally omitted from the GitHub ranking: keyword false
+ * positives and duplicates already represented by another popularity source.
  */
-const KNOWN_NON_THEME_REPOS: ReadonlySet<string> = new Set([
+const EXCLUDED_GITHUB_REPOS: ReadonlySet<string> = new Set([
+  "sjrmanning/noctilux-theme",
   "thebb/spaceline",
   "domtronn/spaceline-all-the-icons.el",
   "anthonydigirolamo/airline-themes",
@@ -174,7 +175,7 @@ export async function fetchGitHubThemes(limit: number): Promise<{
   const { items, warning } = validateGitHubPayload(payload);
 
   const qualifying = items.filter(
-    (item) => !KNOWN_NON_THEME_REPOS.has(item.full_name.toLowerCase()),
+    (item) => !EXCLUDED_GITHUB_REPOS.has(item.full_name.toLowerCase()),
   );
   if (qualifying.length === 0) {
     throw new Error("GitHub search returned no qualifying theme repositories");
