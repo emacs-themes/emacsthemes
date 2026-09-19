@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nano Light Theme",
+  "id": "doom-nano-light",
+  "description": "A light theme for Doom Emacs based on N Λ N O.",
+  "repoUrl": "https://github.com/ronisbr/doom-nano-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/ronisbr/doom-nano-themes/main/doom-nano-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nano-light t)",
+  "type": "light",
+  "authors": ["Ronan Arraes Jardim Chagas"],
+  "tags": ["doom", "light", "material", "minimal", "nano", "purple", "white"]
+}

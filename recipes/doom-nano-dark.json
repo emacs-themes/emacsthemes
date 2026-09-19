@@ -1,0 +1,15 @@
+{
+  "name": "Doom Nano Dark Theme",
+  "id": "doom-nano-dark",
+  "description": "A dark theme for Doom Emacs based on N Λ N O.",
+  "repoUrl": "https://github.com/ronisbr/doom-nano-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/ronisbr/doom-nano-themes/main/doom-nano-dark-theme.el"
+  ],
+  "elispAfter": "(load-theme 'doom-nano-dark t)",
+  "type": "dark",
+  "authors": ["Ronan Arraes Jardim Chagas"],
+  "tags": ["black", "blue", "dark", "doom", "minimal", "nano", "nord"]
+}
