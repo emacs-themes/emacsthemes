@@ -2,9 +2,9 @@
   "name": "Afternoon Theme",
   "id": "afternoon",
   "description": "Dark color theme with a deep blue background, based on Steve Purcell's sanityinc-tomorrow theme.",
-  "repoUrl": "https://github.com/osener/emacs-afternoon-theme",
+  "repoUrl": "https://github.com/ozanvos/emacs-afternoon-theme",
   "rawUrls": [
-    "https://raw.githubusercontent.com/osener/emacs-afternoon-theme/master/afternoon-theme.el"
+    "https://raw.githubusercontent.com/ozanvos/emacs-afternoon-theme/master/afternoon-theme.el"
   ],
   "type": "dark",
   "authors": ["Ozan Sener"],
