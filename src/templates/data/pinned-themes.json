@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "doom-nano-dark",
+    "doom-nano-light",
     "mindre",
     "hopscotch",
     "metropolis-light",
@@ -9,8 +11,6 @@
     "bespoke",
     "bespoke-dark",
     "color-theme-solarized",
-    "omtose-phellack-theme",
-    "omtose-softer",
-    "sanityinc-solarized-light"
+    "omtose-phellack-theme"
   ]
 }
