@@ -2,7 +2,7 @@ import { validateSchema } from "./schema-checker.js";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
 import { PINNED_THEMES_PATH, RECIPES_DIR } from "./constants.js";
-import { getPinnedThemeIds } from "./pinned-themes.js";
+import { readThemeIdList } from "./theme-id-list.js";
 
 async function getRecipeFiles(dir: string): Promise<string[]> {
   const files = await readdir(dir);
@@ -60,7 +60,7 @@ async function main() {
     let pinnedThemeIds: string[];
 
     try {
-      pinnedThemeIds = await getPinnedThemeIds(PINNED_THEMES_PATH);
+      pinnedThemeIds = await readThemeIdList(PINNED_THEMES_PATH, "pinnedThemes");
     } catch (error) {
       console.error(`❌ ${(error as Error).message}`);
       process.exit(1);

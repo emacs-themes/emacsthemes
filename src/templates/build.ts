@@ -8,8 +8,8 @@ import { fetchPopularThemes, writePopularThemesLogs, POPULAR_LOGS_DIR } from "./
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { normalizeRepositoryUrl } from "../core/theme-identity";
-import { DISPLAY_LOCALE } from "../core/constants";
-import { getPinnedThemeIds } from "../core/pinned-themes.js";
+import { DISPLAY_LOCALE, PINNED_THEMES_PATH } from "../core/constants";
+import { readThemeIdList } from "../core/theme-id-list.js";
 import {
   readScreenshotDates,
   resolveThemeGeneratedDate,
@@ -188,7 +188,7 @@ interface SearchThemeIndexEntry {
  * @throws {Error} Throws when any pinned theme recipe does not exist.
  */
 async function getPinnedThemes(): Promise<Theme[]> {
-  const pinnedThemeIds = await getPinnedThemeIds();
+  const pinnedThemeIds = await readThemeIdList(PINNED_THEMES_PATH, "pinnedThemes");
 
   return await Promise.all(
     pinnedThemeIds.map(async (themeId) => {
