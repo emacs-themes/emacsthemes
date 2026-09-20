@@ -19,6 +19,7 @@ const GITHUB_USER_AGENT = "emacs-themes/emacsthemes";
  * target the maintained upstream repository.
  */
 const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
+  "axgfn/parchment": "https://gitlab.com/axgfn/parchment",
   "lambda-emacs/lambda-themes": "https://codeberg.org/Lambda-Emacs/lambda-themes",
 };
 

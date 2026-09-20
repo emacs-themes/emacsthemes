@@ -483,6 +483,26 @@ describe("GitHub mapping and ordering", () => {
     ]);
   });
 
+  test("links the archived Parchment mirror to its maintained GitLab repository", async () => {
+    const items = [
+      {
+        full_name: "axgfn/parchment",
+        html_url: "https://github.com/axgfn/parchment",
+        stargazers_count: 95,
+      },
+    ];
+
+    mockFetch(combinedHandler(okMelpa(), githubHandler(items)));
+
+    expect(githubOk(await fetchPopularThemes())).toEqual([
+      {
+        name: "axgfn/parchment",
+        stars: 95,
+        sourceUrl: "https://gitlab.com/axgfn/parchment",
+      },
+    ]);
+  });
+
   test("excludes configured repositories from the ranking", async () => {
     const items = [
       { full_name: "real/theme", html_url: "https://github.com/real/theme", stargazers_count: 500 },

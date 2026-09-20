@@ -284,6 +284,31 @@ describe("internal name destinations", () => {
     expect(html).toContain('class="source-link" href="https://github.com/nordtheme/emacs"');
   });
 
+  test("links the GitHub Parchment mirror entry to its GitLab detail page", async () => {
+    const recipe = (await Bun.file(
+      new URL("../recipes/parchment-theme.json", import.meta.url),
+    ).json()) as { id: string; name: string; repoUrl: string };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "axgfn/parchment",
+              stars: 95,
+              sourceUrl: "https://gitlab.com/axgfn/parchment",
+            },
+          ],
+        },
+      ],
+      [recipe],
+    );
+
+    expect(html).toContain('<a href="/themes/parchment">axgfn/parchment</a>');
+    expect(html).toContain('class="source-link" href="https://gitlab.com/axgfn/parchment"');
+  });
+
   test("links the migrated GitHub Lambda Themes entry to its Codeberg recipes", async () => {
     const recipes = (await Promise.all(
       ["lambda-dark", "lambda-light"].map((id) =>
