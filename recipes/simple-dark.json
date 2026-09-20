@@ -1,0 +1,10 @@
+{
+  "name": "Simple Dark Theme",
+  "id": "simple-dark",
+  "description": "A simple dark grayscale theme for many editors.",
+  "repoUrl": "https://github.com/tek256/simple-dark",
+  "rawUrls": ["https://raw.githubusercontent.com/tek256/simple-dark/main/simple-dark-theme.el"],
+  "type": "dark",
+  "authors": ["tek256"],
+  "tags": ["black", "dark", "gray", "grayscale", "minimal", "monochrome", "vim", "vscode"]
+}
