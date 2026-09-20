@@ -1,5 +1,6 @@
 export const RECIPES_DIR = "recipes";
 export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
+export const POPULAR_THEMES_PATH = "src/templates/data/popular-themes.json";
 export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-dates.json";
 
 /** Sentinel `repoUrl` value marking a theme whose sources are bundled in this repository. */

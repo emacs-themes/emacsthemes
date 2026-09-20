@@ -8,7 +8,7 @@ import { fetchPopularThemes, writePopularThemesLogs, POPULAR_LOGS_DIR } from "./
 import { assertPathWithinRoot } from "../core/path-utils";
 import { escapeHtml } from "../core/html-utils";
 import { normalizeRepositoryUrl } from "../core/theme-identity";
-import { DISPLAY_LOCALE, PINNED_THEMES_PATH } from "../core/constants";
+import { DISPLAY_LOCALE, PINNED_THEMES_PATH, POPULAR_THEMES_PATH } from "../core/constants";
 import { readThemeIdList } from "../core/theme-id-list.js";
 import {
   readScreenshotDates,
@@ -18,6 +18,7 @@ import {
 import { applyBaseTemplate } from "./core/page-template";
 import {
   renderPopularThemeTables,
+  renderMostPopularThemeTable,
   resolvePopularPageCopy,
   renderPopularSourceNotice,
   getAvailablePopularSources,
@@ -612,8 +613,9 @@ async function buildAboutPage(template: string, aboutContentHtml: string) {
  * Fails the build when every source fails, so the always-linked `/popular`
  * page can never silently disappear from a clean build. When only some
  * sources fail, the page is generated with source-aware copy plus an
- * availability notice for the missing sources. Recipe destinations resolve
- * against the same build-wide recipe snapshot as every other page.
+ * availability notice for the missing sources. The ranked "Most popular"
+ * table comes from the committed popular-themes config and resolves against
+ * the same build-wide recipe snapshot as every other page.
  *
  * @param {string} template - The base HTML template.
  * @param {string} contentTemplate - The popular themes content HTML template.
@@ -646,13 +648,19 @@ async function buildPopularThemesPage(
   const copy = resolvePopularPageCopy(available);
   const notice = renderPopularSourceNotice(missing);
   const generatedDate = formatDisplayDate(new Date());
+  const mostPopularTable = renderMostPopularThemeTable(
+    await readThemeIdList(POPULAR_THEMES_PATH, "popularThemes"),
+    recipes,
+  );
 
   const content = contentTemplate
     .replace('<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>', () =>
       copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : "",
     )
     .replace("{{POPULAR_THEMES_NOTICE}}", () => notice)
-    .replace("{{POPULAR_THEMES_TABLES}}", () => renderPopularThemeTables(results, recipes))
+    .replace("{{POPULAR_THEMES_TABLES}}", () =>
+      [mostPopularTable, renderPopularThemeTables(results, recipes)].join("\n"),
+    )
     .replace("{{GENERATED_DATE}}", () => generatedDate);
 
   const html = applyBaseTemplate(

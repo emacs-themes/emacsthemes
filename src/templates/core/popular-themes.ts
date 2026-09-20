@@ -17,15 +17,18 @@ import type {
  */
 interface PopularTableConfig {
   /** Stable source identifier used for the section anchor. */
-  sourceId: PopularSourceId;
+  sourceId: string;
   /** Source heading rendered above the table. */
   heading: string;
   /** Short explanation of how the source ranks themes. */
   description: string;
   /** Label for the name column. */
   nameLabel: string;
-  /** Label for the metric column. */
-  metricLabel: string;
+  /**
+   * Label for the metric column. Omitted by rankings that publish no count
+   * (the most popular table), which then renders without that column.
+   */
+  metricLabel?: string;
   /** Label for the source column. */
   sourceLabel: string;
   /** Screen-reader caption describing the table contents. */
@@ -49,7 +52,8 @@ export interface PopularThemeRecipe {
  */
 interface NormalizedThemeEntry {
   name: string;
-  count: number;
+  /** Ranked metric, absent for rankings that publish no count. */
+  count?: number;
   /** Canonical external repository URL shown in the Source cell. */
   sourceUrl?: string;
   /** Resolved internal destination for the name cell, when one exists. */
@@ -290,17 +294,22 @@ function renderSourceCell(entry: NormalizedThemeEntry): string {
  * @returns {string} The rendered source section HTML.
  */
 function renderPopularTable(config: PopularTableConfig, entries: NormalizedThemeEntry[]): string {
+  const { metricLabel } = config;
   const rows = entries
     .map((entry, index) => {
       const rank = index + 1;
       const nameHtml = entry.internalHref
         ? `<a href="${escapeHtml(entry.internalHref)}">${escapeHtml(entry.name)}</a>`
         : escapeHtml(entry.name);
+      const metricCell =
+        metricLabel && entry.count !== undefined
+          ? `<td class="text-right">${entry.count.toLocaleString(DISPLAY_LOCALE)}</td>`
+          : "";
       return `
         <tr>
           <th scope="row">${rank}</th>
           <td>${nameHtml}</td>
-          <td class="text-right">${entry.count.toLocaleString(DISPLAY_LOCALE)}</td>
+          ${metricCell}
           <td class="source-cell">${renderSourceCell(entry)}</td>
         </tr>`;
     })
@@ -317,7 +326,7 @@ function renderPopularTable(config: PopularTableConfig, entries: NormalizedTheme
           <tr>
             <th scope="col">Rank</th>
             <th scope="col">${escapeHtml(config.nameLabel)}</th>
-            <th scope="col" class="text-right">${escapeHtml(config.metricLabel)}</th>
+            ${metricLabel ? `<th scope="col" class="text-right">${escapeHtml(metricLabel)}</th>` : ""}
             <th scope="col" class="source-cell">${escapeHtml(config.sourceLabel)}</th>
           </tr>
         </thead>
@@ -450,6 +459,51 @@ export function resolvePopularPageCopy(available: readonly PopularSourceId[]): {
     ogDescription: "GitHub stars for popular Emacs themes.",
     subhead: "The most popular Emacs themes, ranked by GitHub stars.",
   };
+}
+
+/**
+ * Renders the ranked "Most popular" table.
+ *
+ * Uses the same table renderer as the MELPA and GitHub rankings so the three
+ * sections share markup, accessibility behaviour, and styling. Names and
+ * source links come from the build-wide recipe snapshot; configured order
+ * carries the ranking and no counts are published. A configured id without a
+ * recipe throws instead of emitting a broken row.
+ *
+ * @param {readonly string[]} themeIds - Ordered theme ids from the popular themes config.
+ * @param {readonly PopularThemeRecipe[]} recipes - The build-wide recipe summaries.
+ * @returns {string} The rendered table section.
+ * @throws {Error} Throws when a configured theme id has no recipe.
+ */
+export function renderMostPopularThemeTable(
+  themeIds: readonly string[],
+  recipes: readonly PopularThemeRecipe[],
+): string {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+
+  const entries = themeIds.map((id) => {
+    const recipe = recipeById.get(id);
+    if (!recipe) {
+      throw new Error(`Popular theme "${id}" has no recipe`);
+    }
+    return {
+      name: recipe.name,
+      sourceUrl: recipe.repoUrl,
+      internalHref: `${THEME_DETAIL_PATH_PREFIX}${id}`,
+    };
+  });
+
+  return renderPopularTable(
+    {
+      sourceId: "most-popular",
+      heading: "Local",
+      description: "The most popular Emacs themes in this directory.",
+      nameLabel: "Theme Name",
+      sourceLabel: "Source",
+      caption: "Most popular Emacs themes in ranking order",
+    },
+    entries,
+  );
 }
 
 /**

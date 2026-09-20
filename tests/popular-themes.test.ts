@@ -1,12 +1,17 @@
 import { describe, expect, test } from "bun:test";
+import { readdir } from "node:fs/promises";
+import { join } from "node:path";
 import {
   renderPopularThemeTables,
+  renderMostPopularThemeTable,
   resolvePopularPageCopy,
   renderPopularSourceNotice,
   getAvailablePopularSources,
   getMissingPopularSources,
   toPopularThemeRecipes,
 } from "../src/templates/core/popular-themes";
+import { POPULAR_THEMES_PATH, RECIPES_DIR } from "../src/core/constants";
+import { readThemeIdList } from "../src/core/theme-id-list";
 import type {
   GitHubThemeEntry,
   MelpaThemeEntry,
@@ -750,6 +755,87 @@ describe("toPopularThemeRecipes", () => {
   });
 });
 
+describe("renderMostPopularThemeTable", () => {
+  test("keeps configured order and links every name to its theme page", () => {
+    const html = renderMostPopularThemeTable(
+      ["zenburn", "doom-themes", "doom-one"],
+      recipeFixtures,
+    );
+
+    expect(html.indexOf("Zenburn")).toBeLessThan(html.indexOf("Doom Themes"));
+    expect(html.indexOf("Doom Themes")).toBeLessThan(html.indexOf("Doom One Theme"));
+    expect(html).toContain('<a href="/themes/doom-one">Doom One Theme</a>');
+    expect(html.indexOf('<th scope="row">1</th>')).toBeLessThan(
+      html.indexOf('<a href="/themes/doom-one">'),
+    );
+  });
+
+  test("shares the source table markup without a metric column", () => {
+    const html = renderMostPopularThemeTable(["zenburn", "doom-one"], recipeFixtures);
+
+    expect(html).toContain('<section class="popular-source" id="popular-most-popular">');
+    expect(html).toContain('<table class="themes-table">');
+    expect(html.match(/<tr>/g)).toHaveLength(3); // header + two ranked rows
+    expect(html.match(/scope="col"/g)).toHaveLength(3); // Rank, Theme Name, Source
+    expect(html).not.toContain("Downloads");
+    expect(html).not.toContain("Stars");
+    expect(html).not.toContain("text-right");
+  });
+
+  test("links the Source cell to the recipe repository", () => {
+    const html = renderMostPopularThemeTable(["doom-one"], recipeFixtures);
+
+    expect(html).toContain('href="https://github.com/doomemacs/themes"');
+    expect(html).toContain('target="_blank" rel="noopener noreferrer"');
+  });
+
+  test("escapes recipe names and rejects unsafe repository URLs at the HTML boundary", () => {
+    const html = renderMostPopularThemeTable(
+      ["evil", "local-theme"],
+      [
+        { id: "evil", name: '<script>alert("xss")</script>', repoUrl: "javascript:alert(1)" },
+        { id: "local-theme", name: "Local Theme", repoUrl: "local" },
+      ],
+    );
+
+    expect(html).toContain("&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;");
+    expect(html).not.toContain("<script>");
+    expect(html).not.toContain("javascript:");
+    expect(html.match(/class="source-link"/g)).toBeNull();
+    expect(html.match(/source-unavailable/g)).toHaveLength(2);
+  });
+
+  test("throws when a configured theme id has no recipe", () => {
+    expect(() => renderMostPopularThemeTable(["missing-theme"], recipeFixtures)).toThrow(
+      'Popular theme "missing-theme" has no recipe',
+    );
+  });
+});
+
+describe("popular themes config", () => {
+  test("lists 20 unique theme ids that all exist as recipes", async () => {
+    const ids = await readThemeIdList(POPULAR_THEMES_PATH, "popularThemes");
+
+    expect(ids).toHaveLength(20);
+    expect(new Set(ids).size).toBe(ids.length);
+
+    // Recipes are keyed by their `id` field, not by file name (they differ),
+    // so the sidebar resolves against recipe contents.
+    const recipeIds = new Set<string>();
+    for (const file of await readdir(RECIPES_DIR)) {
+      if (!file.endsWith(".json")) {
+        continue;
+      }
+      const recipe = (await Bun.file(join(RECIPES_DIR, file)).json()) as { id?: string };
+      if (recipe.id) {
+        recipeIds.add(recipe.id);
+      }
+    }
+
+    expect(ids.filter((id) => !recipeIds.has(id))).toEqual([]);
+  });
+});
+
 describe("Popular page copy resolution", () => {
   test("advertises both sources when both are available", () => {
     expect(resolvePopularPageCopy(["melpa", "github"])).toEqual({
@@ -851,12 +937,15 @@ describe("popular content partial", () => {
       )
       .replace("{{POPULAR_THEMES_NOTICE}}", () => renderPopularSourceNotice([]))
       .replace("{{POPULAR_THEMES_TABLES}}", () =>
-        renderPopularThemeTables(bothResults, recipeFixtures),
+        [
+          renderMostPopularThemeTable(["doom-one"], recipeFixtures),
+          renderPopularThemeTables(bothResults, recipeFixtures),
+        ].join("\n"),
       )
       .replace("{{GENERATED_DATE}}", () => "October 1, 2025");
 
     expect(rendered).not.toContain("{{");
     expect(rendered).not.toContain("}}");
-    expect(rendered.match(/<table/g)).toHaveLength(2);
+    expect(rendered.match(/<table/g)).toHaveLength(3);
   });
 });
