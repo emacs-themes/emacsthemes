@@ -289,6 +289,50 @@ describe("internal name destinations", () => {
     expect(html).toContain('class="source-link" href="https://github.com/nordtheme/emacs"');
   });
 
+  test("links known GitHub entries to their internal detail pages", async () => {
+    const recipes = (await Promise.all(
+      ["color-theme-buffer-local", "twilight", "wilmersdorf"].map((id) =>
+        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+      ),
+    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "vic/color-theme-buffer-local",
+              stars: 81,
+              sourceUrl: "https://github.com/vic/color-theme-buffer-local",
+            },
+            {
+              name: "crafterm/twilight-emacs",
+              stars: 92,
+              sourceUrl: "https://github.com/crafterm/twilight-emacs",
+            },
+            {
+              name: "ianyepan/wilmersdorf-emacs-theme",
+              stars: 88,
+              sourceUrl: "https://github.com/ianyepan/wilmersdorf-emacs-theme",
+            },
+          ],
+        },
+      ],
+      recipes,
+    );
+
+    expect(html).toContain(
+      '<a href="/themes/color-theme-buffer-local">vic/color-theme-buffer-local</a>',
+    );
+    expect(html).toContain('<a href="/themes/twilight">crafterm/twilight-emacs</a>');
+    expect(html).toContain('<a href="/themes/wilmersdorf">ianyepan/wilmersdorf-emacs-theme</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/crafterm/twilight-emacs"');
+    expect(html).toContain(
+      'class="source-link" href="https://github.com/ianyepan/wilmersdorf-emacs-theme"',
+    );
+  });
+
   test("links the GitHub Parchment mirror entry to its GitLab detail page", async () => {
     const recipe = (await Bun.file(
       new URL("../recipes/parchment-theme.json", import.meta.url),

@@ -120,6 +120,12 @@ const SOURCE_DISPLAY_NAMES: Record<PopularSourceId, string> = {
   github: "GitHub",
 };
 
+/** Internal detail destinations for popular repositories represented by a recipe hosted elsewhere. */
+const INTERNAL_HREF_OVERRIDES: Readonly<Record<string, string>> = {
+  "https://github.com/crafterm/twilight-emacs": `${THEME_DETAIL_PATH_PREFIX}twilight`,
+  "https://github.com/ianyepan/wilmersdorf-emacs-theme": `${THEME_DETAIL_PATH_PREFIX}wilmersdorf`,
+};
+
 /**
  * Appends a value to a map bucket, creating the bucket on first use.
  *
@@ -186,11 +192,12 @@ function buildRecipeLookups(recipes: readonly PopularThemeRecipe[]): RecipeLooku
 /**
  * Resolves the internal destination for a popular entry's name cell.
  *
- * Applies the documented precedence: an entry named after a repository that
- * contains several recipes links to the exact repository filter; otherwise a
- * unique normalized id match wins, then a unique normalized name match, then
- * a unique canonical repository match, then a repository filter for any other
- * shared repository. Ambiguous matches never select an arbitrary recipe.
+ * Applies the documented precedence: an exact repository override wins; an
+ * entry named after a repository that contains several recipes links to the
+ * exact repository filter; otherwise a unique normalized id match wins, then
+ * a unique normalized name match, then a unique canonical repository match,
+ * then a repository filter for any other shared repository. Ambiguous matches
+ * never select an arbitrary recipe.
  *
  * @param {string} name - The popular entry name.
  * @param {string | undefined} sourceUrl - The entry's canonical source repository URL.
@@ -205,6 +212,11 @@ function resolveInternalDestination(
   const identity = normalizeThemeIdentity(name);
   const repositoryUrl = sourceUrl ? normalizeRepositoryUrl(sourceUrl) : undefined;
   const repoCandidates = repositoryUrl ? lookups.byRepositoryUrl.get(repositoryUrl) : undefined;
+  const overriddenHref = repositoryUrl ? INTERNAL_HREF_OVERRIDES[repositoryUrl] : undefined;
+
+  if (overriddenHref) {
+    return { href: overriddenHref };
+  }
 
   if (identity && repositoryUrl && repoCandidates && repoCandidates.length > 1) {
     const repositoryName = new URL(repositoryUrl).pathname.split("/").filter(Boolean).at(-1) ?? "";
