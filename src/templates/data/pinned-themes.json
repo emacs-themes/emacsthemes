@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "color-theme-buffer-local",
     "simple-dark",
     "doom-nano-dark",
     "doom-nano-light",
@@ -10,7 +11,6 @@
     "lambda-dark",
     "lambda-light",
     "bespoke",
-    "bespoke-dark",
-    "color-theme-solarized"
+    "bespoke-dark"
   ]
 }
