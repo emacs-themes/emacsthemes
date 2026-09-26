@@ -1,0 +1,14 @@
+{
+  "name": "Color Theme Buffer Local",
+  "id": "color-theme-buffer-local",
+  "description": "A utility for applying Emacs color themes on a per-buffer basis, shown with the built-in Misterioso theme.",
+  "repoUrl": "https://github.com/vic/color-theme-buffer-local",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/vic/color-theme-buffer-local/master/load-theme-buffer-local.el"
+  ],
+  "type": "dark",
+  "authors": ["Victor Borja"],
+  "tags": ["buffer local", "dark", "misterioso", "per-buffer", "blue", "yellow", "green", "orange"],
+  "elispBefore": "(setq byte-compile-warnings '(not obsolete)) (require 'cl)",
+  "elispAfter": "(add-hook 'after-change-major-mode-hook (lambda () (load-theme-buffer-local 'misterioso (current-buffer) t))) (load-theme-buffer-local 'misterioso (current-buffer) t)"
+}
