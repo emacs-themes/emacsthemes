@@ -1,7 +1,6 @@
 {
   "pinnedThemes": [
     "zaiste",
-    "color-theme-buffer-local",
     "simple-dark",
     "doom-nano-dark",
     "doom-nano-light",
@@ -11,6 +10,7 @@
     "molokai-theme",
     "lambda-dark",
     "lambda-light",
-    "bespoke"
+    "bespoke",
+    "bespoke-dark"
   ]
 }
