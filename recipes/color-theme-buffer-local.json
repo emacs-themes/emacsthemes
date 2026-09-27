@@ -9,6 +9,6 @@
   "type": "dark",
   "authors": ["Victor Borja"],
   "tags": ["buffer local", "dark", "misterioso", "per-buffer", "blue", "yellow", "green", "orange"],
-  "elispBefore": "(setq byte-compile-warnings '(not obsolete)) (require 'cl)",
-  "elispAfter": "(add-hook 'after-change-major-mode-hook (lambda () (load-theme-buffer-local 'misterioso (current-buffer) t))) (load-theme-buffer-local 'misterioso (current-buffer) t)"
+  "elispBefore": "(require 'cl-lib)",
+  "elispAfter": "(load-theme 'misterioso t)"
 }
