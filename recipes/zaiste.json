@@ -1,0 +1,15 @@
+{
+  "name": "Zaiste Theme",
+  "id": "zaiste",
+  "description": "A light Doom Emacs theme based on Doom One Light and inspired by Bluloco.",
+  "repoUrl": "https://github.com/zaiste/zaiste-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/zaiste/zaiste-emacs-theme/master/zaiste-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Zaiste"],
+  "tags": ["doom", "light", "bluloco", "blue", "green", "yellow", "white"],
+  "elispBefore": "(defmacro after! (feature &rest body) `(with-eval-after-load ',feature ,@body))"
+}
