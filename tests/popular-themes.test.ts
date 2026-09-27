@@ -291,7 +291,7 @@ describe("internal name destinations", () => {
 
   test("links known GitHub entries to their internal detail pages", async () => {
     const recipes = (await Promise.all(
-      ["color-theme-buffer-local", "twilight", "wilmersdorf"].map((id) =>
+      ["twilight", "wilmersdorf"].map((id) =>
         Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
       ),
     )) as Array<{ id: string; name: string; repoUrl: string }>;
@@ -301,11 +301,6 @@ describe("internal name destinations", () => {
           source: "github",
           status: "ok",
           entries: [
-            {
-              name: "vic/color-theme-buffer-local",
-              stars: 81,
-              sourceUrl: "https://github.com/vic/color-theme-buffer-local",
-            },
             {
               name: "crafterm/twilight-emacs",
               stars: 92,
@@ -322,9 +317,6 @@ describe("internal name destinations", () => {
       recipes,
     );
 
-    expect(html).toContain(
-      '<a href="/themes/color-theme-buffer-local">vic/color-theme-buffer-local</a>',
-    );
     expect(html).toContain('<a href="/themes/twilight">crafterm/twilight-emacs</a>');
     expect(html).toContain('<a href="/themes/wilmersdorf">ianyepan/wilmersdorf-emacs-theme</a>');
     expect(html).toContain('class="source-link" href="https://github.com/crafterm/twilight-emacs"');

@@ -29,6 +29,7 @@ const ignored: Record<string, true> = {
   "helm-themes": true,
   "color-theme": true,
   "company-theme-selector": true,
+  "org-beautify-theme": true,
 };
 
 /**

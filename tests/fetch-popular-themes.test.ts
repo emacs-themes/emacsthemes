@@ -158,6 +158,7 @@ describe("MELPA selection and limit", () => {
     counts["broken-theme"] = -5;
     counts["company-theme-selector"] = 999_995;
     counts["awesome-thematic"] = 999_994;
+    counts["org-beautify-theme"] = 999_993;
 
     const recipes = {
       "github-theme": { fetcher: "github", repo: "owner/repo" },
@@ -199,6 +200,7 @@ describe("MELPA selection and limit", () => {
       "broken theme",
       "company theme selector",
       "awesome thematic",
+      "org beautify theme",
     ]) {
       expect(names).not.toContain(excluded);
     }
@@ -506,6 +508,21 @@ describe("GitHub mapping and ordering", () => {
   test("excludes configured repositories from the ranking", async () => {
     const items = [
       { full_name: "real/theme", html_url: "https://github.com/real/theme", stargazers_count: 500 },
+      {
+        full_name: "vic/color-theme-buffer-local",
+        html_url: "https://github.com/vic/color-theme-buffer-local",
+        stargazers_count: 6000,
+      },
+      {
+        full_name: "jonnay/org-beautify-theme",
+        html_url: "https://github.com/jonnay/org-beautify-theme",
+        stargazers_count: 5500,
+      },
+      {
+        full_name: "ocodo/autothemer",
+        html_url: "https://github.com/ocodo/autothemer",
+        stargazers_count: 5250,
+      },
       {
         full_name: "sjrmanning/noctilux-theme",
         html_url: "https://github.com/sjrmanning/noctilux-theme",

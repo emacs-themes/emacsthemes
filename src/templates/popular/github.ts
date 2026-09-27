@@ -28,6 +28,8 @@ const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
  * positives and duplicates already represented by another popularity source.
  */
 const EXCLUDED_GITHUB_REPOS: ReadonlySet<string> = new Set([
+  "vic/color-theme-buffer-local",
+  "jonnay/org-beautify-theme",
   "sjrmanning/noctilux-theme",
   "thebb/spaceline",
   "domtronn/spaceline-all-the-icons.el",
@@ -39,6 +41,7 @@ const EXCLUDED_GITHUB_REPOS: ReadonlySet<string> = new Set([
   "guidoschmidt/circadian.el",
   "jcaw/theme-magic",
   "jasonm23/autothemer",
+  "ocodo/autothemer",
   "hadronzoo/theme-changer",
 ]);
 
