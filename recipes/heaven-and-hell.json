@@ -1,0 +1,14 @@
+{
+  "name": "Heaven and Hell",
+  "id": "heaven-and-hell",
+  "description": "A utility for toggling between a light and a dark Emacs theme with a single keypress, shown with the built-in Wombat theme.",
+  "repoUrl": "https://github.com/valignatev/heaven-and-hell",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/valignatev/heaven-and-hell/master/heaven-and-hell.el"
+  ],
+  "type": "dark",
+  "authors": ["Valentin Ignatev"],
+  "tags": ["dark", "light", "melpa", "toggle", "utility", "wombat"],
+  "elispBefore": "(setq heaven-and-hell-theme-type 'dark) (setq heaven-and-hell-themes '((light . tsdh-light) (dark . wombat))) (setq heaven-and-hell-load-theme-no-confirm t)",
+  "elispAfter": "(heaven-and-hell-init-hook)"
+}
