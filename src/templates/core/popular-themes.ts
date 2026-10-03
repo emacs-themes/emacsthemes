@@ -120,9 +120,11 @@ const SOURCE_DISPLAY_NAMES: Record<PopularSourceId, string> = {
   github: "GitHub",
 };
 
-/** Internal detail destinations for popular repositories represented by a recipe hosted elsewhere. */
+/** Internal detail destinations for popular repositories whose canonical URL differs from the recipe's repo URL (renames, transfers, or mirrors). */
 const INTERNAL_HREF_OVERRIDES: Readonly<Record<string, string>> = {
   "https://github.com/crafterm/twilight-emacs": `${THEME_DETAIL_PATH_PREFIX}twilight`,
+  "https://github.com/cryon/subatomic-theme": `${THEME_DETAIL_PATH_PREFIX}subatomic`,
+  "https://github.com/gchp/flatland-emacs": `${THEME_DETAIL_PATH_PREFIX}flatland`,
   "https://github.com/ianyepan/wilmersdorf-emacs-theme": `${THEME_DETAIL_PATH_PREFIX}wilmersdorf`,
 };
 

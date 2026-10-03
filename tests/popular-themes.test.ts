@@ -291,7 +291,7 @@ describe("internal name destinations", () => {
 
   test("links known GitHub entries to their internal detail pages", async () => {
     const recipes = (await Promise.all(
-      ["twilight", "wilmersdorf"].map((id) =>
+      ["twilight", "wilmersdorf", "flatland"].map((id) =>
         Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
       ),
     )) as Array<{ id: string; name: string; repoUrl: string }>;
@@ -311,6 +311,11 @@ describe("internal name destinations", () => {
               stars: 88,
               sourceUrl: "https://github.com/ianyepan/wilmersdorf-emacs-theme",
             },
+            {
+              name: "gchp/flatland-emacs",
+              stars: 1,
+              sourceUrl: "https://github.com/gchp/flatland-emacs",
+            },
           ],
         },
       ],
@@ -323,6 +328,8 @@ describe("internal name destinations", () => {
     expect(html).toContain(
       'class="source-link" href="https://github.com/ianyepan/wilmersdorf-emacs-theme"',
     );
+    expect(html).toContain('<a href="/themes/flatland">gchp/flatland-emacs</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/gchp/flatland-emacs"');
   });
 
   test("links the GitHub Parchment mirror entry to its GitLab detail page", async () => {
@@ -348,6 +355,31 @@ describe("internal name destinations", () => {
 
     expect(html).toContain('<a href="/themes/parchment">axgfn/parchment</a>');
     expect(html).toContain('class="source-link" href="https://gitlab.com/axgfn/parchment"');
+  });
+
+  test("links the renamed GitHub Subatomic repository to its detail page", async () => {
+    const recipe = (await Bun.file(
+      new URL("../recipes/subatomic.json", import.meta.url),
+    ).json()) as { id: string; name: string; repoUrl: string };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "cryon/subatomic-theme",
+              stars: 63,
+              sourceUrl: "https://github.com/cryon/subatomic-theme",
+            },
+          ],
+        },
+      ],
+      [recipe],
+    );
+
+    expect(html).toContain('<a href="/themes/subatomic">cryon/subatomic-theme</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/cryon/subatomic-theme"');
   });
 
   test("links the migrated GitHub Lambda Themes entry to its Codeberg recipes", async () => {
