@@ -1,0 +1,14 @@
+{
+  "name": "OS1 Theme",
+  "id": "os1",
+  "description": "A light, warm, modern theme inspired by the color palettes of the films Her and Paris, Texas, with a focus on readability and coziness.",
+  "repoUrl": "https://github.com/sashimacs/os1-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/sashimacs/os1-theme/main/os1-utils.el",
+    "https://raw.githubusercontent.com/sashimacs/os1-theme/main/os1-theme.el"
+  ],
+  "type": "light",
+  "authors": ["sashimacs"],
+  "tags": ["autothemer", "cream", "light", "red", "solarized", "warm", "green", "blue"],
+  "elispBefore": "(unless (package-installed-p 'autothemer) (package-install 'autothemer))"
+}

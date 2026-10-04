@@ -291,7 +291,7 @@ describe("internal name destinations", () => {
 
   test("links known GitHub entries to their internal detail pages", async () => {
     const recipes = (await Promise.all(
-      ["twilight", "wilmersdorf", "flatland"].map((id) =>
+      ["twilight", "wilmersdorf", "flatland", "os1"].map((id) =>
         Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
       ),
     )) as Array<{ id: string; name: string; repoUrl: string }>;
@@ -316,6 +316,11 @@ describe("internal name destinations", () => {
               stars: 1,
               sourceUrl: "https://github.com/gchp/flatland-emacs",
             },
+            {
+              name: "sashimacs/os1-theme",
+              stars: 1,
+              sourceUrl: "https://github.com/sashimacs/os1-theme",
+            },
           ],
         },
       ],
@@ -330,6 +335,8 @@ describe("internal name destinations", () => {
     );
     expect(html).toContain('<a href="/themes/flatland">gchp/flatland-emacs</a>');
     expect(html).toContain('class="source-link" href="https://github.com/gchp/flatland-emacs"');
+    expect(html).toContain('<a href="/themes/os1">sashimacs/os1-theme</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/sashimacs/os1-theme"');
   });
 
   test("links the GitHub Parchment mirror entry to its GitLab detail page", async () => {
