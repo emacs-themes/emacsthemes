@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "os1",
     "heaven-and-hell",
     "zaiste",
     "simple-dark",
@@ -10,7 +11,6 @@
     "metropolis-light",
     "molokai-theme",
     "lambda-dark",
-    "lambda-light",
-    "bespoke"
+    "lambda-light"
   ]
 }
