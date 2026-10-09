@@ -1,0 +1,13 @@
+{
+  "name": "Ayu Day",
+  "id": "ayu-day",
+  "description": "The day flavour of the Ayu themes: a light, low contrast theme built from the official Ayu palette.",
+  "repoUrl": "https://github.com/1buran/ayu-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-themes.el",
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["1buran"],
+  "tags": ["ayu", "light", "day", "blue", "orange", "low contrast"]
+}
