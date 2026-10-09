@@ -1,0 +1,13 @@
+{
+  "name": "Ayu Dusk",
+  "id": "ayu-dusk",
+  "description": "The dusk flavour of the Ayu themes: a dark, low contrast theme built from the official Ayu mirage palette.",
+  "repoUrl": "https://github.com/1buran/ayu-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-themes.el",
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-dusk-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["1buran"],
+  "tags": ["ayu", "dark", "dusk", "mirage", "blue", "orange", "low contrast"]
+}

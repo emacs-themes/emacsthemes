@@ -1,0 +1,13 @@
+{
+  "name": "Ayu Night",
+  "id": "ayu-night",
+  "description": "The night flavour of the Ayu themes: a dark, low contrast theme built from the official Ayu palette.",
+  "repoUrl": "https://github.com/1buran/ayu-emacs-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-themes.el",
+    "https://raw.githubusercontent.com/1buran/ayu-emacs-theme/main/ayu-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["1buran"],
+  "tags": ["ayu", "dark", "night", "blue", "orange", "low contrast"]
+}
