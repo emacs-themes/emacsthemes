@@ -1,5 +1,8 @@
 {
   "pinnedThemes": [
+    "ayu-night",
+    "ayu-dusk",
+    "ayu-day",
     "os1",
     "heaven-and-hell",
     "zaiste",
@@ -8,9 +11,6 @@
     "doom-nano-light",
     "mindre",
     "hopscotch",
-    "metropolis-light",
-    "molokai-theme",
-    "lambda-dark",
-    "lambda-light"
+    "metropolis-light"
   ]
 }
