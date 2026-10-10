@@ -1,0 +1,14 @@
+{
+  "name": "Kusanagi Theme",
+  "id": "kusanagi",
+  "description": "A dark cyberpunk theme inspired by Ghost in the Shell, built on Modus themes with neon cyan and hot pink accents against a deep-space blue background.",
+  "repoUrl": "https://github.com/LionyxML/kusanagi-theme",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/LionyxML/kusanagi-theme/main/kusanagi-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Rahul Martim Juliato"],
+  "tags": ["dark", "cyberpunk", "ghost in the shell", "modus", "blue", "cyan", "pink"],
+  "elispBefore": "(require 'cl-lib) (require 'subr-x)"
+}

@@ -289,6 +289,35 @@ describe("internal name destinations", () => {
     expect(html).toContain('class="source-link" href="https://github.com/nordtheme/emacs"');
   });
 
+  test("links the GitHub Kusanagi entry to its detail page", async () => {
+    const recipe = (await Bun.file(
+      new URL("../recipes/kusanagi.json", import.meta.url),
+    ).json()) as {
+      id: string;
+      name: string;
+      repoUrl: string;
+    };
+    const html = renderPopularThemeTables(
+      [
+        {
+          source: "github",
+          status: "ok",
+          entries: [
+            {
+              name: "LionyxML/kusanagi-theme",
+              stars: 1,
+              sourceUrl: "https://github.com/LionyxML/kusanagi-theme",
+            },
+          ],
+        },
+      ],
+      [recipe],
+    );
+
+    expect(html).toContain('<a href="/themes/kusanagi">LionyxML/kusanagi-theme</a>');
+    expect(html).toContain('class="source-link" href="https://github.com/LionyxML/kusanagi-theme"');
+  });
+
   test("links known GitHub entries to their internal detail pages", async () => {
     const recipes = (await Promise.all(
       ["twilight", "wilmersdorf", "flatland", "os1"].map((id) =>
