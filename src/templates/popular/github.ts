@@ -1,16 +1,20 @@
 /**
  * GitHub popularity source: repository search -> ranked theme entries.
  */
+import { z } from "zod";
 import type { GitHubThemeEntry } from "../../core/popular-types";
 import { fetchJson } from "./fetch-json";
 
 const GITHUB_SEARCH_URL = "https://api.github.com/search/repositories";
+
 // Broad keyword search over names and descriptions. Curated exceptions are
 // excluded by EXCLUDED_GITHUB_REPOS below; the query itself cannot express
 // those nuances.
 const GITHUB_SEARCH_QUERY =
   'theme OR "color scheme" OR "colour scheme" OR colorscheme OR colourscheme in:name,description language:"Emacs Lisp" is:public';
+
 const GITHUB_API_VERSION = "2022-11-28";
+
 const GITHUB_USER_AGENT = "emacs-themes/emacsthemes";
 
 /**
@@ -18,15 +22,21 @@ const GITHUB_USER_AGENT = "emacs-themes/emacsthemes";
  * The archived GitHub repository still supplies its star count, while links
  * target the maintained upstream repository.
  */
-const SOURCE_URL_OVERRIDES: Readonly<Record<string, string>> = {
-  "axgfn/parchment": "https://gitlab.com/axgfn/parchment",
-  "lambda-emacs/lambda-themes": "https://codeberg.org/Lambda-Emacs/lambda-themes",
-};
+const SOURCE_URL_OVERRIDES = new Map<string, string>([
+  ["axgfn/parchment", "https://gitlab.com/axgfn/parchment"],
+  ["lambda-emacs/lambda-themes", "https://codeberg.org/Lambda-Emacs/lambda-themes"],
+]);
 
 /**
  * Repositories intentionally omitted from the GitHub ranking: keyword false
  * positives and duplicates already represented by another popularity source.
  */
+interface GitHubRepoItem {
+  full_name: string;
+  html_url: string;
+  stargazers_count: number;
+}
+
 const EXCLUDED_GITHUB_REPOS: ReadonlySet<string> = new Set([
   "vic/color-theme-buffer-local",
   "jonnay/org-beautify-theme",
@@ -45,18 +55,6 @@ const EXCLUDED_GITHUB_REPOS: ReadonlySet<string> = new Set([
   "hadronzoo/theme-changer",
 ]);
 
-interface GitHubSearchResponse {
-  total_count: number;
-  incomplete_results: boolean;
-  items?: GitHubRepoItem[];
-}
-
-interface GitHubRepoItem {
-  full_name: string;
-  html_url: string;
-  stargazers_count: number;
-}
-
 /**
  * Builds the GitHub repository-search URL with the fixed public query.
  *
@@ -71,10 +69,28 @@ function buildGitHubSearchUrl(limit: number): string {
     per_page: String(limit),
     page: "1",
   });
+
   const url = new URL(GITHUB_SEARCH_URL);
   url.search = params.toString();
+
   return url.toString();
 }
+
+/** Contract for the repository-search envelope fields used by the renderer. */
+const GitHubRepoItemSchema = z.object({
+  full_name: z.string().min(1),
+  html_url: z.string().min(1),
+  stargazers_count: z
+    .number()
+    .refine(Number.isFinite)
+    .refine((count) => count >= 0),
+});
+
+/** Contract for the search-response envelope fields used by the renderer. */
+const GitHubSearchResponseSchema = z.object({
+  incomplete_results: z.boolean().optional(),
+  items: z.array(z.unknown()),
+});
 
 /**
  * Builds the request headers for the GitHub search request.
@@ -85,75 +101,16 @@ function buildGitHubSearchUrl(limit: number): string {
  *
  * @returns {Record<string, string>} The headers to send with the GitHub request.
  */
-function buildGitHubHeaders(): Record<string, string> {
-  const headers: Record<string, string> = {
+function buildGitHubHeaders() {
+  const baseHeaders = {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": GITHUB_API_VERSION,
     "User-Agent": GITHUB_USER_AGENT,
   };
+
   const token = process.env.GITHUB_TOKEN?.trim();
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-  return headers;
-}
 
-/**
- * Validates a GitHub search payload and extracts its repository items.
- *
- * Lenient by design: malformed items and `incomplete_results` degrade the
- * result with a warning instead of discarding the whole source. The payload is
- * rejected only when it has no usable items at all.
- *
- * @param {unknown} payload - The parsed GitHub search response body.
- * @returns {{ items: GitHubRepoItem[]; warning?: string }} The valid repository items plus any degradation warning.
- * @throws {Error} When the payload shape is unusable or contains no valid items.
- */
-function validateGitHubPayload(payload: unknown): { items: GitHubRepoItem[]; warning?: string } {
-  if (typeof payload !== "object" || payload === null) {
-    throw new Error("Invalid GitHub search payload: expected an object");
-  }
-  const response = payload as Partial<GitHubSearchResponse>;
-  if (!Array.isArray(response.items)) {
-    throw new Error("Invalid GitHub search payload: items must be an array");
-  }
-
-  const warnings: string[] = [];
-  if (response.incomplete_results === true) {
-    warnings.push("GitHub search results are incomplete");
-  }
-
-  const items = response.items.filter(isValidGitHubItem);
-  const dropped = response.items.length - items.length;
-  if (dropped > 0) {
-    warnings.push(`${dropped} malformed repository item(s) dropped`);
-  }
-  if (items.length === 0) {
-    throw new Error("GitHub search returned no repositories");
-  }
-  return { items, warning: warnings.length > 0 ? warnings.join("; ") : undefined };
-}
-
-/**
- * Type guard for a well-formed GitHub repository item.
- *
- * @param {unknown} value - The candidate item value.
- * @returns {boolean} True when all required fields are present and valid.
- */
-function isValidGitHubItem(value: unknown): value is GitHubRepoItem {
-  if (typeof value !== "object" || value === null) {
-    return false;
-  }
-  const item = value as Record<string, unknown>;
-  return (
-    typeof item.full_name === "string" &&
-    item.full_name.length > 0 &&
-    typeof item.html_url === "string" &&
-    item.html_url.length > 0 &&
-    typeof item.stargazers_count === "number" &&
-    Number.isFinite(item.stargazers_count) &&
-    item.stargazers_count >= 0
-  );
+  return token ? { ...baseHeaders, Authorization: `Bearer ${token}` } : baseHeaders;
 }
 
 /**
@@ -163,6 +120,10 @@ function isValidGitHubItem(value: unknown): value is GitHubRepoItem {
  * defensive and guarantees the deterministic name tie-break that the API's
  * best-match secondary ordering does not provide.
  *
+ * Lenient by design: malformed items and `incomplete_results` degrade the
+ * result with a warning instead of discarding the whole source. The payload is
+ * rejected only when it has no usable items at all.
+ *
  * @param {number} limit - The maximum number of entries to keep.
  * @returns {Promise<{ entries: GitHubThemeEntry[]; warning?: string }>} The ranked entries and any degradation warning.
  * @throws {Error} When GitHub data cannot be fetched or is unusable.
@@ -171,19 +132,54 @@ export async function fetchGitHubThemes(limit: number): Promise<{
   entries: GitHubThemeEntry[];
   warning?: string;
 }> {
-  const payload = await fetchJson<GitHubSearchResponse>(
-    buildGitHubSearchUrl(limit),
-    buildGitHubHeaders(),
-    { redirect: "error" },
-  );
-  const { items, warning } = validateGitHubPayload(payload);
+  const payload = await fetchJson<unknown>(buildGitHubSearchUrl(limit), buildGitHubHeaders(), {
+    redirect: "error",
+  });
+
+  const decoded = GitHubSearchResponseSchema.safeParse(payload);
+
+  if (!decoded.success) {
+    throw new Error("Invalid GitHub search payload: expected an object with an items array");
+  }
+
+  const warnings: string[] = [];
+
+  if (decoded.data.incomplete_results === true) {
+    warnings.push("GitHub search results are incomplete");
+  }
+
+  // Malformed items degrade the ranking with a warning instead of failing the
+  // whole source; each candidate is validated against the item schema.
+  const items: GitHubRepoItem[] = [];
+  let dropped = 0;
+
+  for (const candidate of decoded.data.items) {
+    const item = GitHubRepoItemSchema.safeParse(candidate);
+
+    if (item.success) {
+      items.push(item.data);
+    } else {
+      dropped += 1;
+    }
+  }
+
+  if (dropped > 0) {
+    warnings.push(`${dropped} malformed repository item(s) dropped`);
+  }
+
+  if (items.length === 0) {
+    throw new Error("GitHub search returned no repositories");
+  }
 
   const qualifying = items.filter(
     (item) => !EXCLUDED_GITHUB_REPOS.has(item.full_name.toLowerCase()),
   );
+
   if (qualifying.length === 0) {
     throw new Error("GitHub search returned no qualifying theme repositories");
   }
+
+  const warning = warnings.length > 0 ? warnings.join("; ") : undefined;
 
   const entries = qualifying
     .toSorted((a, b) =>
@@ -197,7 +193,7 @@ export async function fetchGitHubThemes(limit: number): Promise<{
     .map((item) => ({
       name: item.full_name,
       stars: item.stargazers_count,
-      sourceUrl: SOURCE_URL_OVERRIDES[item.full_name.toLowerCase()] ?? item.html_url,
+      sourceUrl: SOURCE_URL_OVERRIDES.get(item.full_name.toLowerCase()) ?? item.html_url,
     }));
 
   return { entries, warning };

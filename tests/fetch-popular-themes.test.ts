@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, test } from "bun:test";
+import { type JsonBag, type JsonValue } from "../src/core/json-value";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -14,10 +15,12 @@ import type {
 } from "../src/templates/fetch-popular-themes";
 
 const originalFetch = globalThis.fetch;
+
 const originalToken = process.env.GITHUB_TOKEN;
 
 afterEach(() => {
   globalThis.fetch = originalFetch;
+
   if (originalToken === undefined) {
     delete process.env.GITHUB_TOKEN;
   } else {
@@ -28,6 +31,9 @@ afterEach(() => {
 type FetchHandler = (url: string, init?: RequestInit) => Response | Promise<Response>;
 
 function mockFetch(handler: FetchHandler) {
+  // SAFETY: the double satisfies the fetch(url, init) surface the fetch
+  // wrappers exercise; every response body is validated by the schemas under
+  // test.
   globalThis.fetch = handler as typeof fetch;
 }
 
@@ -37,11 +43,12 @@ function combinedHandler(melpa: FetchHandler, github: FetchHandler): FetchHandle
     if (url.includes("api.github.com")) {
       return github(url, init);
     }
+
     return melpa(url, init);
   };
 }
 
-function jsonResponse(body: unknown, status = 200): Response {
+function jsonResponse(body: JsonValue, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
     headers: { "Content-Type": "application/json" },
@@ -52,26 +59,32 @@ function rawResponse(body: string, status = 200): Response {
   return new Response(body, { status, headers: { "Content-Type": "application/json" } });
 }
 
-function melpaHandler(
-  counts: Record<string, number>,
-  recipes: Record<string, unknown> = {},
-): FetchHandler {
+interface GitHubSearchFixture {
+  total_count?: number;
+  incomplete_results?: boolean;
+  items?: JsonValue;
+}
+
+function melpaHandler(counts: Record<string, number>, recipes: JsonBag = {}): FetchHandler {
   return (url) => {
     if (url.includes("melpa.org/recipes.json")) {
       return jsonResponse(recipes);
     }
+
     if (url.includes("melpa.org/download_counts.json")) {
       return jsonResponse(counts);
     }
+
     throw new Error(`Unexpected MELPA URL: ${url}`);
   };
 }
 
-function githubHandler(items: unknown, overrides: Record<string, unknown> = {}): FetchHandler {
+function githubHandler(items: JsonValue, overrides: GitHubSearchFixture = {}): FetchHandler {
   return (url) => {
     if (!url.includes("api.github.com/search/repositories")) {
       throw new Error(`Unexpected GitHub URL: ${url}`);
     }
+
     return jsonResponse({
       total_count: Array.isArray(items) ? items.length : 0,
       incomplete_results: false,
@@ -97,10 +110,13 @@ function melpaOk(results: PopularThemeSourceResult[]): MelpaThemeEntry[] {
     (r): r is Extract<PopularThemeSourceResult, { source: "melpa"; status: "ok" }> =>
       r.source === "melpa" && r.status === "ok",
   );
+
   if (!result) {
     expect(results.find((r) => r.source === "melpa")?.status).toBe("ok");
+
     return [];
   }
+
   return result.entries;
 }
 
@@ -110,10 +126,13 @@ function githubOk(results: PopularThemeSourceResult[]): GitHubThemeEntry[] {
     (r): r is Extract<PopularThemeSourceResult, { source: "github"; status: "ok" }> =>
       r.source === "github" && r.status === "ok",
   );
+
   if (!result) {
     expect(results.find((r) => r.source === "github")?.status).toBe("ok");
+
     return [];
   }
+
   return result.entries;
 }
 
@@ -123,19 +142,24 @@ function githubFailed(results: PopularThemeSourceResult[]): string {
     (r): r is Extract<PopularThemeSourceResult, { source: "github"; status: "failed" }> =>
       r.source === "github" && r.status === "failed",
   );
+
   if (!result) {
     expect(results.find((r) => r.source === "github")?.status).toBe("failed");
+
     return "";
   }
+
   return result.error;
 }
 
 describe("MELPA selection and limit", () => {
   test(`keeps ${POPULAR_THEMES_LIMIT} valid entries sorted by downloads with name tie-breaking`, async () => {
     const counts: Record<string, number> = {};
+
     for (let i = 0; i < 115; i++) {
       counts[`theme-${String(i).padStart(3, "0")}-theme`] = i;
     }
+
     counts["aaa-theme"] = 900_000;
     counts["bbb-theme"] = 900_000;
     counts["zzz-theme"] = 1_000_000;
@@ -192,6 +216,7 @@ describe("MELPA selection and limit", () => {
 
     // Ignored, slash-prefixed, non-theme, -thematic, and negative-count packages are excluded.
     const names = melpa.map((entry) => entry.name);
+
     for (const excluded of [
       "helm themes",
       "color theme",
@@ -328,12 +353,14 @@ describe("GitHub request construction", () => {
       if (url.includes("api.github.com/search/repositories")) {
         capturedUrl = url;
         capturedInit = init;
+
         return jsonResponse({
           total_count: 1,
           incomplete_results: false,
           items: defaultGitHubItems,
         });
       }
+
       return jsonResponse({ "ok-theme": 1 });
     });
 
@@ -351,7 +378,7 @@ describe("GitHub request construction", () => {
     expect(parsed.searchParams.get("per_page")).toBe(String(POPULAR_THEMES_LIMIT));
     expect(parsed.searchParams.get("page")).toBe("1");
 
-    const headers = capturedInit?.headers as Record<string, string> | undefined;
+    const headers = capturedHeaders(capturedInit);
     expect(headers).toBeDefined();
     expect(headers?.Accept).toBe("application/vnd.github+json");
     expect(headers?.["X-GitHub-Api-Version"]).toBe("2022-11-28");
@@ -361,32 +388,53 @@ describe("GitHub request construction", () => {
   });
 });
 
-describe("GitHub authentication", () => {
-  function captureGitHubRequest(): { init: () => RequestInit | undefined } {
-    const captured: { init: () => RequestInit | undefined } = { init: () => undefined };
-    let capturedInit: RequestInit | undefined;
-    captured.init = () => capturedInit;
-    mockFetch((url, init) => {
-      if (url.includes("api.github.com/search/repositories")) {
-        capturedInit = init;
-        return jsonResponse({
-          total_count: 1,
-          incomplete_results: false,
-          items: defaultGitHubItems,
-        });
-      }
-      return jsonResponse({ "ok-theme": 1 });
-    });
-    return captured;
-  }
+/**
+ * Extracts plain header records from request doubles.
+ *
+ * SAFETY: buildGitHubHeaders hands fetch a plain header record; the doubles
+ * capture that same value, so the record cast is backed by construction.
+ */
+function capturedHeaders(init: RequestInit | undefined): Record<string, string> {
+  // SAFETY: fetch doubles capture the exact plain Record returned by
+  // buildGitHubHeaders; RequestInit merely widens the capture type.
+  return init?.headers as Record<string, string>;
+}
 
+/** Captured request surface exposed by the GitHub request double. */
+interface CapturedGitHubRequest {
+  init: () => RequestInit | undefined;
+}
+
+/** Installs the fixed GitHub+MELPA fetch double and captures the GitHub init. */
+function captureGitHubRequest(): CapturedGitHubRequest {
+  const captured: CapturedGitHubRequest = { init: () => undefined };
+  let capturedInit: RequestInit | undefined;
+  captured.init = () => capturedInit;
+  mockFetch((url, init) => {
+    if (url.includes("api.github.com/search/repositories")) {
+      capturedInit = init;
+
+      return jsonResponse({
+        total_count: 1,
+        incomplete_results: false,
+        items: defaultGitHubItems,
+      });
+    }
+
+    return jsonResponse({ "ok-theme": 1 });
+  });
+
+  return captured;
+}
+
+describe("GitHub authentication", () => {
   test("sends a trimmed Authorization header when GITHUB_TOKEN is set", async () => {
     process.env.GITHUB_TOKEN = "  ghp_test-secret-token\n";
     const captured = captureGitHubRequest();
 
     await fetchPopularThemes();
 
-    const headers = captured.init()?.headers as Record<string, string> | undefined;
+    const headers = capturedHeaders(captured.init());
     expect(headers?.Authorization).toBe("Bearer ghp_test-secret-token");
   });
 
@@ -396,7 +444,7 @@ describe("GitHub authentication", () => {
 
     await fetchPopularThemes();
 
-    const headers = captured.init()?.headers as Record<string, string> | undefined;
+    const headers = capturedHeaders(captured.init());
     expect(headers?.Authorization).toBeUndefined();
   });
 
@@ -406,14 +454,15 @@ describe("GitHub authentication", () => {
 
     await fetchPopularThemes();
 
-    const headers = captured.init()?.headers as Record<string, string> | undefined;
+    const headers = capturedHeaders(captured.init());
     expect(headers?.Authorization).toBeUndefined();
   });
 });
 
 describe("GitHub mapping and ordering", () => {
   test("maps fields, sorts by stars with name tie-breaking, and caps at the limit", async () => {
-    const items: Array<Record<string, unknown>> = [];
+    const items: JsonBag[] = [];
+
     for (let i = 0; i < 120; i++) {
       const padded = String(i).padStart(3, "0");
       items.push({
@@ -422,6 +471,7 @@ describe("GitHub mapping and ordering", () => {
         stargazers_count: i,
       });
     }
+
     items.push({
       full_name: "aaa/theme",
       html_url: "https://github.com/aaa/theme",
@@ -577,6 +627,7 @@ describe("GitHub partial-result policy", () => {
     const results = await fetchPopularThemes();
     const github = results.find((r) => r.source === "github");
     expect(github?.status).toBe("ok");
+
     if (github?.status === "ok") {
       expect(github.entries).toHaveLength(1);
       expect(github.warning).toContain("incomplete");
@@ -584,7 +635,7 @@ describe("GitHub partial-result policy", () => {
   });
 
   test("drops malformed items with a warning while keeping valid items", async () => {
-    const items = [
+    const items: JsonBag[] = [
       { full_name: "good/theme", html_url: "https://github.com/good/theme", stargazers_count: 5 },
       { full_name: "", html_url: "https://github.com/x", stargazers_count: 1 },
       { full_name: "no-url", stargazers_count: 1 },
@@ -595,6 +646,7 @@ describe("GitHub partial-result policy", () => {
     const results = await fetchPopularThemes();
     const github = results.find((r) => r.source === "github");
     expect(github?.status).toBe("ok");
+
     if (github?.status === "ok") {
       expect(github.entries.map((e) => e.name)).toEqual(["good/theme"]);
       expect(github.warning).toContain("malformed");
@@ -643,12 +695,15 @@ describe("GitHub source failures", () => {
 describe("Fetch resilience", () => {
   test("retries transient 5xx responses and succeeds", async () => {
     let attempts = 0;
+
     const github: FetchHandler = (url) => {
       if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
       attempts++;
+
       if (attempts < 3) {
         return new Response("boom", { status: 503 });
       }
+
       return jsonResponse({
         total_count: 1,
         incomplete_results: false,
@@ -665,12 +720,15 @@ describe("Fetch resilience", () => {
 
   test("retries transient network failures and succeeds", async () => {
     let attempts = 0;
+
     const github: FetchHandler = (url) => {
       if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
       attempts++;
+
       if (attempts < 3) {
         throw new TypeError("fetch failed");
       }
+
       return jsonResponse({
         total_count: 1,
         incomplete_results: false,
@@ -687,9 +745,11 @@ describe("Fetch resilience", () => {
 
   test("gives up after bounded retries on persistent 5xx responses", async () => {
     let attempts = 0;
+
     const github: FetchHandler = (url) => {
       if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
       attempts++;
+
       return new Response("boom", { status: 502 });
     };
 
@@ -703,9 +763,11 @@ describe("Fetch resilience", () => {
 
   test("does not retry non-retryable statuses", async () => {
     let attempts = 0;
+
     const github: FetchHandler = (url) => {
       if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
       attempts++;
+
       return new Response("bad request", { status: 400 });
     };
 
@@ -718,8 +780,10 @@ describe("Fetch resilience", () => {
 
   test("rejects responses over the payload size limit", async () => {
     const hugeBody = "x".repeat(10 * 1024 * 1024 + 1);
+
     const github: FetchHandler = (url) => {
       if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
+
       return rawResponse(hugeBody);
     };
 
@@ -734,6 +798,7 @@ describe("Fetch resilience", () => {
     mockFetch(
       combinedHandler(okMelpa(), (url) => {
         if (!url.includes("api.github.com")) throw new Error(`Unexpected URL: ${url}`);
+
         return new Response(
           '{"message":"API rate limit exceeded","documentation_url":"https://docs.github.com"}',
           { status: 403 },
@@ -810,6 +875,7 @@ describe("Popular themes logging", () => {
 
   test("writes success and error lines to the given log directory", async () => {
     const dir = await mkdtemp(join(tmpdir(), "popular-logs-"));
+
     try {
       await writePopularThemesLogs(
         [
@@ -841,6 +907,7 @@ describe("Popular themes logging", () => {
 
   test("writes warnings to the main log and never writes the token", async () => {
     const dir = await mkdtemp(join(tmpdir(), "popular-logs-"));
+
     try {
       process.env.GITHUB_TOKEN = "ghp_super-secret-value";
       await writePopularThemesLogs(

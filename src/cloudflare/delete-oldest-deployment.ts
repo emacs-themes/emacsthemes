@@ -1,39 +1,46 @@
+import { z } from "zod";
+
 const API_BASE_URL = "https://api.cloudflare.com/client/v4";
 
-interface CloudflareListDeploymentsResponse {
-  success: boolean;
-  errors: CloudflareApiMessage[];
-  result: CloudflarePagesDeployment[];
-  result_info?: {
-    page: number;
-    per_page: number;
-    total_pages: number;
-  };
-}
+/** Decodes the Cloudflare API error-message envelope at the script's boundary. */
+const CloudflareApiMessageSchema = z.object({ code: z.number(), message: z.string() });
 
-interface CloudflareDeleteDeploymentResponse {
-  success: boolean;
-  errors: CloudflareApiMessage[];
-}
+/** Decodes one Cloudflare Pages deployment for the fields the script logs. */
+const CloudflarePagesDeploymentSchema = z.object({
+  id: z.string(),
+  url: z.string(),
+  created_on: z.string(),
+  environment: z.string().optional(),
+  deployment_trigger: z
+    .object({
+      metadata: z
+        .object({
+          branch: z.string().optional(),
+          commit_hash: z.string().optional(),
+          commit_message: z.string().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+});
 
-interface CloudflareApiMessage {
-  code: number;
-  message: string;
-}
+type CloudflareApiMessage = z.infer<typeof CloudflareApiMessageSchema>;
 
-interface CloudflarePagesDeployment {
-  id: string;
-  url: string;
-  created_on: string;
-  environment?: string;
-  deployment_trigger?: {
-    metadata?: {
-      branch?: string;
-      commit_hash?: string;
-      commit_message?: string;
-    };
-  };
-}
+type CloudflarePagesDeployment = z.infer<typeof CloudflarePagesDeploymentSchema>;
+
+/** Decodes the Cloudflare list-deployments response at the script's boundary. */
+const CloudflareListDeploymentsResponseSchema = z.object({
+  success: z.boolean(),
+  errors: z.array(CloudflareApiMessageSchema),
+  result: z.array(CloudflarePagesDeploymentSchema),
+  result_info: z.object({ total_pages: z.number() }).optional(),
+});
+
+/** Decodes the Cloudflare delete-deployment response at the script's boundary. */
+const CloudflareDeleteDeploymentResponseSchema = z.object({
+  success: z.boolean(),
+  errors: z.array(CloudflareApiMessageSchema),
+});
 
 interface ScriptOptions {
   accountId: string;
@@ -105,6 +112,7 @@ async function listDeployments(options: ScriptOptions): Promise<CloudflarePagesD
     const url = new URL(
       `${API_BASE_URL}/accounts/${options.accountId}/pages/projects/${options.projectName}/deployments`,
     );
+
     url.searchParams.set("page", String(page));
     url.searchParams.set("per_page", "25");
 
@@ -114,7 +122,7 @@ async function listDeployments(options: ScriptOptions): Promise<CloudflarePagesD
       },
     });
 
-    const body = (await response.json()) as CloudflareListDeploymentsResponse;
+    const body = CloudflareListDeploymentsResponseSchema.parse(await response.json());
 
     if (!response.ok || !body.success) {
       throw new Error(`Failed to list deployments: ${formatCloudflareErrors(body.errors)}`);
@@ -159,7 +167,7 @@ async function deleteDeployment(options: ScriptOptions, deploymentId: string): P
     },
   );
 
-  const body = (await response.json()) as CloudflareDeleteDeploymentResponse;
+  const body = CloudflareDeleteDeploymentResponseSchema.parse(await response.json());
 
   if (!response.ok || !body.success) {
     throw new Error(`Failed to delete deployment: ${formatCloudflareErrors(body.errors)}`);
@@ -206,6 +214,7 @@ async function run(): Promise<void> {
 
   if (!oldestDeployment) {
     console.log(`No deployments found for project ${options.projectName}.`);
+
     return;
   }
 
@@ -214,6 +223,7 @@ async function run(): Promise<void> {
 
   if (options.dryRun) {
     console.log("Dry run enabled; no deployment was deleted.");
+
     return;
   }
 
@@ -221,12 +231,8 @@ async function run(): Promise<void> {
   console.log("Oldest deployment deleted.");
 }
 
-run().catch((error: unknown) => {
-  if (error instanceof Error) {
-    console.error(error.message);
-  } else {
-    console.error(error);
-  }
+run().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
 
   process.exit(1);
 });

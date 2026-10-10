@@ -52,5 +52,6 @@ export function buildThemeCardsGrid(
   const cards = themes.map((theme) =>
     generateThemeCard(theme, cardTemplate, relativeRoot, staticDir),
   );
+
   return `<div class="grid">${cards.join("\n")}</div>`;
 }

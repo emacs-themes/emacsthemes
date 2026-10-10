@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { z } from "zod";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 import {
@@ -9,14 +10,44 @@ import {
   getAvailablePopularSources,
   getMissingPopularSources,
   toPopularThemeRecipes,
+  type PopularThemeRecipe,
 } from "../src/templates/core/popular-themes";
 import { POPULAR_THEMES_PATH, RECIPES_DIR } from "../src/core/constants";
 import { readThemeIdList } from "../src/core/theme-id-list";
+import { isMessageString, substitute } from "./support";
 import type {
   GitHubThemeEntry,
   MelpaThemeEntry,
   PopularThemeSourceResult,
 } from "../src/core/popular-types";
+
+/** Recipe-summary fixture shape: the fields the renderer consumes. */
+const RecipeSummarySchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  repoUrl: z.string().min(1),
+});
+
+/** Tolerant reader shape for stragglers during the recipes-directory sweep. */
+const RecipeIdSchema = z.object({ id: z.string().min(1) });
+
+/**
+ * Loads one recipe file and validates the renderer-consumed fields.
+ *
+ * @param {string} themeId - Recipe basename (without `.json`).
+ * @returns The validated { id, name, repoUrl } fixture.
+ * @throws {Error} When the recipe file is missing or does not match the shape.
+ */
+async function readRecipeSummary(themeId: string) {
+  const value = await Bun.file(new URL(`../recipes/${themeId}.json`, import.meta.url)).json();
+  const parsed = RecipeSummarySchema.safeParse(value);
+
+  if (!parsed.success) {
+    throw new Error(`Recipe fixture "${themeId}" is invalid: ${parsed.error.message}`);
+  }
+
+  return parsed.data;
+}
 
 const melpaEntries: MelpaThemeEntry[] = [
   {
@@ -127,6 +158,7 @@ describe("renderPopularThemeTables", () => {
   test("escapes names and source URLs and never links unsafe schemes", () => {
     const evilName = '<script>alert("xss")</script>';
     const evilUrl = 'https://example.com/?a="><img src=x onerror=alert(1)>';
+
     const html = renderPopularThemeTables(
       [
         {
@@ -215,6 +247,7 @@ describe("internal name destinations", () => {
       { id: "doom-one", name: "Doom One Theme", repoUrl: "https://github.com/doomemacs/themes" },
       { id: "doom-themes", name: "Doom Themes", repoUrl: "https://github.com/doomemacs/themes" },
     ];
+
     const html = renderPopularThemeTables(
       [
         {
@@ -232,11 +265,10 @@ describe("internal name destinations", () => {
   });
 
   test("links the GitHub Bespoke Themes entry to both variants", async () => {
-    const recipes = (await Promise.all(
-      ["bespoke", "bespoke-dark"].map((id) =>
-        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
-      ),
-    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const recipes = await Promise.all(
+      ["bespoke", "bespoke-dark"].map((id) => readRecipeSummary(id)),
+    );
+
     const html = renderPopularThemeTables(
       [
         {
@@ -263,11 +295,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the GitHub Nord entry to its detail page", async () => {
-    const recipe = (await Bun.file(new URL("../recipes/nord.json", import.meta.url)).json()) as {
-      id: string;
-      name: string;
-      repoUrl: string;
-    };
+    const recipe = await readRecipeSummary("nord");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -290,13 +319,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the GitHub Kusanagi entry to its detail page", async () => {
-    const recipe = (await Bun.file(
-      new URL("../recipes/kusanagi.json", import.meta.url),
-    ).json()) as {
-      id: string;
-      name: string;
-      repoUrl: string;
-    };
+    const recipe = await readRecipeSummary("kusanagi");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -319,11 +343,10 @@ describe("internal name destinations", () => {
   });
 
   test("links known GitHub entries to their internal detail pages", async () => {
-    const recipes = (await Promise.all(
-      ["twilight", "wilmersdorf", "flatland", "os1"].map((id) =>
-        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
-      ),
-    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const recipes = await Promise.all(
+      ["twilight", "wilmersdorf", "flatland", "os1"].map((id) => readRecipeSummary(id)),
+    );
+
     const html = renderPopularThemeTables(
       [
         {
@@ -369,9 +392,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the GitHub Parchment mirror entry to its GitLab detail page", async () => {
-    const recipe = (await Bun.file(
-      new URL("../recipes/parchment-theme.json", import.meta.url),
-    ).json()) as { id: string; name: string; repoUrl: string };
+    const recipe = await readRecipeSummary("parchment-theme");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -394,9 +416,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the renamed GitHub Subatomic repository to its detail page", async () => {
-    const recipe = (await Bun.file(
-      new URL("../recipes/subatomic.json", import.meta.url),
-    ).json()) as { id: string; name: string; repoUrl: string };
+    const recipe = await readRecipeSummary("subatomic");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -419,11 +440,10 @@ describe("internal name destinations", () => {
   });
 
   test("links the migrated GitHub Lambda Themes entry to its Codeberg recipes", async () => {
-    const recipes = (await Promise.all(
-      ["lambda-dark", "lambda-light"].map((id) =>
-        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
-      ),
-    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const recipes = await Promise.all(
+      ["lambda-dark", "lambda-light"].map((id) => readRecipeSummary(id)),
+    );
+
     const html = renderPopularThemeTables(
       [
         {
@@ -450,9 +470,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the MELPA Phoenix Dark Pink entry to the canonical dark-pink recipe", async () => {
-    const darkPinkRecipe = (await Bun.file(
-      new URL("../recipes/dark-pink.json", import.meta.url),
-    ).json()) as { id: string; name: string; repoUrl: string };
+    const darkPinkRecipe = await readRecipeSummary("dark-pink");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -475,9 +494,8 @@ describe("internal name destinations", () => {
   });
 
   test("links the MELPA Color Theme Solarized entry to its detail page and source", async () => {
-    const recipe = (await Bun.file(
-      new URL("../recipes/color-theme-solarized.json", import.meta.url),
-    ).json()) as { id: string; name: string; repoUrl: string };
+    const recipe = await readRecipeSummary("color-theme-solarized");
+
     const html = renderPopularThemeTables(
       [
         {
@@ -502,10 +520,11 @@ describe("internal name destinations", () => {
   });
 
   test("links the MELPA Omtose Phellack Theme entry to all themes from its repository", async () => {
-    const [omtoseRecipe, softerRecipe] = (await Promise.all([
-      Bun.file(new URL("../recipes/omtose-phellack-theme.json", import.meta.url)).json(),
-      Bun.file(new URL("../recipes/omtose-softer.json", import.meta.url)).json(),
-    ])) as Array<{ id: string; name: string; repoUrl: string }>;
+    const [omtoseRecipe, softerRecipe] = await Promise.all([
+      readRecipeSummary("omtose-phellack-theme"),
+      readRecipeSummary("omtose-softer"),
+    ]);
+
     const html = renderPopularThemeTables(
       [
         {
@@ -533,13 +552,15 @@ describe("internal name destinations", () => {
   });
 
   test("links the MELPA Majapahit and Farmhouse entries to their repository themes and sources", async () => {
-    const recipes = (await Promise.all(
+    const recipes = await Promise.all(
       ["majapahit-dark", "majapahit-light", "farmhouse-dark", "farmhouse-light"].map((id) =>
-        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
+        readRecipeSummary(id),
       ),
-    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    );
+
     const majapahitSourceUrl = recipes[0].repoUrl;
     const farmhouseSourceUrl = recipes[2].repoUrl;
+
     const html = renderPopularThemeTables(
       [
         {
@@ -565,12 +586,12 @@ describe("internal name destinations", () => {
   });
 
   test("links the MELPA Eziam entry to its repository themes and source", async () => {
-    const recipes = (await Promise.all(
-      ["eziam-dark", "eziam-dusk", "eziam-light"].map((id) =>
-        Bun.file(new URL(`../recipes/${id}.json`, import.meta.url)).json(),
-      ),
-    )) as Array<{ id: string; name: string; repoUrl: string }>;
+    const recipes = await Promise.all(
+      ["eziam-dark", "eziam-dusk", "eziam-light"].map((id) => readRecipeSummary(id)),
+    );
+
     const sourceUrl = recipes[0].repoUrl;
+
     const html = renderPopularThemeTables(
       [
         {
@@ -593,6 +614,7 @@ describe("internal name destinations", () => {
       { id: "zen", name: "Zenburn", repoUrl: "https://github.com/owner/zenburn" },
       { id: "zenburn", name: "Zenburn Light", repoUrl: "https://github.com/owner/zenburn-light" },
     ];
+
     const html = renderPopularThemeTables(
       [
         {
@@ -616,6 +638,7 @@ describe("internal name destinations", () => {
     const recipes = [
       { id: "zenburn", name: "Zenburn", repoUrl: "https://github.com/bbatsov/zenburn-emacs" },
     ];
+
     const html = renderPopularThemeTables(
       [
         {
@@ -641,6 +664,7 @@ describe("internal name destinations", () => {
       { id: "doom-one", name: "Doom One Theme", repoUrl: "https://github.com/doomemacs/themes" },
       { id: "doom-themes", name: "Doom Themes", repoUrl: "https://github.com/doomemacs/themes" },
     ];
+
     const html = renderPopularThemeTables(
       [
         {
@@ -668,6 +692,7 @@ describe("internal name destinations", () => {
       { id: "zenburn", name: "Zenburn Original", repoUrl: "https://github.com/owner/zenburn" },
       { id: "zen-light", name: "Zenburn", repoUrl: "https://github.com/owner/zen-light" },
     ];
+
     const html = renderPopularThemeTables(
       [
         {
@@ -694,6 +719,16 @@ describe("internal name destinations", () => {
     };
 
     try {
+      const candidatentries: PopularThemeRecipe[] = substitute([
+        {
+          id: "doom-one",
+          name: "Doom One Theme",
+          repoUrl: "https://github.com/doomemacs/themes",
+        },
+        { name: "Zenburn" },
+        null,
+      ]);
+
       const html = renderPopularThemeTables(
         [
           {
@@ -705,15 +740,7 @@ describe("internal name destinations", () => {
             ],
           },
         ],
-        [
-          {
-            id: "doom-one",
-            name: "Doom One Theme",
-            repoUrl: "https://github.com/doomemacs/themes",
-          },
-          { name: "Zenburn" } as never,
-          null as never,
-        ],
+        candidatentries,
       );
 
       // The valid recipe still resolves; malformed ones are skipped.
@@ -721,7 +748,7 @@ describe("internal name destinations", () => {
       expect(html).not.toContain('href="/themes/zenburn"');
       expect(html).not.toContain("undefined");
       expect(
-        warnings.some((w) => w.some((m) => typeof m === "string" && m.includes("malformed"))),
+        warnings.some((w) => w.some((m) => isMessageString(m) && m.includes("malformed"))),
       ).toBe(true);
     } finally {
       console.warn = warn;
@@ -805,6 +832,7 @@ describe("source cells", () => {
   test("malicious names and source URLs remain escaped or rejected", () => {
     const evilName = "<img src=x onerror=alert(1)>";
     const evilUrl = 'https://example.com/?" onmouseover="alert(1)';
+
     const html = renderPopularThemeTables(
       [
         {
@@ -841,6 +869,7 @@ describe("toPopularThemeRecipes", () => {
         tags: ["one"],
       },
     ];
+
     const recipes = toPopularThemeRecipes(themes);
 
     expect(recipes).toEqual([
@@ -926,13 +955,17 @@ describe("popular themes config", () => {
     // Recipes are keyed by their `id` field, not by file name (they differ),
     // so the sidebar resolves against recipe contents.
     const recipeIds = new Set<string>();
+
     for (const file of await readdir(RECIPES_DIR)) {
       if (!file.endsWith(".json")) {
         continue;
       }
-      const recipe = (await Bun.file(join(RECIPES_DIR, file)).json()) as { id?: string };
-      if (recipe.id) {
-        recipeIds.add(recipe.id);
+
+      const rawRecipe: unknown = await Bun.file(join(RECIPES_DIR, file)).json();
+      const parsed = RecipeIdSchema.safeParse(rawRecipe);
+
+      if (parsed.success) {
+        recipeIds.add(parsed.data.id);
       }
     }
 
@@ -980,6 +1013,7 @@ describe("Popular page copy resolution", () => {
       { source: "melpa", status: "ok", entries: melpaEntries },
       { source: "github", status: "failed", error: "boom" },
     ];
+
     expect(getAvailablePopularSources(results)).toEqual(["melpa"]);
     expect(getMissingPopularSources(results)).toEqual(["github"]);
   });
@@ -1035,6 +1069,7 @@ describe("popular content partial", () => {
   test("renders the page content with no remaining placeholders", async () => {
     const partial = await Bun.file(partialPath).text();
     const copy = resolvePopularPageCopy(["melpa"]);
+
     const rendered = partial
       .replace('<p class="subhead">{{POPULAR_THEMES_SUBHEAD}}</p>', () =>
         copy.subhead ? `<p class="subhead">${copy.subhead}</p>` : "",

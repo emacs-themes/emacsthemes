@@ -121,12 +121,21 @@ const SOURCE_DISPLAY_NAMES: Record<PopularSourceId, string> = {
 };
 
 /** Internal detail destinations for popular repositories whose canonical URL differs from the recipe's repo URL (renames, transfers, or mirrors). */
-const INTERNAL_HREF_OVERRIDES: Readonly<Record<string, string>> = {
-  "https://github.com/crafterm/twilight-emacs": `${THEME_DETAIL_PATH_PREFIX}twilight`,
-  "https://github.com/cryon/subatomic-theme": `${THEME_DETAIL_PATH_PREFIX}subatomic`,
-  "https://github.com/gchp/flatland-emacs": `${THEME_DETAIL_PATH_PREFIX}flatland`,
-  "https://github.com/ianyepan/wilmersdorf-emacs-theme": `${THEME_DETAIL_PATH_PREFIX}wilmersdorf`,
-};
+const INTERNAL_HREF_OVERRIDES = new Map([
+  ["https://github.com/crafterm/twilight-emacs", `${THEME_DETAIL_PATH_PREFIX}twilight`],
+  ["https://github.com/cryon/subatomic-theme", `${THEME_DETAIL_PATH_PREFIX}subatomic`],
+  ["https://github.com/gchp/flatland-emacs", `${THEME_DETAIL_PATH_PREFIX}flatland`],
+  ["https://github.com/ianyepan/wilmersdorf-emacs-theme", `${THEME_DETAIL_PATH_PREFIX}wilmersdorf`],
+]);
+
+/**
+ * Runtime type guard for string-shaped field values in hand-checked recipe
+ * summaries. Recipes are validated upstream by the zod recipe schema; the
+ * guard is the tolerance boundary for malformed records.
+ */
+function isStringField(value: unknown): value is string {
+  return typeof value === "string";
+}
 
 /**
  * Appends a value to a map bucket, creating the bucket on first use.
@@ -165,24 +174,28 @@ function buildRecipeLookups(recipes: readonly PopularThemeRecipe[]): RecipeLooku
   for (const recipe of recipes) {
     if (
       !recipe ||
-      typeof recipe.id !== "string" ||
-      typeof recipe.name !== "string" ||
-      typeof recipe.repoUrl !== "string"
+      !isStringField(recipe.id) ||
+      !isStringField(recipe.name) ||
+      !isStringField(recipe.repoUrl)
     ) {
       console.warn("[popular] Skipping malformed recipe:", recipe);
       continue;
     }
 
     const idIdentity = normalizeThemeIdentity(recipe.id);
+
     if (idIdentity) {
       pushBucket(byId, idIdentity, recipe);
     }
+
     const nameIdentity = normalizeThemeIdentity(recipe.name);
+
     if (nameIdentity) {
       pushBucket(byName, nameIdentity, recipe);
     }
 
     const repositoryUrl = normalizeRepositoryUrl(recipe.repoUrl);
+
     if (repositoryUrl) {
       pushBucket(byRepositoryUrl, repositoryUrl, recipe);
     }
@@ -214,7 +227,7 @@ function resolveInternalDestination(
   const identity = normalizeThemeIdentity(name);
   const repositoryUrl = sourceUrl ? normalizeRepositoryUrl(sourceUrl) : undefined;
   const repoCandidates = repositoryUrl ? lookups.byRepositoryUrl.get(repositoryUrl) : undefined;
-  const overriddenHref = repositoryUrl ? INTERNAL_HREF_OVERRIDES[repositoryUrl] : undefined;
+  const overriddenHref = repositoryUrl ? INTERNAL_HREF_OVERRIDES.get(repositoryUrl) : undefined;
 
   if (overriddenHref) {
     return { href: overriddenHref };
@@ -222,18 +235,23 @@ function resolveInternalDestination(
 
   if (identity && repositoryUrl && repoCandidates && repoCandidates.length > 1) {
     const repositoryName = new URL(repositoryUrl).pathname.split("/").filter(Boolean).at(-1) ?? "";
+
     if (normalizeThemeIdentity(repositoryName) === identity) {
       const params = new URLSearchParams({ [REPOSITORY_URL_PARAM]: repositoryUrl });
+
       return { href: `${THEMES_INDEX_PATH}?${params.toString()}` };
     }
   }
 
   if (identity) {
     const idCandidates = lookups.byId.get(identity);
+
     if (idCandidates && idCandidates.length === 1) {
       return { href: `${THEME_DETAIL_PATH_PREFIX}${idCandidates[0].id}` };
     }
+
     const nameCandidates = lookups.byName.get(identity);
+
     if (nameCandidates && nameCandidates.length === 1) {
       return { href: `${THEME_DETAIL_PATH_PREFIX}${nameCandidates[0].id}` };
     }
@@ -243,8 +261,10 @@ function resolveInternalDestination(
     if (repoCandidates.length === 1) {
       return { href: `${THEME_DETAIL_PATH_PREFIX}${repoCandidates[0].id}` };
     }
+
     if (repoCandidates.length > 1) {
       const params = new URLSearchParams({ [REPOSITORY_URL_PARAM]: repositoryUrl });
+
       return { href: `${THEMES_INDEX_PATH}?${params.toString()}` };
     }
   }
@@ -265,12 +285,18 @@ function toNormalizedEntry(
   lookups: RecipeLookups,
 ): NormalizedThemeEntry {
   const destination = resolveInternalDestination(entry.name, entry.sourceUrl, lookups);
-  return {
+
+  const normalized: NormalizedThemeEntry = {
     name: entry.name,
     count: "downloads" in entry ? entry.downloads : entry.stars,
     sourceUrl: entry.sourceUrl,
-    ...(destination ? { internalHref: destination.href } : {}),
   };
+
+  if (destination) {
+    normalized.internalHref = destination.href;
+  }
+
+  return normalized;
 }
 
 /**
@@ -286,9 +312,11 @@ function toNormalizedEntry(
  */
 function renderSourceCell(entry: NormalizedThemeEntry): string {
   const safeUrl = entry.sourceUrl ? toSafeUrl(entry.sourceUrl) : undefined;
+
   if (!safeUrl) {
     return `<span class="source-unavailable"><span aria-hidden="true">—</span><span class="sr-only">Source code unavailable for ${escapeHtml(entry.name)}</span></span>`;
   }
+
   return `<a class="source-link" href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" title="View source code for ${escapeHtml(entry.name)}" aria-label="View source code for ${escapeHtml(entry.name)} (opens in a new tab)">${SOURCE_ICON_SVG}</a>`;
 }
 
@@ -309,16 +337,20 @@ function renderSourceCell(entry: NormalizedThemeEntry): string {
  */
 function renderPopularTable(config: PopularTableConfig, entries: NormalizedThemeEntry[]): string {
   const { metricLabel } = config;
+
   const rows = entries
     .map((entry, index) => {
       const rank = index + 1;
+
       const nameHtml = entry.internalHref
         ? `<a href="${escapeHtml(entry.internalHref)}">${escapeHtml(entry.name)}</a>`
         : escapeHtml(entry.name);
+
       const metricCell =
         metricLabel && entry.count !== undefined
           ? `<td class="text-right">${entry.count.toLocaleString(DISPLAY_LOCALE)}</td>`
           : "";
+
       return `
         <tr>
           <th scope="row">${rank}</th>
@@ -368,18 +400,23 @@ export function renderPopularThemeTables(
   recipes: readonly PopularThemeRecipe[],
 ): string {
   const lookups = buildRecipeLookups(recipes);
-  return results
-    .filter(
-      (result): result is Extract<PopularThemeSourceResult, { status: "ok" }> =>
-        result.status === "ok",
-    )
-    .map((result) =>
+
+  const sections: string[] = [];
+
+  for (const result of results) {
+    if (result.status !== "ok") {
+      continue;
+    }
+
+    sections.push(
       renderPopularTable(
         TABLE_CONFIGS[result.source],
         result.entries.map((entry) => toNormalizedEntry(entry, lookups)),
       ),
-    )
-    .join("\n");
+    );
+  }
+
+  return sections.join("\n");
 }
 
 /**
@@ -427,6 +464,17 @@ export function getMissingPopularSources(
 }
 
 /**
+ * Page copy shown on top of the popular-themes page.
+ */
+interface PopularPageCopy {
+  title: string;
+  description: string;
+  ogTitle: string;
+  ogDescription: string;
+  subhead?: string;
+}
+
+/**
  * Copy (title, metadata, optional subhead) for the popular page given the available sources.
  *
  * The copy names only the sources that actually rendered, so visitors and
@@ -437,13 +485,7 @@ export function getMissingPopularSources(
  * @param {PopularSourceId[]} available - The source ids that succeeded.
  * @returns {{ title: string; description: string; ogTitle: string; ogDescription: string; subhead?: string }} The page copy.
  */
-export function resolvePopularPageCopy(available: readonly PopularSourceId[]): {
-  title: string;
-  description: string;
-  ogTitle: string;
-  ogDescription: string;
-  subhead?: string;
-} {
+export function resolvePopularPageCopy(available: readonly PopularSourceId[]): PopularPageCopy {
   const hasMelpa = available.includes("melpa");
   const hasGithub = available.includes("github");
   const both = hasMelpa && hasGithub;
@@ -457,6 +499,7 @@ export function resolvePopularPageCopy(available: readonly PopularSourceId[]): {
       ogDescription: "MELPA download statistics and GitHub stars for popular Emacs themes.",
     };
   }
+
   if (hasMelpa) {
     return {
       title: "Popular Emacs Themes - MELPA Rankings",
@@ -466,6 +509,7 @@ export function resolvePopularPageCopy(available: readonly PopularSourceId[]): {
       subhead: "The most popular Emacs themes, ranked by MELPA download counts.",
     };
   }
+
   return {
     title: "Popular Emacs Themes - GitHub Rankings",
     description: "Discover the most starred Emacs theme repositories on GitHub.",
@@ -497,9 +541,11 @@ export function renderMostPopularThemeTable(
 
   const entries = themeIds.map((id) => {
     const recipe = recipeById.get(id);
+
     if (!recipe) {
       throw new Error(`Popular theme "${id}" has no recipe`);
     }
+
     return {
       name: recipe.name,
       sourceUrl: recipe.repoUrl,
@@ -530,9 +576,16 @@ export function renderPopularSourceNotice(missing: readonly PopularSourceId[]): 
   if (missing.length === 0) {
     return "";
   }
-  const names = SOURCE_ORDER.filter((source) => missing.includes(source)).map(
-    (source) => SOURCE_DISPLAY_NAMES[source],
-  );
+
+  const names: string[] = [];
+
+  for (const source of SOURCE_ORDER) {
+    if (missing.includes(source)) {
+      names.push(SOURCE_DISPLAY_NAMES[source]);
+    }
+  }
+
   const joined = names.length === 2 ? `${names[0]} and ${names[1]}` : names[0];
+
   return `<p class="popular-notice">${joined} rankings are temporarily unavailable.</p>`;
 }

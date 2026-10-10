@@ -19,6 +19,7 @@ export function captureThemeSearch({
   origin,
 }) {
   const searchTerm = query.trim();
+
   if (!origin || !searchTerm) return;
 
   const properties = {
@@ -30,7 +31,9 @@ export function captureThemeSearch({
     search_origin: origin,
     sort: sortValue,
   };
+
   window.posthog?.capture("theme_search", properties);
+
   if (resultCount === 0) {
     window.posthog?.capture("theme_search_no_results", properties);
   }

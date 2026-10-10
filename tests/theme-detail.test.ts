@@ -179,6 +179,7 @@ describe("theme source links", () => {
 describe("renderThemeSourceLinksSafely", () => {
   test("reports invalid repository URLs instead of throwing", () => {
     const errors: string[] = [];
+
     const html = renderThemeSourceLinksSafely(
       {
         id: "unsafe-theme",
@@ -196,6 +197,7 @@ describe("renderThemeSourceLinksSafely", () => {
 
   test("reports unsafe local paths instead of throwing", () => {
     const errors: string[] = [];
+
     const html = renderThemeSourceLinksSafely(
       localTheme({ rawUrls: ["static/themes/phoenix-dark-pink/../evil.el"] }),
       undefined,
@@ -208,6 +210,7 @@ describe("renderThemeSourceLinksSafely", () => {
 
   test("warns about missing local files and renders the present links", () => {
     const errors: string[] = [];
+
     const html = renderThemeSourceLinksSafely(
       localTheme({
         id: "brutalist",
@@ -228,6 +231,7 @@ describe("renderThemeSourceLinksSafely", () => {
 
   test("renders all links without an existence check and reports no errors", () => {
     const errors: string[] = [];
+
     const html = renderThemeSourceLinksSafely(localTheme(), undefined, (message) =>
       errors.push(message),
     );

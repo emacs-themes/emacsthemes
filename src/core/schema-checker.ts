@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { resolve } from "path";
+import type { JsonValue } from "./json-value";
 import { LOCAL_THEME_REPO_URL, LOCAL_THEMES_DIR } from "./constants";
 import { toLocalThemeRelativePath } from "./local-theme-sources";
 
@@ -37,15 +38,19 @@ export const ThemeSchema = z
       if (data.repoUrl !== LOCAL_THEME_REPO_URL) {
         return true;
       }
+
       return data.rawUrls.every((url) => {
         // toLocalThemeRelativePath enforces the same segment safety rules as
         // the link renderer; the folder/substring rule below is an additional
         // data-quality constraint (the theme folder must relate to the ID).
         const relativePath = toLocalThemeRelativePath(url);
+
         if (relativePath === null) {
           return false;
         }
+
         const folder = relativePath.slice(0, relativePath.indexOf("/"));
+
         return data.id.includes(folder);
       });
     },
@@ -54,6 +59,7 @@ export const ThemeSchema = z
       path: ["rawUrls"],
     },
   );
+
 export type Theme = z.infer<typeof ThemeSchema>;
 
 interface InjectionIssue {
@@ -84,11 +90,14 @@ function validateUrlProtocol(field: string, value: string): InjectionIssue | nul
   if (value === LOCAL_THEME_REPO_URL || value.startsWith(`${LOCAL_THEMES_DIR}/`)) {
     return null;
   }
+
   try {
     const parsed = new URL(value);
+
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
       return { field, reason: "must use http, https protocol or be a local static/themes/ path" };
     }
+
     if (parsed.username !== "" || parsed.password !== "") {
       return { field, reason: "must not embed user credentials" };
     }
@@ -121,6 +130,7 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
 
   for (const [field, value] of textFields) {
     const reason = detectInjectionPattern(value);
+
     if (reason) {
       issues.push({ field, reason });
     }
@@ -128,6 +138,7 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
 
   recipe.tags.forEach((tag, index) => {
     const reason = detectInjectionPattern(tag);
+
     if (reason) {
       issues.push({ field: `tags[${index}]`, reason });
     }
@@ -135,12 +146,14 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
 
   recipe.authors.forEach((author, index) => {
     const reason = detectInjectionPattern(author);
+
     if (reason) {
       issues.push({ field: `authors[${index}]`, reason });
     }
   });
 
   const repoUrlIssue = validateUrlProtocol("repoUrl", recipe.repoUrl);
+
   if (repoUrlIssue) {
     issues.push(repoUrlIssue);
   }
@@ -148,12 +161,15 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
   recipe.rawUrls.forEach((rawUrl, index) => {
     const field = `rawUrls[${index}]`;
     const reason = detectInjectionPattern(rawUrl);
+
     if (reason) {
       issues.push({ field, reason });
+
       return;
     }
 
     const urlIssue = validateUrlProtocol(field, rawUrl);
+
     if (urlIssue) {
       issues.push(urlIssue);
     }
@@ -166,13 +182,13 @@ export function validateRecipeForInjection(recipe: Theme): InjectionIssue[] {
  * Performs strict validation of a theme recipe, including both schema checks
  * and defensive security scans for injection patterns.
  *
- * @param jsonData - The raw JSON data to validate.
+ * @param recipe - The raw JSON data to validate against the recipe schema.
  * @returns An object indicating success and the validated data, or a list of error messages.
  */
 export function validateRecipeStrict(
-  jsonData: unknown,
+  recipe: JsonValue,
 ): { success: true; data: Theme } | { success: false; errors: string[] } {
-  const result = ThemeSchema.safeParse(jsonData);
+  const result = ThemeSchema.safeParse(recipe);
 
   if (!result.success) {
     return {
@@ -182,6 +198,7 @@ export function validateRecipeStrict(
   }
 
   const injectionIssues = validateRecipeForInjection(result.data);
+
   if (injectionIssues.length > 0) {
     return {
       success: false,
@@ -199,6 +216,7 @@ export async function validateSchema(filePath: string): Promise<boolean> {
 
     if (!(await file.exists())) {
       console.error(`Error: File not found at ${absolutePath}`);
+
       return false;
     }
 
@@ -207,10 +225,12 @@ export async function validateSchema(filePath: string): Promise<boolean> {
 
     if (result.success) {
       console.log(`✅ Schema validation passed for ${filePath}!`);
+
       return true;
     } else {
       console.error(`❌ Validation failed for ${filePath}:`);
       result.errors.forEach((err) => console.error(err));
+
       return false;
     }
   } catch (error) {
@@ -219,6 +239,7 @@ export async function validateSchema(filePath: string): Promise<boolean> {
     } else {
       console.error(`An unexpected error occurred processing ${filePath}:`, error);
     }
+
     return false;
   }
 }
@@ -235,6 +256,7 @@ if (import.meta.main) {
   }
 
   const isValid = await validateSchema(targetFile);
+
   if (!isValid) {
     process.exit(1);
   }

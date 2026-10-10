@@ -2,18 +2,23 @@ import { afterEach, beforeEach, expect, spyOn, test } from "bun:test";
 import { onRequest } from "../functions/ingest/[[path]]";
 
 let upstream: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
+
 beforeEach(() => {
   upstream = spyOn(globalThis, "fetch");
 });
+
 afterEach(() => upstream.mockRestore());
 
 /** Calls the Pages handler with a request and no unused context fields. */
 function proxy(request: Request) {
+  // SAFETY: onRequest reads only `ctx.request`; the Pages contract adds
+  // nothing the proxy paths exercise in these unit tests.
   return onRequest({ request } as Parameters<typeof onRequest>[0]);
 }
 
 test("routes SDK assets and API paths to fixed EU hosts, preserving queries", async () => {
   upstream.mockResolvedValue(new Response("upstream"));
+
   for (const [path, host] of [
     ["static/array.js?v=1", "eu-assets.i.posthog.com"],
     ["array/project/config?v=2", "eu-assets.i.posthog.com"],
@@ -30,6 +35,7 @@ test("preserves POST bytes and upstream failures while stripping site credential
   const response = new Response("retry", { status: 429, headers: { "Retry-After": "10" } });
   upstream.mockResolvedValue(response);
   const body = new Uint8Array([0, 255, 42]);
+
   const result = await proxy(
     new Request("https://emacsthemes.com/ingest/e/?v=1", {
       method: "POST",
@@ -44,6 +50,7 @@ test("preserves POST bytes and upstream failures while stripping site credential
       },
     }),
   );
+
   const options = upstream.mock.lastCall?.[1];
   const headers = new Headers(options?.headers);
   expect(options?.method).toBe("POST");
@@ -61,6 +68,7 @@ test("rejects unsupported methods without contacting PostHog", async () => {
   const response = await proxy(
     new Request("https://emacsthemes.com/ingest/e/", { method: "DELETE" }),
   );
+
   expect(response.status).toBe(405);
   expect(response.headers.get("allow")).toBe("GET, HEAD, POST, OPTIONS");
   expect(upstream).not.toHaveBeenCalled();

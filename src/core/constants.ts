@@ -1,6 +1,9 @@
 export const RECIPES_DIR = "recipes";
+
 export const PINNED_THEMES_PATH = "src/templates/data/pinned-themes.json";
+
 export const POPULAR_THEMES_PATH = "src/templates/data/popular-themes.json";
+
 export const SCREENSHOT_DATES_PATH = "src/templates/data/screenshot-generated-dates.json";
 
 /** Sentinel `repoUrl` value marking a theme whose sources are bundled in this repository. */
@@ -24,7 +27,7 @@ export interface ModeConfig {
   sampleFile?: string;
 }
 
-export const MODE_SAMPLES: Record<string, ModeConfig> = {
+export const MODE_SAMPLES = {
   "javascript-mode": { file: "sample.js" },
   "python-mode": { file: "sample.py" },
   "c++-mode": { file: "sample.cpp" },
@@ -43,4 +46,4 @@ export const MODE_SAMPLES: Record<string, ModeConfig> = {
   eshell: { file: "eshell.el", isInstructionFile: true },
   term: { file: "term.el", isInstructionFile: true },
   dired: { file: "dired.el", isInstructionFile: true },
-};
+} satisfies Record<string, ModeConfig>;

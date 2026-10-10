@@ -65,6 +65,7 @@ export function normalizeThemeIdentity(value: string): string {
  */
 export function normalizeRepositoryUrl(value: string): string | undefined {
   let parsed: URL;
+
   try {
     parsed = new URL(value.trim());
   } catch {
@@ -74,6 +75,7 @@ export function normalizeRepositoryUrl(value: string): string | undefined {
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
     return undefined;
   }
+
   if (parsed.username !== "" || parsed.password !== "") {
     return undefined;
   }
@@ -84,14 +86,17 @@ export function normalizeRepositoryUrl(value: string): string | undefined {
   // `http://host:80` with `https://host`.
   let host = parsed.host;
   const defaultPort = parsed.protocol === "http:" ? "80" : "443";
+
   if (parsed.port === defaultPort) {
     host = parsed.hostname;
   }
 
   let path = parsed.pathname;
+
   if (CASE_INSENSITIVE_PATH_HOSTS.has(parsed.hostname)) {
     path = path.toLocaleLowerCase("en");
   }
+
   path = path.replace(/(?:\.git)?\/*$/g, "");
 
   return new URL(`https://${host}${path}`).toString();

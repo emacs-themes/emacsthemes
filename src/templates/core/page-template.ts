@@ -37,6 +37,7 @@ export interface BaseTemplateOptions {
  */
 export function buildAbsolutePageUrl(baseUrl: string, pagePath: string): string {
   const trimmedPath = pagePath.trim();
+
   if (trimmedPath === "" || trimmedPath === "/") {
     return baseUrl;
   }
@@ -47,6 +48,7 @@ export function buildAbsolutePageUrl(baseUrl: string, pagePath: string): string 
   }
 
   const normalizedPath = `/${trimmedPath.replace(/^\/+|\/+$/g, "")}`;
+
   return `${baseUrl}${normalizedPath}`;
 }
 

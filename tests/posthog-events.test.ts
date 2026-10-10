@@ -6,28 +6,71 @@ const searchBuildOptions: Parameters<typeof Bun.build>[0] & { write: boolean } =
   target: "browser",
   write: false,
 };
+
 const searchBuild = await Bun.build(searchBuildOptions);
+
 if (!searchBuild.success) throw new Error("Failed to bundle search script");
+
 const searchScript = await searchBuild.outputs[0].text();
+
 const posthogScript = await Bun.file("src/templates/html/partials/posthog-script.js").text();
 
-type Listener = (event: Record<string, unknown>) => void;
-type Capture = [string, Record<string, unknown>];
+/**
+ * DOM event payload dispatched inside the browser-script doubles.
+ */
+interface StubDispatchedEvent {
+  button?: number;
+  preventDefault?(): void;
+  target?: unknown;
+}
+
+/** Payload held by a dispatched listener call. */
+type StubListenerEvent = StubDispatchedEvent & { type: string };
+
+type Listener = (event: StubListenerEvent) => void;
+
+/** PostHog event properties captured by the script doubles. */
+interface CapturedProperties {
+  search_term?: string;
+  query_length?: number;
+  result_count?: number;
+  has_repository_filter?: boolean;
+  invalid_repository_filter?: boolean;
+  search_origin?: string;
+  sort?: string;
+  theme_id?: string | null;
+  source_location?: string;
+  source_url?: string;
+  source_kind?: string;
+}
+
+type Capture = [string, CapturedProperties];
+
+/** Methods every stub dispatch target shares. */
+interface StubTargetMethods {
+  addEventListener(type: string, listener: Listener): void;
+  dispatch(type: string, event?: StubDispatchedEvent): void;
+  listeners: Map<string, Listener[]>;
+}
 
 /** Creates the minimal event target needed by the browser scripts. */
-function eventTarget(properties: Record<string, unknown> = {}) {
+function eventTarget<P>(properties?: P): P & StubTargetMethods {
   const listeners = new Map<string, Listener[]>();
-  return Object.assign(properties, {
+  // SAFETY: stub callers pass fully-typed property bags; the absent default is an empty bag.
+  const props = (properties ?? {}) as P;
+
+  return {
+    ...props,
     addEventListener(type: string, listener: Listener) {
       const registered = listeners.get(type) ?? [];
       registered.push(listener);
       listeners.set(type, registered);
     },
-    dispatch(type: string, event: Record<string, unknown> = {}) {
+    dispatch(type: string, event: StubDispatchedEvent = {}) {
       for (const listener of listeners.get(type) ?? []) listener({ type, ...event });
     },
     listeners,
-  });
+  };
 }
 
 /** Creates the no-op class list needed by search result rendering. */
@@ -38,20 +81,26 @@ function classList() {
 /** Executes the bundled search script against a minimal themes-directory DOM. */
 async function runSearch(url = "https://emacsthemes.com/", withPosthog = true) {
   const captures: Capture[] = [];
+
   const themes = [
     { id: "alpha", name: "Alpha", searchable: "alpha dark theme" },
     { id: "beta", name: "Beta", searchable: "beta light theme" },
   ];
+
   const cards = themes.map((theme) => ({
     ...eventTarget(),
     classList: classList(),
     getAttribute(name: string) {
       if (name === "data-id") return theme.id;
+
       if (name === "data-name") return theme.name;
+
       return null;
     },
   }));
+
   const input = eventTarget({ value: "", disabled: false });
+
   const sort = eventTarget({
     value: "name-asc",
     disabled: false,
@@ -68,9 +117,12 @@ async function runSearch(url = "https://emacsthemes.com/", withPosthog = true) {
       },
     ],
   });
+
   const form = eventTarget();
   const grid = { classList: classList(), appendChild() {} };
-  const elements: Record<string, Record<string, unknown>> = {
+
+  /** Precise lookup contract for the ids search-script queries. */
+  const elements = {
     q: input,
     sort,
     "search-results-headline": { classList: classList(), textContent: "" },
@@ -79,13 +131,16 @@ async function runSearch(url = "https://emacsthemes.com/", withPosthog = true) {
     "repository-filter-name": { textContent: "" },
     "repository-filter-clear": eventTarget(),
   };
+
   const document = {
-    getElementById: (id: string) => elements[id] ?? null,
+    // SAFETY: ids arrive only from search-script internals; silence the unknown ids.
+    getElementById: (id: string) => elements[id as keyof typeof elements] ?? null,
     querySelector: (selector: string) =>
       selector === ".searchbar" ? form : selector === ".grid" ? grid : null,
     querySelectorAll: (selector: string) => (selector === ".card" ? cards : []),
     createDocumentFragment: () => ({ appendChild() {} }),
   };
+
   const window = eventTarget({
     location: new URL(url),
     fetch: async () => ({
@@ -93,6 +148,7 @@ async function runSearch(url = "https://emacsthemes.com/", withPosthog = true) {
       json: async () => themes.map((theme) => ({ ...theme, repositoryUrl: null })),
     }),
   });
+
   Object.assign(window, {
     window,
     document,
@@ -100,28 +156,32 @@ async function runSearch(url = "https://emacsthemes.com/", withPosthog = true) {
     URLSearchParams,
     console,
     history: {
-      pushState(_state: object, _unused: string, nextUrl: string) {
+      pushState(_state: Record<string, never>, _unused: string, nextUrl: string) {
         window.location = new URL(nextUrl);
       },
-      replaceState(_state: object, _unused: string, nextUrl: string) {
+      replaceState(_state: Record<string, never>, _unused: string, nextUrl: string) {
         window.location = new URL(nextUrl);
       },
     },
-    ...(withPosthog
-      ? {
-          posthog: {
-            capture: (event: string, properties: Record<string, unknown>) =>
-              captures.push([event, properties]),
-          },
-        }
-      : {}),
   });
 
+  if (withPosthog) {
+    Object.assign(window, {
+      posthog: {
+        capture: (event: string, properties: CapturedProperties) =>
+          captures.push([event, properties]),
+      },
+    });
+  }
+
   runInNewContext(searchScript, window, { filename: "search-script.js" });
+
   for (let attempts = 0; attempts < 10 && form.listeners.get("submit") === undefined; attempts++) {
     await Promise.resolve();
   }
+
   expect(form.listeners.get("submit")).toHaveLength(1);
+
   return { captures, form, input, sort, window };
 }
 
@@ -131,25 +191,36 @@ function runPosthog(detailId: string | null = null) {
   const initCalls: unknown[][] = [];
   const detail = detailId === null ? null : { dataset: { themeId: detailId } };
   const document = eventTarget({ querySelector: () => detail });
+
   const posthog = {
     __loaded: true,
     init: (...args: unknown[]) => initCalls.push(args),
-    capture: (event: string, properties: Record<string, unknown>) =>
-      captures.push([event, properties]),
+    capture: (event: string, properties: CapturedProperties) => captures.push([event, properties]),
   };
-  const window = { document, posthog, URL } as Record<string, unknown>;
+
+  const window = {
+    document,
+    posthog,
+    URL,
+    // SAFETY: the vm context requires the mirrored window self-reference.
+    window: undefined as unknown,
+  };
+
   window.window = window;
   runInNewContext(posthogScript, window, { filename: "posthog-script.js" });
+
   return { captures, document, initCalls };
 }
 
 /** Creates a delegated source-link event target in detail or popular markup. */
 function sourceTarget(href: string, themeId: string | null) {
   const detail = themeId === null ? null : { dataset: { themeId } };
+
   const link = {
     href,
     closest: (selector: string) => (selector === ".theme-detail[data-theme-id]" ? detail : null),
   };
+
   return { closest: () => link };
 }
 

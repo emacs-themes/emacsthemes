@@ -23,6 +23,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const malicious = { ...baseRecipe, description: "Safe <script>alert(1)</script>" };
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
+
     if (!result.success) {
       expect(result.errors.some((e) => e.includes("contains a script tag"))).toBe(true);
     }
@@ -32,6 +33,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const malicious = { ...baseRecipe, name: "<b>Bold</b> Theme" };
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
+
     if (!result.success) {
       expect(result.errors.some((e) => e.includes("contains HTML-like tags"))).toBe(true);
     }
@@ -41,6 +43,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const malicious = { ...baseRecipe, description: 'Safe theme" onmouseover="alert(1)' };
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
+
     if (!result.success) {
       expect(result.errors.some((e) => e.includes("contains inline event handler syntax"))).toBe(
         true,
@@ -52,6 +55,7 @@ describe("Strict Validator (Injection Safety)", () => {
     const malicious = { ...baseRecipe, repoUrl: "javascript:alert(1)" };
     const result = validateRecipeStrict(malicious);
     expect(result.success).toBe(false);
+
     if (!result.success) {
       expect(result.errors.some((e) => e.includes("must use http, https protocol"))).toBe(true);
     }
@@ -109,6 +113,7 @@ describe("Strict Validator (Source-link contract)", () => {
       repoUrl: "https://user:pass@github.com/example/safe",
       rawUrls: ["https://github.com/example/safe/raw/main/safe.el"],
     });
+
     expect(result.success).toBe(false);
   });
 
@@ -118,6 +123,7 @@ describe("Strict Validator (Source-link contract)", () => {
       repoUrl: "https://github.com/example/safe",
       rawUrls: ["https://user:pass@github.com/example/safe/raw/main/safe.el"],
     });
+
     expect(result.success).toBe(false);
   });
 });

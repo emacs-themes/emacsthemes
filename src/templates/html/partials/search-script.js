@@ -36,10 +36,13 @@ import { captureThemeSearch } from "./posthog-search";
   const repositoryFilterName = document.getElementById("repository-filter-name");
   const repositoryFilterClear = document.getElementById("repository-filter-clear");
   const themeIndexById = new Map();
+
   const cardEntries = cards
     .map((card) => {
       const id = card.getAttribute("data-id");
+
       if (!id) return null;
+
       return { card, id };
     })
     .filter(Boolean);
@@ -48,7 +51,7 @@ import { captureThemeSearch } from "./posthog-search";
   const sortConfigs = parseSortConfigFromSelect(sortSelect);
   const validSortValues = sortConfigs.map((c) => c.value);
   const defaultSortValue = sortConfigs.length > 0 ? sortConfigs[0].value : "";
-  let appliedSortComparators = {};
+  let appliedSortComparators = new Map();
 
   function buildComparators() {
     appliedSortComparators = buildSortComparators(sortConfigs, themeIndexById);
@@ -61,6 +64,7 @@ import { captureThemeSearch } from "./posthog-search";
     if (searchInput) {
       searchInput.disabled = isLoading;
     }
+
     if (sortSelect) {
       sortSelect.disabled = isLoading;
     }
@@ -78,6 +82,7 @@ import { captureThemeSearch } from "./posthog-search";
    */
   async function fetchThemesIndex() {
     const response = await window.fetch(themesIndexUrl, { cache: "force-cache" });
+
     if (!response.ok) {
       throw new Error("Failed to load themes index: " + response.status);
     }
@@ -116,6 +121,7 @@ import { captureThemeSearch } from "./posthog-search";
     }
 
     const urlStr = url.toString();
+
     if (urlStr !== window.location.href) {
       if (urlMode === "push") {
         window.history.pushState({}, "", urlStr);
@@ -148,21 +154,28 @@ import { captureThemeSearch } from "./posthog-search";
 
     if (count === 0) {
       grid.classList.add("is-hidden");
+
       if (resultsHeadline) {
         resultsHeadline.classList.remove("is-visible");
       }
+
       noResultsMessage.textContent = buildNoResultsMessage(query, repositoryUrl, invalidRepository);
       noResultsMessage.classList.add("is-visible");
+
       return;
     }
 
     clearNoResultsState();
+
     if (!resultsHeadline) return;
     const headline = buildResultsHeadline(query, count, repositoryUrl, sortLabel);
+
     if (headline === null) {
       resultsHeadline.classList.remove("is-visible");
+
       return;
     }
+
     resultsHeadline.textContent = headline;
     resultsHeadline.classList.add("is-visible");
   }
@@ -175,6 +188,7 @@ import { captureThemeSearch } from "./posthog-search";
     grid.classList.add("is-hidden");
     noResultsMessage.textContent = "Failed to load theme data. Please refresh the page.";
     noResultsMessage.classList.add("is-visible");
+
     if (resultsHeadline) {
       resultsHeadline.classList.remove("is-visible");
     }
@@ -185,6 +199,7 @@ import { captureThemeSearch } from "./posthog-search";
    */
   function updateRepositoryFilterChip(repositoryUrl) {
     if (!repositoryFilter || !repositoryFilterName) return;
+
     if (repositoryUrl) {
       repositoryFilterName.textContent = getRepositoryDisplayName(repositoryUrl);
       repositoryFilter.hidden = false;
@@ -228,6 +243,7 @@ import { captureThemeSearch } from "./posthog-search";
         entry.card.classList.toggle("is-hidden", !visible);
       },
     });
+
     activeRepositoryUrl = repositoryUrl;
     activeRepositoryInvalid = invalidRepository;
     sortThemes(grid, cardEntries, appliedSortComparators, sortValue);
@@ -257,13 +273,17 @@ import { captureThemeSearch } from "./posthog-search";
    */
   function readRepositoryParam(params) {
     const raw = params.get(REPOSITORY_URL_PARAM);
+
     if (!raw) {
       return { repositoryUrl: null, invalidRepository: false };
     }
+
     const normalized = normalizeRepositoryUrl(raw);
+
     if (normalized) {
       return { repositoryUrl: normalized, invalidRepository: false };
     }
+
     return { repositoryUrl: raw, invalidRepository: true };
   }
 
@@ -272,6 +292,7 @@ import { captureThemeSearch } from "./posthog-search";
    */
   function handleSearch(e) {
     if (e) e.preventDefault();
+
     if (!searchInput) return;
     const query = searchInput.value;
     const sortValue = getValidSortValue(sortSelect ? sortSelect.value : null);
@@ -311,6 +332,7 @@ import { captureThemeSearch } from "./posthog-search";
     if (!searchInput) return;
 
     setLoadingState(true);
+
     try {
       const indexEntries = await fetchThemesIndex();
       buildSearchMap(themeIndexById, indexEntries);
@@ -320,18 +342,23 @@ import { captureThemeSearch } from "./posthog-search";
       console.error(error);
       setLoadingState(false);
       showIndexError();
+
       return;
     }
 
     const params = new URLSearchParams(window.location.search);
     const initialQuery = params.get("q") || "";
+
     const { repositoryUrl: initialRepositoryUrl, invalidRepository: initialInvalidRepository } =
       readRepositoryParam(params);
+
     const initialSortValue = getValidSortValue(params.get("sort"));
     searchInput.value = initialQuery;
+
     if (sortSelect) {
       sortSelect.value = initialSortValue;
     }
+
     applySearchState({
       query: initialQuery,
       sortValue: initialSortValue,
@@ -364,9 +391,11 @@ import { captureThemeSearch } from "./posthog-search";
       const { repositoryUrl, invalidRepository } = readRepositoryParam(nextParams);
       const sortValue = getValidSortValue(nextParams.get("sort"));
       searchInput.value = query;
+
       if (sortSelect) {
         sortSelect.value = sortValue;
       }
+
       applySearchState({
         query,
         sortValue,

@@ -26,21 +26,34 @@ import {
   toPopularThemeRecipes,
 } from "./core/popular-themes";
 import { buildThemeCardsGrid } from "./core/theme-card";
+import { ThemeSchema } from "../core/schema-checker";
+import type { JsonValue } from "../core/json-value";
 import { renderThemeSourceLinksSafely } from "./core/theme-source-links";
 import type { PopularThemeSourceResult } from "../core/popular-types";
 
 // Constants
 const RECIPES_DIR = "recipes";
+
 const BUILD_DIR = "build";
+
 const TEMPLATES_DIR = "src/templates";
+
 const STATIC_DIR = "static";
+
 const CSS_DIR = join(TEMPLATES_DIR, "css");
+
 const GITHUB_URL = "https://github.com/emacs-themes/emacsthemes";
+
 const BASE_URL = "https://emacsthemes.com";
+
 const TITLE_BRAND_SUFFIX = " - EmacsThemes";
+
 const LOG_PREFIX = "[build]";
+
 const INTER_FONT_PATH = "/static/fonts/inter/InterVariable.woff2";
+
 const INTER_ITALIC_FONT_PATH = "/static/fonts/inter/InterVariable-Italic.woff2";
+
 const BASE_TEMPLATE_OPTIONS = {
   baseUrl: BASE_URL,
   githubUrl: GITHUB_URL,
@@ -69,6 +82,7 @@ function localThemeSourceExists(relativePath: string): boolean {
   const stats = statSync(join(PATHS.assets.src.themes, relativePath), {
     throwIfNoEntry: false,
   });
+
   return stats?.isFile() ?? false;
 }
 
@@ -196,14 +210,37 @@ async function getPinnedThemes(): Promise<Theme[]> {
       const recipePath = assertPathWithinRoot(RECIPES_DIR, `${themeId}.json`);
 
       try {
-        return (await Bun.file(recipePath).json()) as Theme;
-      } catch {
+        return validatePinnedRecipe(await Bun.file(recipePath).json(), themeId);
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : String(error);
+
         throw new Error(
-          `Pinned theme recipe "${themeId}.json" not found. "${recipePath}" does not exist!`,
+          `Pinned theme recipe "${themeId}.json" not found. "${recipePath}" does not exist! (${detail})`,
+          { cause: error },
         );
       }
     }),
   );
+}
+
+/**
+ * Validates a pinned theme recipe against the shared recipe schema.
+ *
+ * @param payload - The raw parsed recipe JSON.
+ * @param themeId - The pinned theme id used for diagnostics.
+ * @returns {Theme} The validated recipe.
+ * @throws {Error} When the recipe JSON does not match the schema.
+ */
+function validatePinnedRecipe(payload: JsonValue, themeId: string): Theme {
+  const result = ThemeSchema.safeParse(payload);
+
+  if (!result.success) {
+    throw new Error(
+      `Pinned theme recipe "${themeId}" does not match the theme schema: ${result.error.message}`,
+    );
+  }
+
+  return result.data;
 }
 
 /**
@@ -213,6 +250,7 @@ async function getPinnedThemes(): Promise<Theme[]> {
  */
 async function getAllThemes(): Promise<Theme[]> {
   const files = await readdir(RECIPES_DIR);
+
   return await Promise.all(
     files
       .filter((f) => f.endsWith(".json"))
@@ -246,6 +284,7 @@ async function minifyCss(css: string): Promise<string> {
     code: Buffer.from(css),
     minify: true,
   });
+
   return Buffer.from(code).toString("utf-8");
 }
 
@@ -257,6 +296,7 @@ async function minifyCss(css: string): Promise<string> {
  */
 async function minifyJs(js: string): Promise<string> {
   const minified = await minify(`<script>${js}</script>`, { minifyJS: true });
+
   return minified.replace("<script>", "").replace("</script>", "");
 }
 
@@ -288,6 +328,7 @@ function buildThemeSearchIndex(
 ): SearchThemeIndexEntry[] {
   return themes.map((theme) => {
     const searchable = `${theme.name} ${theme.type} ${theme.tags.join(" ")}`.toLowerCase();
+
     return {
       id: theme.id,
       name: theme.name,
@@ -451,12 +492,14 @@ async function buildAllThemesPage(
     target: "browser",
     minify: true,
   });
+
   let scriptContent = await buildResult.outputs[0].text();
   scriptContent = scriptContent.replaceAll(
     "{{THEMES_INDEX_URL}}",
     `../static/data/themes-index.json?v=${indexHash}`,
   );
   await writeThemesSearchScript(scriptContent);
+
   const scriptHtml = [
     buildCommonScripts("../"),
     `<script type="module" src="../${PATHS.js.themesSearch}"></script>`,
@@ -512,8 +555,10 @@ async function buildThemeDetailPages(template: string, contentTemplate: string, 
       screenshotsHtml = webps
         .map((file) => {
           const modeName = file.replace(".webp", "");
+
           const modeLabel =
             modeName === "fundamental-mode" ? "fundamental-mode/selection" : modeName;
+
           return `
       <div class="screenshot-item"">
         <h3>${modeLabel}</h3>
@@ -648,6 +693,7 @@ async function buildPopularThemesPage(
   const copy = resolvePopularPageCopy(available);
   const notice = renderPopularSourceNotice(missing);
   const generatedDate = formatDisplayDate(new Date());
+
   const mostPopularTable = renderMostPopularThemeTable(
     await readThemeIdList(POPULAR_THEMES_PATH, "popularThemes"),
     recipes,
@@ -771,6 +817,7 @@ async function copyDir(src: string, dest: string) {
 async function minifyAndCopyCss(src: string, dest: string) {
   await mkdir(dest, { recursive: true });
   const entries = await readdir(src, { withFileTypes: true });
+
   for (const entry of entries) {
     if (entry.isFile() && entry.name.endsWith(".css")) {
       const content = await readFile(join(src, entry.name), "utf-8");

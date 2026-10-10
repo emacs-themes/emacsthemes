@@ -18,7 +18,7 @@ class ThemeValidator extends EventEmitter {
    */
   async validate(recipe) {
     try {
-      if (!recipe.id || typeof recipe.id !== "string") {
+      if (!recipe.id) {
         throw new Error("Invalid ID");
       }
 
@@ -30,12 +30,14 @@ class ThemeValidator extends EventEmitter {
       return isValid;
     } catch (err) {
       console.error(`Error: ${err.message}`);
+
       return false;
     }
   }
 }
 
 const validator = new ThemeValidator("EmacsThemes");
+
 validator.on("validation", (result) => {
   const { isValid } = result;
   console.log(`Result: ${isValid ? "PASSED" : "FAILED"}`);

@@ -1,4 +1,11 @@
 import { readFile } from "node:fs/promises";
+import { z } from "zod";
+
+/** A theme id entry: non-empty string that is not whitespace-only. */
+const ThemeIdEntrySchema = z
+  .string()
+  .min(1)
+  .refine((value) => value.trim() !== "");
 
 /**
  * Reads and validates an ordered list of theme ids from a JSON configuration file.
@@ -19,32 +26,39 @@ export async function readThemeIdList(filePath: string, property: string): Promi
     content = await readFile(filePath, "utf-8");
   } catch (error) {
     throw new Error(
-      `Failed to read theme list config at ${filePath}: ${(error as Error).message}`,
+      `Failed to read theme list config at ${filePath}: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
       { cause: error },
     );
   }
 
-  let data: Record<string, unknown> | null;
+  let data: unknown;
+
   try {
-    data = JSON.parse(content) as Record<string, unknown> | null;
+    data = JSON.parse(content);
   } catch (error) {
     throw new Error(
-      `Invalid JSON in theme list config at ${filePath}: ${(error as Error).message}`,
+      `Invalid JSON in theme list config at ${filePath}: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
       { cause: error },
     );
   }
 
-  const ids = data?.[property];
-  if (!Array.isArray(ids)) {
+  const container = z.looseObject({ [property]: z.array(z.unknown()) }).safeParse(data);
+
+  if (!container.success) {
     throw new Error(`Invalid theme list config at ${filePath}: expected { ${property}: string[] }`);
   }
 
-  const invalidIds = ids.filter((id) => typeof id !== "string" || id.trim() === "");
-  if (invalidIds.length > 0) {
+  const ids = z.array(ThemeIdEntrySchema).safeParse(container.data[property]);
+
+  if (!ids.success) {
     throw new Error(
       `Invalid theme ids in ${filePath}: all entries in "${property}" must be non-empty strings`,
     );
   }
 
-  return ids as string[];
+  return ids.data;
 }

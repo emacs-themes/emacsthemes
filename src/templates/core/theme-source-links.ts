@@ -12,17 +12,17 @@ const LOCAL_THEMES_PUBLIC_ROOT = `/${LOCAL_THEMES_DIR}/`;
  * Pretty display label per known repository host. Unknown hosts fall back to
  * the raw hostname, which is still accurate for non-GitHub forges.
  */
-const REPOSITORY_HOST_LABELS: Record<string, string> = {
-  "github.com": "GitHub",
-  "gist.github.com": "GitHub Gist",
-  "gitlab.com": "GitLab",
-  "codeberg.org": "Codeberg",
-  "codeberg.com": "Codeberg",
-  "bitbucket.org": "Bitbucket",
-  "framagit.org": "Framagit",
-  "hg.sr.ht": "SourceHut",
-  "sr.ht": "SourceHut",
-};
+const REPOSITORY_HOST_LABELS = new Map([
+  ["github.com", "GitHub"],
+  ["gist.github.com", "GitHub Gist"],
+  ["gitlab.com", "GitLab"],
+  ["codeberg.org", "Codeberg"],
+  ["codeberg.com", "Codeberg"],
+  ["bitbucket.org", "Bitbucket"],
+  ["framagit.org", "Framagit"],
+  ["hg.sr.ht", "SourceHut"],
+  ["sr.ht", "SourceHut"],
+]);
 
 type ThemeSourceLinkTheme = Pick<Theme, "id" | "repoUrl" | "rawUrls">;
 
@@ -43,11 +43,21 @@ export type LocalFileExists = (relativePath: string) => boolean;
  */
 function safeMessageValue(value: string): string {
   let result = "";
+
   for (const char of value) {
     const code = char.charCodeAt(0);
     result += code < 0x20 || code === 0x7f ? `\\x${code.toString(16).padStart(2, "0")}` : char;
   }
+
   return result;
+}
+
+/**
+ * Validated segments of a local source file reference.
+ */
+interface ValidatedLocalSource {
+  relativePath: string;
+  filename: string;
 }
 
 /**
@@ -61,14 +71,12 @@ function safeMessageValue(value: string): string {
  *
  * @param {string} themeId - Theme identifier used in validation errors.
  * @param {string} sourcePath - Recipe path under `static/themes/`.
- * @returns {{ relativePath: string; filename: string }} The validated relative path and filename.
+ * @returns {ValidatedLocalSource} The validated relative path and filename.
  * @throws {Error} If the source path is not a safe path under `static/themes/`.
  */
-function validateLocalSourcePath(
-  themeId: string,
-  sourcePath: string,
-): { relativePath: string; filename: string } {
+function validateLocalSourcePath(themeId: string, sourcePath: string): ValidatedLocalSource {
   const relativePath = toLocalThemeRelativePath(sourcePath);
+
   if (relativePath === null) {
     throw new Error(
       `Invalid local source path for theme "${themeId}": ${safeMessageValue(sourcePath)}`,
@@ -90,6 +98,7 @@ function validateLocalSourcePath(
  */
 function buildLocalSourceUrl(relativePath: string): string {
   const encodedPath = relativePath.split("/").map(encodeURIComponent).join("/");
+
   return `${LOCAL_THEMES_PUBLIC_ROOT}${encodedPath}`;
 }
 
@@ -101,7 +110,8 @@ function buildLocalSourceUrl(relativePath: string): string {
  */
 function repositoryLinkLabel(safeRepositoryUrl: string): string {
   const host = new URL(safeRepositoryUrl).hostname;
-  return `View Source on ${REPOSITORY_HOST_LABELS[host] ?? host}`;
+
+  return `View Source on ${REPOSITORY_HOST_LABELS.get(host) ?? host}`;
 }
 
 /**
@@ -120,6 +130,7 @@ function renderLocalSourceLinks(
       // escaper would transform (safe double-encoding invariant).
       const safeFilename = escapeHtml(filename);
       const sourceUrl = escapeHtml(buildLocalSourceUrl(relativePath));
+
       return `<a class="button" href="${sourceUrl}" target="_blank" rel="noopener noreferrer" aria-label="View local source file ${safeFilename} (opens in a new tab)">View Local Source: ${safeFilename}</a>`;
     })
     .join("\n");
@@ -150,10 +161,12 @@ export function renderThemeSourceLinks(
     const entries = theme.rawUrls
       .map((sourcePath) => validateLocalSourcePath(theme.id, sourcePath))
       .filter(({ relativePath }) => fileExists === undefined || fileExists(relativePath));
+
     return renderLocalSourceLinks(entries);
   }
 
   const safeRepositoryUrl = toSafeUrl(theme.repoUrl);
+
   if (!safeRepositoryUrl) {
     throw new Error(
       `Invalid repository URL for theme "${theme.id}": ${safeMessageValue(theme.repoUrl)}`,
@@ -161,6 +174,7 @@ export function renderThemeSourceLinks(
   }
 
   const label = escapeHtml(repositoryLinkLabel(safeRepositoryUrl));
+
   return `<a class="button" href="${escapeHtml(safeRepositoryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${label} (opens in a new tab)">${label}</a>`;
 }
 
@@ -185,20 +199,25 @@ export function renderThemeSourceLinksSafely(
       const entries = theme.rawUrls.map((sourcePath) =>
         validateLocalSourcePath(theme.id, sourcePath),
       );
+
       for (const { relativePath } of entries) {
         if (fileExists !== undefined && !fileExists(relativePath)) {
           onError(`Missing local source file for theme "${theme.id}": ${relativePath}`);
         }
       }
+
       const present = entries.filter(
         ({ relativePath }) => fileExists === undefined || fileExists(relativePath),
       );
+
       return renderLocalSourceLinks(present);
     }
+
     return renderThemeSourceLinks(theme);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     onError(`Skipping source links for theme "${theme.id}": ${message}`);
+
     return "";
   }
 }

@@ -14,6 +14,7 @@ import {
 import { getErrorMessage } from "./popular/fetch-json";
 
 export { fetchPopularThemes, writePopularThemesLogs, POPULAR_LOGS_DIR, POPULAR_THEMES_LIMIT };
+
 export type {
   PopularThemeSourceResult,
   MelpaThemeEntry,
@@ -26,16 +27,20 @@ if (import.meta.main) {
       await writePopularThemesLogs(results, POPULAR_LOGS_DIR);
       const melpa = results.find((result) => result.source === "melpa");
       const github = results.find((result) => result.source === "github");
+
       if (melpa?.status !== "ok" && github?.status !== "ok") {
         console.error("Failed to fetch popular themes from both MELPA and GitHub.");
         process.exit(1);
       }
+
       const melpaStatus =
         melpa?.status === "ok" ? `${melpa.entries.length} MELPA themes` : "MELPA unavailable";
+
       const githubStatus =
         github?.status === "ok"
           ? `${github.entries.length} GitHub repositories`
           : "GitHub unavailable";
+
       console.log(`Successfully fetched ${melpaStatus}; ${githubStatus}.`);
     })
     .catch((error) => {

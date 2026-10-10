@@ -51,6 +51,15 @@ export function getSortValue(
 }
 
 /**
+ * Runtime type guard for string-shaped field values in hand-checked index
+ * data. The search index arrives as fetched JSON in the browser, so field
+ * values are probed at this boundary before the domain code branches on them.
+ */
+function isStringField(value: unknown): value is string {
+  return typeof value === "string";
+}
+
+/**
  * Builds the in-memory lookup map used for O(1) metadata access by theme id.
  * Skips malformed entries and logs a warning for each.
  */
@@ -60,17 +69,19 @@ export function buildSearchMap(
 ): void {
   themeIndexById.clear();
   indexEntries.forEach((entry) => {
-    if (!entry || typeof entry.id !== "string" || typeof entry.searchable !== "string") {
+    if (!entry || !isStringField(entry.id) || !isStringField(entry.searchable)) {
       console.warn("[search] Skipping malformed index entry:", entry);
+
       return;
     }
 
     themeIndexById.set(entry.id, {
-      name: typeof entry.name === "string" ? entry.name : "",
+      name: isStringField(entry.name) ? entry.name : "",
       searchable: entry.searchable,
-      screenshotGeneratedDate:
-        typeof entry.screenshotGeneratedDate === "string" ? entry.screenshotGeneratedDate : null,
-      repositoryUrl: typeof entry.repositoryUrl === "string" ? entry.repositoryUrl : null,
+      screenshotGeneratedDate: isStringField(entry.screenshotGeneratedDate)
+        ? entry.screenshotGeneratedDate
+        : null,
+      repositoryUrl: isStringField(entry.repositoryUrl) ? entry.repositoryUrl : null,
     });
   });
 }
@@ -84,11 +95,12 @@ export function getEntryName(
   themeIndexById: Map<string, ThemeIndexRecord>,
 ): string {
   const metadata = themeIndexById.get(entry.id);
+
   if (metadata && metadata.name) {
     return metadata.name;
   }
 
-  return (entry.card as HTMLElement).getAttribute("data-name") || "";
+  return entry.card.getAttribute("data-name") || "";
 }
 
 /**
@@ -100,11 +112,13 @@ export function getEntryTimestamp(
   themeIndexById: Map<string, ThemeIndexRecord>,
 ): number | null {
   const metadata = themeIndexById.get(entry.id);
+
   if (!metadata || !metadata.screenshotGeneratedDate) {
     return null;
   }
 
   const timestamp = Date.parse(metadata.screenshotGeneratedDate);
+
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 
@@ -122,6 +136,7 @@ export function compareEntriesByName(
     getEntryName(right, themeIndexById),
     "en",
   );
+
   if (nameComparison !== 0) {
     return direction === "desc" ? -nameComparison : nameComparison;
   }
@@ -147,10 +162,12 @@ export function compareEntriesByDate(
   }
 
   if (leftTimestamp === null) return 1;
+
   if (rightTimestamp === null) return -1;
 
   const dateComparison =
     direction === "asc" ? leftTimestamp - rightTimestamp : rightTimestamp - leftTimestamp;
+
   return dateComparison || compareEntriesByName(left, right, "asc", themeIndexById);
 }
 
@@ -166,6 +183,7 @@ export function parseSortConfigFromSelect(select: HTMLSelectElement | null): Sor
     const key = opt.getAttribute("data-key") || "";
     const rawDir = opt.getAttribute("data-dir") || "asc";
     const dir = rawDir === "desc" ? "desc" : "asc";
+
     return { value, label: opt.label, key, dir };
   });
 }
@@ -177,16 +195,17 @@ export function parseSortConfigFromSelect(select: HTMLSelectElement | null): Sor
 export function buildSortComparators(
   sortConfigs: SortConfig[],
   themeIndexById: Map<string, ThemeIndexRecord>,
-): Record<string, SortComparator> {
-  const comparators: Record<string, SortComparator> = {};
+): Map<string, SortComparator> {
+  const comparators = new Map<string, SortComparator>();
 
   sortConfigs.forEach((cfg) => {
-    comparators[cfg.value] = (left, right) => {
+    comparators.set(cfg.value, (left, right) => {
       if (cfg.key === "date") {
         return compareEntriesByDate(left, right, cfg.dir, themeIndexById);
       }
+
       return compareEntriesByName(left, right, cfg.dir, themeIndexById);
-    };
+    });
   });
 
   return comparators;
@@ -227,11 +246,14 @@ export function filterThemes(
     const metadata = themeIndexById.get(entry.id);
     const searchable = metadata ? metadata.searchable : "";
     const textMatches = q === "" || searchable.includes(q);
+
     const repoMatches =
       repositoryUrl === null ||
       (metadata !== undefined && metadata.repositoryUrl === repositoryUrl);
+
     const matches = textMatches && repoMatches;
     onCardVisibility(entry, matches);
+
     if (matches) visibleCount += 1;
   });
 
@@ -263,16 +285,21 @@ export function buildResultsHeadline(
   if (count === 0) {
     return null;
   }
+
   const repoName = repositoryUrl ? ` in ${getRepositoryDisplayName(repositoryUrl)}` : "";
+
   if (query) {
     return `${count} ${count === 1 ? "result" : "results"} found for "${query}"${repoName}.`;
   }
+
   if (repositoryUrl) {
     return `${count} ${count === 1 ? "theme" : "themes"} in ${getRepositoryDisplayName(repositoryUrl)}.`;
   }
+
   if (sortLabel) {
     return `${sortLabel} — ${count} ${count === 1 ? "theme" : "themes"}`;
   }
+
   return null;
 }
 
@@ -296,7 +323,9 @@ export function buildNoResultsMessage(
   if (invalidRepository) {
     return `The repository filter "${repositoryUrl ?? ""}" is not valid.`;
   }
+
   const repoName = repositoryUrl ? ` in ${getRepositoryDisplayName(repositoryUrl)}` : "";
+
   return query
     ? `No results were found for "${query}"${repoName}.`
     : `No themes were found${repoName}.`;
@@ -309,11 +338,12 @@ export function buildNoResultsMessage(
 export function sortThemes(
   grid: Element,
   cardEntries: CardEntry[],
-  sortComparators: Record<string, SortComparator>,
+  sortComparators: Map<string, SortComparator>,
   sortValue: string,
   doc: { createDocumentFragment(): DocumentFragment } = document,
 ): void {
-  const comparator = sortComparators[sortValue];
+  const comparator = sortComparators.get(sortValue);
+
   if (!comparator) return;
 
   // eslint-disable-next-line unicorn/no-array-sort

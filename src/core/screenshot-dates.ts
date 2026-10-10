@@ -1,5 +1,6 @@
 import { mkdir, readdir, stat } from "node:fs/promises";
 import { dirname } from "node:path";
+import { z } from "zod";
 import { SCREENSHOT_DATES_PATH } from "./constants";
 import { assertPathWithinRoot } from "./path-utils";
 
@@ -9,6 +10,10 @@ import { assertPathWithinRoot } from "./path-utils";
 export type ScreenshotDatesMap = Record<string, string>;
 
 let screenshotDatesCache: ScreenshotDatesMap | null = null;
+
+/** Validates persisted date entries as theme id → ISO-date-string records. */
+const ScreenshotDatesMapSchema = z.record(z.string(), z.string());
+
 const SCREENSHOT_DATES_LOG_PREFIX = "[screenshot-dates]";
 
 /**
@@ -43,21 +48,25 @@ function sortScreenshotDates(dates: ScreenshotDatesMap): ScreenshotDatesMap {
 export async function readScreenshotDates(): Promise<ScreenshotDatesMap> {
   if (screenshotDatesCache) {
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using in-memory cache`);
+
     return screenshotDatesCache;
   }
 
   const file = Bun.file(SCREENSHOT_DATES_PATH);
+
   if (!(await file.exists())) {
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} file missing, starting with empty map`);
     screenshotDatesCache = {};
+
     return screenshotDatesCache;
   }
 
   const content = await file.text();
-  screenshotDatesCache = JSON.parse(content) as ScreenshotDatesMap;
+  screenshotDatesCache = ScreenshotDatesMapSchema.parse(JSON.parse(content));
   console.log(
     `${SCREENSHOT_DATES_LOG_PREFIX} loaded ${Object.keys(screenshotDatesCache).length} entries from ${SCREENSHOT_DATES_PATH}`,
   );
+
   return screenshotDatesCache;
 }
 
@@ -93,8 +102,10 @@ export async function upsertScreenshotGenerationDate(
   overwrite: boolean,
 ): Promise<void> {
   const dates = await readScreenshotDates();
+
   if (dates[themeId] && !overwrite) {
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} skipped existing date for ${themeId}`);
+
     return;
   }
 
@@ -123,12 +134,14 @@ export async function ensureScreenshotDatesInitialized(
   let addedCount = 0;
 
   let entries;
+
   try {
     entries = await readdir(imagesDir, { withFileTypes: true, encoding: "utf8" });
   } catch {
     console.log(
       `${SCREENSHOT_DATES_LOG_PREFIX} images directory missing or unreadable (${imagesDir}), skipping initialization`,
     );
+
     return dates;
   }
 
@@ -138,6 +151,7 @@ export async function ensureScreenshotDatesInitialized(
     }
 
     const themeId = entry.name;
+
     if (dates[themeId]) {
       continue;
     }
@@ -179,17 +193,21 @@ export async function resolveThemeGeneratedDate(
   screenshotDates: ScreenshotDatesMap,
 ): Promise<Date> {
   const persistedDate = screenshotDates[themeId];
+
   if (persistedDate) {
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using persisted date for ${themeId}`);
+
     return new Date(persistedDate);
   }
 
   try {
     const stats = await stat(themeImgsDir);
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using mtime fallback for ${themeId}`);
+
     return stats.mtime;
   } catch {
     console.log(`${SCREENSHOT_DATES_LOG_PREFIX} using current date fallback for ${themeId}`);
+
     return new Date();
   }
 }

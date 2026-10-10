@@ -41,6 +41,7 @@ describe("Path Traversal Guard", () => {
 
   test("rejects null byte injections (if handled by path.resolve)", () => {
     const candidate = "theme-1/\0preview.png";
+
     // path.resolve might throw or just clean it up depending on OS, but assertPathWithinRoot should eventually catch it if it tries to escape
     try {
       const resolved = assertPathWithinRoot(root, candidate);

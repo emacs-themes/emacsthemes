@@ -5,14 +5,15 @@
  * @returns The escaped string.
  */
 export function escapeHtml(str: string): string {
-  const map: Record<string, string> = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;",
-  };
-  return str.replace(/[&<>"']/g, (m) => map[m]);
+  const map = new Map<string, string>([
+    ["&", "&amp;"],
+    ["<", "&lt;"],
+    [">", "&gt;"],
+    ['"', "&quot;"],
+    ["'", "&#039;"],
+  ]);
+
+  return str.replace(/[&<>"']/g, (m) => map.get(m) ?? "");
 }
 
 /**
@@ -34,14 +35,17 @@ export function escapeHtml(str: string): string {
 export function toSafeUrl(url: string): string | undefined {
   try {
     const parsed = new URL(url);
+
     if (parsed.protocol === "http:" || parsed.protocol === "https:") {
       if (parsed.username !== "" || parsed.password !== "") {
         return undefined;
       }
+
       return parsed.toString();
     }
   } catch {
     // Unparseable URLs (for example relative paths) are never linked.
   }
+
   return undefined;
 }

@@ -3,7 +3,9 @@ import { dirname, join, relative, resolve } from "node:path";
 import sharp from "sharp";
 
 export const DEFAULT_QUALITY = 82;
+
 const DEFAULT_SOURCE_DIR = "static/imgs";
+
 const LOG_PREFIX = "[webp-convert]";
 
 interface CliOptions {
@@ -80,6 +82,7 @@ export function parseCliArgs(argv: string[]): CliOptions {
  */
 function parseQuality(value: string | undefined, fallback: number): number {
   const parsed = Number(value);
+
   if (!Number.isFinite(parsed)) {
     return fallback;
   }
@@ -113,6 +116,7 @@ export async function collectPngFiles(sourceDir: string): Promise<string[]> {
 
   for (const entry of entries) {
     const entryPath = join(sourceDir, entry.name);
+
     if (entry.isDirectory()) {
       files.push(...(await collectPngFiles(entryPath)));
       continue;
@@ -167,6 +171,7 @@ export async function runConversion(options: CliOptions): Promise<void> {
 
   if (pngFiles.length === 0) {
     console.log(`${LOG_PREFIX} No PNG files found in ${options.sourceDir}`);
+
     return;
   }
 
@@ -181,6 +186,7 @@ export async function runConversion(options: CliOptions): Promise<void> {
     if (!options.overwrite) {
       try {
         const destStat = await stat(destPath);
+
         if (destStat.isFile()) {
           console.log(`${LOG_PREFIX} Skipping existing ${relativeDest}`);
           skippedCount += 1;

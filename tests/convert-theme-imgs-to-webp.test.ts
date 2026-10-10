@@ -35,6 +35,7 @@ describe("convert-theme-imgs-to-webp", () => {
 
   test("collects png files recursively", async () => {
     const tempDir = await mkdtemp(join(tmpdir(), "emacsthemes-webp-"));
+
     try {
       await mkdir(join(tempDir, "nested"), { recursive: true });
       await writeFile(join(tempDir, "root.png"), new Uint8Array([1, 2, 3]));
@@ -52,6 +53,7 @@ describe("convert-theme-imgs-to-webp", () => {
 
   test("converts png files to webp and removes the source when requested", async () => {
     const tempDir = await mkdtemp(join(tmpdir(), "emacsthemes-webp-convert-"));
+
     try {
       const sourcePath = join(tempDir, "theme", "preview.png");
       const destPath = join(tempDir, "theme", "preview.webp");

@@ -43,12 +43,19 @@ export async function fetchPopularThemes(): Promise<PopularThemeSourceResult[]> 
       }),
     ),
     fetchGitHubThemes(POPULAR_THEMES_LIMIT).then(
-      ({ entries, warning }): PopularThemeSourceResult => ({
-        source: "github",
-        status: "ok",
-        entries,
-        ...(warning ? { warning } : {}),
-      }),
+      ({ entries, warning }): PopularThemeSourceResult => {
+        const githubResult: Extract<PopularThemeSourceResult, { status: "ok" }> = {
+          source: "github",
+          status: "ok",
+          entries,
+        };
+
+        if (warning) {
+          githubResult.warning = warning;
+        }
+
+        return githubResult;
+      },
       (error): PopularThemeSourceResult => ({
         source: "github",
         status: "failed",
@@ -102,13 +109,16 @@ export async function writePopularThemesLogs(
   logDir: string,
 ): Promise<void> {
   const timestamp = new Date().toISOString();
+
   for (const result of results) {
     const files = LOG_FILES[result.source];
+
     if (result.status === "ok") {
       const successLine =
         result.source === "melpa"
           ? `${timestamp} Fetched ${result.entries.length} popular themes successfully\n`
           : `${timestamp} Fetched ${result.entries.length} popular GitHub repositories successfully\n`;
+
       const warningLine = result.warning ? `${timestamp} Warning: ${result.warning}\n` : "";
       await appendLog(join(logDir, files.main), successLine + warningLine);
     } else {

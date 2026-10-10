@@ -2,9 +2,13 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { spawn } from "node:child_process";
 
 const BUCKET_NAME = "emacsthemes";
+
 const IMGS_DIR = "static/imgs";
+
 const TEMPLATE_PATH = "src/cloudflare/rclone.conf.template";
+
 const CONFIG_PATH = ".tmp/rclone.conf";
+
 const CUSTOM_CA_CERT_PATH = process.env.CLOUDFLARE_R2_CA_CERT_PATH;
 
 async function generateConfig() {
@@ -24,6 +28,7 @@ async function generateConfig() {
         `Missing environment variable: ${key}. Make sure it's defined in your .env file or environment.`,
       );
     }
+
     template = template.replace(new RegExp(`\\\${${key}}`, "g"), value);
   }
 
@@ -76,6 +81,7 @@ async function run() {
     } else {
       console.error("❌ Sync failed:", err);
     }
+
     process.exit(1);
   }
 }

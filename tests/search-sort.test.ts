@@ -17,18 +17,20 @@ import {
   type ThemeIndexEntry,
   type SortConfig,
 } from "../src/templates/core/search-sort";
+import { isMessageString, substitute } from "./support";
 
 /** Minimal element mock for tests that need getAttribute. */
 function mockEl(attrs: Record<string, string> = {}): Element {
   const store = { ...attrs };
-  return {
+
+  return substitute({
     getAttribute(name: string) {
       return store[name] ?? null;
     },
     // sortThemes reorders cards via appendChild — track parent
-    parentNode: null as Element | null,
+    parentNode: null,
     appendChild(_other: Element) {},
-  } as unknown as Element;
+  });
 }
 
 function makeEntry(id: string, overrides: Partial<CardEntry> = {}): CardEntry {
@@ -85,6 +87,7 @@ describe("getSortValue", () => {
 describe("buildSearchMap", () => {
   test("populates the map from valid entries", () => {
     const map = new Map<string, ThemeIndexRecord>();
+
     const entries: ThemeIndexEntry[] = [
       makeIndexEntry("theme-a"),
       makeIndexEntry("theme-b", { screenshotGeneratedDate: "2024-01-15" }),
@@ -107,36 +110,43 @@ describe("buildSearchMap", () => {
       warnings.push(args);
     };
 
+    const numericIdEntry: ThemeIndexEntry = substitute({ id: 123, searchable: "test" });
+    const nullEntry: ThemeIndexEntry = substitute(null);
+
     const entries = [
       makeIndexEntry("valid"),
-      { id: 123, searchable: "test" } as unknown as ThemeIndexEntry,
-      null as unknown as ThemeIndexEntry,
+      numericIdEntry,
+      nullEntry,
       makeIndexEntry("also-valid"),
     ];
+
     buildSearchMap(map, entries);
 
     expect(map.size).toBe(2);
     expect(map.has("valid")).toBe(true);
     expect(map.has("also-valid")).toBe(true);
     expect(warnings.length).toBeGreaterThanOrEqual(1);
-    expect(
-      warnings.some((w) => w.some((m) => typeof m === "string" && m.includes("malformed"))),
-    ).toBe(true);
+    expect(warnings.some((w) => w.some((m) => isMessageString(m) && m.includes("malformed")))).toBe(
+      true,
+    );
 
     console.warn = warn;
   });
 
   test("keeps only string repositoryUrl values and fails closed otherwise", () => {
     const map = new Map<string, ThemeIndexRecord>();
+
+    const badNumericRepositoryUrl: ThemeIndexEntry = substitute({
+      id: "bad-repo",
+      searchable: "x",
+      repositoryUrl: 42,
+    });
+
     const entries = [
       makeIndexEntry("with-repo", { repositoryUrl: "https://github.com/owner/theme" }),
       makeIndexEntry("null-repo", { repositoryUrl: null }),
       makeIndexEntry("missing-repo"),
-      {
-        id: "bad-repo",
-        searchable: "x",
-        repositoryUrl: 42,
-      } as unknown as ThemeIndexEntry,
+      badNumericRepositoryUrl,
     ];
 
     buildSearchMap(map, entries);
@@ -216,6 +226,7 @@ describe("compareEntriesByName", () => {
     ["b", makeIndexRecord({ name: "Beta" })],
     ["c", makeIndexRecord({ name: "Alpha" })],
   ]);
+
   const entryA = makeEntry("a");
   const entryB = makeEntry("b");
   const entryC = makeEntry("c");
@@ -244,6 +255,7 @@ describe("compareEntriesByDate", () => {
     ["nodate", makeIndexRecord({ name: "No Date", screenshotGeneratedDate: null })],
     ["other", makeIndexRecord({ name: "Other", screenshotGeneratedDate: "2023-01-01" })],
   ]);
+
   const entryOld = makeEntry("old");
   const entryNew = makeEntry("new");
   const entryNoDate = makeEntry("nodate");
@@ -269,6 +281,7 @@ describe("compareEntriesByDate", () => {
       ["z", makeIndexRecord({ name: "Zeta" })],
       ["a", makeIndexRecord({ name: "Alpha" })],
     ]);
+
     expect(compareEntriesByDate(makeEntry("z"), makeEntry("a"), "asc", map2)).toBeGreaterThan(0);
   });
 
@@ -304,9 +317,9 @@ describe("parseSortConfigFromSelect", () => {
           getAttribute: (n: string) => (n === "data-key" ? "date" : "asc"),
         },
       ],
-    } as unknown as HTMLSelectElement;
+    };
 
-    const configs = parseSortConfigFromSelect(select);
+    const configs = parseSortConfigFromSelect(substitute(select));
 
     expect(configs).toHaveLength(4);
     expect(configs[0]).toEqual({ value: "name-asc", label: "Name A–Z", key: "name", dir: "asc" });
@@ -331,9 +344,9 @@ describe("parseSortConfigFromSelect", () => {
           getAttribute: (n: string) => (n === "data-key" ? "name" : null),
         },
       ],
-    } as unknown as HTMLSelectElement;
+    };
 
-    const configs = parseSortConfigFromSelect(select);
+    const configs = parseSortConfigFromSelect(substitute(select));
     expect(configs[0].dir).toBe("asc");
   });
 });
@@ -345,6 +358,7 @@ describe("buildSortComparators", () => {
     ["a", makeIndexRecord({ name: "Alpha", screenshotGeneratedDate: "2024-01-01" })],
     ["b", makeIndexRecord({ name: "Beta", screenshotGeneratedDate: "2024-06-15" })],
   ]);
+
   const entryA = makeEntry("a");
   const entryB = makeEntry("b");
 
@@ -357,15 +371,15 @@ describe("buildSortComparators", () => {
 
   test("builds a map of value to comparator function", () => {
     const comparators = buildSortComparators(configs, map);
-    expect(Object.keys(comparators)).toEqual(["name-asc", "name-desc", "date-asc", "date-desc"]);
-    expect(comparators["name-asc"](entryA, entryB)).toBeLessThan(0);
-    expect(comparators["name-desc"](entryA, entryB)).toBeGreaterThan(0);
-    expect(comparators["date-asc"](entryA, entryB)).toBeLessThan(0);
-    expect(comparators["date-desc"](entryA, entryB)).toBeGreaterThan(0);
+    expect([...comparators.keys()]).toEqual(["name-asc", "name-desc", "date-asc", "date-desc"]);
+    expect(comparators.get("name-asc")?.(entryA, entryB)).toBeLessThan(0);
+    expect(comparators.get("name-desc")?.(entryA, entryB)).toBeGreaterThan(0);
+    expect(comparators.get("date-asc")?.(entryA, entryB)).toBeLessThan(0);
+    expect(comparators.get("date-desc")?.(entryA, entryB)).toBeGreaterThan(0);
   });
 
-  test("returns empty object for empty configs", () => {
-    expect(buildSortComparators([], map)).toEqual({});
+  test("returns an empty map for empty configs", () => {
+    expect(buildSortComparators([], map)).toEqual(new Map());
   });
 });
 
@@ -392,6 +406,7 @@ describe("filterThemes", () => {
       ["a", makeIndexRecord({ name: "Alpha", searchable: "alpha dark" })],
       ["b", makeIndexRecord({ name: "Beta", searchable: "beta light" })],
     ]);
+
     const entries = [makeEntry("a"), makeEntry("b")];
     const visible: string[] = [];
 
@@ -437,6 +452,7 @@ describe("filterThemes", () => {
       ["a", makeIndexRecord({ name: "Alpha", searchable: "alpha dark theme" })],
       ["b", makeIndexRecord({ name: "Beta", searchable: "beta light theme" })],
     ]);
+
     const visible: string[] = [];
 
     filterThemes([makeEntry("a"), makeEntry("b")], map, {
@@ -461,6 +477,7 @@ describe("filterThemes repository filtering", () => {
       ["b", makeIndexRecord({ name: "B", searchable: "b", repositoryUrl: repoB })],
       ["c", makeIndexRecord({ name: "C", searchable: "c", repositoryUrl: repoA })],
     ]);
+
     const visible: string[] = [];
 
     const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
@@ -516,6 +533,7 @@ describe("filterThemes repository filtering", () => {
       ["b", makeIndexRecord({ name: "B", searchable: "beta light", repositoryUrl: repoA })],
       ["c", makeIndexRecord({ name: "C", searchable: "alpha light", repositoryUrl: repoB })],
     ]);
+
     const visible: string[] = [];
 
     const count = filterThemes([makeEntry("a"), makeEntry("b"), makeEntry("c")], map, {
@@ -533,6 +551,7 @@ describe("filterThemes repository filtering", () => {
       ["a", makeIndexRecord({ name: "A", searchable: "alpha", repositoryUrl: repoA })],
       ["c", makeIndexRecord({ name: "C", searchable: "alpha", repositoryUrl: null })],
     ]);
+
     const visible: string[] = [];
 
     // "b" has no index metadata at all; "c" has a null repositoryUrl.
@@ -551,6 +570,7 @@ describe("filterThemes repository filtering", () => {
       ["a", makeIndexRecord({ name: "A", searchable: "a", repositoryUrl: repoA })],
       ["b", makeIndexRecord({ name: "B", searchable: "b", repositoryUrl: null })],
     ]);
+
     const visible: string[] = [];
 
     const count = filterThemes([makeEntry("a"), makeEntry("b")], map, {
@@ -631,15 +651,22 @@ describe("buildNoResultsMessage", () => {
 
 // ── sortThemes (w/ minimal DOM mock) ──────────────────────────────────────
 
-function mockDoc() {
+/** Doubled document surface used by sortThemes tests. */
+interface MockDocument {
+  createDocumentFragment(): DocumentFragment;
+  fragmentChildren: Element[];
+}
+
+function mockDoc(): MockDocument {
   const fragmentChildren: Element[] = [];
+
   return {
     createDocumentFragment() {
-      return {
+      return substitute({
         appendChild(card: Element) {
           fragmentChildren.push(card);
         },
-      } as unknown as DocumentFragment;
+      });
     },
     fragmentChildren,
   };
@@ -647,12 +674,13 @@ function mockDoc() {
 
 describe("sortThemes", () => {
   test("reorders cards into fragment in sorted order", () => {
-    const grid = { appendChild(_card: Element) {} } as unknown as Element;
+    const grid: Element = substitute({ appendChild(_card: Element) {} });
     const doc = mockDoc();
 
-    const cardB = {} as Element;
-    const cardA = {} as Element;
-    const cardG = {} as Element;
+    const cardB: Element = substitute({});
+    const cardA: Element = substitute({});
+    const cardG: Element = substitute({});
+
     const entries: CardEntry[] = [
       { id: "b", card: cardB },
       { id: "a", card: cardA },
@@ -664,6 +692,7 @@ describe("sortThemes", () => {
       ["b", makeIndexRecord({ name: "Beta" })],
       ["g", makeIndexRecord({ name: "Gamma" })],
     ]);
+
     const configs: SortConfig[] = [{ value: "name-asc", label: "", key: "name", dir: "asc" }];
     const comparators = buildSortComparators(configs, map);
 
@@ -674,9 +703,9 @@ describe("sortThemes", () => {
 
   test("does nothing when comparator is not found", () => {
     const doc = mockDoc();
-    const grid = { appendChild(_card: Element) {} } as unknown as Element;
+    const grid: Element = substitute({ appendChild(_card: Element) {} });
 
-    sortThemes(grid, [makeEntry("a")], {}, "nonexistent", doc);
+    sortThemes(grid, [makeEntry("a")], new Map(), "nonexistent", doc);
 
     expect(doc.fragmentChildren).toEqual([]);
   });

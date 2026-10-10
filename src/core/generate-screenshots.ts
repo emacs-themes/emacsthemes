@@ -21,8 +21,11 @@ import {
 } from "../scripts/convert-theme-imgs-to-webp";
 
 const IMAGES_DIR = "static/imgs";
+
 const TEMP_DIR = ".tmp/theme-gen";
+
 const INIT_TEMPLATE_PATH = "src/elisp/init-template.el";
+
 const MODES_SAMPLES_DIR = "src/elisp/modes";
 
 /**
@@ -53,6 +56,7 @@ function parseCliArgs(): Arguments {
 
   for (let i = 0; i < Bun.argv.length; i++) {
     const arg = Bun.argv[i];
+
     if (arg === "--file") {
       targetThemeId = Bun.argv[i + 1] || null;
       i++; // Skip next arg
@@ -75,9 +79,11 @@ function parseCliArgs(): Arguments {
 async function copyDir(src: string, dest: string) {
   await mkdir(dest, { recursive: true });
   const entries = await readdir(src, { withFileTypes: true });
+
   for (const entry of entries) {
     const srcPath = join(src, entry.name);
     const destPath = join(dest, entry.name);
+
     if (entry.isDirectory()) await copyDir(srcPath, destPath);
     else await copyFile(srcPath, destPath);
   }
@@ -105,6 +111,7 @@ function resolveValidatedLocalThemePath(source: string): string {
   const relativePath = source.startsWith(`${LOCAL_THEMES_DIR}/`)
     ? source.slice(LOCAL_THEMES_DIR.length + 1)
     : source;
+
   return assertPathWithinRoot(LOCAL_THEMES_DIR, relativePath);
 }
 
@@ -127,6 +134,7 @@ async function copyLocalThemeFile(source: string, themeDir: string): Promise<str
   console.log(`  Copying local theme file ${source}...`);
   const filename = basename(source);
   await Bun.write(join(themeDir, filename), await localFile.arrayBuffer());
+
   return filename;
 }
 
@@ -141,6 +149,7 @@ async function copyLocalThemeFile(source: string, themeDir: string): Promise<str
 async function downloadRemoteThemeFile(source: string, themeDir: string): Promise<string> {
   console.log(`  Downloading ${source}...`);
   const res = await fetch(source);
+
   if (!res.ok) {
     throw new Error(`Failed to fetch ${source}: ${res.statusText}`);
   }
@@ -150,6 +159,7 @@ async function downloadRemoteThemeFile(source: string, themeDir: string): Promis
   const filename = basename(urlObj.pathname);
 
   await Bun.write(join(themeDir, filename), await res.arrayBuffer());
+
   return filename;
 }
 
@@ -180,10 +190,12 @@ async function materializeThemeSource(source: string, themeDir: string): Promise
  */
 async function downloadThemeFiles(rawUrls: string[], themeDir: string): Promise<string[]> {
   const files: string[] = [];
+
   for (const source of rawUrls) {
     const filename = await materializeThemeSource(source, themeDir);
     files.push(filename);
   }
+
   return files;
 }
 
@@ -227,6 +239,7 @@ async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<st
   if (theme.repoUrl === LOCAL_THEME_REPO_URL) {
     return await prepareLocalThemeFiles(theme, themeTempDir);
   }
+
   return await downloadThemeFiles(theme.rawUrls, themeTempDir);
 }
 
@@ -241,12 +254,16 @@ async function prepareThemeFiles(theme: Theme, themeTempDir: string): Promise<st
 async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promise<string | null> {
   try {
     const files = filesToSearch || (await readdir(dir));
+
     // Sort files to prioritize those that end with -theme.el
     const sortedFiles = [...files].toSorted((a, b) => {
       const aIsTheme = a.endsWith("-theme.el");
       const bIsTheme = b.endsWith("-theme.el");
+
       if (aIsTheme && !bIsTheme) return -1;
+
       if (!aIsTheme && bIsTheme) return 1;
+
       return a.localeCompare(b);
     });
 
@@ -256,35 +273,44 @@ async function findThemeNameInDir(dir: string, filesToSearch?: string[]): Promis
       const content = await Bun.file(join(dir, file)).text();
       // Look for top-level, non-commented `(deftheme theme-name ...)` forms only.
       const defthemeMatches = content.matchAll(/^\s*\(deftheme\s+'?([^',)\s][^)\s]*)/gm);
+
       for (const match of defthemeMatches) {
         return match[1];
       }
 
       // Fall back to top-level, non-commented `(provide-theme 'theme-name)` forms.
       const provideThemeMatches = content.matchAll(/^\s*\(provide-theme\s+'?([^',)\s][^)\s]*)\)/gm);
+
       for (const match of provideThemeMatches) {
         const name = match[1];
+
         // Skip generic variable names often found in templates or helper functions
         if (name === "name" || name === "theme-name" || name === "theme" || name === "symbol")
           continue;
+
         return name;
       }
 
       // Some themes only expose a package provide form such as `(provide 'iceberg-theme)`.
       // In that case, infer the likely theme symbol by stripping the `-theme` suffix.
       const providePackageMatches = content.matchAll(/^\s*\(provide\s+'?([^',)\s][^)\s]*)\)/gm);
+
       for (const match of providePackageMatches) {
         const providedName = match[1];
+
         if (!providedName.endsWith("-theme")) continue;
 
         const inferredThemeName = providedName.slice(0, -"-theme".length);
+
         if (!inferredThemeName || inferredThemeName === "theme") continue;
+
         return inferredThemeName;
       }
     }
   } catch (e) {
     console.error(`Error scanning for theme name in ${dir}:`, e);
   }
+
   return null;
 }
 
@@ -304,10 +330,12 @@ async function getModeSpecificLogic(modeName: string, config: ModeConfig): Promi
 
   if (config.isInstructionFile) {
     let logic = await readFile(samplePath, "utf-8");
+
     if (config.sampleFile) {
       const absoluteSamplePath = resolve(join(MODES_SAMPLES_DIR, config.sampleFile));
       logic = logic.replace(/{{SAMPLE_PATH}}/g, absoluteSamplePath);
     }
+
     return logic;
   }
 
@@ -335,13 +363,18 @@ ${extraLogic}
  */
 function getLoadFilesElisp(themeDir: string, filesToLoad: string[]): string {
   return filesToLoad
-    .filter((f) => f.endsWith(".el"))
-    .map(
-      (f) => `
+    .flatMap((f) => {
+      if (!f.endsWith(".el")) {
+        return [];
+      }
+
+      return [
+        `
 (condition-case err
     (load-file "${resolve(join(themeDir, f))}")
   (error (log-debug "Failed to load ${f}: %s" err)))`,
-    )
+      ];
+    })
     .join("\n");
 }
 
@@ -389,10 +422,13 @@ async function generateInitEl(
  */
 async function checkXvfbAvailability(): Promise<boolean> {
   const result = await Bun.spawn(["which", "xvfb-run"]).exited;
+
   if (result !== 0) {
     console.log("  xvfb-run not found. Skipping screenshot generation.");
+
     return false;
   }
+
   return true;
 }
 
@@ -475,12 +511,14 @@ async function captureScreenshot(
     );
 
     const exitCode = await proc.exited;
+
     if (exitCode !== 0) return false;
   } catch {
     return false;
   }
 
   const file = Bun.file(imagePath);
+
   return (await file.exists()) && (await file.size) > 0;
 }
 
@@ -499,9 +537,11 @@ async function generatePreview(sourcePath: string, destPath: string): Promise<bo
     });
 
     const exitCode = await proc.exited;
+
     return exitCode === 0;
   } catch (e) {
     console.error(`  Error generating preview for ${sourcePath}:`, e);
+
     return false;
   }
 }
@@ -515,6 +555,7 @@ async function generatePreview(sourcePath: string, destPath: string): Promise<bo
 async function finalizeGeneratedImage(sourcePath: string): Promise<string> {
   const webpPath = toWebpPath(sourcePath);
   await convertPngToWebp(sourcePath, webpPath, DEFAULT_WEBP_QUALITY, true);
+
   return webpPath;
 }
 
@@ -533,11 +574,14 @@ async function validateRecipe(recipePath: string): Promise<Theme | null> {
     if (!result.success) {
       console.error(`❌ Validation failed for ${recipePath}:`);
       result.errors.forEach((err) => console.error(err));
+
       return null;
     }
+
     return result.data;
   } catch (err) {
     console.error(`Error reading recipe ${recipePath}:`, err);
+
     return null;
   }
 }
@@ -559,13 +603,16 @@ async function shouldSkipTheme(
 
   try {
     const dirInfo = await Bun.file(themeImagesDir).stat();
+
     if (dirInfo) {
       console.log(`${themeName} exists, skipping screenshot`);
+
       return true;
     }
   } catch {
     // Directory does not exist
   }
+
   return false;
 }
 
@@ -605,11 +652,14 @@ async function processThemeMode(
     config,
     readyFilePath,
   );
+
   await Bun.write(initElPath, initContent);
 
   const success = await captureScreenshot(initElPath, imagePath, readyFilePath);
+
   if (!success) {
     console.error(`  ❌ Failed to generate screenshot for ${modeName}`);
+
     return false;
   }
 
@@ -617,8 +667,10 @@ async function processThemeMode(
     console.log(`  Generating preview for ${theme.name}...`);
     const previewPath = join(themeImagesDir, "preview.png");
     const previewSuccess = await generatePreview(imagePath, previewPath);
+
     if (!previewSuccess) {
       console.error(`  ❌ Failed to generate preview.png`);
+
       return false;
     }
 
@@ -676,6 +728,7 @@ async function captureThemeScreenshots(
       modeName,
       config,
     );
+
     if (!success) {
       throw new Error(`Failed to generate screenshot for ${modeName}`);
     }
@@ -732,11 +785,13 @@ async function processTheme(
   overwriteGenerationDate: boolean = false,
 ): Promise<{ status: "skipped" | "success" | "failed"; name: string }> {
   const theme = await validateRecipe(recipePath);
+
   if (!theme) {
     return { status: "failed", name: basename(recipePath) };
   }
 
   const themeImagesDir = assertPathWithinRoot(IMAGES_DIR, theme.id);
+
   if (await shouldSkipTheme(theme.name, themeImagesDir, force)) {
     return { status: "skipped", name: theme.name };
   }
@@ -759,6 +814,7 @@ async function processTheme(
   } catch (err) {
     console.error(`  Error processing theme ${theme.name}:`, err);
     await rollbackThemeProcessing(themeImagesDir, theme.name);
+
     return { status: "failed", name: theme.name };
   } finally {
     await cleanupThemeTemp(themeTempDir);
@@ -782,6 +838,7 @@ async function getRecipeFiles(targetThemeId: string | null): Promise<string[]> {
   if (targetThemeId) {
     console.log(`Filtering for theme ID: ${targetThemeId}`);
     recipes = recipes.filter((f) => f === `${targetThemeId}.json`);
+
     if (recipes.length === 0) {
       console.error(`No recipe found matching: ${targetThemeId}.json`);
       process.exit(1);
@@ -789,6 +846,7 @@ async function getRecipeFiles(targetThemeId: string | null): Promise<string[]> {
   }
 
   console.log(`Found ${recipes.length} recipes.`);
+
   return recipes;
 }
 
@@ -823,6 +881,7 @@ async function main() {
   console.log(
     `\nSummary: Skipped: ${results.skipped}, Success: ${results.success}, Failed: ${results.failed}`,
   );
+
   if (results.failed > 0) process.exit(1);
 }
 

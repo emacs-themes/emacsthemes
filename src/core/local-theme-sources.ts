@@ -22,6 +22,7 @@ export function toLocalThemeRelativePath(sourcePath: string): string | null {
 
   const relativePath = sourcePath.slice(LOCAL_THEMES_PREFIX.length);
   const segments = relativePath.split("/");
+
   if (
     relativePath === "" ||
     !relativePath.includes("/") ||

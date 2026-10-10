@@ -18,6 +18,7 @@
    */
   function getStoredTheme() {
     const value = window.localStorage.getItem(THEME_STORAGE_KEY);
+
     if (value === DARK_THEME || value === LIGHT_THEME) {
       return value;
     }
@@ -57,6 +58,7 @@
   }
 
   const toggleButton = document.getElementById("theme-toggle");
+
   if (!(toggleButton instanceof HTMLButtonElement)) {
     return;
   }

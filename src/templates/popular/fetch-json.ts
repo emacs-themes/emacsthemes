@@ -3,21 +3,27 @@
  */
 
 const REQUEST_TIMEOUT_MS = 10000;
+
 const MAX_PAYLOAD_BYTES = 10 * 1024 * 1024; // 10 MB
+
 const MAX_RETRIES = 2; // Up to 3 total attempts per request.
+
 const RETRYABLE_STATUSES = new Set([429, 500, 502, 503, 504]);
+
 const MAX_RETRY_AFTER_MS = 5000;
+
 const MAX_ERROR_BODY_SNIPPET_CHARS = 200;
+
 const RETRY_BASE_DELAY_MS = 250;
 
 /**
- * Normalizes unknown errors into readable messages for logging.
+ * Normalizes a caught error cause into readable messages for logging.
  *
- * @param {unknown} error - The error value to normalize.
+ * @param {unknown} cause - The caught error (an `Error` or arbitrary thrown value).
  * @returns {string} The normalized error message.
  */
-export function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : String(error);
+export function getErrorMessage(cause: unknown): string {
+  return cause instanceof Error ? cause.message : String(cause);
 }
 
 /**
@@ -33,10 +39,12 @@ export function getErrorMessage(error: unknown): string {
 function retryDelayMs(attempt: number, response?: Response): number {
   if (response) {
     const retryAfter = Number(response.headers.get("retry-after"));
+
     if (Number.isFinite(retryAfter) && retryAfter > 0) {
       return Math.min(retryAfter * 1000, MAX_RETRY_AFTER_MS);
     }
   }
+
   return RETRY_BASE_DELAY_MS * (attempt + 1);
 }
 
@@ -49,6 +57,7 @@ function retryDelayMs(attempt: number, response?: Response): number {
 async function readErrorBodySnippet(response: Response): Promise<string> {
   try {
     const body = await response.text();
+
     return body.length > MAX_ERROR_BODY_SNIPPET_CHARS
       ? `${body.slice(0, MAX_ERROR_BODY_SNIPPET_CHARS)}...`
       : body;
@@ -81,6 +90,7 @@ export async function fetchJson<T>(
 
   while (true) {
     let response: Response;
+
     try {
       response = await fetch(url, {
         ...init,
@@ -93,11 +103,13 @@ export async function fetchJson<T>(
           cause: error,
         });
       }
+
       if (attempt < MAX_RETRIES) {
         attempt++;
         await Bun.sleep(retryDelayMs(attempt));
         continue;
       }
+
       throw new Error(`Request to ${url} failed: ${getErrorMessage(error)}`, { cause: error });
     }
 
@@ -107,18 +119,23 @@ export async function fetchJson<T>(
         await Bun.sleep(retryDelayMs(attempt, response));
         continue;
       }
+
       const snippet = await readErrorBodySnippet(response);
       const detail = snippet ? `; body: ${snippet}` : "";
       throw new Error(`Request failed with status ${response.status} for ${url}${detail}`);
     }
 
     const body = await response.text();
+
     if (body.length > MAX_PAYLOAD_BYTES) {
       throw new Error(
         `Response from ${url} exceeds the ${MAX_PAYLOAD_BYTES} byte limit; refusing to buffer it`,
       );
     }
+
     try {
+      // SAFETY: this helper only performs transport and its T contract is
+      // validated by the caller's boundary schema before domain use.
       return JSON.parse(body) as T;
     } catch (error) {
       throw new Error(`Invalid JSON response from ${url}: ${getErrorMessage(error)}`, {
