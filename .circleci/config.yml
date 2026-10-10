@@ -32,7 +32,8 @@ commands:
       - run:
           name: Install Node Toolchain
           command: |
-            NODE_VERSION="22.11.0"
+            # >=22.18 required: oxlint imports tools/oxlint/anti-slop/index.ts through Node ESM type stripping
+            NODE_VERSION="24.21.0"
             apt-get update && apt-get install -y --no-install-recommends ca-certificates curl git xz-utils
             mkdir -p "$HOME/project/.tools"
             curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o /tmp/node.tar.xz
