@@ -1,0 +1,16 @@
+{
+  "name": "Ember Theme",
+  "id": "ember",
+  "description": "A warm, nearly monochrome Doom Emacs theme built on graphite tones with a single coral accent.",
+  "repoUrl": "https://github.com/ember-theme/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-lib.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-theme.el"
+  ],
+  "elispAfter": "(load-theme 'ember t)",
+  "type": "dark",
+  "authors": ["Hossam Saraya"],
+  "tags": ["dark", "doom", "graphite", "coral", "monochrome", "minimal", "warm", "brown"]
+}
