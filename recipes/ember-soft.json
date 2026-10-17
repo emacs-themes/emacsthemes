@@ -1,0 +1,16 @@
+{
+  "name": "Ember Soft Theme",
+  "id": "ember-soft",
+  "description": "The lifted-graphite flavor of Ember: the same single coral spark on a softer, lower-contrast warm graphite background.",
+  "repoUrl": "https://github.com/ember-theme/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-lib.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-soft-theme.el"
+  ],
+  "elispAfter": "(load-theme 'ember-soft t)",
+  "type": "dark",
+  "authors": ["Hossam Saraya"],
+  "tags": ["dark", "doom", "graphite", "coral", "monochrome", "minimal", "warm", "brown", "soft"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Ember Light Theme",
+  "id": "ember-light",
+  "description": "The warm ivory flavor of Ember: a parchment-toned light background with darkened accents tuned for WCAG AA contrast.",
+  "repoUrl": "https://github.com/ember-theme/emacs",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes-base.el",
+    "https://raw.githubusercontent.com/doomemacs/themes/master/doom-themes.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-lib.el",
+    "https://raw.githubusercontent.com/ember-theme/emacs/main/ember-light-theme.el"
+  ],
+  "elispAfter": "(load-theme 'ember-light t)",
+  "type": "light",
+  "authors": ["Hossam Saraya"],
+  "tags": ["light", "doom", "ivory", "coral", "monochrome", "minimal", "warm", "cream"]
+}
