@@ -1,6 +1,8 @@
 {
   "pinnedThemes": [
     "ember",
+    "ember-soft",
+    "ember-light",
     "kusanagi",
     "ayu-night",
     "ayu-dusk",
@@ -9,8 +11,6 @@
     "heaven-and-hell",
     "zaiste",
     "simple-dark",
-    "doom-nano-dark",
-    "doom-nano-light",
-    "mindre"
+    "doom-nano-dark"
   ]
 }
