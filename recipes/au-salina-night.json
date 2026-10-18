@@ -1,0 +1,26 @@
+{
+  "name": "Au Salina Night Theme",
+  "id": "au-salina-night",
+  "description": "Nocturnal coastal theme with deep oceanic and coral tones, from the au-themes collection of calm, low-glare themes made for light-sensitive eyes.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-salina-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "coral",
+    "dark",
+    "low contrast",
+    "modus",
+    "teal",
+    "black",
+    "red",
+    "blue"
+  ]
+}
