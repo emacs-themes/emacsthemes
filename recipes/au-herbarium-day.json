@@ -1,0 +1,25 @@
+{
+  "name": "Au Herbarium Day Theme",
+  "id": "au-herbarium-day",
+  "description": "Herbal daylight theme with pressed sage leaves, dried lavender petals, oak-bark ink and chamomile pollen, tuned for photophobic and neurodivergent sensory profiles.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-herbarium-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "green",
+    "lavender",
+    "light",
+    "low contrast",
+    "olive",
+    "photophobia",
+    "sage"
+  ]
+}

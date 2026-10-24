@@ -1,0 +1,26 @@
+{
+  "name": "Au Aurum Day Theme",
+  "id": "au-aurum-day",
+  "description": "Warm daylight theme built from earth tones on a muted canvas, calibrated for severe photophobia and ocular migraine, from the au-themes collection.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-aurum-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "beige",
+    "brown",
+    "earth",
+    "gold",
+    "light",
+    "low contrast",
+    "photophobia",
+    "warm"
+  ]
+}
