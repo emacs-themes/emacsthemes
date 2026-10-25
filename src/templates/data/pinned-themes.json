@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "au-herbarium-night",
+    "au-parchment-day",
     "au-aurum-day",
     "au-herbarium-day",
     "au-salina-night",
@@ -9,8 +11,6 @@
     "kusanagi",
     "ayu-night",
     "ayu-dusk",
-    "ayu-day",
-    "os1",
-    "heaven-and-hell"
+    "ayu-day"
   ]
 }
