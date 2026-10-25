@@ -1,0 +1,25 @@
+{
+  "name": "Au Parchment Day Theme",
+  "id": "au-parchment-day",
+  "description": "Near-monochrome daylight theme with low chromatic entropy, using italics and luminance steps instead of color contrast to keep visual noise low.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-parchment-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "italics",
+    "light",
+    "low chroma",
+    "low contrast",
+    "monochrome",
+    "parchment",
+    "typography"
+  ]
+}

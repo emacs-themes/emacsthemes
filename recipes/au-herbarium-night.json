@@ -1,0 +1,25 @@
+{
+  "name": "Au Herbarium Night Theme",
+  "id": "au-herbarium-night",
+  "description": "Nocturnal herbal theme with pressed sage leaves, dried lavender petals, oak-gall ink, terracotta flora and chamomile pollen, damped for photophobic and neurodivergent sensory profiles.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-herbarium-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "botanical",
+    "dark",
+    "lavender",
+    "low contrast",
+    "photophobia",
+    "sage",
+    "terracotta"
+  ]
+}
