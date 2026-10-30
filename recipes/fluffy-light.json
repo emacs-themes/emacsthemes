@@ -1,0 +1,10 @@
+{
+  "name": "Fluffy Light theme",
+  "id": "fluffy-light",
+  "description": "A soft, downy color theme for Emacs, ported from the original Gedit Fluffy style scheme.",
+  "repoUrl": "https://fossil.avalos.me/fluffy.el",
+  "rawUrls": ["https://fossil.avalos.me/fluffy.el/doc/tip/fluffy-theme.el"],
+  "type": "light",
+  "authors": ["Iván Ávalos"],
+  "tags": ["light", "pink", "purple", "gedit", "fluffy", "cute"]
+}
