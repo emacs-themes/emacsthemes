@@ -1,0 +1,13 @@
+{
+  "name": "Fluffy Dark theme",
+  "id": "fluffy-dark",
+  "description": "A soft, downy color theme for Emacs, ported from the original Gedit Fluffy style scheme.",
+  "repoUrl": "https://fossil.avalos.me/fluffy.el",
+  "rawUrls": [
+    "https://fossil.avalos.me/fluffy.el/doc/tip/fluffy-theme.el",
+    "https://fossil.avalos.me/fluffy.el/doc/tip/fluffy-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Iván Ávalos"],
+  "tags": ["dark", "pink", "purple", "gedit", "fluffy", "cute"]
+}
