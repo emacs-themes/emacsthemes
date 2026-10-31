@@ -1,0 +1,25 @@
+{
+  "name": "Au Salina Day Theme",
+  "id": "au-salina-day",
+  "description": "Coastal daylight theme of sea-salt flats, wind-swept dunes and drifted wood, using weathered teal and muted cobalt instead of saturated color to keep glare low for photophobic and neurodivergent sensory profiles.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-salina-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "coastal",
+    "cobalt",
+    "driftwood",
+    "light",
+    "low chroma",
+    "low contrast",
+    "photophobia"
+  ]
+}

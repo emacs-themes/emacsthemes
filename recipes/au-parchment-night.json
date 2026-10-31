@@ -1,0 +1,25 @@
+{
+  "name": "Au Parchment Night Theme",
+  "id": "au-parchment-night",
+  "description": "Low-chroma nocturnal counterpart to Au Parchment, leaning to monochrome and using italic typography and luminance steps rather than color contrasts to keep visual noise minimal.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-parchment-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "dark",
+    "italics",
+    "low chroma",
+    "low contrast",
+    "monochrome",
+    "parchment",
+    "typography"
+  ]
+}
