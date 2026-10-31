@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "au-salina-day",
+    "au-parchment-night",
     "au-herbarium-night",
     "au-parchment-day",
     "au-aurum-day",
@@ -9,8 +11,6 @@
     "ember-soft",
     "ember-light",
     "kusanagi",
-    "ayu-night",
-    "ayu-dusk",
-    "ayu-day"
+    "ayu-night"
   ]
 }
