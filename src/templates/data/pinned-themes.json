@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "fluffy-dark",
+    "fluffy-light",
     "au-salina-day",
     "au-parchment-night",
     "au-herbarium-night",
@@ -9,8 +11,6 @@
     "au-salina-night",
     "ember",
     "ember-soft",
-    "ember-light",
-    "kusanagi",
-    "ayu-night"
+    "ember-light"
   ]
 }
