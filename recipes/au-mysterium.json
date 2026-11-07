@@ -1,0 +1,26 @@
+{
+  "name": "Au Mysterium Theme",
+  "id": "au-mysterium",
+  "description": "Dark Halloween theme of a haunted mansion and the old painted van parked outside it, with teal bodywork, violet, orange, dry green and a gold tag on black, damped for photophobic and neurodivergent viewers.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-mysterium-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "dark",
+    "halloween",
+    "low contrast",
+    "orange",
+    "photophobia",
+    "seasonal",
+    "teal",
+    "violet"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Au Aurum Night Theme",
+  "id": "au-aurum-night",
+  "description": "Warm nocturnal theme of amber and gold tones on a deep brown canvas, with a low blue-light share calibrated for evening photophobia and melatonin protection.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-aurum-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "amber",
+    "au-themes",
+    "autism",
+    "dark",
+    "gold",
+    "low contrast",
+    "melanopic",
+    "photophobia",
+    "warm"
+  ]
+}
