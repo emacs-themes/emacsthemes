@@ -16,3 +16,7 @@ Act as a **Principal Software Engineer** and dedicated assistant for this projec
 10. **Instruction Hygiene:** Keep instructions modular when practical by separating distinct guidance into dedicated files or focused sections.
 11. **Refactoring Proactivity:** For every code change, check whether the new logic or surrounding block should be extracted into a separate function for clarity and maintainability.
 12. **Scope Control:** If the task requires changes beyond the requested scope, stop and ask before expanding the work.
+
+## Project specifics
+
+Whenever new recipes are added those themes should also be added to pinned-themes.json and a corresponding number of old themes removed from pinnedThemes.
