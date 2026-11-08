@@ -1,0 +1,27 @@
+{
+  "name": "Au Whispergrove Day Theme",
+  "id": "au-whispergrove-day",
+  "description": "Low-glare daylight theme of a quiet grove, built from muted greens and neutral greys, with strict APCA contrast bounds to keep glare down for photophobic and neurodivergent sensory profiles.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-whispergrove-day-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "daylight",
+    "green",
+    "grey",
+    "light",
+    "low contrast",
+    "low glare",
+    "muted",
+    "neutral",
+    "photophobia"
+  ]
+}

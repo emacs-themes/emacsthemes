@@ -1,0 +1,26 @@
+{
+  "name": "Au Whispergrove Night Theme",
+  "id": "au-whispergrove-night",
+  "description": "Deep nocturnal counterpart to Au Whispergrove, with organic muted greens and earth tones on a near-black canvas, calibrated for unlit rooms and low photic irradiation on OLED and LCD screens.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-whispergrove-night-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "dark",
+    "earth",
+    "green",
+    "low contrast",
+    "muted",
+    "near-black",
+    "oled",
+    "photophobia"
+  ]
+}

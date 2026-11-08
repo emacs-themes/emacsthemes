@@ -1,0 +1,27 @@
+{
+  "name": "Au Whispergrove Morning Theme",
+  "id": "au-whispergrove-morning",
+  "description": "Subdued morning variant of Au Whispergrove with a reduced-luminance canvas of grey-green and soft earth tones, calibrated for sensitive eyes in early daylight or low ambient illumination.",
+  "repoUrl": "https://github.com/szymonwilczek/au-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/protesilaos/modus-themes/main/modus-themes.el",
+    "https://raw.githubusercontent.com/protesilaos/ef-themes/main/ef-themes.el",
+    "https://raw.githubusercontent.com/szymonwilczek/au-themes/main/au-whispergrove-morning-theme.el"
+  ],
+  "type": "light",
+  "authors": ["Szymon Wilczek"],
+  "tags": [
+    "accessibility",
+    "au-themes",
+    "autism",
+    "daylight",
+    "dim",
+    "earth",
+    "green",
+    "light",
+    "low contrast",
+    "low luminance",
+    "muted",
+    "photophobia"
+  ]
+}
