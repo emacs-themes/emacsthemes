@@ -1,5 +1,8 @@
 {
   "pinnedThemes": [
+    "au-whispergrove-day",
+    "au-whispergrove-morning",
+    "au-whispergrove-night",
     "au-aurum-night",
     "au-mysterium",
     "fluffy-dark",
@@ -8,9 +11,6 @@
     "au-parchment-night",
     "au-herbarium-night",
     "au-parchment-day",
-    "au-aurum-day",
-    "au-herbarium-day",
-    "au-salina-night",
-    "ember"
+    "au-aurum-day"
   ]
 }
