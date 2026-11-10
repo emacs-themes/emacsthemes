@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "posthog": {
+      "url": "https://mcp.posthog.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${POSTHOG_PERSONAL_API_KEY}"
+      },
+      "description": "PostHog analytics, dashboards, feature flags, experiments, and error tracking"
+    },
+    "cloudflare": {
+      "url": "https://mcp.cloudflare.com/mcp",
+      "exposure": "codemode",
+      "description": "Cloudflare API via Code Mode: search and execute ~2500 Cloudflare REST endpoints (Workers, Pages, R2, D1, DNS, KV, analytics) plus Cloudflare docs search"
+    }
+  }
+}
