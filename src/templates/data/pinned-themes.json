@@ -1,5 +1,7 @@
 {
   "pinnedThemes": [
+    "base16-candy",
+    "base16-acid",
     "au-whispergrove-day",
     "au-whispergrove-morning",
     "au-whispergrove-night",
@@ -9,8 +11,6 @@
     "fluffy-light",
     "au-salina-day",
     "au-parchment-night",
-    "au-herbarium-night",
-    "au-parchment-day",
-    "au-aurum-day"
+    "au-herbarium-night"
   ]
 }
