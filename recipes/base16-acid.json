@@ -1,0 +1,14 @@
+{
+  "name": "Base16 Acid Theme",
+  "id": "base16-acid",
+  "description": "Dark half of candyflip: pale pink text on a dark plum background with pink and teal accents, built on base16-theme with options for accent, contrast, region and mode-line style.",
+  "repoUrl": "https://github.com/lot0x2c/candyflip",
+  "rawUrls": [
+    "https://github.com/tinted-theming/base16-emacs/raw/refs/heads/main/base16-theme.el",
+    "https://raw.githubusercontent.com/lot0x2c/candyflip/main/candyflip.el",
+    "https://raw.githubusercontent.com/lot0x2c/candyflip/main/base16-acid-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["lot0x2c"],
+  "tags": ["acid", "base16", "candyflip", "dark", "pink", "plum", "teal"]
+}
