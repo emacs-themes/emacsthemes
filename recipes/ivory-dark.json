@@ -1,0 +1,13 @@
+{
+  "name": "Ivory Dark Theme",
+  "id": "ivory-dark",
+  "description": "A minimal, near-monochromatic dark theme that draws syntax contrast from font weight and foreground intensity instead of hue, with restrained red and green diff colors.",
+  "repoUrl": "https://github.com/khzaw/ivory-themes",
+  "rawUrls": [
+    "https://raw.githubusercontent.com/khzaw/ivory-themes/master/ivory-themes.el",
+    "https://raw.githubusercontent.com/khzaw/ivory-themes/master/ivory-dark-theme.el"
+  ],
+  "type": "dark",
+  "authors": ["Kaung Htet"],
+  "tags": ["dark", "ivory", "minimal", "monochrome", "grayscale", "black", "white", "low contrast"]
+}
