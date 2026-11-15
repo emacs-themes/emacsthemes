@@ -1,5 +1,6 @@
 {
   "pinnedThemes": [
+    "ivory-light",
     "ivory-dark",
     "base16-candy",
     "base16-acid",
@@ -10,7 +11,6 @@
     "au-mysterium",
     "fluffy-dark",
     "fluffy-light",
-    "au-salina-day",
-    "au-parchment-night"
+    "au-salina-day"
   ]
 }
