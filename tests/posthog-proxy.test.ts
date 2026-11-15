@@ -23,12 +23,30 @@ test("routes SDK assets and API paths to fixed EU hosts, preserving queries", as
     ["static/array.js?v=1", "eu-assets.i.posthog.com"],
     ["array/project/config?v=2", "eu-assets.i.posthog.com"],
     ["flags/?v=2", "eu.i.posthog.com"],
+    ["decide/?v=3", "eu.i.posthog.com"],
     ["e/?compression=gzip-js", "eu.i.posthog.com"],
-    ["/attacker.example/static/array.js", "eu.i.posthog.com"],
+    ["i/v0/e/", "eu.i.posthog.com"],
+    ["s/", "eu.i.posthog.com"],
   ]) {
     await proxy(new Request(`http://localhost:8788/ingest/${path}`));
     expect(upstream.mock.lastCall?.[0].toString()).toBe(`https://${host}/${path}`);
   }
+});
+
+test("refuses paths outside the SDK surface without contacting PostHog", async () => {
+  for (const path of [
+    "attacker.example/static/array.js",
+    "..",
+    "/api/projects",
+    "%2e%2e/api/projects",
+    "capturex",
+    "",
+  ]) {
+    const response = await proxy(new Request(`https://emacsthemes.com/ingest/${path}`));
+    expect(response.status).toBe(404);
+  }
+
+  expect(upstream).not.toHaveBeenCalled();
 });
 
 test("preserves POST bytes and upstream failures while stripping site credentials", async () => {
